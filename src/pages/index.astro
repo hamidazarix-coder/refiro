@@ -181,46 +181,88 @@ const platforms = [
   </style>
 
   <script>
-    const form = document.querySelector('#searchForm');
-    const input = document.querySelector('#searchInput');
-    const tiles = [...document.querySelectorAll('.platform-tile')];
-    const noResult = document.querySelector('#noResult');
+  const form = document.querySelector('#searchForm');
+  const input = document.querySelector('#searchInput');
+  const tiles = [...document.querySelectorAll('.platform-tile')];
+  const noResult = document.querySelector('#noResult');
 
-    form?.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const query = input.value.trim().toLowerCase();
+  const normalize = (value) =>
+    value
+      .toLowerCase()
+      .replace(/ي/g, 'ی')
+      .replace(/ك/g, 'ک')
+      .replace(/[\s‌]+/g, '')
+      .trim();
 
-      if (!query) {
-        tiles.forEach((tile) => tile.classList.remove('hidden'));
-        noResult.classList.add('hidden');
-        return;
-      }
+  const routes = [
+    {
+      words: ['طلاین', 'taline', 'tlyn'],
+      url: '/taline/'
+    },
+    {
+      words: ['زرپین', 'zarpin'],
+      url: '/zarpin/'
+    },
+    {
+      words: ['ملی گلد', 'ملیگلد', 'melligold'],
+      url: '/melligold/'
+    }
+  ];
 
-      const routes = [
-        { words: ['طلاین', 'taline', 'tlyn'], url: '/taline/' },
-        { words: ['زرپین', 'zarpin'], url: '/zarpin/' },
-        { words: ['ملی گلد', 'ملیگلد', 'melligold'], url: '/melligold/' }
-      ];
+  function findRoute(query) {
+    return routes.find((route) =>
+      route.words.some((word) =>
+        normalize(query).includes(normalize(word))
+      )
+    );
+  }
 
-      const match = routes.find((route) =>
-        route.words.some((word) => query.includes(word))
-      );
+  function updateResults() {
+    const query = normalize(input.value);
 
-      if (match) {
-        window.location.href = match.url;
-        return;
-      }
+    if (!query) {
+      tiles.forEach((tile) => tile.classList.remove('hidden'));
+      noResult.classList.add('hidden');
+      return;
+    }
 
-      tiles.forEach((tile) => {
-        const name = (tile.dataset.name || '').toLowerCase();
-        tile.classList.toggle('hidden', !name.includes(query));
-      });
+    const route = findRoute(query);
 
-      noResult.classList.toggle(
-        'hidden',
-        tiles.every((tile) => tile.classList.contains('hidden'))
-      );
+    tiles.forEach((tile) => {
+      const name = normalize(tile.dataset.name || '');
+      const matchesName = name.includes(query);
+      const matchesRoute = route && tile.getAttribute('href') === route.url;
+
+      tile.classList.toggle('hidden', !(matchesName || matchesRoute));
     });
-  </script>
+
+    noResult.classList.toggle(
+      'hidden',
+      tiles.every((tile) => tile.classList.contains('hidden'))
+    );
+  }
+
+  input?.addEventListener('input', updateResults);
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const query = input.value.trim();
+
+    if (!query) {
+      updateResults();
+      return;
+    }
+
+    const route = findRoute(query);
+
+    if (route) {
+      window.location.href = route.url;
+      return;
+    }
+
+    updateResults();
+  });
+</script>
 </body>
 </html>
