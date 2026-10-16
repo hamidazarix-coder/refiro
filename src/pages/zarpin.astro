@@ -1,0 +1,104 @@
+---
+import '../styles/global.css';
+const code = 'ZQY2DC6K';
+const referralUrl = 'https://zarpin.com/auth/login/?referralCode=ZQY2DC6K';
+const title = 'کد معرف زرپین | رفیرو';
+const description = 'کد معرف زرپین را پیدا کن، کد دعوت را کپی کن و از لینک مستقیم وارد صفحه ثبت‌نام شو.';
+---
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#101110" />
+  <link rel="canonical" href="https://refiro.ir/zarpin/" />
+  <title>{title}</title>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="/">refiro</a>
+      <small>کدهای معرف طلا</small>
+    </div>
+  </header>
+
+  <main class="wrap result">
+    <a class="back" href="/">← برگشت به صفحه اصلی</a>
+    <h1 class="page-title">کد معرف زرپین</h1>
+    <p class="page-desc">کد معرفت رو وارد کن و از طریق لینک زیر وارد زرپین شو.</p>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="platform">
+          <span class="mark">ز</span>
+          <span>زرپین</span>
+        </div>
+      </div>
+
+      <div class="reward">
+        <span class="reward-label">هدیه دعوت</span>
+        <div class="reward-amount">۳ سوت طلا</div>
+        <p>با وارد کردن این کد در بخش معرف و انجام اولین خرید، <strong>۳ سوت طلا</strong> مثل آب خوردن هدیه می‌گیری!</p>
+      </div>
+
+      <div class="label">کد معرف</div>
+      <div class="code-row">
+        <span class="code" id="inviteCode">{code}</span>
+        <button class="copy" id="copyCode" type="button">کپی کد</button>
+      </div>
+
+      <a class="primary" href={referralUrl} target="_blank" rel="noopener noreferrer">
+        ورود به زرپین با لینک معرف ↗
+      </a>
+    </article>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">رفیرو یک راهنمای مستقل است و سایت رسمی زرپین نیست.</div>
+  </footer>
+
+  <style>
+    .reward {
+      margin: 20px 0;
+      padding: 18px;
+      border: 1px solid #35472d;
+      border-radius: 14px;
+      background: #1a2117;
+    }
+    .reward-label {
+      color: #b8c9a8;
+      font-size: .85rem;
+    }
+    .reward-amount {
+      margin: 8px 0;
+      color: #b5e58c;
+      font-size: 1.8rem;
+      font-weight: 900;
+    }
+    .reward p {
+      margin: 0;
+      line-height: 2;
+    }
+  </style>
+
+  <script>
+    document.querySelector('#copyCode').addEventListener('click', async () => {
+      const code = document.querySelector('#inviteCode').textContent.trim();
+      try {
+        await navigator.clipboard.writeText(code);
+      } catch {
+        const t = document.createElement('textarea');
+        t.value = code;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand('copy');
+        t.remove();
+      }
+      const btn = document.querySelector('#copyCode');
+      btn.textContent = 'کپی شد';
+      setTimeout(() => btn.textContent = 'کپی کد', 1400);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+---
+import '../styles/global.css';
+
+const title = 'رفیرو | بزرگ‌ترین مرجع کدهای دعوت در ایران';
+const description = 'در رفیرو کدهای دعوت و معرف پلتفرم‌های مختلف را پیدا کن؛ کد را کپی کن یا مستقیم وارد لینک دعوت شو.';
+
+const platforms = [
+  { name: 'طلاین', mark: 'ط', href: '/taline/', active: true },
+  { name: 'زرپین', mark: 'ز', href: '/zarpin/', active: true },
+  { name: 'ملی گلد', mark: 'م', href: '/melligold/', active: true },
+  { name: 'پلتفرم جدید', mark: '+', href: '#', active: false },
+];
+---
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#101110" />
+  <link rel="canonical" href="https://refiro.ir/" />
+  <title>{title}</title>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="/">refiro</a>
+      <small>مرجع کدهای دعوت</small>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>رفیرو:<br /><span>بزرگ‌ترین مرجع کدهای دعوت در ایران</span></h1>
+      <p>پلتفرمت رو پیدا کن، کد دعوتت رو بردار و مستقیم وارد شو.</p>
+
+      <form class="search" id="searchForm" role="search">
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="مثلاً کد معرف طلاین"
+          aria-label="جست‌وجوی پلتفرم"
+          autocomplete="off"
+        />
+        <button type="submit">جست‌وجو</button>
+      </form>
+    </section>
+
+    <section class="platform-section" aria-labelledby="platformTitle">
+      <div class="section-heading">
+        <h2 id="platformTitle">پلتفرم‌ها</h2>
+        <span class="hint">بیشتر به‌زودی</span>
+      </div>
+
+      <div class="platform-grid" id="platformGrid">
+        {platforms.map((platform, index) => (
+          <a
+            class:list={['platform-tile', { 'platform-tile-disabled': !platform.active }]}
+            href={platform.href}
+            aria-disabled={!platform.active ? 'true' : undefined}
+            data-name={platform.name}
+            data-active={platform.active ? 'true' : 'false'}
+          >
+            <span class="tile-mark">{platform.mark}</span>
+            <span class="tile-name">{platform.active ? platform.name : 'به‌زودی'}</span>
+            <span class="tile-status">{platform.active ? 'فعال' : 'در حال اضافه‌شدن'}</span>
+          </a>
+        ))}
+      </div>
+
+      <p class="empty hidden" id="noResult">
+        پلتفرمی با این نام پیدا نشد؛ فعلاً «طلاین» را جست‌وجو کن.
+      </p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">رفیرو؛ ساده و مستقیم. رفیرو مستقل از پلتفرم‌های معرفی‌شده است.</div>
+  </footer>
+
+  <style>
+    .platform-section {
+      margin: 36px 0 56px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .platform-tile {
+      min-width: 0;
+      min-height: 130px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 14px;
+      border: 1px solid #30332f;
+      border-radius: 16px;
+      background: #171916;
+      color: inherit;
+      text-decoration: none;
+      transition: border-color .18s ease, transform .18s ease, background .18s ease;
+    }
+
+    .platform-tile[href]:not([aria-disabled="true"]):hover {
+      border-color: #a8c77a;
+      background: #1d211a;
+      transform: translateY(-2px);
+    }
+
+    .tile-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: #293323;
+      color: #c5e49a;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .tile-name {
+      font-weight: 900;
+      font-size: 1rem;
+    }
+
+    .tile-status {
+      font-size: .72rem;
+      color: #a5aa9f;
+    }
+
+    .platform-tile[data-active="true"] .tile-status {
+      color: #8fda7a;
+      font-weight: 800;
+    }
+
+    .platform-tile-disabled {
+      opacity: .58;
+      border-style: dashed;
+      cursor: default;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 640px) {
+      .platform-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .platform-tile {
+        min-height: 116px;
+        padding: 12px;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+        line-height: 1.55;
+      }
+    }
+  </style>
+
+  <script>
+    const form = document.querySelector('#searchForm');
+    const input = document.querySelector('#searchInput');
+    const tiles = [...document.querySelectorAll('.platform-tile')];
+    const noResult = document.querySelector('#noResult');
+
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const query = input.value.trim().toLowerCase();
+
+      if (!query) {
+        tiles.forEach((tile) => tile.classList.remove('hidden'));
+        noResult.classList.add('hidden');
+        return;
+      }
+
+      const routes = [
+        { words: ['طلاین', 'taline', 'tlyn'], url: '/taline/' },
+        { words: ['زرپین', 'zarpin'], url: '/zarpin/' },
+        { words: ['ملی گلد', 'ملیگلد', 'melligold'], url: '/melligold/' }
+      ];
+
+      const match = routes.find((route) =>
+        route.words.some((word) => query.includes(word))
+      );
+
+      if (match) {
+        window.location.href = match.url;
+        return;
+      }
+
+      tiles.forEach((tile) => {
+        const name = (tile.dataset.name || '').toLowerCase();
+        tile.classList.toggle('hidden', !name.includes(query));
+      });
+
+      noResult.classList.toggle(
+        'hidden',
+        tiles.every((tile) => tile.classList.contains('hidden'))
+      );
+    });
+  </script>
+</body>
+</html>
