@@ -1,0 +1,131 @@
+---
+import '../../styles/global.css';
+import { platforms } from '../../data/platforms.js';
+
+const title = 'همه کدهای معرف | رفیرو';
+const description = 'فهرست کدهای معرف پلتفرم‌ها در رفیرو؛ کد را پیدا کن، کپی کن و شرایط هدیه را بررسی کن.';
+---
+
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#101110" />
+  <link rel="canonical" href="https://refiro.ir/codes/" />
+  <title>{title}</title>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="/">refiro</a>
+      <a class="back" href="/">← صفحه اصلی</a>
+    </div>
+  </header>
+
+  <main class="wrap codes-page">
+    <span class="eyebrow">فهرست کدهای دعوت</span>
+    <h1 class="page-title">همه کدهای معرف</h1>
+    <p class="page-desc">پلتفرم موردنظرت رو پیدا کن، کد رو کپی کن و شرایط طرح دعوت رو بررسی کن.</p>
+
+    <label class="search-box">
+      <span class="sr-only">جست‌وجو در کدها</span>
+      <input id="codeSearch" type="search" placeholder="جست‌وجو بر اساس نام یا کد..." autocomplete="off" />
+    </label>
+
+    <div class="code-list" id="codeList">
+      {platforms.map((platform) => (
+        <article class="code-card" data-search={`${platform.name} ${platform.id} ${platform.code} ${(platform.aliases || []).join(' ')}`}>
+          <div class="code-card-top">
+            <span class="tile-mark">{platform.mark}</span>
+            <div class="code-card-title">
+              <h2>{platform.name}</h2>
+              <span>کد معرف</span>
+            </div>
+          </div>
+
+          <div class="invite-code" dir="ltr">{platform.code}</div>
+
+          <div class="actions">
+            <button class="copy-button" type="button" data-code={platform.code}>کپی کد</button>
+            <a class="details-link" href={platform.href}>جزئیات و شرایط ↗</a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <p id="emptyState" class="empty" hidden>کدی پیدا نشد؛ عبارت دیگری رو امتحان کن.</p>
+    <p class="disclaimer">رفیرو مستقل از پلتفرم‌های معرفی‌شده است. شرایط و میزان هدایا ممکن است تغییر کند؛ قبل از اقدام، قوانین رسمی هر پلتفرم را بررسی کن.</p>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap"><a href="/">رفیرو</a> · راهنمای کدهای معرف</div>
+  </footer>
+
+  <style>
+    .codes-page { padding-top: 48px; padding-bottom: 60px; }
+    .eyebrow { display: inline-block; color: #e2bd63; background: #211e15; border: 1px solid #554728; border-radius: 999px; padding: 6px 12px; font-size: .82rem; }
+    .page-title { margin: 16px 0 8px; font-size: clamp(28px, 5vw, 38px); }
+    .page-desc { color: #aaa99f; line-height: 2; margin-bottom: 24px; }
+    .search-box { display: block; margin-bottom: 22px; }
+    .search-box input { width: 100%; box-sizing: border-box; padding: 14px 16px; border: 1px solid #454235; border-radius: 13px; background: #191a17; color: #f4f1e8; font: inherit; outline: none; }
+    .search-box input:focus { border-color: #b79a52; }
+    .code-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap: 16px; }
+    .code-card { border: 1px solid #33342d; border-radius: 17px; padding: 20px; background: linear-gradient(145deg, #1b1c18, #141512); }
+    .code-card-top { display: flex; align-items: center; gap: 12px; }
+    .tile-mark { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; background: #292518; color: #e2bd63; font-weight: 900; font-size: 20px; }
+    .code-card-title h2 { margin: 0 0 4px; font-size: 1.05rem; }
+    .code-card-title span { color: #aaa99f; font-size: .82rem; }
+    .invite-code { margin: 20px 0; padding: 15px 10px; border: 1px dashed #625337; border-radius: 11px; text-align: center; color: #e2bd63; background: #11120f; font-size: 1.1rem; font-weight: 800; overflow-wrap: anywhere; }
+    .actions { display: flex; gap: 10px; align-items: center; }
+    .copy-button { flex: 1; padding: 11px; border: 0; border-radius: 10px; background: linear-gradient(135deg, #f0d486, #d6ad4d); color: #17150f; font: inherit; font-weight: 800; cursor: pointer; }
+    .details-link { color: #d9bc79; text-decoration: none; font-size: .88rem; }
+    .disclaimer { margin-top: 28px; color: #989a92; font-size: .85rem; line-height: 2; }
+    .foot a { color: #d9bc79; text-decoration: none; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+    [hidden] { display: none !important; }
+    @media (max-width: 420px) { .actions { align-items: stretch; flex-direction: column; } .details-link { padding: 8px; text-align: center; } }
+  </style>
+
+  <script>
+    const normalize = (value = '') => value.toLocaleLowerCase('fa').replace(/ي/g, 'ی').replace(/ك/g, 'ک').replace(/‌/g, '').replace(/\s+/g, '').trim();
+    const search = document.querySelector('#codeSearch');
+    const cards = [...document.querySelectorAll('.code-card')];
+    const empty = document.querySelector('#emptyState');
+
+    search?.addEventListener('input', () => {
+      const query = normalize(search.value);
+      cards.forEach((card) => {
+        card.hidden = query !== '' && !normalize(card.dataset.search || '').includes(query);
+      });
+      if (empty) empty.hidden = cards.some((card) => !card.hidden);
+    });
+
+    document.querySelectorAll('.copy-button').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const code = button.dataset.code;
+        try {
+          await navigator.clipboard.writeText(code);
+        } catch {
+          const area = document.createElement('textarea');
+          area.value = code;
+          area.style.position = 'fixed';
+          area.style.opacity = '0';
+          document.body.appendChild(area);
+          area.select();
+          const copied = document.execCommand('copy');
+          area.remove();
+          if (!copied) {
+            button.textContent = 'کپی ناموفق';
+            setTimeout(() => button.textContent = 'کپی کد', 1500);
+            return;
+          }
+        }
+        button.textContent = 'کپی شد ✓';
+        setTimeout(() => button.textContent = 'کپی کد', 1500);
+      });
+    });
+  </script>
+</body>
+</html>

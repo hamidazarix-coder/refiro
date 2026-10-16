@@ -1,15 +1,11 @@
 ---
 import '../styles/global.css';
+import { platforms } from '../data/platforms.js';
 
 const title = 'رفیرو | بزرگترین مرجع کدهای دعوت در ایران';
 const description = 'در رفیرو کدهای دعوت و معرف پلتفرم‌های مختلف را پیدا کن؛ کد را کپی کن یا مستقیم وارد لینک دعوت شو.';
 
-const platforms = [
-  { name: 'طلاین', mark: 'ط', href: '/taline/', active: true },
-  { name: 'زرپین', mark: 'ز', href: '/zarpin/', active: true },
-  { name: 'ملی گلد', mark: 'م', href: '/melligold/', active: true },
-  { name: 'پلتفرم جدید', mark: '+', href: '#', active: false },
-];
+const comingSoon = { name: 'پلتفرم جدید', mark: '+', href: '#', active: false };
 ---
 
 <!doctype html>
@@ -29,7 +25,8 @@ const platforms = [
       <a class="brand" href="/">refiro</a>
       <small>مرجع کدهای دعوت</small>
     </div>
-  </header>
+    <a href="/codes/" class="codes-nav-link">همه کدهای معرف</a>
+</header>
 
   <main class="wrap">
     <section class="hero">
@@ -70,7 +67,7 @@ const platforms = [
       </div>
 
       <div class="platform-grid" id="platformGrid">
-        {platforms.map((platform) => (
+        {[...platforms, comingSoon].map((platform) => (
           <a
             class:list={[
               'platform-tile',
@@ -586,68 +583,59 @@ const platforms = [
   </style>
 
   <script>
+    import { platforms } from '../data/platforms.js';
+
     const form = document.querySelector('#searchForm');
     const input = document.querySelector('#searchInput');
     const tiles = [...document.querySelectorAll('.platform-tile')];
     const noResult = document.querySelector('#noResult');
 
-    const normalize = (value) =>
+    const normalize = (value = '') =>
       value
-        .toLowerCase()
+        .toLocaleLowerCase('fa')
         .replace(/ي/g, 'ی')
         .replace(/ك/g, 'ک')
-        .replace(/[\s‌]+/g, '')
+        .replace(/‌/g, '')
+        .replace(/\s+/g, '')
         .trim();
 
-    const routes = [
-      {
-        words: ['طلاین', 'taline', 'tlyn'],
-        url: '/taline/',
-      },
-      {
-        words: ['زرپین', 'zarpin'],
-        url: '/zarpin/',
-      },
-      {
-        words: ['ملی گلد', 'ملیگلد', 'melligold'],
-        url: '/melligold/',
-      },
-    ];
+    function findPlatform(query) {
+      const q = normalize(query);
+      if (!q) return null;
 
-    function findRoute(query) {
-      const normalizedQuery = normalize(query);
+      return platforms.find((platform) => {
+        const searchable = [
+          platform.name,
+          platform.id,
+          platform.code,
+          ...(platform.aliases || []),
+        ];
 
-      return routes.find((route) =>
-        route.words.some((word) =>
-          normalizedQuery.includes(normalize(word))
-        )
-      );
+        return searchable.some((value) => normalize(value).includes(q));
+      }) || null;
     }
 
     function updateResults() {
-      const query = normalize(input.value);
+      const query = normalize(input?.value || '');
 
       if (!query) {
         tiles.forEach((tile) => tile.classList.remove('hidden'));
-        noResult.classList.add('hidden');
+        noResult?.classList.add('hidden');
         return;
       }
 
-      const route = findRoute(query);
+      const matchedPlatform = findPlatform(query);
 
       tiles.forEach((tile) => {
         const name = normalize(tile.dataset.name || '');
+        const href = tile.getAttribute('href');
         const matchesName = name.includes(query);
-        const matchesRoute =
-          route && tile.getAttribute('href') === route.url;
+        const matchesPlatform = matchedPlatform && href === matchedPlatform.href;
 
-        tile.classList.toggle(
-          'hidden',
-          !(matchesName || matchesRoute)
-        );
+        tile.classList.toggle('hidden', !(matchesName || matchesPlatform));
       });
 
-      noResult.classList.toggle(
+      noResult?.classList.toggle(
         'hidden',
         tiles.every((tile) => tile.classList.contains('hidden'))
       );
@@ -658,17 +646,16 @@ const platforms = [
     form?.addEventListener('submit', (event) => {
       event.preventDefault();
 
-      const query = input.value.trim();
-
+      const query = input?.value.trim() || '';
       if (!query) {
         updateResults();
         return;
       }
 
-      const route = findRoute(query);
+      const platform = findPlatform(query);
 
-      if (route) {
-        window.location.href = route.url;
+      if (platform) {
+        window.location.href = platform.href;
         return;
       }
 
@@ -677,3 +664,20 @@ const platforms = [
   </script>
 </body>
 </html>
+
+
+<style>
+.codes-nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline-start: 12px;
+  padding: 9px 13px;
+  border: 1px solid #554728;
+  border-radius: 10px;
+  color: #e2bd63;
+  text-decoration: none;
+  font-size: .9rem;
+}
+.codes-nav-link:hover { background: #211e15; }
+</style>
