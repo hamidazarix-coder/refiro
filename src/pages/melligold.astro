@@ -1,10 +1,12 @@
 ---
 import '../styles/global.css';
+
 const code = 'MGP2yzf9e74n';
 const referralUrl = 'https://melligold.com/pwa/account/?ref=MGP2yzf9e74n';
 const title = 'کد معرف ملی گلد | رفیرو';
-const description = 'کد معرف ملی گلد را پیدا کن، کد دعوت را کپی کن و از لینک مستقیم وارد صفحه ثبت‌نام شو.';
+const description = 'کد معرف ملی گلد را ببین، کپی کن و از طریق لینک دعوت وارد ملی گلد شو.';
 ---
+
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
@@ -19,14 +21,18 @@ const description = 'کد معرف ملی گلد را پیدا کن، کد دع�
   <header>
     <div class="wrap nav">
       <a class="brand" href="/">refiro</a>
-      <small>کدهای معرف طلا</small>
+      <small>راهنمای کدهای معرف طلا</small>
     </div>
   </header>
 
   <main class="wrap result">
     <a class="back" href="/">← برگشت به صفحه اصلی</a>
+
+    <div class="eyebrow">کد دعوت و راهنمای ثبت‌نام</div>
     <h1 class="page-title">کد معرف ملی گلد</h1>
-    <p class="page-desc">کد معرفت رو وارد کن و از طریق لینک زیر وارد ملی گلد شو.</p>
+    <p class="page-desc">
+      کد معرف را کپی کن و برای ثبت‌نام یا بررسی شرایط دعوت، از لینک زیر وارد ملی گلد شو.
+    </p>
 
     <article class="card">
       <div class="card-head">
@@ -34,70 +40,182 @@ const description = 'کد معرف ملی گلد را پیدا کن، کد دع�
           <span class="mark">م</span>
           <span>ملی گلد</span>
         </div>
+        <span class="status">کد معرف</span>
       </div>
 
       <div class="reward">
-        <span class="reward-label">هدیه دعوت</span>
+        <span class="reward-label">هدیه احتمالی دعوت</span>
         <div class="reward-amount">۳ سوت طلا</div>
-        <p>با وارد کردن این کد در بخش معرف و انجام اولین خرید، <strong>۳ سوت طلا</strong> مثل آب خوردن هدیه می‌گیری!</p>
+        <p>
+          طبق اطلاعات فعلی این کد، هدیه دعوت <strong>۳ سوت طلا</strong> اعلام شده است.
+          دریافت هدیه به شرایط و قوانین جاری ملی گلد بستگی دارد؛
+          قبل از خرید، شرایط طرح را در وب‌سایت رسمی بررسی کن.
+        </p>
       </div>
 
-      <div class="label">کد معرف</div>
+      <div class="label">کد معرف شما</div>
       <div class="code-row">
         <span class="code" id="inviteCode">{code}</span>
         <button class="copy" id="copyCode" type="button">کپی کد</button>
       </div>
 
-      <a class="primary" href={referralUrl} target="_blank" rel="noopener noreferrer">
+      <p class="hint">کد را در بخش مربوط به معرف وارد کن، اگر این گزینه در فرایند ثبت‌نام در دسترس است.</p>
+
+      <a
+        class="primary"
+        href={referralUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         ورود به ملی گلد با لینک معرف ↗
       </a>
+
+      <div class="steps">
+        <h2>چطور از کد استفاده کنی؟</h2>
+        <ol>
+          <li>کد معرف بالا را کپی کن.</li>
+          <li>از طریق لینک ورود، صفحه ملی گلد را باز کن.</li>
+          <li>در صورت وجود بخش معرف، کد را وارد کن.</li>
+          <li>پیش از خرید، شرایط دریافت هدیه را بررسی کن.</li>
+        </ol>
+      </div>
     </article>
+
+    <p class="disclaimer">
+      رفیرو یک راهنمای مستقل برای کدهای معرف است و وب‌سایت رسمی ملی گلد نیست.
+      مبلغ و شرایط هدایا ممکن است تغییر کنند.
+    </p>
   </main>
 
   <footer class="foot">
-    <div class="wrap">رفیرو یک راهنمای مستقل است و سایت رسمی ملی گلد نیست.</div>
+    <div class="wrap">
+      <a href="/">رفیرو</a>
+      <span> · راهنمای کدهای معرف</span>
+    </div>
   </footer>
 
   <style>
-    .reward {
-      margin: 20px 0;
-      padding: 18px;
-      border: 1px solid #35472d;
-      border-radius: 14px;
-      background: #1a2117;
+    .eyebrow {
+      display: inline-flex;
+      margin: 8px 0 12px;
+      padding: 7px 12px;
+      border: 1px solid #39352a;
+      border-radius: 999px;
+      color: #d9bc79;
+      background: #191812;
+      font-size: .82rem;
     }
+
+    .reward {
+      margin: 22px 0;
+      padding: 20px;
+      border: 1px solid #35472d;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #1a2117, #171a14);
+    }
+
     .reward-label {
       color: #b8c9a8;
       font-size: .85rem;
     }
+
     .reward-amount {
       margin: 8px 0;
       color: #b5e58c;
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       font-weight: 900;
     }
+
     .reward p {
       margin: 0;
+      color: #c9cbbf;
       line-height: 2;
+      font-size: .94rem;
+    }
+
+    .status {
+      padding: 6px 10px;
+      border: 1px solid #3c382a;
+      border-radius: 999px;
+      color: #d9bc79;
+      font-size: .78rem;
+    }
+
+    .hint {
+      margin: 12px 0 18px;
+      color: #a8aaa2;
+      font-size: .86rem;
+      line-height: 1.9;
+    }
+
+    .steps {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid #30312b;
+    }
+
+    .steps h2 {
+      margin: 0 0 12px;
+      color: #eee8d8;
+      font-size: 1.05rem;
+    }
+
+    .steps ol {
+      margin: 0;
+      padding-right: 22px;
+      color: #b9bbb2;
+      line-height: 2.2;
+    }
+
+    .disclaimer {
+      margin: 20px 0;
+      color: #989a92;
+      font-size: .85rem;
+      line-height: 2;
+    }
+
+    .foot a {
+      color: #d9bc79;
+      text-decoration: none;
+    }
+
+    #copyCode:focus-visible,
+    .primary:focus-visible {
+      outline: 2px solid #d9bc79;
+      outline-offset: 4px;
     }
   </style>
 
   <script>
-    document.querySelector('#copyCode').addEventListener('click', async () => {
-      const code = document.querySelector('#inviteCode').textContent.trim();
+    const copyButton = document.querySelector('#copyCode');
+    const codeElement = document.querySelector('#inviteCode');
+
+    copyButton?.addEventListener('click', async () => {
+      const code = codeElement?.textContent?.trim();
+      if (!code) return;
+
       try {
         await navigator.clipboard.writeText(code);
       } catch {
-        const t = document.createElement('textarea');
-        t.value = code;
-        document.body.appendChild(t);
-        t.select();
-        document.execCommand('copy');
-        t.remove();
+        const textarea = document.createElement('textarea');
+        textarea.value = code;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+
+        const copied = document.execCommand('copy');
+        textarea.remove();
+
+        if (!copied) {
+          copyButton.textContent = 'کپی ناموفق';
+          setTimeout(() => copyButton.textContent = 'کپی کد', 1600);
+          return;
+        }
       }
-      const btn = document.querySelector('#copyCode');
-      btn.textContent = 'کپی شد';
-      setTimeout(() => btn.textContent = 'کپی کد', 1400);
+
+      copyButton.textContent = 'کپی شد ✓';
+      setTimeout(() => copyButton.textContent = 'کپی کد', 1600);
     });
   </script>
 </body>

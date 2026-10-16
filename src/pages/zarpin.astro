@@ -1,10 +1,12 @@
 ---
 import '../styles/global.css';
+
 const code = 'ZQY2DC6K';
 const referralUrl = 'https://zarpin.com/auth/login/?referralCode=ZQY2DC6K';
-const title = 'کد معرف زرپین | رفیرو';
-const description = 'کد معرف زرپین را پیدا کن، کد دعوت را کپی کن و از لینک مستقیم وارد صفحه ثبت‌نام شو.';
+const title = 'کد دعوت زرپین (ZQY2DC6K) | رفیرو';
+const description = 'کد دعوت زرپین را در رفیرو ببینید و کپی کنید؛ شرایط دریافت پاداش را هنگام ثبت‌نام بررسی کنید.';
 ---
+
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
@@ -15,89 +17,429 @@ const description = 'کد معرف زرپین را پیدا کن، کد دعوت
   <link rel="canonical" href="https://refiro.ir/zarpin/" />
   <title>{title}</title>
 </head>
+
 <body>
   <header>
     <div class="wrap nav">
       <a class="brand" href="/">refiro</a>
-      <small>کدهای معرف طلا</small>
+      <small>کدهای دعوت طلا</small>
     </div>
   </header>
 
   <main class="wrap result">
-    <a class="back" href="/">← برگشت به صفحه اصلی</a>
-    <h1 class="page-title">کد معرف زرپین</h1>
-    <p class="page-desc">کد معرفت رو وارد کن و از طریق لینک زیر وارد زرپین شو.</p>
+    <a class="back" href="/">→ برگشت به صفحه اصلی</a>
+
+    <section class="intro">
+      <span class="eyebrow">کد دعوت و راهنمای ثبت‌نام</span>
+      <h1 class="page-title">کد دعوت زرپین</h1>
+      <p class="page-desc">
+        کد رو کپی کن یا از طریق لینک زیر وارد زرپین شو.
+      </p>
+    </section>
 
     <article class="card">
       <div class="card-head">
         <div class="platform">
           <span class="mark">ز</span>
-          <span>زرپین</span>
+          <div>
+            <div class="platform-name">زرپین</div>
+            <div class="platform-caption">کد معرف</div>
+          </div>
         </div>
+        <span class="status"><span></span> کد موجود</span>
       </div>
 
-      <div class="reward">
-        <span class="reward-label">هدیه دعوت</span>
+      <section class="reward">
+        <span class="reward-label">پاداش اعلام‌شده طرح دعوت</span>
         <div class="reward-amount">۳ سوت طلا</div>
-        <p>با وارد کردن این کد در بخش معرف و انجام اولین خرید، <strong>۳ سوت طلا</strong> مثل آب خوردن هدیه می‌گیری!</p>
-      </div>
+        <p>
+          طبق اطلاعات فعلی این صفحه، پاداش طرح ۳ سوت طلا اعلام شده است.
+          شرایط دریافت و فعال بودن طرح را هنگام ثبت‌نام از خود زرپین بررسی کن.
+        </p>
+      </section>
 
-      <div class="label">کد معرف</div>
+      <div class="label">کد دعوت شما</div>
+
       <div class="code-row">
         <span class="code" id="inviteCode">{code}</span>
         <button class="copy" id="copyCode" type="button">کپی کد</button>
       </div>
 
-      <a class="primary" href={referralUrl} target="_blank" rel="noopener noreferrer">
-        ورود به زرپین با لینک معرف ↗
+      <p class="copy-feedback" id="copyFeedback" role="status" aria-live="polite"></p>
+
+      <a
+        class="primary"
+        href={referralUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        ورود به زرپین با لینک دعوت <span aria-hidden="true">↗</span>
       </a>
+
+      <div class="steps">
+        <h2>چطور از کد استفاده کنی؟</h2>
+        <ol>
+          <li>کد دعوت بالا رو کپی کن.</li>
+          <li>از طریق لینک دعوت وارد زرپین شو.</li>
+          <li>اگر بخش معرف نمایش داده شد، کد رو وارد کن و شرایط طرح رو بررسی کن.</li>
+        </ol>
+      </div>
+
+      <p class="note">
+        رفیرو یک راهنمای مستقل است و وابستگی رسمی به زرپین ندارد.
+        شرایط پاداش ممکن است تغییر کند؛ دریافت آن تابع مقررات و تأیید زرپین است.
+      </p>
     </article>
   </main>
 
   <footer class="foot">
-    <div class="wrap">رفیرو یک راهنمای مستقل است و سایت رسمی زرپین نیست.</div>
+    <div class="wrap footer-inner">
+      <a class="footer-brand" href="/">refiro</a>
+      <span>رفیرو؛ راه ساده‌تر برای پیدا کردن کد دعوت.</span>
+    </div>
   </footer>
 
   <style>
-    .reward {
-      margin: 20px 0;
-      padding: 18px;
-      border: 1px solid #35472d;
-      border-radius: 14px;
-      background: #1a2117;
+    :global(body) {
+      background:
+        radial-gradient(ellipse at 50% 0%, #292315 0%, transparent 36rem),
+        #101110;
     }
-    .reward-label {
-      color: #b8c9a8;
-      font-size: .85rem;
+
+    .result {
+      padding: 28px 0 64px;
+      max-width: 680px;
     }
-    .reward-amount {
-      margin: 8px 0;
-      color: #b5e58c;
-      font-size: 1.8rem;
+
+    .back {
+      display: inline-block;
+      margin-bottom: 26px;
+      color: #cbb16e;
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .back:hover {
+      color: #f0d486;
+    }
+
+    .intro {
+      margin-bottom: 25px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 5px 11px;
+      border: 1px solid #554728;
+      border-radius: 999px;
+      background: #211e15;
+      color: #e2bd63;
+      font-size: 11px;
+    }
+
+    .page-title {
+      margin: 12px 0 5px;
+      color: #f4f1e8;
+      font-size: clamp(26px, 5vw, 35px);
+      font-weight: 900;
+      line-height: 1.6;
+    }
+
+    .page-desc {
+      margin: 0;
+      color: #aaa99f;
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    .card {
+      padding: 24px;
+      border: 1px solid #39382f;
+      border-radius: 22px;
+      background:
+        radial-gradient(ellipse at top right, #282315 0%, transparent 50%),
+        linear-gradient(145deg, #1b1c18, #141512);
+      box-shadow: 0 18px 50px #00000020;
+    }
+
+    .card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 23px;
+    }
+
+    .platform {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .mark {
+      width: 48px;
+      height: 48px;
+      flex: 0 0 48px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #6a572b;
+      border-radius: 15px;
+      background: linear-gradient(145deg, #39301b, #252318);
+      color: #f0cf7b;
+      font-size: 23px;
       font-weight: 900;
     }
+
+    .platform-name {
+      color: #f4f1e8;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .platform-caption {
+      color: #929188;
+      font-size: 11px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+      color: #a8d88a;
+      font-size: 11px;
+    }
+
+    .status span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #91cb70;
+    }
+
+    .reward {
+      margin: 0 0 24px;
+      padding: 18px;
+      border: 1px solid #48553a;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #20291b, #191e16);
+    }
+
+    .reward-label {
+      color: #bdc8ad;
+      font-size: 12px;
+    }
+
+    .reward-amount {
+      margin: 6px 0 8px;
+      color: #b5e58c;
+      font-size: clamp(25px, 5vw, 32px);
+      font-weight: 950;
+    }
+
     .reward p {
       margin: 0;
+      color: #b5b9aa;
+      font-size: 12px;
       line-height: 2;
+    }
+
+    .label {
+      margin-bottom: 9px;
+      color: #aaa99f;
+      font-size: 12px;
+    }
+
+    .code-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1px dashed #77643a;
+      border-radius: 13px;
+      background: #11120f;
+      direction: ltr;
+    }
+
+    .code {
+      min-width: 0;
+      overflow-wrap: anywhere;
+      color: #e2bd63;
+      font: 900 clamp(20px, 5vw, 25px)/1.4 ui-monospace, Consolas, monospace;
+      letter-spacing: 1.5px;
+    }
+
+    .copy {
+      flex-shrink: 0;
+      padding: 9px 13px;
+      border: 1px solid #6f5b2e;
+      border-radius: 10px;
+      background: #302a1b;
+      color: #f0cf7b;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background .2s ease, border-color .2s ease;
+    }
+
+    .copy:hover {
+      border-color: #d1ad56;
+      background: #40351e;
+    }
+
+    .copy-feedback {
+      min-height: 22px;
+      margin: 5px 0 0;
+      color: #a8d88a;
+      font-size: 11px;
+    }
+
+    .primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      min-height: 50px;
+      margin-top: 4px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #f0d486, #d6ad4d);
+      color: #17150f;
+      font-size: 13px;
+      font-weight: 900;
+      text-align: center;
+      text-decoration: none;
+      transition: filter .2s ease, transform .2s ease;
+    }
+
+    .primary:hover {
+      filter: brightness(1.07);
+      transform: translateY(-1px);
+    }
+
+    .steps {
+      margin-top: 27px;
+      padding-top: 22px;
+      border-top: 1px solid #34352e;
+    }
+
+    .steps h2 {
+      margin: 0 0 12px;
+      color: #f4f1e8;
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .steps ol {
+      margin: 0;
+      padding-right: 20px;
+      color: #c0bfb4;
+      font-size: 12px;
+      line-height: 2.3;
+    }
+
+    .note {
+      margin: 23px 0 0;
+      padding-top: 15px;
+      border-top: 1px solid #30312c;
+      color: #929188;
+      font-size: 11px;
+      line-height: 2;
+    }
+
+    .footer-inner {
+      min-height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .footer-brand {
+      color: #e2bd63;
+      font-size: 20px;
+      font-weight: 950;
+      letter-spacing: -.6px;
+      text-decoration: none;
+      direction: ltr;
+    }
+
+    .footer-inner > span {
+      color: #85857c;
+      font-size: 11px;
+    }
+
+    @media (max-width: 480px) {
+      .result {
+        padding-top: 20px;
+      }
+
+      .card {
+        padding: 17px;
+        border-radius: 18px;
+      }
+
+      .reward {
+        padding: 15px;
+      }
+
+      .status {
+        font-size: 10px;
+      }
+
+      .footer-inner {
+        min-height: 70px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .primary,
+      .copy {
+        transition: none;
+      }
     }
   </style>
 
   <script>
-    document.querySelector('#copyCode').addEventListener('click', async () => {
-      const code = document.querySelector('#inviteCode').textContent.trim();
+    const copyButton = document.querySelector('#copyCode');
+    const codeElement = document.querySelector('#inviteCode');
+    const feedback = document.querySelector('#copyFeedback');
+
+    copyButton?.addEventListener('click', async () => {
+      const code = codeElement?.textContent?.trim();
+
+      if (!code) return;
+
       try {
-        await navigator.clipboard.writeText(code);
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(code);
+        } else {
+          const textarea = document.createElement('textarea');
+          textarea.value = code;
+          textarea.style.position = 'fixed';
+          textarea.style.opacity = '0';
+          document.body.appendChild(textarea);
+          textarea.select();
+
+          const copied = document.execCommand('copy');
+          textarea.remove();
+
+          if (!copied) throw new Error('Copy failed');
+        }
+
+        copyButton.textContent = 'کپی شد ✓';
+        feedback.textContent = 'کد دعوت کپی شد؛ حالا می‌تونی از لینک ثبت‌نام استفاده کنی.';
       } catch {
-        const t = document.createElement('textarea');
-        t.value = code;
-        document.body.appendChild(t);
-        t.select();
-        document.execCommand('copy');
-        t.remove();
+        feedback.textContent = 'کپی خودکار انجام نشد؛ کد ZQY2DC6K رو دستی کپی کن.';
       }
-      const btn = document.querySelector('#copyCode');
-      btn.textContent = 'کپی شد';
-      setTimeout(() => btn.textContent = 'کپی کد', 1400);
+
+      window.setTimeout(() => {
+        copyButton.textContent = 'کپی کد';
+      }, 1800);
     });
   </script>
 </body>
