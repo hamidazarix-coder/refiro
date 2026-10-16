@@ -16,6 +16,15 @@ const description = 'کد معرف ملی گلد را ببین، کپی کن و 
   <meta name="theme-color" content="#101110" />
   <link rel="canonical" href="https://refiro.ir/melligold/" />
   <title>{title}</title>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": title,
+    "url": "https://refiro.ir/melligold/",
+    "description": description,
+    "inLanguage": "fa-IR",
+    "isPartOf": { "@type": "WebSite", "name": "رفیرو", "url": "https://refiro.ir/" }
+  })} />
 </head>
 <body>
   <header>
@@ -85,6 +94,18 @@ const description = 'کد معرف ملی گلد را ببین، کپی کن و 
       رفیرو یک راهنمای مستقل برای کدهای معرف است و وب‌سایت رسمی ملی گلد نیست.
       مبلغ و شرایط هدایا ممکن است تغییر کنند.
     </p>
+
+    <section class="related-pages" aria-label="کدهای معرف مرتبط">
+      <h2>سایر کدهای معرف در رفیرو</h2>
+      <p>کدهای دعوت پلتفرم‌های دیگر را هم بررسی کنید:</p>
+      <nav aria-label="صفحات مرتبط">
+        <a href="/codes/">همه کدهای معرف</a>
+        <a href="/taline/">کد دعوت طلاین</a>
+        <a href="/zarpin/">کد دعوت زرپین</a>
+        <a href="/melligold/">کد معرف ملی گلد</a>
+      </nav>
+    </section>
+
   </main>
 
   <footer class="foot">
@@ -184,7 +205,32 @@ const description = 'کد معرف ملی گلد را ببین، کپی کن و 
       outline: 2px solid #d9bc79;
       outline-offset: 4px;
     }
-  </style>
+
+
+  .related-pages {
+    margin: 2rem 0;
+    padding: 1.25rem;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 14px;
+  }
+  .related-pages h2 {
+    font-size: 1.15rem;
+    margin: 0 0 .65rem;
+  }
+  .related-pages p {
+    margin: 0 0 .9rem;
+  }
+  .related-pages nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .7rem;
+  }
+  .related-pages nav a {
+    text-decoration: none;
+  }
+
+
+</style>
 
   <script>
     const copyButton = document.querySelector('#copyCode');

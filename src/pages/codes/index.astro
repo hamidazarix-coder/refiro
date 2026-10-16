@@ -15,6 +15,15 @@ const description = 'فهرست کدهای معرف پلتفرم‌ها در ر�
   <meta name="theme-color" content="#101110" />
   <link rel="canonical" href="https://refiro.ir/codes/" />
   <title>{title}</title>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": title,
+    "url": "https://refiro.ir/codes/",
+    "description": description,
+    "inLanguage": "fa-IR",
+    "isPartOf": { "@type": "WebSite", "name": "رفیرو", "url": "https://refiro.ir/" }
+  })} />
 </head>
 <body>
   <header>

@@ -2,8 +2,8 @@
 import '../styles/global.css';
 import { platforms } from '../data/platforms.js';
 
-const title = 'رفیرو | بزرگترین مرجع کدهای دعوت در ایران';
-const description = 'در رفیرو کدهای دعوت و معرف پلتفرم‌های مختلف را پیدا کن؛ کد را کپی کن یا مستقیم وارد لینک دعوت شو.';
+const title = 'رفیرو | کد دعوت و کد معرف پلتفرم‌ها';
+const description = 'کدهای دعوت و معرف طلاین، زرپین، ملی گلد و پلتفرم‌های دیگر را در رفیرو پیدا کن؛ کدها را کپی کن و شرایط دریافت هدیه را ببین.';
 
 const comingSoon = { name: 'پلتفرم جدید', mark: '+', href: '#', active: false };
 ---
@@ -17,6 +17,14 @@ const comingSoon = { name: 'پلتفرم جدید', mark: '+', href: '#', active
   <meta name="theme-color" content="#101110" />
   <link rel="canonical" href="https://refiro.ir/" />
   <title>{title}</title>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "رفیرو",
+    "url": "https://refiro.ir/",
+    "inLanguage": "fa-IR",
+    "description": description
+  })} />
 </head>
 
 <body>
@@ -35,7 +43,7 @@ const comingSoon = { name: 'پلتفرم جدید', mark: '+', href: '#', active
       <h1>
         رفیرو:
         <br />
-        <span>بزرگترین مرجع کدهای دعوت در ایران</span>
+        <span>کد دعوت و کد معرف پلتفرم‌ها</span>
       </h1>
 
       <p>
