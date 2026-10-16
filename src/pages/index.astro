@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 
-const title = 'رفیرو | بزرگ‌ترین مرجع کدهای دعوت در ایران';
+const title = 'رفیرو | بزرگترین مرجع کدهای دعوت در ایران';
 const description = 'در رفیرو کدهای دعوت و معرف پلتفرم‌های مختلف را پیدا کن؛ کد را کپی کن یا مستقیم وارد لینک دعوت شو.';
 
 const platforms = [
@@ -11,6 +11,7 @@ const platforms = [
   { name: 'پلتفرم جدید', mark: '+', href: '#', active: false },
 ];
 ---
+
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
@@ -21,6 +22,7 @@ const platforms = [
   <link rel="canonical" href="https://refiro.ir/" />
   <title>{title}</title>
 </head>
+
 <body>
   <header>
     <div class="wrap nav">
@@ -31,8 +33,17 @@ const platforms = [
 
   <main class="wrap">
     <section class="hero">
-      <h1>رفیرو:<br /><span>بزرگ‌ترین مرجع کدهای دعوت در ایران</span></h1>
-      <p>پلتفرمت رو پیدا کن، کد دعوتت رو بردار و مستقیم وارد شو.</p>
+      <span class="eyebrow">کدهای دعوت، یک‌جا</span>
+
+      <h1>
+        رفیرو:
+        <br />
+        <span>بزرگترین مرجع کدهای دعوت در ایران</span>
+      </h1>
+
+      <p>
+        پلتفرمت رو پیدا کن، کد دعوتت رو بردار و مستقیم وارد شو.
+      </p>
 
       <form class="search" id="searchForm" role="search">
         <input
@@ -44,43 +55,207 @@ const platforms = [
         />
         <button type="submit">جست‌وجو</button>
       </form>
+
+      <p class="search-hint">نام پلتفرم رو فارسی یا انگلیسی بنویس.</p>
     </section>
 
     <section class="platform-section" aria-labelledby="platformTitle">
       <div class="section-heading">
-        <h2 id="platformTitle">پلتفرم‌ها</h2>
+        <div>
+          <h2 id="platformTitle">پلتفرم‌ها</h2>
+          <p class="section-subtitle">پلتفرم موردنظرت رو انتخاب کن.</p>
+        </div>
+
         <span class="hint">بیشتر به‌زودی</span>
       </div>
 
       <div class="platform-grid" id="platformGrid">
-        {platforms.map((platform, index) => (
+        {platforms.map((platform) => (
           <a
-            class:list={['platform-tile', { 'platform-tile-disabled': !platform.active }]}
+            class:list={[
+              'platform-tile',
+              { 'platform-tile-disabled': !platform.active },
+            ]}
             href={platform.href}
             aria-disabled={!platform.active ? 'true' : undefined}
             data-name={platform.name}
             data-active={platform.active ? 'true' : 'false'}
           >
-            <span class="tile-mark">{platform.mark}</span>
-            <span class="tile-name">{platform.active ? platform.name : 'به‌زودی'}</span>
-            <span class="tile-status">{platform.active ? 'فعال' : 'در حال اضافه‌شدن'}</span>
+            <div class="tile-top">
+              <span class="tile-mark">{platform.mark}</span>
+
+              {platform.active && (
+                <span class="tile-arrow" aria-hidden="true">↗</span>
+              )}
+            </div>
+
+            <span class="tile-name">
+              {platform.active ? platform.name : 'به‌زودی'}
+            </span>
+
+            <span class="tile-status">
+              {platform.active ? 'فعال' : 'در حال اضافه‌شدن'}
+            </span>
           </a>
         ))}
       </div>
 
-      <p class="empty hidden" id="noResult">
-        پلتفرمی با این نام پیدا نشد؛ فعلاً «طلاین» را جست‌وجو کن.
+      <p class="empty hidden" id="noResult" role="status">
+        پلتفرمی با این نام پیدا نشد. نام دیگری رو امتحان کن.
       </p>
+    </section>
+
+    <section class="about">
+      <span class="about-mark">R</span>
+      <div>
+        <h2>ساده، سریع، مستقیم</h2>
+        <p>
+          رفیرو کمک می‌کنه کدهای دعوت پلتفرم‌های مختلف رو راحت‌تر پیدا کنی.
+          رفیرو مستقل از پلتفرم‌های معرفی‌شده است.
+        </p>
+      </div>
     </section>
   </main>
 
   <footer class="foot">
-    <div class="wrap">رفیرو؛ ساده و مستقیم. رفیرو مستقل از پلتفرم‌های معرفی‌شده است.</div>
+    <div class="wrap footer-inner">
+      <a class="footer-brand" href="/">refiro</a>
+      <span>رفیرو؛ راه ساده‌تر برای پیدا کردن کد دعوت.</span>
+    </div>
   </footer>
 
   <style>
+    :global(html) {
+      scroll-behavior: smooth;
+    }
+
+    :global(body) {
+      background:
+        radial-gradient(ellipse at 50% 0%, #292315 0%, transparent 36rem),
+        #101110;
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      color: #e2bd63;
+      font-size: 27px;
+      font-weight: 950;
+      letter-spacing: -1px;
+      text-decoration: none;
+      direction: ltr;
+    }
+
+    .nav small {
+      color: #aaa99f;
+      font-size: 12px;
+    }
+
+    .hero {
+      padding: 76px 0 28px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 13px;
+      border: 1px solid #554728;
+      border-radius: 999px;
+      background: #211e15;
+      color: #e2bd63;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      margin: 0 0 14px;
+      font-size: clamp(29px, 5vw, 43px);
+      line-height: 1.65;
+      font-weight: 950;
+      letter-spacing: -.8px;
+    }
+
+    .hero h1 span {
+      color: #e2bd63;
+    }
+
+    .hero > p:not(.search-hint) {
+      max-width: 540px;
+      margin: 0 auto 26px;
+      color: #aaa99f;
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    .search {
+      display: flex;
+      gap: 9px;
+      max-width: 570px;
+      margin: auto;
+      padding: 7px;
+      border: 1px solid #454235;
+      border-radius: 16px;
+      background: #191a17;
+      box-shadow: 0 12px 34px #00000020;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .search:focus-within {
+      border-color: #b79a52;
+      box-shadow: 0 0 0 3px #e2bd6312, 0 12px 34px #00000020;
+    }
+
+    .search input {
+      min-width: 0;
+      flex: 1;
+      padding: 11px 13px;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: #f4f1e8;
+      font: inherit;
+      font-size: 14px;
+    }
+
+    .search input::placeholder {
+      color: #85857c;
+    }
+
+    .search button {
+      flex-shrink: 0;
+      padding: 10px 20px;
+      border: 0;
+      border-radius: 11px;
+      background: linear-gradient(135deg, #f0d486, #d6ad4d);
+      color: #17150f;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: filter .2s ease, transform .2s ease;
+    }
+
+    .search button:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+
+    .search-hint {
+      margin: 10px 0 0;
+      color: #77776e;
+      font-size: 11px;
+    }
+
     .platform-section {
-      margin: 36px 0 56px;
+      margin: 42px 0 42px;
     }
 
     .section-heading {
@@ -88,68 +263,140 @@ const platforms = [
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      margin-bottom: 16px;
+      margin-bottom: 19px;
     }
 
     .section-heading h2 {
       margin: 0;
-      font-size: 1.25rem;
+      color: #f4f1e8;
+      font-size: 1.3rem;
+      font-weight: 900;
+      letter-spacing: -.3px;
+    }
+
+    .section-subtitle {
+      margin: 3px 0 0;
+      color: #85857c;
+      font-size: 12px;
+    }
+
+    .section-heading .hint {
+      flex-shrink: 0;
+      margin: 0;
+      padding: 5px 10px;
+      border: 1px solid #34372e;
+      border-radius: 999px;
+      background: #191b17;
+      color: #aaa99f;
+      font-size: 11px;
     }
 
     .platform-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
+      gap: 14px;
     }
 
     .platform-tile {
+      position: relative;
       min-width: 0;
-      min-height: 130px;
+      min-height: 155px;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: stretch;
       justify-content: space-between;
-      gap: 10px;
-      padding: 14px;
-      border: 1px solid #30332f;
-      border-radius: 16px;
-      background: #171916;
-      color: inherit;
+      gap: 12px;
+      padding: 17px;
+      overflow: hidden;
+      border: 1px solid #34372e;
+      border-radius: 19px;
+      background:
+        radial-gradient(ellipse at top right, #302a1b 0%, transparent 68%),
+        linear-gradient(145deg, #1c1e19, #141512);
+      color: #f4f1e8;
       text-decoration: none;
-      transition: border-color .18s ease, transform .18s ease, background .18s ease;
+      box-shadow: 0 8px 24px #00000012;
+      transition:
+        border-color .22s ease,
+        transform .22s ease,
+        box-shadow .22s ease,
+        background .22s ease;
     }
 
     .platform-tile[href]:not([aria-disabled="true"]):hover {
-      border-color: #a8c77a;
-      background: #1d211a;
-      transform: translateY(-2px);
+      border-color: #b89a4f;
+      background:
+        radial-gradient(ellipse at top right, #39321d 0%, transparent 68%),
+        linear-gradient(145deg, #22231c, #171813);
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px #00000030;
+    }
+
+    .platform-tile:focus-visible {
+      outline: 2px solid #e2bd63;
+      outline-offset: 3px;
+    }
+
+    .tile-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
     }
 
     .tile-mark {
-      width: 36px;
-      height: 36px;
+      width: 44px;
+      height: 44px;
       display: grid;
       place-items: center;
-      border-radius: 11px;
-      background: #293323;
-      color: #c5e49a;
-      font-weight: 800;
-      font-size: 1.1rem;
+      border: 1px solid #6a572b;
+      border-radius: 14px;
+      background: linear-gradient(145deg, #39301b, #252318);
+      color: #f0cf7b;
+      font-size: 1.25rem;
+      font-weight: 900;
+      box-shadow: inset 0 1px #ffffff0b;
+    }
+
+    .tile-arrow {
+      color: #9b8a5b;
+      font-size: 19px;
+      transition: color .2s ease, transform .2s ease;
+    }
+
+    .platform-tile:hover .tile-arrow {
+      color: #e2bd63;
+      transform: translate(-2px, -2px);
     }
 
     .tile-name {
+      color: #f4f1e8;
+      font-size: 1.05rem;
       font-weight: 900;
-      font-size: 1rem;
+      line-height: 1.5;
     }
 
     .tile-status {
-      font-size: .72rem;
-      color: #a5aa9f;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #a7a99e;
+      font-size: .74rem;
     }
 
     .platform-tile[data-active="true"] .tile-status {
-      color: #8fda7a;
+      color: #a8d88a;
       font-weight: 800;
+    }
+
+    .platform-tile[data-active="true"] .tile-status::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      flex: 0 0 6px;
+      border-radius: 50%;
+      background: #91cb70;
+      box-shadow: 0 0 9px #91cb7055;
     }
 
     .platform-tile-disabled {
@@ -158,111 +405,275 @@ const platforms = [
       cursor: default;
     }
 
+    .empty {
+      margin: 20px 0 0;
+      padding: 14px 16px;
+      border: 1px solid #39352a;
+      border-radius: 12px;
+      background: #1b1a16;
+      color: #c6b98f;
+      font-size: 13px;
+      text-align: center;
+    }
+
     .hidden {
       display: none !important;
     }
 
+    .about {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin: 38px 0 58px;
+      padding: 22px;
+      border: 1px solid #34352e;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #1c1d18, #151612);
+    }
+
+    .about-mark {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #6a572b;
+      border-radius: 13px;
+      background: #302819;
+      color: #e2bd63;
+      font-size: 20px;
+      font-weight: 950;
+    }
+
+    .about h2 {
+      margin: 0 0 5px;
+      color: #e2bd63;
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .about p {
+      margin: 0;
+      color: #aaa99f;
+      font-size: 12px;
+      line-height: 2;
+    }
+
+    .foot {
+      border-top: 1px solid #30312c;
+      background: #0d0e0c;
+    }
+
+    .footer-inner {
+      min-height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .footer-brand {
+      color: #e2bd63;
+      font-size: 20px;
+      font-weight: 950;
+      letter-spacing: -.6px;
+      text-decoration: none;
+      direction: ltr;
+    }
+
+    .footer-inner > span {
+      color: #85857c;
+      font-size: 11px;
+    }
+
     @media (max-width: 640px) {
-      .platform-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
+      .nav {
+        min-height: 65px;
       }
 
-      .platform-tile {
-        min-height: 116px;
-        padding: 12px;
+      .hero {
+        padding: 53px 0 23px;
       }
 
       .hero h1 {
-        font-size: clamp(1.8rem, 8vw, 2.5rem);
-        line-height: 1.55;
+        font-size: clamp(27px, 7.5vw, 36px);
+        line-height: 1.7;
+      }
+
+      .hero > p:not(.search-hint) {
+        font-size: 13px;
+      }
+
+      .platform-section {
+        margin: 32px 0 36px;
+      }
+
+      .platform-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 11px;
+      }
+
+      .platform-tile {
+        min-height: 137px;
+        padding: 14px;
+        border-radius: 16px;
+      }
+
+      .tile-mark {
+        width: 40px;
+        height: 40px;
+      }
+
+      .tile-name {
+        font-size: .98rem;
+      }
+
+      .about {
+        margin: 32px 0 42px;
+        padding: 17px;
+      }
+
+      .footer-inner {
+        min-height: 70px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .search {
+        gap: 4px;
+      }
+
+      .search input {
+        padding: 9px 7px;
+        font-size: 12px;
+      }
+
+      .search button {
+        padding: 9px 12px;
+        font-size: 12px;
+      }
+
+      .platform-tile {
+        padding: 12px;
+      }
+
+      .section-heading h2 {
+        font-size: 1.15rem;
+      }
+
+      .footer-inner > span {
+        max-width: 210px;
+        text-align: left;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      :global(html) {
+        scroll-behavior: auto;
+      }
+
+      .platform-tile,
+      .tile-arrow,
+      .search,
+      .search button {
+        transition: none;
+      }
+
+      .platform-tile[href]:not([aria-disabled="true"]):hover {
+        transform: none;
       }
     }
   </style>
 
   <script>
-  const form = document.querySelector('#searchForm');
-  const input = document.querySelector('#searchInput');
-  const tiles = [...document.querySelectorAll('.platform-tile')];
-  const noResult = document.querySelector('#noResult');
+    const form = document.querySelector('#searchForm');
+    const input = document.querySelector('#searchInput');
+    const tiles = [...document.querySelectorAll('.platform-tile')];
+    const noResult = document.querySelector('#noResult');
 
-  const normalize = (value) =>
-    value
-      .toLowerCase()
-      .replace(/ي/g, 'ی')
-      .replace(/ك/g, 'ک')
-      .replace(/[\s‌]+/g, '')
-      .trim();
+    const normalize = (value) =>
+      value
+        .toLowerCase()
+        .replace(/ي/g, 'ی')
+        .replace(/ك/g, 'ک')
+        .replace(/[\s‌]+/g, '')
+        .trim();
 
-  const routes = [
-    {
-      words: ['طلاین', 'taline', 'tlyn'],
-      url: '/taline/'
-    },
-    {
-      words: ['زرپین', 'zarpin'],
-      url: '/zarpin/'
-    },
-    {
-      words: ['ملی گلد', 'ملیگلد', 'melligold'],
-      url: '/melligold/'
-    }
-  ];
+    const routes = [
+      {
+        words: ['طلاین', 'taline', 'tlyn'],
+        url: '/taline/',
+      },
+      {
+        words: ['زرپین', 'zarpin'],
+        url: '/zarpin/',
+      },
+      {
+        words: ['ملی گلد', 'ملیگلد', 'melligold'],
+        url: '/melligold/',
+      },
+    ];
 
-  function findRoute(query) {
-    return routes.find((route) =>
-      route.words.some((word) =>
-        normalize(query).includes(normalize(word))
-      )
-    );
-  }
+    function findRoute(query) {
+      const normalizedQuery = normalize(query);
 
-  function updateResults() {
-    const query = normalize(input.value);
-
-    if (!query) {
-      tiles.forEach((tile) => tile.classList.remove('hidden'));
-      noResult.classList.add('hidden');
-      return;
+      return routes.find((route) =>
+        route.words.some((word) =>
+          normalizedQuery.includes(normalize(word))
+        )
+      );
     }
 
-    const route = findRoute(query);
+    function updateResults() {
+      const query = normalize(input.value);
 
-    tiles.forEach((tile) => {
-      const name = normalize(tile.dataset.name || '');
-      const matchesName = name.includes(query);
-      const matchesRoute = route && tile.getAttribute('href') === route.url;
+      if (!query) {
+        tiles.forEach((tile) => tile.classList.remove('hidden'));
+        noResult.classList.add('hidden');
+        return;
+      }
 
-      tile.classList.toggle('hidden', !(matchesName || matchesRoute));
-    });
+      const route = findRoute(query);
 
-    noResult.classList.toggle(
-      'hidden',
-      tiles.every((tile) => tile.classList.contains('hidden'))
-    );
-  }
+      tiles.forEach((tile) => {
+        const name = normalize(tile.dataset.name || '');
+        const matchesName = name.includes(query);
+        const matchesRoute =
+          route && tile.getAttribute('href') === route.url;
 
-  input?.addEventListener('input', updateResults);
+        tile.classList.toggle(
+          'hidden',
+          !(matchesName || matchesRoute)
+        );
+      });
 
-  form?.addEventListener('submit', (event) => {
-    event.preventDefault();
+      noResult.classList.toggle(
+        'hidden',
+        tiles.every((tile) => tile.classList.contains('hidden'))
+      );
+    }
 
-    const query = input.value.trim();
+    input?.addEventListener('input', updateResults);
 
-    if (!query) {
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const query = input.value.trim();
+
+      if (!query) {
+        updateResults();
+        return;
+      }
+
+      const route = findRoute(query);
+
+      if (route) {
+        window.location.href = route.url;
+        return;
+      }
+
       updateResults();
-      return;
-    }
-
-    const route = findRoute(query);
-
-    if (route) {
-      window.location.href = route.url;
-      return;
-    }
-
-    updateResults();
-  });
-</script>
+    });
+  </script>
 </body>
 </html>
