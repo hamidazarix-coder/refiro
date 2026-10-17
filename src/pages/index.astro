@@ -108,8 +108,9 @@ const description = 'کدهای دعوت و معرف طلاین، زرپین، �
     </section>
 
     <section class="about">
-      <h2>رفیرو دقیقا چیکار میکنه؟</h2>
-      <p>پول مفت! با refiro کد دعوت برنامه یا سایت مورد نظرت رو بردار یا از لینک مستقیم استفاده کن و پول به جیب بزن!</p>
+      <h2>رفیرو دقیقاً چیکار می‌کنه؟</h2>
+      <p class="about-lead">پول مفت!</p>
+      <p class="about-copy">با Refiro کد دعوت برنامه یا سایت موردنظرت رو پیدا کن؛ کد رو بردار یا مستقیم واردش شو و پاداشت رو بگیر.</p>
     </section>
   </main>
 
@@ -619,6 +620,40 @@ const description = 'کدهای دعوت و معرف طلاین، زرپین، �
     .about h2 { font-weight: 900; }
     @media (max-width: 640px) {
       .tile-logo { width: 40px; height: 40px; }
+    }
+
+
+    /* Refiro about mobile readability */
+
+    .about-lead {
+      margin: 14px 0 4px;
+      color: #e2bd63;
+      font-size: 1.15rem;
+      font-weight: 900;
+    }
+
+    .about-copy {
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 2;
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 640px) {
+      .about h2 {
+        font-size: 1.2rem;
+        line-height: 1.8;
+      }
+
+      .about-lead {
+        font-size: 1.05rem;
+      }
+
+      .about-copy {
+        font-size: 13px;
+        line-height: 2.1;
+        text-wrap: pretty;
+      }
     }
 
   </style>
