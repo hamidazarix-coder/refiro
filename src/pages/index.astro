@@ -5,7 +5,6 @@ import { platforms } from '../data/platforms.js';
 const title = 'رفیرو | کد دعوت و کد معرف پلتفرم‌ها';
 const description = 'کدهای دعوت و معرف طلاین، زرپین، ملی گلد و پلتفرم‌های دیگر را در رفیرو پیدا کن؛ کدها را کپی کن و شرایط دریافت هدیه را ببین.';
 
-const comingSoon = { name: 'پلتفرم جدید', mark: '+', href: '#', active: false };
 ---
 
 <!doctype html>
@@ -32,10 +31,10 @@ const comingSoon = { name: 'پلتفرم جدید', mark: '+', href: '#', active
 
   <main class="wrap">
     <section class="hero">
-      <span class="eyebrow">کدهای دعوت، یک‌جا</span>
+      
 
       <h1>
-        رفیرو:
+        رفیرو
         <br />
         <span>بزرگ‌ترین مرجع کدهای دعوت در ایران</span>
       </h1>
@@ -65,11 +64,11 @@ const comingSoon = { name: 'پلتفرم جدید', mark: '+', href: '#', active
           <p class="section-subtitle">پلتفرم موردنظرت رو انتخاب کن.</p>
         </div>
 
-        <span class="hint">بیشتر به‌زودی</span>
+        
       </div>
 
       <div class="platform-grid" id="platformGrid">
-        {[...platforms, comingSoon].map((platform) => (
+        {platforms.map((platform) => (
           <a
             class:list={[
               'platform-tile',
@@ -81,7 +80,11 @@ const comingSoon = { name: 'پلتفرم جدید', mark: '+', href: '#', active
             data-active={platform.active ? 'true' : 'false'}
           >
             <div class="tile-top">
+              {platform.image ? (
+              <img class="tile-logo" src={platform.image} alt={platform.name} />
+            ) : (
               <span class="tile-mark">{platform.mark}</span>
+            )}
 
               {platform.active && (
                 <span class="tile-arrow" aria-hidden="true">↗</span>
@@ -105,14 +108,8 @@ const comingSoon = { name: 'پلتفرم جدید', mark: '+', href: '#', active
     </section>
 
     <section class="about">
-      <span class="about-mark">R</span>
-      <div>
-        <h2>ساده، سریع، مستقیم</h2>
-        <p>
-          رفیرو کمک می‌کنه کدهای دعوت پلتفرم‌های مختلف رو راحت‌تر پیدا کنی.
-          رفیرو مستقل از پلتفرم‌های معرفی‌شده است.
-        </p>
-      </div>
+      <h2>رفیرو دقیقا چیکار میکنه؟</h2>
+      <p>پول مفت! با refiro کد دعوت برنامه یا سایت مورد نظرت رو بردار یا از لینک مستقیم استفاده کن و پول به جیب بزن!</p>
     </section>
   </main>
 
@@ -603,6 +600,25 @@ const comingSoon = { name: 'پلتفرم جدید', mark: '+', href: '#', active
     .codes-nav-link:hover {
       background: #211e15;
       border-color: #8b7139;
+    }
+
+
+    /* Refiro requested logo and text update */
+
+    .hero h1 { color: var(--gold) !important; }
+    .hero h1 span { color: #f4f1e8 !important; }
+    .tile-logo {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      padding: 4px;
+      border: 1px solid #6a572b;
+      border-radius: 12px;
+      background: #fff;
+    }
+    .about h2 { font-weight: 900; }
+    @media (max-width: 640px) {
+      .tile-logo { width: 40px; height: 40px; }
     }
 
   </style>
