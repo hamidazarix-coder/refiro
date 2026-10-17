@@ -32,8 +32,8 @@ const comingSoon = { name: 'پلتفرم جدید', mark: '+', href: '#', active
     <div class="wrap nav">
       <a class="brand" href="/">refiro</a>
       <small>مرجع کدهای دعوت</small>
+      <a href="/codes/" class="codes-nav-link">همه کدهای معرف</a>
     </div>
-    <a href="/codes/" class="codes-nav-link">همه کدهای معرف</a>
 </header>
 
   <main class="wrap">
@@ -43,7 +43,7 @@ const comingSoon = { name: 'پلتفرم جدید', mark: '+', href: '#', active
       <h1>
         رفیرو:
         <br />
-        <span>کد دعوت و کد معرف پلتفرم‌ها</span>
+        <span>بزرگ‌ترین مرجع کدهای دعوت در ایران</span>
       </h1>
 
       <p>
@@ -390,7 +390,7 @@ const comingSoon = { name: 'پلتفرم جدید', mark: '+', href: '#', active
     }
 
     .platform-tile[data-active="true"] .tile-status {
-      color: #a8d88a;
+      color: #e2bd63;
       font-weight: 800;
     }
 
@@ -400,8 +400,8 @@ const comingSoon = { name: 'پلتفرم جدید', mark: '+', href: '#', active
       height: 6px;
       flex: 0 0 6px;
       border-radius: 50%;
-      background: #91cb70;
-      box-shadow: 0 0 9px #91cb7055;
+      background: #e2bd63;
+      box-shadow: 0 0 9px #e2bd6355;
     }
 
     .platform-tile-disabled {
@@ -494,6 +494,12 @@ const comingSoon = { name: 'پلتفرم جدید', mark: '+', href: '#', active
     @media (max-width: 640px) {
       .nav {
         min-height: 65px;
+        gap: 10px;
+      }
+
+      .codes-nav-link {
+        padding: 7px 9px;
+        font-size: 11px;
       }
 
       .hero {
@@ -588,6 +594,27 @@ const comingSoon = { name: 'پلتفرم جدید', mark: '+', href: '#', active
         transform: none;
       }
     }
+
+    .codes-nav-link {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border: 1px solid #554728;
+      border-radius: 10px;
+      color: #e2bd63;
+      text-decoration: none;
+      font-size: 12px;
+      white-space: nowrap;
+      transition: background .2s ease, border-color .2s ease;
+    }
+
+    .codes-nav-link:hover {
+      background: #211e15;
+      border-color: #8b7139;
+    }
+
   </style>
 
   <script>
@@ -619,7 +646,7 @@ const comingSoon = { name: 'پلتفرم جدید', mark: '+', href: '#', active
           ...(platform.aliases || []),
         ];
 
-        return searchable.some((value) => normalize(value).includes(q));
+        return searchable.some((value) => normalize(value) === q);
       }) || null;
     }
 
@@ -674,18 +701,4 @@ const comingSoon = { name: 'پلتفرم جدید', mark: '+', href: '#', active
 </html>
 
 
-<style>
-.codes-nav-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-inline-start: 12px;
-  padding: 9px 13px;
-  border: 1px solid #554728;
-  border-radius: 10px;
-  color: #e2bd63;
-  text-decoration: none;
-  font-size: .9rem;
-}
-.codes-nav-link:hover { background: #211e15; }
-</style>
+
