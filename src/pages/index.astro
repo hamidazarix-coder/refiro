@@ -133,6 +133,8 @@ const description = 'کد دعوت و کد معرف طلاین، زرپین، م
         <a href="/codes/">مشاهده همه کدهای دعوت و کدهای معرف</a>
         <span aria-hidden="true"> · </span>
         <a href="/guide/kod-davat/">راهنمای استفاده از کد دعوت</a>
+        <span aria-hidden="true"> · </span>
+        <a href="/about/">درباره رفیرو و روش بررسی کدها</a>
       </p>
 
       <p class="empty hidden" id="noResult" role="status">
@@ -167,7 +169,16 @@ const description = 'کد دعوت و کد معرف طلاین، زرپین، م
     </section>
   </main>
 
-  
+  <footer class="foot">
+    <div class="wrap footer-inner">
+      <a class="footer-brand" href="/">refiro</a>
+      <nav class="footer-links" aria-label="پیوندهای تکمیلی">
+        <a href="/codes/">همه کدها</a>
+        <a href="/guide/kod-davat/">راهنمای کد دعوت</a>
+        <a href="/about/">درباره رفیرو</a>
+      </nav>
+    </div>
+  </footer>
 
   <style>
     :global(html) {
@@ -557,6 +568,24 @@ const description = 'کد دعوت و کد معرف طلاین، زرپین، م
     .footer-inner > span {
       color: #85857c;
       font-size: 11px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: #d9bc79;
+      font-size: 12px;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     .codes-nav-link {
