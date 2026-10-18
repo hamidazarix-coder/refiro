@@ -60,15 +60,17 @@ const description = 'کد دعوت و کد معرف طلاین، زرپین، م
     <section class="hero">
       
 
-      <h1>
-        رفیرو
-        <br />
-        <span>بزرگ‌ترین مرجع کدهای دعوت در ایران</span>
-      </h1>
-
-      <p>
-        پلتفرمت رو پیدا کن، کد دعوتت رو بردار و مستقیم وارد شو.
-      </p>
+      <div class="hero-brand-card">
+        <span class="hero-kicker"><span aria-hidden="true">✦</span> کد دعوت، پاداش، شروع ساده</span>
+        <h1>
+          <span class="hero-brand-name">رفیرو</span>
+          <span class="hero-tagline">بزرگ‌ترین مرجع کدهای دعوت در ایران</span>
+        </h1>
+        <div class="hero-divider"><span></span></div>
+        <p>
+          پلتفرمت رو پیدا کن، کد دعوتت رو بردار و مستقیم وارد شو.
+        </p>
+      </div>
 
       <form class="search" id="searchForm" role="search">
         <input
@@ -957,6 +959,100 @@ const description = 'کد دعوت و کد معرف طلاین، زرپین، م
       .tile-description { min-height: 68px; font-size: 11px; }
       .tile-reward { max-width: 72%; padding: 6px 7px; font-size: 10px; }
       .tile-bottom { align-items: flex-start; flex-direction: column; gap: 8px; }
+    }
+
+  
+    /* Framed hero brand block */
+    .hero { padding: 55px 0 28px; }
+    .hero-brand-card {
+      position: relative;
+      isolation: isolate;
+      max-width: 700px;
+      margin: 0 auto 25px;
+      padding: clamp(22px, 4.5vw, 38px) clamp(16px, 4vw, 34px) 24px;
+      overflow: hidden;
+      border: 1px solid #5b4b2d;
+      border-radius: 24px;
+      background:
+        radial-gradient(ellipse at 50% -15%, #44371d99 0%, transparent 65%),
+        linear-gradient(145deg, #202019 0%, #171814 68%, #141512 100%);
+      box-shadow: 0 18px 48px #0000002b, inset 0 1px #ffffff08;
+    }
+    .hero-brand-card::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 18%;
+      right: 18%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #f0cf7b, transparent);
+      opacity: .8;
+    }
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding: 6px 12px;
+      border: 1px solid #514327;
+      border-radius: 999px;
+      background: #191810;
+      color: #d8bd7b;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .1px;
+    }
+    .hero-kicker span { color: #f0cf7b; }
+    .hero-brand-card h1 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      margin: 0;
+      line-height: 1.55;
+    }
+    .hero-brand-card .hero-brand-name {
+      display: block;
+      color: #f0cf7b !important;
+      font-size: clamp(43px, 8vw, 66px);
+      font-weight: 950;
+      letter-spacing: -1.5px;
+      text-shadow: 0 4px 26px #e2bd631c;
+    }
+    .hero-brand-card .hero-tagline {
+      display: block;
+      color: #f4f1e8 !important;
+      font-size: clamp(18px, 3.7vw, 29px);
+      font-weight: 900;
+      line-height: 1.8;
+    }
+    .hero-divider {
+      display: flex;
+      justify-content: center;
+      margin: 15px auto 13px;
+    }
+    .hero-divider span {
+      display: block;
+      width: 76px;
+      height: 3px;
+      border-radius: 9px;
+      background: linear-gradient(90deg, transparent, #e2bd63, transparent);
+    }
+    .hero-brand-card > p {
+      margin: 0 auto;
+      color: #b8b5a8;
+      font-size: 13px;
+      line-height: 2;
+    }
+    @media (max-width: 640px) {
+      .hero { padding-top: 38px; }
+      .hero-brand-card { padding: 22px 14px 19px; border-radius: 19px; margin-bottom: 19px; }
+      .hero-kicker { margin-bottom: 10px; font-size: 10px; }
+      .hero-brand-card .hero-brand-name { font-size: clamp(42px, 12vw, 54px); }
+      .hero-brand-card .hero-tagline { font-size: clamp(17px, 4.8vw, 22px); }
+      .hero-divider { margin: 11px auto 9px; }
+      .hero-brand-card > p { font-size: 12px; }
     }
 
   </style>
