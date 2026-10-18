@@ -1,0 +1,129 @@
+---
+import '../styles/global.css';
+
+const code = 'KZ31LK';
+const title = 'کد دعوت ویپاد (KZ31LK) و هدیه ۱۵۰ هزار تومانی | رفیرو';
+const description = 'کد دعوت ویپاد KZ31LK را در رفیرو کپی کن. طبق توضیحات این کد، هدیه نقدی ۱۵۰ هزار تومانی اعلام شده است؛ شرایط و فعال بودن طرح را بررسی کن.';
+---
+
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#101110" />
+  <link rel="canonical" href="https://refiro.ir/wepod/" />
+  <title>{title}</title>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": title,
+    "url": "https://refiro.ir/wepod/",
+    "description": description,
+    "inLanguage": "fa-IR",
+    "isPartOf": { "@type": "WebSite", "name": "رفیرو", "url": "https://refiro.ir/" }
+  })} />
+</head>
+<body>
+  <main class="wrap result">
+    <a class="back" href="/">→ برگشت به صفحه اصلی</a>
+    <h1 class="page-title">کد دعوت ویپاد</h1>
+    <p class="page-desc">کد دعوت را کپی کن و هنگام ثبت‌نام در ویپاد در بخش کد معرف وارد کن.</p>
+
+    <article class="card">
+      <div class="card-head">
+        <div class="platform">
+          <span class="mark">وی</span>
+          <span>ویپاد</span>
+        </div>
+        <span class="status">فعال</span>
+      </div>
+
+      <section class="reward">
+        <div class="reward-amount">۱۵۰ هزار تومان هدیه نقدی</div>
+        <p>مبلغ هدیه اعلام‌شده برای این کد ۱۵۰ هزار تومان است. دریافت آن به فعال بودن طرح، تکمیل موفق ثبت‌نام و شرایط اعلام‌شده توسط ویپاد بستگی دارد.</p>
+      </section>
+
+      <div class="label">کد دعوت شما</div>
+      <div class="code-row">
+        <span class="code" id="inviteCode">{code}</span>
+        <button class="copy" id="copyCode" type="button">کپی کد</button>
+      </div>
+      <p id="copyFeedback" class="hint" role="status" aria-live="polite"></p>
+
+      <a class="primary" href="https://wepod.ir/" target="_blank" rel="noopener noreferrer">ورود به وب‌سایت رسمی ویپاد ↗</a>
+
+      <div class="steps">
+        <h2>چطور از کد استفاده کنی؟</h2>
+        <ol>
+          <li>کد دعوت بالا را کپی کن.</li>
+          <li>از وب‌سایت رسمی ویپاد وارد شو و مراحل افتتاح حساب را آغاز کن.</li>
+          <li>کد معرف را در مرحله مربوط وارد کن و شرایط طرح هدیه را بررسی کن.</li>
+        </ol>
+      </div>
+      <p class="note">رفیرو یک راهنمای مستقل است و وابستگی رسمی به ویپاد ندارد. مبلغ و شرایط هدیه ممکن است تغییر کند؛ پیش از ثبت‌نام، شرایط روز طرح را در کانال رسمی بررسی کن.</p>
+    </article>
+
+    <section class="related-pages" aria-label="کدهای معرف مرتبط">
+      <h2>سایر کدهای معرف در رفیرو</h2>
+      <nav aria-label="صفحات مرتبط">
+        <a href="/codes/">همه کدهای معرف</a>
+        <a href="/taline/">کد دعوت طلاین</a>
+        <a href="/zarpin/">کد دعوت زرپین</a>
+        <a href="/melligold/">کد معرف ملی گلد</a>
+        <a href="/blubank/">کد دعوت بلوبانک</a>
+        <a href="/wepod/">کد دعوت ویپاد</a>
+      </nav>
+    </section>
+  </main>
+
+  <style>
+    :global(body) { background: radial-gradient(ellipse at 50% 0%, #292315 0%, transparent 36rem), #101110; }
+    .result { max-width: 680px; padding: 28px 0 64px; }
+    .back { display:inline-flex; margin-bottom:26px; padding:10px 16px; border:1px solid #554728; border-radius:12px; background:#242116; color:#e2bd63; font-size:13px; font-weight:800; text-decoration:none; }
+    .platform { display:flex; align-items:center; gap:12px; font-weight:900; font-size:18px; }
+    .mark { display:grid; place-items:center; width:48px; height:48px; border:1px solid #6a572b; border-radius:15px; background:#302a1b; color:#e2bd63; font-weight:900; }
+    .status { color:#e2bd63; font-size:12px; }
+    .reward { margin:22px 0; padding:18px; border:1px solid #554728; border-radius:16px; background:linear-gradient(135deg,#282315,#191812); }
+    .reward-amount { color:#e2bd63; font-size:clamp(24px,5vw,32px); font-weight:900; }
+    .reward p,.hint,.note { color:#aaa99f; font-size:12px; line-height:2; }
+    .code-row { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 14px; border:1px dashed #77643a; border-radius:12px; direction:ltr; }
+    .code { color:#e2bd63; font:800 23px/1.4 ui-monospace,Consolas,monospace; letter-spacing:1.5px; }
+    .copy { padding:8px 12px; border:1px solid #6f5b2e; border-radius:9px; background:#302a1b; color:#e2bd63; cursor:pointer; }
+    .primary { width:100%; margin-top:16px; }
+    .steps { margin-top:28px; padding-top:22px; border-top:1px solid #30312b; }
+    .steps h2,.related-pages h2 { font-size:1.1rem; margin:0 0 .75rem; }
+    .steps ol { padding-right:22px; color:#c0bfb4; line-height:2.2; }
+    .note { margin-top:22px; }
+    .related-pages { margin:2rem 0; padding:1.25rem; border:1px solid #554728; border-radius:14px; }
+    .related-pages nav { display:flex; flex-wrap:wrap; gap:.7rem; }
+    .related-pages nav a { color:#e2bd63; text-decoration:none; }
+    @media(max-width:480px) { .card { padding:16px; } .code { font-size:19px; } }
+  </style>
+
+  <script>
+    const copyButton = document.querySelector('#copyCode');
+    const codeElement = document.querySelector('#inviteCode');
+    const feedback = document.querySelector('#copyFeedback');
+    copyButton?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(code);
+      } catch {
+        const area = document.createElement('textarea');
+        area.value = code;
+        area.style.position = 'fixed';
+        area.style.opacity = '0';
+        document.body.appendChild(area);
+        area.select();
+        const copied = document.execCommand('copy');
+        area.remove();
+        if (!copied) { feedback.textContent = 'کپی خودکار نشد؛ کد را دستی کپی کن.'; return; }
+      }
+      copyButton.textContent = 'کپی شد ✓';
+      feedback.textContent = 'کد دعوت کپی شد.';
+      setTimeout(() => copyButton.textContent = 'کپی کد', 1600);
+    });
+  </script>
+</body>
+</html>
