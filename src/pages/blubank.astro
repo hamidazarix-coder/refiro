@@ -108,10 +108,10 @@ const description = 'کد دعوت بلوبانک SWHTAI را در رفیرو ک
     const feedback = document.querySelector('#copyFeedback');
     copyButton?.addEventListener('click', async () => {
       try {
-        await navigator.clipboard.writeText(code);
+        await navigator.clipboard.writeText(codeElement?.textContent?.trim() || '');
       } catch {
         const area = document.createElement('textarea');
-        area.value = code;
+        area.value = codeElement?.textContent?.trim() || '';
         area.style.position = 'fixed';
         area.style.opacity = '0';
         document.body.appendChild(area);
