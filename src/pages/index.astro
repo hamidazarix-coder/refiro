@@ -107,10 +107,15 @@ const description = 'کدهای دعوت و معرف طلاین، زرپین، �
       </p>
     </section>
 
-    <section class="about">
-      <h2>رفیرو دقیقاً چیکار می‌کنه؟</h2>
-      <p class="about-lead">پول مفت!</p>
-      <p class="about-copy">با Refiro کد دعوت برنامه یا سایت موردنظرت رو پیدا کن؛ کد رو بردار یا مستقیم واردش شو و پاداشت رو بگیر.</p>
+    <section class="about faq-section" aria-labelledby="faqTitle">
+      <h2 id="faqTitle">سوال و جواب</h2>
+      <div class="faq-list">
+        <article class="faq-item">
+          <h3>رفیرو دقیقاً چیکار می‌کنه؟</h3>
+          <p class="about-lead">پول مفت!</p>
+          <p class="about-copy">با Refiro کد دعوت برنامه یا سایت موردنظرت رو پیدا کن؛ کد رو بردار یا مستقیم واردش شو و پاداشت رو بگیر.</p>
+        </article>
+      </div>
     </section>
   </main>
 
@@ -422,6 +427,31 @@ const description = 'کدهای دعوت و معرف طلاین، زرپین، �
       border: 1px solid #34352e;
       border-radius: 18px;
       background: linear-gradient(135deg, #1c1d18, #151612);
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      width: 100%;
+    }
+
+    .faq-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 7px;
+      width: 100%;
+      padding: 16px 0 0;
+      border-top: 1px solid #34352e;
+    }
+
+    .faq-item h3 {
+      margin: 0;
+      color: #f4f1e8;
+      font-size: 14px;
+      font-weight: 900;
+      line-height: 1.9;
     }
 
     .about-mark {
