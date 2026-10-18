@@ -83,8 +83,8 @@ const description = 'فهرست کد دعوت و کد معرف طلاین، زر
           <div class="code-card-top">
             <span class="tile-mark">{platform.mark}</span>
             <div class="code-card-title">
-              <h2>{platform.name}</h2>
-              <span>کد معرف</span>
+              <h2>کد دعوت {platform.name}</h2>
+              <span>{platform.reward ? `پاداش اعلام‌شده: ${platform.reward}` : 'کد معرف'}</span>
             </div>
           </div>
 
@@ -92,7 +92,7 @@ const description = 'فهرست کد دعوت و کد معرف طلاین، زر
 
           <div class="actions">
             <button class="copy-button" type="button" data-code={platform.code}>کپی کد</button>
-            <a class="details-link" href={platform.href}>جزئیات و شرایط ↗</a>
+            <a class="details-link" href={platform.href}>مشاهده کد دعوت {platform.name} ↗</a>
           </div>
         </article>
       ))}
