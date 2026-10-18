@@ -8,7 +8,7 @@ export const platforms = [
     active: true,
     code: 'WEJYQXL',
     referralUrl: 'https://my.tlyn.ir/register?referral=WEJYQXL',
-    reward: '۳ سوت طلا',
+    reward: '۱۰ سوت طلا',
     aliases: ['taline', 'tlyn', 'کد دعوت طلاین', 'کد معرف طلاین', 'طلا لاین', 'طلاین'],
   },
   {
