@@ -34,5 +34,25 @@ export const platforms = [
     referralUrl: 'https://melligold.com/pwa/account/?ref=MGP2yzf9e74n',
     reward: '۳ سوت طلا',
     aliases: ['melligold', 'meli gold', 'ملی گلد', 'ملی‌گلد'],
+  },,
+  {
+    id: 'blubank',
+    name: 'بلوبانک',
+    mark: 'بلو',
+    href: '/blubank/',
+    active: true,
+    code: 'SWHTAI',
+    reward: '۱۵۰ هزار تومان هدیه نقدی',
+    aliases: ['blubank', 'blu bank', 'بلو بانک', 'بلوبانک', 'کد دعوت بلوبانک', 'کد معرف بلوبانک'],
   },
+  {
+    id: 'wepod',
+    name: 'ویپاد',
+    mark: 'وی',
+    href: '/wepod/',
+    active: true,
+    code: 'KZ31LK',
+    reward: '۱۵۰ هزار تومان هدیه نقدی',
+    aliases: ['wepod', 'وی پاد', 'ویپاد', 'کد دعوت ویپاد', 'کد معرف ویپاد'],
+  }
 ];
