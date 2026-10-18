@@ -878,6 +878,87 @@ const description = 'کد دعوت و کد معرف طلاین، زرپین، م
       }
     }
 
+  
+    /* Final offer-card layout overrides */
+    .platform-tile {
+      min-height: 0;
+      justify-content: flex-start;
+      gap: 14px;
+      padding: 19px;
+      border-radius: 18px;
+      background: linear-gradient(155deg, #202019 0%, #171814 72%);
+    }
+
+    .platform-tile[href]:not([aria-disabled="true"]):hover {
+      border-color: #b89a4f;
+      background: linear-gradient(155deg, #29271d 0%, #191a15 72%);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px #00000035;
+    }
+
+    .tile-top { min-height: 48px; }
+
+    .tile-reward {
+      display: inline-flex;
+      align-items: center;
+      max-width: 70%;
+      padding: 7px 10px;
+      border: 1px solid #62502b;
+      border-radius: 9px;
+      background: #302819;
+      color: #f0cf7b;
+      font-size: 12px;
+      font-weight: 850;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .tile-name { display: block; font-size: 1.08rem; line-height: 1.7; }
+
+    .tile-description {
+      display: block;
+      min-height: 52px;
+      color: #aaa99f;
+      font-size: 12px;
+      line-height: 2;
+    }
+
+    .tile-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px dashed #414035;
+    }
+
+    .tile-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #e2bd63;
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .platform-tile .tile-status { font-size: 11px; }
+
+    .platform-tile-disabled .tile-reward {
+      color: #aaa99f;
+      border-color: #44443b;
+      background: #22231f;
+    }
+
+    @media (max-width: 640px) {
+      .platform-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
+      .platform-tile { padding: 14px; gap: 11px; }
+      .tile-description { min-height: 68px; font-size: 11px; }
+      .tile-reward { max-width: 72%; padding: 6px 7px; font-size: 10px; }
+      .tile-bottom { align-items: flex-start; flex-direction: column; gap: 8px; }
+    }
+
   </style>
 
   <script>
