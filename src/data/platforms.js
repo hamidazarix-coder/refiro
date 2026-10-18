@@ -56,5 +56,17 @@ export const platforms = [
     code: 'KZ31LK',
     reward: '۱۵۰ هزار تومان هدیه نقدی',
     aliases: ['wepod', 'وی پاد', 'ویپاد', 'کد دعوت ویپاد', 'کد معرف ویپاد'],
+  },
+  {
+    id: 'talasea',
+    name: 'طلاسی',
+    mark: 'ط',
+    image: 'https://www.google.com/s2/favicons?domain=talasea.ir&sz=256',
+    href: '/talasea/',
+    active: true,
+    code: 'yZfgvrdj',
+    referralUrl: 'https://talasea.ir/onboarding?r=yZfgvrdj',
+    reward: 'بررسی شرایط هدیه',
+    aliases: ['talasea', 'talasea.ir', 'طلاسی', 'کد دعوت طلاسی', 'کد معرف طلاسی', 'کد ثبت نام طلاسی'],
   }
 ];
