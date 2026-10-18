@@ -6,8 +6,8 @@ const platform = platforms.find((item) => item.id === 'zarpin');
 
 const code = 'ZQY2DC6K';
 const referralUrl = 'https://zarpin.com/auth/login/?referralCode=ZQY2DC6K';
-const title = 'کد دعوت زرپین (ZQY2DC6K) | رفیرو';
-const description = 'کد دعوت زرپین را در رفیرو ببینید و کپی کنید؛ شرایط دریافت پاداش را هنگام ثبت‌نام بررسی کنید.';
+const title = 'کد دعوت زرپین (ZQY2DC6K) و کد معرف زرپین | رفیرو';
+const description = 'کد دعوت و کد معرف زرپین: کد ZQY2DC6K را کپی کن، از لینک دعوت وارد شو و قبل از ثبت‌نام شرایط روز پاداش را بررسی کن.';
 ---
 
 <!doctype html>
@@ -18,6 +18,17 @@ const description = 'کد دعوت زرپین را در رفیرو ببینید 
   <meta name="description" content={description} />
   <meta name="theme-color" content="#101110" />
   <link rel="canonical" href="https://refiro.ir/zarpin/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta property="og:locale" content="fa_IR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="رفیرو" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content="https://refiro.ir/zarpin/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
   <title>{title}</title>
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -28,12 +39,25 @@ const description = 'کد دعوت زرپین را در رفیرو ببینید 
     "inLanguage": "fa-IR",
     "isPartOf": { "@type": "WebSite", "name": "رفیرو", "url": "https://refiro.ir/" }
   })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "صفحه اصلی", "item": "https://refiro.ir/" },
+      { "@type": "ListItem", "position": 2, "name": "همه کدهای معرف", "item": "https://refiro.ir/codes/" },
+      { "@type": "ListItem", "position": 3, "name": "کد دعوت زرپین", "item": "https://refiro.ir/zarpin/" }
+    ]
+  })} />
 </head>
 
 <body>
 
   <main class="wrap result">
-    <a class="back" href="/">→ برگشت به صفحه اصلی</a>
+    <nav class="breadcrumbs" aria-label="مسیر صفحه">
+      <a href="/">صفحه اصلی</a><span aria-hidden="true">/</span>
+      <a href="/codes/">همه کدهای معرف</a><span aria-hidden="true">/</span>
+      <span aria-current="page">کد دعوت زرپین</span>
+    </nav>
 
     <section class="intro">
       <h1 class="page-title">کد دعوت زرپین</h1>
@@ -90,6 +114,14 @@ const description = 'کد دعوت زرپین را در رفیرو ببینید 
       </p>
     </article>
 
+    <section class="seo-content" aria-labelledby="zarpin-info-title">
+      <h2 id="zarpin-info-title">کد دعوت زرپین چیست؟</h2>
+      <p>کد دعوت زرپین کدی است که می‌توان آن را در فرایند معرفی کاربر یا ثبت‌نام، در صورت درخواست پلتفرم، وارد کرد. در این صفحه کد ZQY2DC6K و لینک ورود به زرپین کنار هم قرار گرفته‌اند تا راحت‌تر به آن‌ها دسترسی داشته باشی.</p>
+      <h2>کد معرف زرپین را چطور وارد کنم؟</h2>
+      <p>ابتدا کد را کپی کن و از لینک دعوت وارد شو. در مرحله‌ای که زرپین کد معرف می‌خواهد، کد را دقیق وارد کن. اگر این گزینه در فرایند ثبت‌نام نمایش داده نشد، راهنمای رسمی زرپین را بررسی کن و از واردکردن اطلاعات در وب‌سایت‌های غیررسمی خودداری کن.</p>
+      <h2>چرا کد دعوت زرپین ممکن است پذیرفته نشود؟</h2>
+      <p>کد ممکن است به زمان یا شرایط یک کمپین وابسته باشد، یا حساب کاربری واجدشرایط طرح نباشد. پیش از تکرار ثبت‌نام، پیام خطا و شرایط فعلی را در خود زرپین بررسی کن.</p>
+    </section>
     <section class="related-pages" aria-label="کدهای معرف مرتبط">
       <h2>سایر کدهای معرف در رفیرو</h2>
       <p>کدهای دعوت پلتفرم‌های دیگر را هم بررسی کنید:</p>

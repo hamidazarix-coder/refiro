@@ -2,8 +2,8 @@
 import '../../styles/global.css';
 import { platforms } from '../../data/platforms.js';
 
-const title = 'همه کدهای معرف | رفیرو';
-const description = 'فهرست کدهای معرف پلتفرم‌ها در رفیرو؛ کد را پیدا کن، کپی کن و شرایط هدیه را بررسی کن.';
+const title = 'همه کدهای دعوت و کدهای معرف | رفیرو';
+const description = 'فهرست کد دعوت و کد معرف طلاین، زرپین، ملی گلد، بلوبانک و ویپاد؛ کدها را کپی کن و شرایط هدیه را از منبع رسمی بررسی کن.';
 ---
 
 <!doctype html>
@@ -14,6 +14,17 @@ const description = 'فهرست کدهای معرف پلتفرم‌ها در ر�
   <meta name="description" content={description} />
   <meta name="theme-color" content="#101110" />
   <link rel="canonical" href="https://refiro.ir/codes/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta property="og:locale" content="fa_IR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="رفیرو" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content="https://refiro.ir/codes/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
   <title>{title}</title>
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -23,6 +34,14 @@ const description = 'فهرست کدهای معرف پلتفرم‌ها در ر�
     "description": description,
     "inLanguage": "fa-IR",
     "isPartOf": { "@type": "WebSite", "name": "رفیرو", "url": "https://refiro.ir/" }
+  })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "صفحه اصلی", "item": "https://refiro.ir/" },
+      { "@type": "ListItem", "position": 2, "name": "همه کدهای دعوت و معرف", "item": "https://refiro.ir/codes/" }
+    ]
   })} />
 </head>
 <body>
@@ -34,9 +53,13 @@ const description = 'فهرست کدهای معرف پلتفرم‌ها در ر�
   </header>
 
   <main class="wrap codes-page">
+    <nav class="breadcrumbs" aria-label="مسیر صفحه">
+      <a href="/">صفحه اصلی</a><span aria-hidden="true">/</span><span aria-current="page">همه کدهای دعوت و معرف</span>
+    </nav>
     <span class="eyebrow">فهرست کدهای دعوت</span>
     <h1 class="page-title">همه کدهای معرف</h1>
-    <p class="page-desc">پلتفرم موردنظرت رو پیدا کن، کد رو کپی کن و شرایط طرح دعوت رو بررسی کن.</p>
+    <p class="page-desc">پلتفرم موردنظرت رو پیدا کن، کد دعوت یا کد معرف رو کپی کن و قبل از ثبت‌نام، شرایط طرح رو در منبع رسمی بررسی کن.</p>
+    <p class="directory-guide-link"><a href="/guide/kod-davat/">راهنمای کامل کد دعوت: روش استفاده، خطاهای رایج و نکات امنیتی ←</a></p>
 
     <label class="search-box">
       <span class="sr-only">جست‌وجو در کدها</span>
@@ -65,7 +88,13 @@ const description = 'فهرست کدهای معرف پلتفرم‌ها در ر�
     </div>
 
     <p id="emptyState" class="empty" hidden>کدی پیدا نشد؛ عبارت دیگری رو امتحان کن.</p>
-    <p class="disclaimer">رفیرو مستقل از پلتفرم‌های معرفی‌شده است.</p>
+    <section class="seo-content" aria-labelledby="codes-help-title">
+      <h2 id="codes-help-title">چطور کد دعوت یا کد معرف را استفاده کنم؟</h2>
+      <p>کد سرویس موردنظر را در این فهرست پیدا و کپی کن، سپس صفحه جزئیات آن را باز کن. از لینک رسمی وارد شو و اگر در فرایند ثبت‌نام بخش کد معرف وجود داشت، کد را دقیق همان‌طور که نمایش داده شده وارد کن.</p>
+      <h2>آیا هدیه معرفی همیشه فعال است؟</h2>
+      <p>خیر؛ پاداش‌ها و شرایط کمپین‌ها ممکن است تغییر کنند و گاهی به شرایط حساب یا تکمیل مراحل ثبت‌نام وابسته‌اند. مبلغ یا شرایط نهایی را از خود پلتفرم بررسی کن. <a href="/guide/kod-davat/">راهنمای کامل استفاده از کد دعوت</a> نکات بیشتر را توضیح می‌دهد.</p>
+    </section>
+    <p class="disclaimer">رفیرو مستقل از پلتفرم‌های معرفی‌شده است؛ برای شرایط قطعی و ثبت‌نام، منبع رسمی هر پلتفرم را بررسی کن.</p>
   </main>
 
   <footer class="foot">
@@ -74,6 +103,7 @@ const description = 'فهرست کدهای معرف پلتفرم‌ها در ر�
 
   <style>
     .codes-page { padding-top: 48px; padding-bottom: 60px; }
+    .codes-page .breadcrumbs { margin-bottom: 18px; }
     .eyebrow { display: inline-block; color: #e2bd63; background: #211e15; border: 1px solid #554728; border-radius: 999px; padding: 6px 12px; font-size: .82rem; }
     .page-title { margin: 16px 0 8px; font-size: clamp(28px, 5vw, 38px); }
     .page-desc { color: #aaa99f; line-height: 2; margin-bottom: 24px; }

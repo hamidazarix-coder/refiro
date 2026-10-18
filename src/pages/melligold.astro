@@ -6,8 +6,8 @@ const platform = platforms.find((item) => item.id === 'melligold');
 
 const code = 'MGP2yzf9e74n';
 const referralUrl = 'https://melligold.com/pwa/account/?ref=MGP2yzf9e74n';
-const title = 'کد معرف ملی گلد | رفیرو';
-const description = 'کد معرف ملی گلد را ببین، کپی کن و از طریق لینک دعوت وارد ملی گلد شو.';
+const title = 'کد دعوت و کد معرف ملی گلد (MGP2yzf9e74n) | رفیرو';
+const description = 'کد دعوت و کد معرف ملی گلد را همراه با کد MGP2yzf9e74n و لینک ورود ببین؛ پیش از ثبت‌نام، شرایط پاداش را بررسی کن.';
 ---
 
 <!doctype html>
@@ -18,6 +18,17 @@ const description = 'کد معرف ملی گلد را ببین، کپی کن و 
   <meta name="description" content={description} />
   <meta name="theme-color" content="#101110" />
   <link rel="canonical" href="https://refiro.ir/melligold/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta property="og:locale" content="fa_IR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="رفیرو" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content="https://refiro.ir/melligold/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
   <title>{title}</title>
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -28,11 +39,24 @@ const description = 'کد معرف ملی گلد را ببین، کپی کن و 
     "inLanguage": "fa-IR",
     "isPartOf": { "@type": "WebSite", "name": "رفیرو", "url": "https://refiro.ir/" }
   })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "صفحه اصلی", "item": "https://refiro.ir/" },
+      { "@type": "ListItem", "position": 2, "name": "همه کدهای معرف", "item": "https://refiro.ir/codes/" },
+      { "@type": "ListItem", "position": 3, "name": "کد معرف ملی گلد", "item": "https://refiro.ir/melligold/" }
+    ]
+  })} />
 </head>
 <body>
 
   <main class="wrap result">
-    <a class="back" href="/">→ برگشت به صفحه اصلی</a>
+    <nav class="breadcrumbs" aria-label="مسیر صفحه">
+      <a href="/">صفحه اصلی</a><span aria-hidden="true">/</span>
+      <a href="/codes/">همه کدهای معرف</a><span aria-hidden="true">/</span>
+      <span aria-current="page">کد معرف ملی گلد</span>
+    </nav>
 
     <h1 class="page-title">کد معرف ملی گلد</h1>
     <p class="page-desc">
@@ -84,6 +108,14 @@ const description = 'کد معرف ملی گلد را ببین، کپی کن و 
       رفیرو یک راهنمای مستقل برای کدهای معرف است و وب‌سایت رسمی ملی گلد نیست.
     </p>
 
+    <section class="seo-content" aria-labelledby="melligold-info-title">
+      <h2 id="melligold-info-title">کد معرف ملی گلد چیست؟</h2>
+      <p>کد معرف ملی گلد برای معرفی کاربر در صورت پشتیبانی سرویس از این روش استفاده می‌شود. کد نمایش‌داده‌شده در این صفحه MGP2yzf9e74n است و لینک ورود نیز در کارت بالا قرار دارد.</p>
+      <h2>روش استفاده از کد دعوت ملی گلد</h2>
+      <p>کد را کپی کن، از لینک همین صفحه وارد ملی گلد شو و راهنمای ثبت‌نام را دنبال کن. اگر هنگام ثبت‌نام بخش کد معرف وجود داشت، کد را در همان بخش وارد کن. قبل از هر خرید یا تکمیل ثبت‌نام، شرایطی را که خود سرویس نمایش می‌دهد بخوان.</p>
+      <h2>پاداش ملی گلد به چه شرایطی بستگی دارد؟</h2>
+      <p>میزان هدیه و واجدشرایط‌بودن حساب ممکن است با کمپین‌های جاری تغییر کند. برای جلوگیری از اتکا به اطلاعات قدیمی، شرایط فعلی را در وب‌سایت یا برنامه رسمی ملی گلد بررسی کن.</p>
+    </section>
     <section class="related-pages" aria-label="کدهای معرف مرتبط">
       <h2>سایر کدهای معرف در رفیرو</h2>
       <p>کدهای دعوت پلتفرم‌های دیگر را هم بررسی کنید:</p>

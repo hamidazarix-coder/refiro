@@ -2,8 +2,8 @@
 import '../styles/global.css';
 import { platforms } from '../data/platforms.js';
 
-const title = 'رفیرو | کد دعوت و کد معرف پلتفرم‌ها';
-const description = 'کدهای دعوت و معرف طلاین، زرپین، ملی گلد، بلوبانک و ویپاد را در رفیرو پیدا کن؛ کدها را کپی کن و شرایط دریافت هدیه را ببین.';
+const title = 'کد دعوت و کد معرف پلتفرم‌ها | رفیرو';
+const description = 'کد دعوت و کد معرف طلاین، زرپین، ملی گلد، بلوبانک و ویپاد را در رفیرو پیدا کن؛ کد را کپی کن، لینک ثبت‌نام را باز کن و شرایط دریافت هدیه را بررسی کن.';
 
 ---
 
@@ -15,14 +15,41 @@ const description = 'کدهای دعوت و معرف طلاین، زرپین، �
   <meta name="description" content={description} />
   <meta name="theme-color" content="#101110" />
   <link rel="canonical" href="https://refiro.ir/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta property="og:locale" content="fa_IR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="رفیرو" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content="https://refiro.ir/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
   <title>{title}</title>
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "رفیرو",
-    "url": "https://refiro.ir/",
-    "inLanguage": "fa-IR",
-    "description": description
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://refiro.ir/#website",
+        "name": "رفیرو",
+        "alternateName": "Refiro",
+        "url": "https://refiro.ir/",
+        "inLanguage": "fa-IR",
+        "description": description,
+        "publisher": { "@id": "https://refiro.ir/#organization" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://refiro.ir/#organization",
+        "name": "رفیرو",
+        "alternateName": "Refiro",
+        "url": "https://refiro.ir/",
+        "logo": "https://refiro.ir/favicon.svg",
+        "description": "راهنمای مستقل کدهای دعوت و کدهای معرف پلتفرم‌ها"
+      }
+    ]
   })} />
 </head>
 
@@ -102,6 +129,12 @@ const description = 'کدهای دعوت و معرف طلاین، زرپین، �
         ))}
       </div>
 
+      <p class="all-codes-links">
+        <a href="/codes/">مشاهده همه کدهای دعوت و کدهای معرف</a>
+        <span aria-hidden="true"> · </span>
+        <a href="/guide/kod-davat/">راهنمای استفاده از کد دعوت</a>
+      </p>
+
       <p class="empty hidden" id="noResult" role="status">
         پلتفرمی با این نام پیدا نشد. نام دیگری رو امتحان کن.
       </p>
@@ -109,9 +142,26 @@ const description = 'کدهای دعوت و معرف طلاین، زرپین، �
 
     <section class="about faq-section" aria-labelledby="faqTitle">
       <div class="faq-list">
+        <h2 class="faq-heading" id="faqTitle">راهنمای کد دعوت و کد معرف</h2>
         <article class="faq-item">
           <h3>رفیرو دقیقاً چیکار می‌کنه؟</h3>
-          <p class="about-copy"><span class="about-lead">پول مفت!</span> با Refiro کد دعوت برنامه یا سایت موردنظرت رو پیدا کن؛ کد رو بردار یا مستقیم واردش شو و پاداشت رو بگیر.</p>
+          <p class="about-copy"><span class="about-lead">پول مفت!</span> با رفیرو کد دعوت برنامه یا سایت موردنظرت رو پیدا کن؛ کد رو کپی کن یا از لینک دعوت وارد شو و شرایط پاداش رو ببین.</p>
+        </article>
+        <article class="faq-item">
+          <h3>کد دعوت با کد معرف چه فرقی داره؟</h3>
+          <p class="about-copy">این دو اصطلاح در بسیاری از سرویس‌ها به یک کاربرد اشاره می‌کنند: کدی که هنگام ثبت‌نام برای معرفی کاربر جدید استفاده می‌شود. نام و محل واردکردن کد ممکن است در هر پلتفرم فرق داشته باشد.</p>
+        </article>
+        <article class="faq-item">
+          <h3>چطور از کد معرف استفاده کنم؟</h3>
+          <p class="about-copy">صفحه پلتفرم موردنظر را باز کن، کد را دقیق کپی کن و مراحل ثبت‌نام را از لینک رسمی ادامه بده. اگر فرم ثبت‌نام بخش کد معرف داشت، کد را همان‌جا وارد کن و پیش از تکمیل مراحل شرایط طرح را بخوان.</p>
+        </article>
+        <article class="faq-item">
+          <h3>آیا دریافت هدیه نقدی یا طلا تضمینی است؟</h3>
+          <p class="about-copy">نه لزوماً. مقدار پاداش، مهلت طرح و شرایط واجدشرایط‌بودن می‌تواند تغییر کند. اطلاعات نهایی را قبل از ثبت‌نام در سایت یا برنامه رسمی همان پلتفرم بررسی کن.</p>
+        </article>
+        <article class="faq-item">
+          <h3>آیا رفیرو سایت رسمی این پلتفرم‌هاست؟</h3>
+          <p class="about-copy">خیر؛ رفیرو یک راهنمای مستقل برای پیدا کردن کدهای دعوت است. برای ثبت‌نام و بررسی شرایط نهایی، از لینک و منابع رسمی هر سرویس استفاده کن.</p>
         </article>
       </div>
     </section>

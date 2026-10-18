@@ -2,8 +2,8 @@
 import '../styles/global.css';
 
 const code = 'KZ31LK';
-const title = 'کد دعوت ویپاد (KZ31LK) و هدیه ۱۵۰ هزار تومانی | رفیرو';
-const description = 'کد دعوت ویپاد KZ31LK را در رفیرو کپی کن. طبق توضیحات این کد، هدیه نقدی ۱۵۰ هزار تومانی اعلام شده است؛ شرایط و فعال بودن طرح را بررسی کن.';
+const title = 'کد دعوت ویپاد KZ31LK و کد معرف ویپاد | رفیرو';
+const description = 'کد دعوت و کد معرف ویپاد KZ31LK را کپی کن و راهنمای ثبت‌نام را ببین؛ شرایط و فعال‌بودن پاداش را پیش از تکمیل مراحل از منبع رسمی بررسی کن.';
 ---
 
 <!doctype html>
@@ -14,6 +14,17 @@ const description = 'کد دعوت ویپاد KZ31LK را در رفیرو کپی
   <meta name="description" content={description} />
   <meta name="theme-color" content="#101110" />
   <link rel="canonical" href="https://refiro.ir/wepod/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta property="og:locale" content="fa_IR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="رفیرو" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content="https://refiro.ir/wepod/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
   <title>{title}</title>
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -24,10 +35,23 @@ const description = 'کد دعوت ویپاد KZ31LK را در رفیرو کپی
     "inLanguage": "fa-IR",
     "isPartOf": { "@type": "WebSite", "name": "رفیرو", "url": "https://refiro.ir/" }
   })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "صفحه اصلی", "item": "https://refiro.ir/" },
+      { "@type": "ListItem", "position": 2, "name": "همه کدهای معرف", "item": "https://refiro.ir/codes/" },
+      { "@type": "ListItem", "position": 3, "name": "کد دعوت ویپاد", "item": "https://refiro.ir/wepod/" }
+    ]
+  })} />
 </head>
 <body>
   <main class="wrap result">
-    <a class="back" href="/">→ برگشت به صفحه اصلی</a>
+    <nav class="breadcrumbs" aria-label="مسیر صفحه">
+      <a href="/">صفحه اصلی</a><span aria-hidden="true">/</span>
+      <a href="/codes/">همه کدهای معرف</a><span aria-hidden="true">/</span>
+      <span aria-current="page">کد دعوت ویپاد</span>
+    </nav>
     <h1 class="page-title">کد دعوت ویپاد</h1>
     <p class="page-desc">کد دعوت را کپی کن و هنگام ثبت‌نام در ویپاد در بخش کد معرف وارد کن.</p>
 
@@ -65,6 +89,14 @@ const description = 'کد دعوت ویپاد KZ31LK را در رفیرو کپی
       <p class="note">رفیرو یک راهنمای مستقل است و وابستگی رسمی به ویپاد ندارد. مبلغ و شرایط هدیه ممکن است تغییر کند؛ پیش از ثبت‌نام، شرایط روز طرح را در کانال رسمی بررسی کن.</p>
     </article>
 
+    <section class="seo-content" aria-labelledby="wepod-info-title">
+      <h2 id="wepod-info-title">کد دعوت ویپاد KZ31LK را چطور استفاده کنم؟</h2>
+      <p>کد KZ31LK را کپی کن و از لینک رسمی ویپاد وارد شو. مراحل ثبت‌نام را دنبال کن و اگر بخش کد معرف در فرایند نمایش داده شد، آن را پیش از پایان ثبت‌نام وارد کن.</p>
+      <h2>هدیه ویپاد قطعی است؟</h2>
+      <p>پاداش اعلام‌شده می‌تواند به کمپین جاری، شرایط حساب یا تکمیل مراحل مشخصی وابسته باشد. مبلغ و وضعیت فعال‌بودن طرح را پیش از ثبت‌نام از خود ویپاد بررسی کن؛ نمایش کد در رفیرو به‌تنهایی تضمین پرداخت هدیه نیست.</p>
+      <h2>اگر کد معرف ویپاد پذیرفته نشد</h2>
+      <p>کد را بدون فاصله اضافی وارد کن و متن پیام خطا را بررسی کن. از لینک رسمی استفاده کن و برای دریافت پاداش، هیچ‌گاه رمز یک‌بارمصرف یا اطلاعات محرمانه بانکی را به اشخاص ثالث نده.</p>
+    </section>
     <section class="related-pages" aria-label="کدهای معرف مرتبط">
       <h2>سایر کدهای معرف در رفیرو</h2>
       <nav aria-label="صفحات مرتبط">

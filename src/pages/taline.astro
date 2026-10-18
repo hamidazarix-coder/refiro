@@ -7,7 +7,7 @@ const platform = platforms.find((item) => item.id === 'taline');
 const code = 'WEJYQXL';
 const referralUrl = 'https://my.tlyn.ir/register?referral=WEJYQXL';
 const title = 'کد دعوت طلاین و کد معرف طلاین (WEJYQXL) | رفیرو';
-const description = 'کد دعوت طلاین و کد معرف طلاین را در رفیرو پیدا کنید. کد WEJYQXL را کپی کنید، راهنمای ثبت‌نام و شرایط دریافت پاداش را ببینید.';
+const description = 'کد دعوت طلاین و کد معرف طلاین: کد WEJYQXL را کپی کن یا از لینک ثبت‌نام وارد شو. راهنمای استفاده و شرایط پاداش را در رفیرو بخوان.';
 ---
 
 <!doctype html>
@@ -18,6 +18,17 @@ const description = 'کد دعوت طلاین و کد معرف طلاین را �
   <meta name="description" content={description} />
   <meta name="theme-color" content="#101110" />
   <link rel="canonical" href="https://refiro.ir/taline/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta property="og:locale" content="fa_IR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="رفیرو" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content="https://refiro.ir/taline/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
   <title>{title}</title>
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -28,12 +39,25 @@ const description = 'کد دعوت طلاین و کد معرف طلاین را �
     "inLanguage": "fa-IR",
     "isPartOf": { "@type": "WebSite", "name": "رفیرو", "url": "https://refiro.ir/" }
   })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "صفحه اصلی", "item": "https://refiro.ir/" },
+      { "@type": "ListItem", "position": 2, "name": "همه کدهای معرف", "item": "https://refiro.ir/codes/" },
+      { "@type": "ListItem", "position": 3, "name": "کد دعوت طلاین", "item": "https://refiro.ir/taline/" }
+    ]
+  })} />
 </head>
 
 <body>
 
   <main class="wrap result">
-    <a class="back" href="/">→ برگشت به صفحه اصلی</a>
+    <nav class="breadcrumbs" aria-label="مسیر صفحه">
+      <a href="/">صفحه اصلی</a><span aria-hidden="true">/</span>
+      <a href="/codes/">همه کدهای معرف</a><span aria-hidden="true">/</span>
+      <span aria-current="page">کد دعوت طلاین</span>
+    </nav>
 
     <section class="intro">
       <h1 class="page-title">کد دعوت طلاین</h1>

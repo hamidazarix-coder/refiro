@@ -9,7 +9,7 @@ export const platforms = [
     code: 'WEJYQXL',
     referralUrl: 'https://my.tlyn.ir/register?referral=WEJYQXL',
     reward: '۳ سوت طلا',
-    aliases: ['taline', 'tlyn', 'کد معرف طلاین', 'طلاین'],
+    aliases: ['taline', 'tlyn', 'کد دعوت طلاین', 'کد معرف طلاین', 'طلا لاین', 'طلاین'],
   },
   {
     id: 'zarpin',
@@ -21,7 +21,7 @@ export const platforms = [
     code: 'ZQY2DC6K',
     referralUrl: 'https://zarpin.com/auth/login/?referralCode=ZQY2DC6K',
     reward: '۳ سوت طلا',
-    aliases: ['zarpin', 'کد معرف زرپین', 'زرپین'],
+    aliases: ['zarpin', 'کد دعوت زرپین', 'کد معرف زرپین', 'زرپین'],
   },
   {
     id: 'melligold',
@@ -33,7 +33,7 @@ export const platforms = [
     code: 'MGP2yzf9e74n',
     referralUrl: 'https://melligold.com/pwa/account/?ref=MGP2yzf9e74n',
     reward: '۳ سوت طلا',
-    aliases: ['melligold', 'meli gold', 'ملی گلد', 'ملی‌گلد'],
+    aliases: ['melligold', 'meli gold', 'کد دعوت ملی گلد', 'کد معرف ملی گلد', 'ملی گلد', 'ملی‌گلد'],
   },
   {
     id: 'blubank',

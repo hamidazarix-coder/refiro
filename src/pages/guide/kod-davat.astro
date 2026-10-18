@@ -1,0 +1,157 @@
+---
+import '../../styles/global.css';
+
+const title = 'کد دعوت و کد معرف چیست؟ راهنمای استفاده و دریافت هدیه | رفیرو';
+const description = 'راهنمای کاربردی کد دعوت و کد معرف: روش واردکردن کد هنگام ثبت‌نام، علت پذیرفته‌نشدن کد، بررسی شرایط هدیه و نکات امنیتی.';
+const canonical = 'https://refiro.ir/guide/kod-davat/';
+---
+
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#101110" />
+  <link rel="canonical" href={canonical} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta property="og:locale" content="fa_IR" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="رفیرو" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <title>{title}</title>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": title,
+    "url": canonical,
+    "description": description,
+    "inLanguage": "fa-IR",
+    "isPartOf": { "@type": "WebSite", "name": "رفیرو", "url": "https://refiro.ir/" }
+  })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "صفحه اصلی", "item": "https://refiro.ir/" },
+      { "@type": "ListItem", "position": 2, "name": "راهنمای کد دعوت و کد معرف", "item": canonical }
+    ]
+  })} />
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="/">refiro</a>
+      <nav aria-label="ناوبری اصلی">
+        <a class="codes-nav-link" href="/codes/">همه کدهای معرف</a>
+        <a class="codes-nav-link" href="/">صفحه اصلی</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap result guide-page">
+    <nav class="breadcrumbs" aria-label="مسیر صفحه">
+      <a href="/">صفحه اصلی</a><span aria-hidden="true">/</span>
+      <span aria-current="page">راهنمای کد دعوت و کد معرف</span>
+    </nav>
+    <article class="guide-article">
+      <p class="eyebrow">راهنمای رفیرو</p>
+      <h1 class="page-title">کد دعوت و کد معرف چیست؟</h1>
+      <p class="page-desc">اگر می‌خواهی از کد دعوت یک اپلیکیشن یا سایت استفاده کنی، این راهنما کمک می‌کند کد را در جای درست وارد کنی، شرایط هدیه را بفهمی و از لینک‌های نامطمئن دور بمانی.</p>
+
+      <nav class="guide-toc" aria-label="فهرست مطالب">
+        <strong>در این راهنما</strong>
+        <a href="#meaning">کد دعوت و کد معرف چه معنایی دارند؟</a>
+        <a href="#steps">روش استفاده از کد دعوت</a>
+        <a href="#errors">چرا کد پذیرفته نمی‌شود؟</a>
+        <a href="#reward">شرایط هدیه و پاداش</a>
+        <a href="#security">نکات امنیتی</a>
+      </nav>
+
+      <section class="seo-content" aria-labelledby="meaning">
+        <h2 id="meaning">کد دعوت و کد معرف چه معنایی دارند؟</h2>
+        <p>کد دعوت یا کد معرف معمولاً شناسه‌ای است که یک کاربر یا کمپین از آن برای معرفی افراد جدید به یک سرویس استفاده می‌کند. بعضی پلتفرم‌ها برای دعوت موفق هدیه نقدی، اعتبار یا مقدار مشخصی طلا اعلام می‌کنند؛ بعضی سرویس‌ها هم ممکن است پاداشی نداشته باشند. اصطلاح و سازوکار دقیق به قوانین همان پلتفرم بستگی دارد.</p>
+        <p>در رفیرو کدها و لینک‌های مربوط به چند پلتفرم را کنار هم می‌بینی تا پیدا کردنشان آسان‌تر باشد. رفیرو مستقل از سرویس‌های معرفی‌شده است؛ بنابراین برای تصمیم نهایی، همیشه شرایط نمایش‌داده‌شده در منبع رسمی را ملاک قرار بده.</p>
+      </section>
+
+      <section class="seo-content" aria-labelledby="steps">
+        <h2 id="steps">چطور از کد دعوت استفاده کنم؟</h2>
+        <ol>
+          <li>نام سرویس را در <a href="/codes/">فهرست کدهای دعوت و معرف</a> پیدا کن.</li>
+          <li>کد را کپی کن و صفحه جزئیات همان پلتفرم را باز کن.</li>
+          <li>با لینک رسمی وارد شو؛ آدرس وب‌سایت را بررسی کن و از صفحه‌های مشابه و ناشناس دوری کن.</li>
+          <li>در جریان ثبت‌نام، اگر قسمت «کد دعوت» یا «کد معرف» نمایش داده شد، کد را همان‌طور که نوشته شده وارد کن.</li>
+          <li>قبل از پایان ثبت‌نام، قوانین کمپین، شرایط واجدشرایط‌بودن و زمان احتمالی ثبت پاداش را بخوان.</li>
+          <li>پس از ثبت‌نام، وضعیت پاداش را فقط از داخل حساب یا پشتیبانی رسمی سرویس پیگیری کن.</li>
+        </ol>
+      </section>
+
+      <section class="seo-content" aria-labelledby="errors">
+        <h2 id="errors">چرا کد معرف کار نمی‌کند؟</h2>
+        <p>اگر کد دعوت پذیرفته نشد، لزوماً به معنی اشتباه‌بودن کد نیست. ممکن است کمپین پایان یافته باشد، کد فقط برای گروه خاصی از کاربران معتبر باشد، ثبت‌نام قبلاً شروع یا تکمیل شده باشد، یا کد با فاصله و حروف نادرست وارد شده باشد. این موارد در همه سرویس‌ها یکسان نیستند؛ متن پیام خطا و راهنمای همان پلتفرم را بررسی کن.</p>
+        <p>برای جلوگیری از خطای تایپی، کد را مستقیم از رفیرو کپی کن. اگر همچنان خطا می‌بینی، چند بار حساب نساز و اطلاعات نادرست وارد نکن؛ از راهنمای رسمی یا پشتیبانی همان سرویس کمک بگیر.</p>
+      </section>
+
+      <section class="seo-content" aria-labelledby="reward">
+        <h2 id="reward">آیا هدیه نقدی یا طلای معرفی قطعی است؟</h2>
+        <p>خیر؛ نمایش کد دعوت به‌تنهایی تضمین نمی‌کند که پاداش به هر کاربر تعلق بگیرد. ارزش هدیه، مدت کمپین، محدودیت‌های حساب، مراحل لازم و زمان پرداخت ممکن است تغییر کند. به‌ویژه اگر در عنوان یا تبلیغ مبلغی مثل هدیه نقدی یا چند سوت طلا ذکر شده، پیش از ثبت‌نام شرایط جاری را در منبع رسمی سرویس بخوان.</p>
+        <p>رفیرو جایگزین قوانین پلتفرم نیست. در صورت تفاوت میان اطلاعات این راهنما و شرایط فعلی سرویس، اطلاعات رسمی و جدیدتر پلتفرم را ملاک قرار بده.</p>
+      </section>
+
+      <section class="seo-content" aria-labelledby="security">
+        <h2 id="security">نکات امنیتی هنگام استفاده از کد دعوت</h2>
+        <ul>
+          <li>برای ثبت‌نام، از لینک رسمی سرویس استفاده کن و دامنه را بررسی کن.</li>
+          <li>برای گرفتن کد دعوت، رمز بانکی، رمز عبور، رمز یک‌بارمصرف یا اطلاعات محرمانه را به افراد دیگر نده.</li>
+          <li>فایل نصب یا برنامه را از منبع ناشناس دریافت نکن و برای دریافت هدیه، پول را به حساب اشخاص غیررسمی واریز نکن.</li>
+          <li>اگر درباره شرطی مطمئن نیستی، پیش از تکمیل فرایند از پشتیبانی رسمی سؤال کن.</li>
+        </ul>
+      </section>
+
+      <section class="seo-content" aria-labelledby="platform-links">
+        <h2 id="platform-links">کدهای دعوت پلتفرم‌ها در رفیرو</h2>
+        <p>از این صفحه‌ها می‌توانی کد و راهنمای هر سرویس را جداگانه بررسی کنی:</p>
+        <ul>
+          <li><a href="/taline/">کد دعوت و کد معرف طلاین</a></li>
+          <li><a href="/zarpin/">کد دعوت زرپین</a></li>
+          <li><a href="/melligold/">کد دعوت و کد معرف ملی گلد</a></li>
+          <li><a href="/blubank/">کد دعوت بلوبانک</a></li>
+          <li><a href="/wepod/">کد دعوت ویپاد</a></li>
+          <li><a href="/codes/">فهرست همه کدهای دعوت و معرف</a></li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap footer-inner">
+      <a class="footer-brand" href="/">refiro</a>
+      <span>راهنمای مستقل کدهای دعوت و کدهای معرف</span>
+      <a class="codes-nav-link" href="/codes/">همه کدها</a>
+    </div>
+  </footer>
+
+  <style>
+    .guide-page{max-width:760px;padding-top:22px;padding-bottom:60px}
+    .guide-article{line-height:2.1}
+    .guide-article .eyebrow{display:inline-flex;align-items:center;padding:5px 12px;border:1px solid #554728;border-radius:999px;background:#211e15;color:#e2bd63;font-size:12px}
+    .guide-article .page-title{margin:14px 0 8px;font-size:clamp(28px,5vw,38px);line-height:1.6}
+    .guide-article .page-desc{margin:0 0 22px;line-height:2.1}
+    .guide-toc{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin:24px 0;padding:18px;border:1px solid #34352e;border-radius:14px;background:#191a17;font-size:13px}
+    .guide-toc strong{color:#e2bd63;margin-bottom:3px}
+    .guide-toc a{color:#d9bc79;text-decoration:none}
+    .guide-toc a:hover{text-decoration:underline}
+    .guide-article .seo-content{scroll-margin-top:18px}
+    .guide-article ol,.guide-article ul{margin:12px 0 0;padding-right:22px}
+    .guide-article li+li{margin-top:6px}
+    .guide-article .seo-content a{overflow-wrap:anywhere}
+    @media(max-width:480px){.guide-article .page-title{font-size:27px}.guide-toc{padding:15px}}
+  </style>
+</body>
+</html>

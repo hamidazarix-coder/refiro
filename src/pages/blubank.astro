@@ -2,8 +2,8 @@
 import '../styles/global.css';
 
 const code = 'SWHTAI';
-const title = 'کد دعوت بلوبانک (SWHTAI) و هدیه ۱۵۰ هزار تومانی | رفیرو';
-const description = 'با کد دعوت بلوبانک SWHTAI در رفیرو، برای دریافت هدیه نقدی ۱۵۰ هزار تومانی اقدام کن.';
+const title = 'کد دعوت بلوبانک SWHTAI و هدیه نقدی | رفیرو';
+const description = 'کد دعوت بلوبانک SWHTAI را کپی کن و راهنمای استفاده را ببین. مبلغ و شرایط هدیه نقدی را پیش از ثبت‌نام در منبع رسمی بررسی کن.';
 ---
 
 <!doctype html>
@@ -14,6 +14,17 @@ const description = 'با کد دعوت بلوبانک SWHTAI در رفیرو، 
   <meta name="description" content={description} />
   <meta name="theme-color" content="#101110" />
   <link rel="canonical" href="https://refiro.ir/blubank/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta property="og:locale" content="fa_IR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="رفیرو" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content="https://refiro.ir/blubank/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
   <title>{title}</title>
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -24,10 +35,23 @@ const description = 'با کد دعوت بلوبانک SWHTAI در رفیرو، 
     "inLanguage": "fa-IR",
     "isPartOf": { "@type": "WebSite", "name": "رفیرو", "url": "https://refiro.ir/" }
   })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "صفحه اصلی", "item": "https://refiro.ir/" },
+      { "@type": "ListItem", "position": 2, "name": "همه کدهای معرف", "item": "https://refiro.ir/codes/" },
+      { "@type": "ListItem", "position": 3, "name": "کد دعوت بلوبانک", "item": "https://refiro.ir/blubank/" }
+    ]
+  })} />
 </head>
 <body>
   <main class="wrap result">
-    <a class="back" href="/">→ برگشت به صفحه اصلی</a>
+    <nav class="breadcrumbs" aria-label="مسیر صفحه">
+      <a href="/">صفحه اصلی</a><span aria-hidden="true">/</span>
+      <a href="/codes/">همه کدهای معرف</a><span aria-hidden="true">/</span>
+      <span aria-current="page">کد دعوت بلوبانک</span>
+    </nav>
     <h1 class="page-title">کد دعوت بلوبانک</h1>
     <p class="page-desc">کد دعوت را کپی کن و هنگام ثبت‌نام در بلوبانک در بخش کد معرف وارد کن.</p>
 
@@ -65,6 +89,14 @@ const description = 'با کد دعوت بلوبانک SWHTAI در رفیرو، 
       <p class="note">رفیرو یک راهنمای مستقل است و وابستگی رسمی به بلوبانک ندارد. مبلغ و شرایط هدیه ممکن است تغییر کند؛ پیش از ثبت‌نام، شرایط روز طرح را در کانال رسمی بررسی کن.</p>
     </article>
 
+    <section class="seo-content" aria-labelledby="blubank-info-title">
+      <h2 id="blubank-info-title">کد دعوت بلوبانک SWHTAI را کجا وارد کنم؟</h2>
+      <p>کد SWHTAI را کپی کن و فرایند افتتاح حساب را از وب‌سایت رسمی بلوبانک آغاز کن. اگر در روند ثبت‌نام فیلد کد معرف نمایش داده شد، کد را پیش از تکمیل مراحل وارد کن و پیام تأیید را بررسی کن.</p>
+      <h2>هدیه نقدی بلوبانک و شرایط آن</h2>
+      <p>مبالغ تبلیغاتی یا شرایط معرفی ممکن است تغییر کنند و دریافت هدیه لزوماً برای همه حساب‌ها یکسان نیست. پیش از افتتاح حساب، مبلغ و ضوابط معتبر را در منبع رسمی بلوبانک بخوان؛ رفیرو یک راهنمای مستقل است و تصمیم نهایی بر اساس شرایط خود سرویس انجام می‌شود.</p>
+      <h2>اگر کد معرف بلوبانک کار نکرد چه کنم؟</h2>
+      <p>کد را از روی همین صفحه دوباره کپی کن، حروف را تغییر نده و شرایط طرح را بررسی کن. رمز یک‌بارمصرف، رمز بانکی یا اطلاعات حساس را برای دریافت کد دعوت در اختیار افراد دیگر قرار نده.</p>
+    </section>
     <section class="related-pages" aria-label="کدهای معرف مرتبط">
       <h2>سایر کدهای معرف در رفیرو</h2>
       <nav aria-label="صفحات مرتبط">
