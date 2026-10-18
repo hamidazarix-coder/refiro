@@ -1,5 +1,8 @@
 ---
 import '../styles/global.css';
+import { platforms } from '../data/platforms.js';
+
+const platform = platforms.find((item) => item.id === 'melligold');
 
 const code = 'MGP2yzf9e74n';
 const referralUrl = 'https://melligold.com/pwa/account/?ref=MGP2yzf9e74n';
@@ -39,7 +42,7 @@ const description = 'کد معرف ملی گلد را ببین، کپی کن و 
     <article class="card">
       <div class="card-head">
         <div class="platform">
-          <span class="mark">م</span>
+          <img class="mark" src={platform.image} alt="لوگوی ملی گلد" />
           <span>ملی گلد</span>
         </div>
         <span class="status">کد معرف</span>
@@ -214,7 +217,8 @@ const description = 'کد معرف ملی گلد را ببین، کپی کن و 
   }
 
 
-</style>
+    .mark { object-fit: contain; padding: 4px; flex: 0 0 42px; }
+  </style>
 
   <script>
     const copyButton = document.querySelector('#copyCode');
