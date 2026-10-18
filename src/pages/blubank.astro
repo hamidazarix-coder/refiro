@@ -134,6 +134,50 @@ const description = 'کد دعوت بلوبانک SWHTAI را کپی کن و ر�
     .related-pages nav { display:flex; flex-wrap:wrap; gap:.7rem; }
     .related-pages nav a { color:#e2bd63; text-decoration:none; }
     @media(max-width:480px) { .card { padding:16px; } .code { font-size:19px; } }
+  
+    /* Coupon-detail layout inspired by the reference page */
+    .result { width: min(820px, calc(100% - 32px)); padding-top: 22px; }
+    .breadcrumbs { margin-bottom: 24px; }
+    .intro { margin: 0 0 22px; padding: 22px 24px; border: 1px solid #38372e; border-radius: 18px; background: linear-gradient(125deg, #211f17, #171814); }
+    .page-title { margin: 0 0 7px; font-size: clamp(25px, 4vw, 34px); line-height: 1.65; }
+    .page-desc { margin: 0; max-width: 650px; line-height: 2.1; }
+    .card { position: relative; overflow: hidden; padding: 0; border: 1px solid #5a4a2b; border-radius: 20px; background: #171814; box-shadow: 0 18px 48px #0000002b; }
+    .card-head { margin: 0; padding: 22px 24px; border-bottom: 1px solid #38372e; background: linear-gradient(110deg, #242116, #191a16); }
+    .platform { gap: 13px; }
+    .platform-name { color: #f4f1e8; font-size: 19px; font-weight: 900; }
+    .platform-caption { margin-top: 2px; color: #aaa99f; font-size: 12px; }
+    .mark { width: 52px; height: 52px; flex: 0 0 52px; border: 1px solid #6a572b; border-radius: 15px; background: #fff; object-fit: contain; padding: 5px; }
+    .reward { position: relative; margin: 0; padding: 24px; border: 0; border-bottom: 1px dashed #62502b; border-radius: 0; background: radial-gradient(ellipse at top right, #302719, transparent 70%), #1d1c16; text-align: center; }
+    .reward::after, .reward::before { content: ""; position: absolute; bottom: -10px; width: 19px; height: 19px; border-radius: 50%; background: #101110; border: 1px solid #5a4a2b; }
+    .reward::before { right: -10px; border-right: 0; border-bottom: 0; }
+    .reward::after { left: -10px; border-left: 0; border-bottom: 0; }
+    .reward-amount { margin: 0; color: #f0cf7b; font-size: clamp(27px, 5vw, 36px); font-weight: 950; line-height: 1.6; }
+    .label { margin: 22px 24px 9px; font-size: 12px; font-weight: 700; }
+    .code-row { margin: 0 24px; padding: 13px 15px; border: 1px dashed #8c713a; border-radius: 12px; background: #10110f; }
+    .code { font-size: clamp(21px, 4vw, 27px); }
+    .copy { padding: 10px 15px; }
+    .copy-feedback { margin: 5px 24px 0; }
+    .primary { width: calc(100% - 48px); min-height: 52px; margin: 13px 24px 0; border-radius: 12px; font-size: 14px; }
+    .steps { margin: 23px 24px 0; padding-top: 20px; }
+    .steps h2 { font-size: 16px; }
+    .steps ol { font-size: 13px; }
+    .note, .disclaimer { margin: 22px 24px 0; padding: 15px 0 22px; border-top: 1px solid #30312c; }
+    .seo-content { margin-top: 24px; }
+    @media (max-width: 520px) {
+      .result { width: min(100% - 22px, 820px); padding-top: 16px; }
+      .intro { padding: 16px; margin-bottom: 15px; }
+      .card-head { padding: 17px 16px; }
+      .mark { width: 46px; height: 46px; flex-basis: 46px; }
+      .reward { padding: 21px 14px; }
+      .label { margin: 20px 16px 8px; }
+      .code-row { margin: 0 16px; padding: 10px; gap: 8px; }
+      .copy { padding: 8px 10px; font-size: 11px; }
+      .copy-feedback { margin-inline: 16px; }
+      .primary { width: calc(100% - 32px); margin-inline: 16px; font-size: 12px; }
+      .steps { margin-inline: 16px; }
+      .note, .disclaimer { margin-inline: 16px; }
+    }
+
   </style>
 
   <script>
