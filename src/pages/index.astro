@@ -108,7 +108,7 @@ const description = 'کد دعوت و کد معرف طلاین، زرپین، م
           >
             <div class="tile-top">
               {platform.image ? (
-              <img class="tile-logo" src={platform.image} alt={platform.name} />
+              <img class:list={['tile-logo', { 'tile-logo-wepod': platform.id === 'wepod' }]} src={platform.image} alt={platform.name} />
             ) : (
               <span class="tile-mark">{platform.mark}</span>
             )}
@@ -698,6 +698,7 @@ const description = 'کد دعوت و کد معرف طلاین، زرپین، م
       border-radius: 12px;
       background: #fff;
     }
+    .tile-logo-wepod { padding: 0; background: transparent; border-color: transparent; }
     .about h2 { font-weight: 900; }
     @media (max-width: 640px) {
       .tile-logo { width: 40px; height: 40px; }
