@@ -33,6 +33,17 @@ const description = 'فهرست کد دعوت و کد معرف طلاین، زر
     "url": "https://refiro.ir/codes/",
     "description": description,
     "inLanguage": "fa-IR",
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "numberOfItems": platforms.filter((platform) => platform.active).length,
+      "itemListElement": platforms.filter((platform) => platform.active).map((platform, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "name": `کد دعوت ${platform.name}`,
+        "url": `https://refiro.ir${platform.href}`
+      }))
+    },
     "isPartOf": { "@type": "WebSite", "name": "رفیرو", "url": "https://refiro.ir/" }
   })} />
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -59,7 +70,7 @@ const description = 'فهرست کد دعوت و کد معرف طلاین، زر
     <span class="eyebrow">فهرست کدهای دعوت</span>
     <h1 class="page-title">همه کدهای معرف</h1>
     <p class="page-desc">پلتفرم موردنظرت رو پیدا کن، کد دعوت یا کد معرف رو کپی کن و قبل از ثبت‌نام، شرایط طرح رو در منبع رسمی بررسی کن.</p>
-    <p class="directory-guide-link"><a href="/guide/kod-davat/">راهنمای کامل کد دعوت: روش استفاده، خطاهای رایج و نکات امنیتی ←</a></p>
+    <p class="directory-guide-link"><a href="/guide/kod-davat/">راهنمای کامل کد دعوت: روش استفاده، خطاهای رایج و نکات امنیتی ←</a> · <a href="/about/">روش بررسی کدها در رفیرو</a></p>
 
     <label class="search-box">
       <span class="sr-only">جست‌وجو در کدها</span>
@@ -98,7 +109,14 @@ const description = 'فهرست کد دعوت و کد معرف طلاین، زر
   </main>
 
   <footer class="foot">
-    <div class="wrap"><a href="/">رفیرو</a> · راهنمای کدهای معرف</div>
+    <div class="wrap footer-inner">
+      <a class="footer-brand" href="/">refiro</a>
+      <nav class="footer-links" aria-label="پیوندهای تکمیلی">
+        <a href="/codes/">همه کدها</a>
+        <a href="/guide/kod-davat/">راهنمای کد دعوت</a>
+        <a href="/about/">درباره رفیرو</a>
+      </nav>
+    </div>
   </footer>
 
   <style>
@@ -122,6 +140,11 @@ const description = 'فهرست کد دعوت و کد معرف طلاین، زر
     .details-link { color: #d9bc79; text-decoration: none; font-size: .88rem; }
     .disclaimer { margin-top: 28px; color: #989a92; font-size: .85rem; line-height: 2; }
     .foot a { color: #d9bc79; text-decoration: none; }
+    .footer-inner { display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+    .footer-brand { color:#e2bd63; font-size:20px; font-weight:950; text-decoration:none; direction:ltr; }
+    .footer-links { display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
+    .footer-links a { font-size:12px; }
+    @media(max-width:480px) { .footer-inner { justify-content:center; } }
     .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
     [hidden] { display: none !important; }
     @media (max-width: 420px) { .actions { align-items: stretch; flex-direction: column; } .details-link { padding: 8px; text-align: center; } }
