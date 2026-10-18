@@ -1,0 +1,128 @@
+---
+import '../../styles/global.css';
+
+const title = 'درباره رفیرو | روش بررسی کدهای دعوت و معرف';
+const description = 'با رفیرو آشنا شو: فهرست مستقل کدهای دعوت و معرف، روش نمایش کدها، محدودیت اطلاعات پاداش و نکات بررسی شرایط در منبع رسمی.';
+const canonical = 'https://refiro.ir/about/';
+---
+
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#101110" />
+  <link rel="canonical" href={canonical} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta property="og:locale" content="fa_IR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="رفیرو" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <title>{title}</title>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": canonical + "#about",
+    "name": title,
+    "url": canonical,
+    "description": description,
+    "inLanguage": "fa-IR",
+    "isPartOf": { "@type": "WebSite", "@id": "https://refiro.ir/#website", "name": "رفیرو", "url": "https://refiro.ir/" },
+    "about": { "@type": "Organization", "@id": "https://refiro.ir/#organization", "name": "رفیرو", "url": "https://refiro.ir/" }
+  })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "صفحه اصلی", "item": "https://refiro.ir/" },
+      { "@type": "ListItem", "position": 2, "name": "درباره رفیرو و روش بررسی کدها", "item": canonical }
+    ]
+  })} />
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="/">refiro</a>
+      <nav class="header-links" aria-label="ناوبری اصلی">
+        <a href="/codes/">همه کدها</a>
+        <a href="/guide/kod-davat/">راهنمای کد دعوت</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap about-page">
+    <nav class="breadcrumbs" aria-label="مسیر صفحه">
+      <a href="/">صفحه اصلی</a><span aria-hidden="true">/</span>
+      <span aria-current="page">درباره رفیرو</span>
+    </nav>
+
+    <article>
+      <p class="eyebrow">درباره رفیرو</p>
+      <h1 class="page-title">رفیرو چیست و کدهای دعوت چگونه بررسی می‌شوند؟</h1>
+      <p class="page-desc">رفیرو یک راهنمای مستقل برای پیدا کردن کد دعوت و کد معرف سرویس‌های مختلف است. هدف این است که کد و مسیر ورود به صفحه مربوط را راحت‌تر پیدا کنی و پیش از ثبت‌نام، شرایط را از خود سرویس بررسی کنی.</p>
+
+      <section class="seo-content" aria-labelledby="purpose">
+        <h2 id="purpose">رفیرو چه کاری انجام می‌دهد؟</h2>
+        <p>در فهرست رفیرو می‌توانی کد دعوت پلتفرم‌هایی مانند طلاین، زرپین، ملی گلد، بلوبانک و ویپاد را پیدا کنی. در صفحه هر سرویس، کد معرفی و راهنمای استفاده در کنار لینک مربوط قرار می‌گیرد تا لازم نباشد همه اطلاعات را از ابتدا جست‌وجو کنی.</p>
+        <p><a href="/codes/">مشاهده فهرست همه کدهای دعوت و معرف</a></p>
+      </section>
+
+      <section class="seo-content" aria-labelledby="method">
+        <h2 id="method">روش بررسی کدها و شرایط هدیه</h2>
+        <ul>
+          <li>کد دعوت و لینک مربوط به هر سرویس در صفحه اختصاصی همان سرویس نمایش داده می‌شود.</li>
+          <li>کد دعوت، لینک ثبت‌نام و پیشنهاد هدیه سه موضوع جدا هستند؛ وجود کد به معنی تضمین فعال‌بودن کمپین یا دریافت پاداش نیست.</li>
+          <li>مبلغ هدیه، شرایط واجدشرایط‌بودن، زمان کمپین و مراحل دریافت آن ممکن است تغییر کنند. پیش از ثبت‌نام، شرایط جاری را در وب‌سایت یا برنامه رسمی همان سرویس بخوان.</li>
+          <li>اگر اطلاعات صفحه با شرایط رسمی و جدیدتر سرویس تفاوت داشت، منبع رسمی و جدیدتر را ملاک قرار بده.</li>
+        </ul>
+      </section>
+
+      <section class="seo-content" aria-labelledby="independence">
+        <h2 id="independence">آیا رفیرو سایت رسمی این سرویس‌هاست؟</h2>
+        <p>خیر. رفیرو یک راهنمای مستقل است و نباید آن را وب‌سایت رسمی طلاین، زرپین، ملی گلد، بلوبانک، ویپاد یا سرویس‌های دیگر دانست. ثبت‌نام، احراز هویت و دریافت پاداش در اختیار خود سرویس است و تابع شرایط اعلام‌شده از سوی آن خواهد بود.</p>
+      </section>
+
+      <section class="seo-content" aria-labelledby="safety">
+        <h2 id="safety">نکات امنیتی</h2>
+        <p>برای ثبت‌نام از لینک رسمی استفاده کن و دامنه را بررسی کن. رفیرو برای نمایش کد دعوت به رمز عبور، رمز بانکی یا رمز یک‌بارمصرف تو نیازی ندارد؛ چنین اطلاعاتی را در اختیار افراد یا صفحه‌های ناشناس قرار نده.</p>
+        <p>برای راهنمای بیشتر، صفحه <a href="/guide/kod-davat/">روش استفاده از کد دعوت و خطاهای رایج</a> را بخوان.</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap footer-inner">
+      <a class="footer-brand" href="/">refiro</a>
+      <nav class="footer-links" aria-label="پیوندهای تکمیلی">
+        <a href="/codes/">همه کدها</a>
+        <a href="/guide/kod-davat/">راهنمای کد دعوت</a>
+        <a href="/about/" aria-current="page">درباره رفیرو</a>
+      </nav>
+    </div>
+  </footer>
+
+  <style>
+    .about-page { max-width: 760px; padding: 26px 0 58px; }
+    .header-links,.footer-links { display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
+    .header-links a,.footer-links a { color:#d9bc79; text-decoration:none; font-size:12px; }
+    .header-links a:hover,.footer-links a:hover { text-decoration:underline; text-underline-offset:3px; }
+    .about-page .eyebrow { display:inline-flex; padding:5px 12px; border:1px solid #554728; border-radius:999px; background:#211e15; color:#e2bd63; font-size:12px; }
+    .about-page .page-title { margin:14px 0 8px; font-size:clamp(28px,5vw,38px); line-height:1.7; }
+    .about-page .page-desc { color:#aaa99f; line-height:2.15; margin:0 0 22px; }
+    .about-page .seo-content { scroll-margin-top:20px; }
+    .about-page ul { margin:10px 0 0; padding-right:22px; }
+    .about-page li { color:#c1c0b6; font-size:13px; line-height:2.15; }
+    .about-page li+li { margin-top:7px; }
+    .footer-inner { min-height:75px; display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+    .footer-brand { color:#e2bd63; font-size:20px; font-weight:950; text-decoration:none; direction:ltr; }
+    @media(max-width:480px) { .about-page .page-title { font-size:27px; } .footer-inner { padding:14px 0; } }
+  </style>
+</body>
+</html>
