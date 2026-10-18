@@ -1,5 +1,8 @@
 ---
 import '../styles/global.css';
+import { platforms } from '../data/platforms.js';
+
+const platform = platforms.find((item) => item.id === 'taline');
 
 const code = 'WEJYQXL';
 const referralUrl = 'https://my.tlyn.ir/register?referral=WEJYQXL';
@@ -42,7 +45,7 @@ const description = 'کد دعوت طلاین و کد معرف طلاین را �
     <article class="card">
       <div class="card-head">
         <div class="platform">
-          <span class="mark">ط</span>
+          <img class="mark" src={platform.image} alt="لوگوی طلاین" />
           <div>
             <div class="platform-name">طلاین</div>
             <div class="platform-caption">کد معرف اختصاصی</div>
@@ -223,6 +226,9 @@ const description = 'کد دعوت طلاین و کد معرف طلاین را �
       color: #f0cf7b;
       font-size: 23px;
       font-weight: 900;
+      object-fit: contain;
+      padding: 4px;
+      
     }
 
     .platform-name {
