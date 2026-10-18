@@ -17,3 +17,8 @@
 .faq-heading{width:100%;margin:0 0 6px;color:#e2bd63;font-size:1.2rem;line-height:1.9}
 .directory-guide-link{margin:-12px 0 22px;font-size:13px;line-height:2}
 @media(max-width:480px){.seo-content{padding:16px}.breadcrumbs{gap:.35rem}}
+
+/* Keep Refiro branding prominent and consistently capitalized site-wide */
+.brand,.footer-brand{text-transform:capitalize}
+.brand{font-size:30px!important}
+.footer-brand{font-size:26px!important;font-weight:950}
