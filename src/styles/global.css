@@ -310,3 +310,45 @@
   .result .note, .result .disclaimer { margin-inline: 16px; }
   .result .related-pages { padding: 15px; }
 }
+
+
+/* Final shared sizing: make all platform detail pages use the same coupon-page proportions. */
+main.result {
+  width: min(850px, calc(100% - 32px));
+  max-width: 850px !important;
+  margin-inline: auto;
+}
+main.result > .intro {
+  display: block;
+  margin: 0 0 20px;
+  padding: 23px 25px;
+  border: 1px solid #39372e;
+  border-radius: 17px;
+  background: linear-gradient(125deg, #211f17 0%, #171814 76%);
+}
+main.result > .intro .page-title {
+  margin: 0 0 5px;
+  color: #f4f1e8;
+  font-size: clamp(25px, 4vw, 34px);
+  font-weight: 950;
+  line-height: 1.65;
+}
+main.result > .intro .page-desc {
+  max-width: 680px;
+  margin: 0;
+  color: #aaa99f;
+  font-size: 13px;
+  line-height: 2;
+}
+main.result > .card {
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #5a4a2b;
+  border-radius: 19px;
+  background: #171814;
+  box-shadow: 0 18px 48px #00000030;
+}
+@media (max-width: 520px) {
+  main.result { width: calc(100% - 22px); }
+  main.result > .intro { padding: 16px; margin-bottom: 15px; }
+}
