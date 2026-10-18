@@ -50,7 +50,7 @@ export const platforms = [
     id: 'wepod',
     name: 'ویپاد',
     mark: 'وی',
-    image: 'https://www.google.com/s2/favicons?domain=wepod.ir&sz=256',
+    image: 'https://pbs.twimg.com/profile_images/1326298080765992961/ZcYLyoyz.jpg',
     href: '/wepod/',
     active: true,
     code: 'KZ31LK',
