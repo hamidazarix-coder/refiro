@@ -1,5 +1,8 @@
 ---
 import '../styles/global.css';
+import { platforms } from '../data/platforms.js';
+
+const platform = platforms.find((item) => item.id === 'zarpin');
 
 const code = 'ZQY2DC6K';
 const referralUrl = 'https://zarpin.com/auth/login/?referralCode=ZQY2DC6K';
@@ -42,7 +45,7 @@ const description = 'کد دعوت زرپین را در رفیرو ببینید 
     <article class="card">
       <div class="card-head">
         <div class="platform">
-          <span class="mark">ز</span>
+          <img class="mark" src={platform.image} alt="لوگوی زرپین" />
           <div>
             <div class="platform-name">زرپین</div>
             <div class="platform-caption">کد معرف</div>
@@ -195,6 +198,9 @@ const description = 'کد دعوت زرپین را در رفیرو ببینید 
       color: #f0cf7b;
       font-size: 23px;
       font-weight: 900;
+      object-fit: contain;
+      padding: 4px;
+      
     }
 
     .platform-name {
