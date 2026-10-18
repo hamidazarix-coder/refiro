@@ -50,7 +50,7 @@ export const platforms = [
     id: 'wepod',
     name: 'ویپاد',
     mark: 'وی',
-    image: 'data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Crect width='128' height='128' rx='28' fill='%230d6f91'/%3E%3Cpath d='M23 37h18l13 38 12-28h14l12 28 13-38h18L101 96H84L73 67 61 96H44z' fill='white'/%3E%3C/svg%3E',
+    image: 'data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox='0 0 128 128'%3E%3Crect width='128' height='128' rx='28' fill='%230d6f91'/%3E%3Cpath d='M23 37h18l13 38 12-28h14l12 28 13-38h18L101 96H84L73 67 61 96H44z' fill='white'/%3E%3C/svg%3E',
     href: '/wepod/',
     active: true,
     code: 'KZ31LK',
