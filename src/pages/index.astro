@@ -13,7 +13,15 @@ const activePlatforms = platforms.filter((platform) => platform.active);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content={description} />
-  <meta name="theme-color" content="#101110" />
+  <meta name="theme-color" content="#f8f7f2" />
+  <script is:inline>
+    (() => {
+      try {
+        const saved = localStorage.getItem('refiro-theme');
+        document.documentElement.dataset.theme = saved === 'dark' ? 'dark' : 'light';
+      } catch { document.documentElement.dataset.theme = 'light'; }
+    })();
+  </script>
   <link rel="canonical" href="https://refiro.ir/" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
   <link rel="preload" href="/fonts/iranian-sans.ttf" as="font" type="font/ttf" crossorigin />
@@ -74,7 +82,7 @@ const activePlatforms = platforms.filter((platform) => platform.active);
         <a href="/codes/">همه کدها</a>
         <a href="/guide/kod-davat/">راهنمای استفاده</a>
       </nav>
-      <a class="header-cta" href="#searchForm">پیدا کردن کد <span aria-hidden="true">←</span></a>
+      <div class="header-actions"><button class="theme-toggle" id="themeToggle" type="button" aria-label="فعال‌کردن حالت تاریک" title="حالت تاریک"><svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg><svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.9 13A8.5 8.5 0 0 1 11 3.1 8.5 8.5 0 1 0 20.9 13Z"></path></svg></button><a class="header-cta" href="#searchForm">پیدا کردن کد <span aria-hidden="true">←</span></a></div>
     </div>
   </header>
 
@@ -341,11 +349,68 @@ const activePlatforms = platforms.filter((platform) => platform.active);
     @media(max-width:900px){.site-header-inner{gap:15px}.site-nav a{padding-inline:8px}.hero{gap:30px}.how-inner{grid-template-columns:1fr;gap:28px}.how-intro h2,.how-intro>p{max-width:650px}.steps-grid{gap:14px}}
     @media(max-width:700px){:global(.wrap){width:calc(100% - 28px)}.announcement{font-size:10px}.site-header-inner{width:calc(100% - 28px);min-height:68px;flex-wrap:wrap;gap:8px 12px;padding:11px 0}.site-brand-mark{width:33px;height:33px;border-radius:10px;font-size:20px}.site-brand-word{font-size:21px}.site-nav{order:3;flex:0 0 100%;justify-content:flex-start;overflow-x:auto;padding-bottom:1px}.site-nav a{padding:7px 10px;font-size:11px}.header-cta{margin-right:auto;padding:8px 10px;font-size:10px}.hero{grid-template-columns:1fr;gap:12px;padding-top:46px;padding-bottom:53px}.hero h1{font-size:clamp(33px,8vw,46px)}.hero-description{font-size:13px}.hero-art{min-height:300px;max-width:460px;width:100%;margin:0 auto}.invite-card{width:min(78%,355px);padding:20px}.chip-top{right:0;top:12px}.chip-bottom{left:0;bottom:11px}.floating-chip{padding:10px 12px}.platform-section{padding-bottom:58px}.section-heading{align-items:flex-start}.platform-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.platform-card{padding:15px;border-radius:15px}.platform-logo{width:42px;height:42px;border-radius:12px}.platform-card h3{font-size:14px}.platform-card-desc{min-height:62px;font-size:11px}.reward-value{font-size:11px}.how-section{padding:54px 0}.steps-grid{grid-template-columns:1fr;gap:10px}.step-card{display:grid;grid-template-columns:42px 1fr;column-gap:13px;padding:16px}.step-icon{grid-row:1 / span 2;margin:0}.step-card h3{align-self:end}.step-card p{grid-column:2}.step-number{top:10px;left:12px}.benefits-section{padding-top:56px;padding-bottom:58px}.benefits-grid{gap:10px}.benefit-item{gap:10px;padding:14px}.benefit-icon{width:34px;height:34px;flex-basis:34px;font-size:17px}.benefit-item h3{font-size:12px}.benefit-item p{font-size:11px}.faq-section{padding-bottom:58px}.footer-main{grid-template-columns:1fr 1fr;gap:30px 20px;padding-top:32px}.footer-about{grid-column:1/-1}.footer-bottom-inner{align-items:flex-start;flex-direction:column;justify-content:center;gap:4px;padding-top:12px;padding-bottom:12px}}
     @media(max-width:390px){.platform-grid{grid-template-columns:1fr}.platform-card-desc{min-height:0}.section-heading{gap:10px}.section-heading h2{font-size:21px}.section-link{font-size:11px}.search{gap:4px}.search-icon{padding-inline:4px}.search button{padding:10px 11px;font-size:11px}.hero-trust{gap:9px}.hero-trust span{font-size:10px}.benefits-grid{grid-template-columns:1fr}.floating-chip b{font-size:10px}.floating-chip small{font-size:9px}}
-    @media(prefers-reduced-motion:reduce){:global(html){scroll-behavior:auto}.platform-card,.header-cta,.faq-list summary span{transition:none}.platform-card:hover,.header-cta:hover{transform:none}}
+    .header-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}.theme-toggle{width:40px;height:40px;display:grid;place-items:center;border:1px solid #454235;border-radius:12px;background:#191a17;color:#e2bd63;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}.theme-toggle:hover{transform:translateY(-1px);border-color:#b79a52}.theme-toggle svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.moon-icon{display:none}
+    :global(html[data-theme="light"] body){background:#f8f7f2;color:#24251f}
+    :global(html[data-theme="light"] .announcement){background:#f3eddd;border-color:#e5dcc5;color:#74602d}
+    :global(html[data-theme="light"] .announcement a){color:#8b6a1c}
+    :global(html[data-theme="light"] .site-header){background:#ffffffed;border-color:#e8e5dc}
+    :global(html[data-theme="light"] .site-nav a){color:#5e6057}
+    :global(html[data-theme="light"] .site-nav a:hover),:global(html[data-theme="light"] .site-nav a[aria-current=page]){background:#f6f0df;color:#8b6a1c}
+    :global(html[data-theme="light"] .theme-toggle){background:#fff;border-color:#e0dccf;color:#9a741c}
+    :global(html[data-theme="light"] .theme-toggle .sun-icon){display:none}
+    :global(html[data-theme="light"] .theme-toggle .moon-icon){display:block}
+    :global(html[data-theme="light"] .eyebrow){background:#fffaf0;border-color:#e6d7b1;color:#8b6a1c}
+    :global(html[data-theme="light"] .hero h1),:global(html[data-theme="light"] .section-heading h2),:global(html[data-theme="light"] .how-intro h2),:global(html[data-theme="light"] .faq-heading h2){color:#25261f}
+    :global(html[data-theme="light"] .hero-description),:global(html[data-theme="light"] .section-heading p),:global(html[data-theme="light"] .how-intro>p){color:#696b61}
+    :global(html[data-theme="light"] .search){background:#fff;border-color:#e1ded4;box-shadow:0 12px 34px #3b32100b}
+    :global(html[data-theme="light"] .search input){color:#24251f}
+    :global(html[data-theme="light"] .search input::placeholder){color:#999a90}
+    :global(html[data-theme="light"] .search-hint),:global(html[data-theme="light"] .hero-trust span){color:#73756b}
+    :global(html[data-theme="light"] .trust-check){border-color:#c6e3d0;color:#20844a}
+    :global(html[data-theme="light"] .art-glow){background:#d8b45d36}
+    :global(html[data-theme="light"] .invite-card){background:linear-gradient(145deg,#fffdf7,#f1eddf 70%);border-color:#e0d1a9;box-shadow:0 28px 70px #6a54141a}
+    :global(html[data-theme="light"] .invite-card-head){border-color:#e7e1d2}
+    :global(html[data-theme="light"] .invite-card-label),:global(html[data-theme="light"] .invite-card-bottom){color:#696b61}
+    :global(html[data-theme="light"] .floating-chip){background:#ffffffed;border-color:#e5e0d3;box-shadow:0 15px 35px #3b32100e}
+    :global(html[data-theme="light"] .floating-chip b){color:#303127}
+    :global(html[data-theme="light"] .floating-chip small){color:#797a70}
+    :global(html[data-theme="light"] .platform-card){background:linear-gradient(150deg,#fff,#f7f6f0 80%);border-color:#e6e3d9;box-shadow:0 8px 24px #3b321008}
+    :global(html[data-theme="light"] .platform-card:hover){border-color:#d5bb77;box-shadow:0 16px 35px #3b321012}
+    :global(html[data-theme="light"] .platform-card h3){color:#282920}
+    :global(html[data-theme="light"] .platform-card-desc){color:#6e7066}
+    :global(html[data-theme="light"] .platform-card-bottom){border-color:#e6e3d9}
+    :global(html[data-theme="light"] .reward-label){color:#7c7d73}
+    :global(html[data-theme="light"] .card-action){border-color:#e6e3d9}
+    :global(html[data-theme="light"] .all-platforms-cta a){border-color:#e0d2ac}
+    :global(html[data-theme="light"] .all-platforms-cta a:hover){background:#fbf6e9}
+    :global(html[data-theme="light"] .how-section){background:linear-gradient(115deg,#f1eddf,#f8f7f2 50%,#f0ecde);border-color:#e5e1d6}
+    :global(html[data-theme="light"] .step-card),:global(html[data-theme="light"] .benefit-item),:global(html[data-theme="light"] .faq-list){background:#fff;border-color:#e5e2d9}
+    :global(html[data-theme="light"] .step-card h3),:global(html[data-theme="light"] .benefit-item h3),:global(html[data-theme="light"] .faq-list summary){color:#2c2d25}
+    :global(html[data-theme="light"] .step-card p),:global(html[data-theme="light"] .benefit-item p),:global(html[data-theme="light"] .faq-list details p){color:#6d6f65}
+    :global(html[data-theme="light"] .faq-list details+details){border-color:#e8e5dc}
+    :global(html[data-theme="light"] .site-footer){background:#efeee7;border-color:#e0ded4}
+    :global(html[data-theme="light"] .footer-about p),:global(html[data-theme="light"] .footer-column a){color:#6d6f65}
+    :global(html[data-theme="light"] .footer-column h2){color:#303127}
+    :global(html[data-theme="light"] .footer-bottom){border-color:#deddd4}
+    :global(html[data-theme="light"] .footer-bottom-inner){color:#73756b}
+    :global(html[data-theme="dark"] .theme-toggle .sun-icon){display:block}
+    :global(html[data-theme="dark"] .theme-toggle .moon-icon){display:none}
+    @media(max-width:700px){.header-actions{margin-right:auto;gap:7px}.theme-toggle{width:35px;height:35px}.header-cta{margin-right:0}}
+    @media(prefers-reduced-motion:reduce){:global(html){scroll-behavior:auto}.platform-card,.header-cta,.faq-list summary span,.theme-toggle{transition:none}.platform-card:hover,.header-cta:hover,.theme-toggle:hover{transform:none}}
   </style>
 
   <script>
     import { platforms } from '../data/platforms.js';
+    const themeToggle = document.querySelector('#themeToggle');
+    const root = document.documentElement;
+    themeToggle?.addEventListener('click', () => {
+      const nextTheme = root.dataset.theme === 'light' ? 'dark' : 'light';
+      root.dataset.theme = nextTheme;
+      try { localStorage.setItem('refiro-theme', nextTheme); } catch {}
+      themeToggle.setAttribute('aria-label', nextTheme === 'light' ? 'فعال‌کردن حالت تاریک' : 'فعال‌کردن حالت روشن');
+      themeToggle.setAttribute('title', nextTheme === 'light' ? 'حالت تاریک' : 'حالت روشن');
+      document.querySelector('meta[name="theme-color"]')?.setAttribute('content', nextTheme === 'light' ? '#f8f7f2' : '#101110');
+    });
     const form = document.querySelector('#searchForm');
     const input = document.querySelector('#searchInput');
     const cards = [...document.querySelectorAll('.platform-card')];
