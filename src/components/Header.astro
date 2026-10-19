@@ -13,10 +13,13 @@
         <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
         <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z"></path></svg>
       </button>
-      <form class="header-search" id="searchForm" role="search" action="/" method="get" hidden>
-        <input id="searchInput" name="q" type="search" placeholder="نام پلتفرم را جست‌وجو کن..." aria-label="جست‌وجوی کد دعوت" autocomplete="off" />
-        <button type="submit" aria-label="جست‌وجو"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.1"></circle><path d="m16 16 5 5"></path></svg></button>
-      </form>
+      <div class="header-search-wrap" id="headerSearchWrap" hidden>
+        <form class="header-search" id="headerSearchForm" role="search" action="/" method="get">
+          <input id="headerSearchInput" name="q" type="search" placeholder="نام پلتفرم یا کد دعوت..." aria-label="جست‌وجوی کد دعوت" autocomplete="off" aria-autocomplete="list" aria-controls="headerSearchSuggestions" aria-expanded="false" />
+          <button type="submit" aria-label="جست‌وجو"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.1"></circle><path d="m16 16 5 5"></path></svg></button>
+        </form>
+        <div class="search-suggestions" id="headerSearchSuggestions" role="listbox" aria-label="پیشنهادهای جست‌وجو" hidden></div>
+      </div>
     </div>
   </div>
 </header>
@@ -29,11 +32,26 @@
   .header-actions{display:flex;align-items:center;gap:9px;flex-shrink:0;position:relative}
   .search-toggle{width:40px;height:40px;display:grid;place-items:center;padding:0;border:1px solid #39445f;border-radius:50%;background:#101728;color:#e7eaff;cursor:pointer}
   .search-toggle svg,.header-search svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
-  .header-search{position:absolute;top:calc(100% + 13px);left:0;z-index:40;width:min(330px,calc(100vw - 28px));display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #39445f;border-radius:14px;background:#101728;box-shadow:0 12px 32px #0004}
-  .header-search[hidden]{display:none}
+  .header-search-wrap{position:absolute;top:calc(100% + 13px);left:0;z-index:40;width:min(350px,calc(100vw - 28px))}
+  .header-search-wrap[hidden],.search-suggestions[hidden]{display:none}
+  .header-search{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #39445f;border-radius:14px;background:#101728;box-shadow:0 12px 32px #0004}
   .header-search input{min-width:0;flex:1;border:0;outline:0;background:transparent;color:#f5f4ff;font:inherit;font-size:14px}
   .header-search input::placeholder{color:#a1abc4}
   .header-search button{display:grid;place-items:center;width:30px;height:30px;border:0;background:transparent;color:inherit;cursor:pointer}
+  .search-suggestions{margin-top:6px;padding:5px;border:1px solid #39445f;border-radius:14px;background:#101728;box-shadow:0 12px 32px #0004;max-height:min(340px,60vh);overflow:auto}
+  .search-suggestion{display:flex;width:100%;align-items:center;gap:11px;padding:10px;border:0;border-radius:10px;background:transparent;color:#f5f4ff;text-align:right;text-decoration:none;cursor:pointer}
+  .search-suggestion:hover,.search-suggestion:focus-visible,.search-suggestion[aria-selected="true"]{background:#202943;outline:none}
+  .search-suggestion img{width:34px;height:34px;flex:0 0 34px;object-fit:contain;border-radius:9px;background:#fff;padding:3px}
+  .search-suggestion-copy{display:flex;flex:1;min-width:0;flex-direction:column;line-height:1.6}
+  .search-suggestion-name{font-size:13px;font-weight:800}
+  .search-suggestion-meta{font-size:11px;color:#a1abc4}
+  .search-suggestion-arrow{font-size:16px;color:#a1abc4}
+  .search-suggestions-empty{padding:12px 10px;color:#a1abc4;font-size:12px;text-align:center}
+  :global(html[data-theme="light"] .search-suggestions){background:#fff;border-color:#cbd7e6}
+  :global(html[data-theme="light"] .search-suggestion){color:#17263a}
+  :global(html[data-theme="light"] .search-suggestion:hover),:global(html[data-theme="light"] .search-suggestion:focus-visible),:global(html[data-theme="light"] .search-suggestion[aria-selected="true"]){background:#eef2ff}
+  :global(html[data-theme="light"] .search-suggestion-meta),:global(html[data-theme="light"] .search-suggestion-arrow),:global(html[data-theme="light"] .search-suggestions-empty){color:#64748b}
+  :global(html[data-theme="light"] .header-search-wrap .header-search){background:#fff;border-color:#cbd7e6}
   .theme-toggle{width:40px;height:40px;display:grid;place-items:center;padding:0;border:1px solid #39445f;border-radius:50%;background:#101728;color:#e7eaff;cursor:pointer;transition:background .2s,border-color .2s}
   .theme-toggle svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
   .theme-toggle .moon-icon{display:none}
@@ -42,7 +60,6 @@
   :global(html[data-theme="light"] .site-header){background:rgba(248,250,255,.95);border-color:#dfe5f1}
   :global(html[data-theme="light"] .site-brand-word){color:#b77900;-webkit-text-fill-color:transparent}
   :global(html[data-theme="light"] .theme-toggle),:global(html[data-theme="light"] .search-toggle){background:#fff;border-color:#cbd7e6;color:#111827}
-  :global(html[data-theme="light"] .header-search){background:#fff;border-color:#cbd7e6}
   :global(html[data-theme="light"] .header-search input){color:#17263a}
   :global(html[data-theme="light"] .header-search input::placeholder){color:#64748b}
   :global(html[data-theme="light"] .theme-toggle .moon-icon){stroke:#000; color:#000}
@@ -61,20 +78,121 @@
     themeToggle?.setAttribute('title', light ? 'تغییر به حالت تاریک' : 'تغییر به حالت روشن');
   }
   updateThemeToggle();
+  import { platforms } from '../data/platforms.js';
   const searchToggle = document.querySelector('#headerSearchToggle');
-  const searchForm = document.querySelector('#searchForm');
-  const searchInput = document.querySelector('#searchInput');
+  const searchWrap = document.querySelector('#headerSearchWrap');
+  const searchForm = document.querySelector('#headerSearchForm');
+  const searchInput = document.querySelector('#headerSearchInput');
+  const suggestions = document.querySelector('#headerSearchSuggestions');
+  let activeSuggestion = -1;
+  const normalizeSearch = (value = '') => value.toLocaleLowerCase('fa').replace(/ي/g,'ی').replace(/ك/g,'ک').replace(/‌/g,'').replace(/\s+/g,'').trim();
+  function getMatches(query) {
+    const q = normalizeSearch(query);
+    if (!q) return platforms.filter((p) => p.active).slice(0, 5);
+    return platforms.filter((p) => p.active && [p.name,p.id,p.code,...(p.aliases || [])].some((v) => normalizeSearch(v).includes(q)))
+      .sort((a,b) => {
+        const score = (p) => [p.name,p.id,p.code].some((v) => normalizeSearch(v) === q) ? 0 : [p.name,p.id].some((v) => normalizeSearch(v).startsWith(q)) ? 1 : 2;
+        return score(a) - score(b);
+      }).slice(0, 6);
+  }
+  function renderSuggestions() {
+    if (!searchInput || !suggestions) return;
+    const query = searchInput.value;
+    const matches = getMatches(query);
+    activeSuggestion = -1;
+    suggestions.replaceChildren();
+    if (!matches.length && query.trim()) {
+      const empty = document.createElement('div');
+      empty.className = 'search-suggestions-empty';
+      empty.textContent = 'موردی پیدا نشد؛ برای جست‌وجو Enter بزن';
+      suggestions.append(empty);
+      suggestions.hidden = false;
+      searchInput.setAttribute('aria-expanded', 'true');
+      return;
+    }
+    matches.forEach((platform, index) => {
+      const link = document.createElement('a');
+      link.className = 'search-suggestion';
+      link.href = platform.href;
+      link.setAttribute('role', 'option');
+      link.setAttribute('aria-selected', 'false');
+      link.dataset.index = String(index);
+      const img = document.createElement('img');
+      img.src = platform.image || '/refiro-logo.svg';
+      img.alt = '';
+      img.loading = 'lazy';
+      const copy = document.createElement('span');
+      copy.className = 'search-suggestion-copy';
+      const name = document.createElement('span');
+      name.className = 'search-suggestion-name';
+      name.textContent = platform.name;
+      const meta = document.createElement('span');
+      meta.className = 'search-suggestion-meta';
+      meta.textContent = platform.reward ? 'کد دعوت · ' + platform.reward : 'مشاهده کد دعوت';
+      copy.append(name, meta);
+      const arrow = document.createElement('span');
+      arrow.className = 'search-suggestion-arrow';
+      arrow.setAttribute('aria-hidden', 'true');
+      arrow.textContent = '←';
+      link.append(img, copy, arrow);
+      suggestions.append(link);
+    });
+    suggestions.hidden = false;
+    searchInput.setAttribute('aria-expanded', 'true');
+  }
+  function closeSearch() {
+    if (!searchWrap) return;
+    searchWrap.hidden = true;
+    suggestions && (suggestions.hidden = true);
+    searchInput?.setAttribute('aria-expanded', 'false');
+    searchToggle?.setAttribute('aria-expanded', 'false');
+  }
   searchToggle?.addEventListener('click', () => {
-    const opening = searchForm?.hidden;
-    if (!searchForm) return;
-    searchForm.hidden = !opening;
+    const opening = searchWrap?.hidden;
+    if (!searchWrap) return;
+    searchWrap.hidden = !opening;
     searchToggle.setAttribute('aria-expanded', String(Boolean(opening)));
-    if (opening) searchInput?.focus();
+    if (opening) {
+      renderSuggestions();
+      searchInput?.focus();
+    }
+  });
+  searchInput?.addEventListener('input', renderSuggestions);
+  searchInput?.addEventListener('keydown', (event) => {
+    const options = [...(suggestions?.querySelectorAll('.search-suggestion') || [])];
+    if (event.key === 'ArrowDown' && options.length) {
+      event.preventDefault();
+      activeSuggestion = (activeSuggestion + 1) % options.length;
+    } else if (event.key === 'ArrowUp' && options.length) {
+      event.preventDefault();
+      activeSuggestion = (activeSuggestion - 1 + options.length) % options.length;
+    } else if (event.key === 'Escape') {
+      closeSearch();
+      searchToggle?.focus();
+      return;
+    } else return;
+    options.forEach((option, i) => {
+      option.setAttribute('aria-selected', String(i === activeSuggestion));
+      if (i === activeSuggestion) option.scrollIntoView({ block: 'nearest' });
+    });
+  });
+  searchForm?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const query = searchInput?.value.trim() || '';
+    if (!query) return;
+    const matches = getMatches(query);
+    const normalized = normalizeSearch(query);
+    const exact = platforms.find((p) => p.active && [p.name,p.id,p.code,...(p.aliases || [])].some((v) => normalizeSearch(v) === normalized));
+    if (exact) window.location.href = exact.href;
+    else if (matches.length === 1) window.location.href = matches[0].href;
+    else window.location.href = '/?q=' + encodeURIComponent(query);
+  });
+  document.addEventListener('click', (event) => {
+    if (searchWrap && !searchWrap.hidden && !searchWrap.contains(event.target) && !searchToggle?.contains(event.target)) closeSearch();
   });
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && searchForm && !searchForm.hidden) {
-      searchForm.hidden = true;
-      searchToggle?.setAttribute('aria-expanded', 'false');
+    if (event.key === 'Escape' && searchWrap && !searchWrap.hidden) {
+      closeSearch();
       searchToggle?.focus();
     }
   });
