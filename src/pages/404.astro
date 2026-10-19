@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'صفحه پیدا نشد | رفیرو';
+const description = 'صفحه موردنظر پیدا نشد. از صفحه اصلی رفیرو شروع کن یا فهرست کدهای دعوت و معرف را ببین.';
+---
+
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} />
+  <meta name="robots" content="noindex,follow" />
+  <meta name="theme-color" content="#f5f8fc" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
+  <title>{title}</title>
+</head>
+<body>
+  <Header />
+  <main class="not-found wrap">
+    <span class="status-code" aria-hidden="true">۴۰۴</span>
+    <p class="eyebrow">صفحه پیدا نشد</p>
+    <h1>این مسیر به جایی نمی‌رسه.</h1>
+    <p class="description">ممکنه آدرس اشتباه باشه یا صفحه جابه‌جا شده باشه. از یکی از مسیرهای زیر ادامه بده.</p>
+    <div class="actions">
+      <a class="primary-action" href="/">بازگشت به صفحه اصلی</a>
+      <a class="secondary-action" href="/codes/">مشاهده همه کدهای دعوت</a>
+    </div>
+    <nav class="popular-links" aria-label="صفحات پرطرفدار">
+      <span>صفحات پرطرفدار:</span>
+      <a href="/taline/">کد دعوت طلاین</a>
+      <a href="/zarpin/">کد دعوت زرپین</a>
+      <a href="/melligold/">کد معرف ملی گلد</a>
+    </nav>
+  </main>
+  <Footer />
+  <style>
+    .not-found { min-height: 58vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding-top:55px; padding-bottom:70px; }
+    .status-code { color:#d6e5f7; font-size:clamp(72px,16vw,150px); font-weight:950; line-height:1.1; letter-spacing:-5px; }
+    .eyebrow { margin:10px 0 0; color:#1d5fae; font-size:13px; font-weight:900; }
+    h1 { margin:10px 0; color:#17263a; font-size:clamp(27px,5vw,40px); line-height:1.6; }
+    .description { max-width:520px; margin:0; color:#53647b; font-size:14px; line-height:2.1; }
+    .actions { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:12px; margin-top:25px; }
+    .actions a { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:10px 17px; border-radius:11px; font-size:13px; font-weight:850; text-decoration:none; }
+    .primary-action { background:#1d5fae; color:#fff; }
+    .secondary-action { border:1px solid #c6d7eb; color:#174f91; background:#fff; }
+    .popular-links { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px 16px; margin-top:34px; color:#53647b; font-size:12px; }
+    .popular-links a { color:#174f91; text-decoration:underline; text-underline-offset:3px; }
+    @media (max-width:480px) { .not-found { min-height:50vh; } .popular-links { gap:10px 13px; } }
+    :global(html[data-theme="dark"]) .status-code { color:#252b36; }
+    :global(html[data-theme="dark"]) h1 { color:#f4f1e8; }
+    :global(html[data-theme="dark"]) .description, :global(html[data-theme="dark"]) .popular-links { color:#c0c2b9; }
+    :global(html[data-theme="dark"]) .secondary-action { background:#191a17; border-color:#454235; color:#e2bd63; }
+    :global(html[data-theme="dark"]) .popular-links a { color:#e2bd63; }
+  </style>
+</body>
+</html>
