@@ -102,7 +102,7 @@ const description = 'فهرست کد دعوت و کد معرف طلاین، زر
             <span class="tile-mark platform-logo">{platform.mark}</span>
             <div class="code-card-title">
               <h2>کد دعوت {platform.name}</h2>
-              <span>{platform.reward ? `پاداش اعلام‌شده: ${platform.reward}` : 'کد معرف'}</span>
+              <span>{platform.reward || 'کد معرف'}</span>
             </div>
           </div>
 
