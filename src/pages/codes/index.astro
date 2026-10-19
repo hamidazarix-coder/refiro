@@ -99,7 +99,7 @@ const description = 'فهرست کد دعوت و کد معرف طلاین، زر
       {platforms.map((platform) => (
         <article class="code-card platform-card" data-search={`${platform.name} ${platform.id} ${platform.code} ${(platform.aliases || []).join(' ')}`}>
           <div class="code-card-top">
-            <span class="tile-mark platform-logo">{platform.mark}</span>
+            <span class="tile-mark platform-logo"><span class="logo-fallback">{platform.mark}</span><img src={platform.image} alt={platform.name} loading="lazy" onerror="this.style.display='none'" /></span>
             <div class="code-card-title">
               <h2>کد دعوت {platform.name}</h2>
               <span>{platform.reward || 'کد معرف'}</span>
@@ -146,7 +146,7 @@ const description = 'فهرست کد دعوت و کد معرف طلاین، زر
     .code-card{position:relative;aspect-ratio:1/1;min-height:0;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px;border:1px solid #58421c;border-radius:15px;background:linear-gradient(145deg,#211b0e,#11110f);color:#eef0ff;text-align:center}
     .code-card-top{display:flex;flex-direction:column;align-items:center;gap:9px}
     .code-card-title{display:flex;flex-direction:column;align-items:center;gap:2px}
-    .tile-mark{width:43px;height:43px;flex:0 0 43px;display:grid;place-items:center;margin:0;border-radius:50%;background:linear-gradient(145deg,#ffc53d,#e98c00);color:#fff2a4;font-weight:900;font-size:20px}
+    .tile-mark{position:relative;width:43px;height:43px;flex:0 0 43px;display:grid;place-items:center;overflow:hidden;margin:0;border-radius:50%;background:linear-gradient(145deg,#ffc53d,#e98c00);color:#fff2a4;font-weight:900;font-size:20px}.platform-logo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit}.logo-fallback{display:grid;place-items:center;width:100%;height:100%}
     .code-card-title h2{margin:0 0 4px;font-size:15px;font-weight:800}
     .code-card-title span{color:#bdb19a;font-size:12px}
     .invite-code{width:100%;box-sizing:border-box;margin:0;padding:12px 10px;border:1px dashed #a67a25;border-radius:11px;text-align:center;color:#ffe3a0;background:#17140e;font-size:1.05rem;font-weight:800;overflow-wrap:anywhere}
