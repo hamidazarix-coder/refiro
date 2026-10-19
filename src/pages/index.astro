@@ -347,30 +347,30 @@ const discountPlaceholders = Array.from({ length: 6 }, (_, index) => index + 1);
     if (typewriter && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       let phraseIndex = 0;
       let charIndex = phrases[0].length;
-      let deleting = true;
+      let deleting = false;
       const typeNext = () => {
-        const phrase = phrases[phraseIndex];
-        if (deleting) {
-          charIndex--;
-          typewriter.textContent = phrase.slice(0, Math.max(0, charIndex));
-          if (charIndex <= 0) {
-            deleting = false;
-            phraseIndex = (phraseIndex + 1) % phrases.length;
-            window.setTimeout(typeNext, 450);
-            return;
+        const currentPhrase = phrases[phraseIndex];
+        if (!deleting) {
+          if (charIndex < currentPhrase.length) {
+            charIndex++;
+            typewriter.textContent = currentPhrase.slice(0, charIndex);
+            window.setTimeout(typeNext, 65);
+          } else {
+            deleting = true;
+            window.setTimeout(typeNext, 4000);
           }
+          return;
+        }
+        if (charIndex > 0) {
+          charIndex--;
+          typewriter.textContent = currentPhrase.slice(0, charIndex);
           window.setTimeout(typeNext, 35);
-          return;
+        } else {
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          deleting = false;
+          charIndex = 0;
+          window.setTimeout(typeNext, 450);
         }
-        const nextPhrase = phrases[phraseIndex];
-        charIndex++;
-        typewriter.textContent = nextPhrase.slice(0, charIndex);
-        if (charIndex >= nextPhrase.length) {
-          deleting = true;
-          window.setTimeout(typeNext, 4000);
-          return;
-        }
-        window.setTimeout(typeNext, 65);
       };
       window.setTimeout(typeNext, 4000);
     }
