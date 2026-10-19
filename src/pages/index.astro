@@ -65,10 +65,7 @@ const discountPlaceholders = Array.from({ length: 6 }, (_, index) => index + 1);
 
         <section class="hero wrap" aria-labelledby="heroTitle">
       <h1 id="heroTitle">رفیرو: بزرگ‌ترین مرجع<br /><span>کدهای دعوت در ایران</span></h1>
-      <form class="search" id="searchForm" role="search">
-        <button type="submit" aria-label="جست‌وجو" class="search-submit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.1"></circle><path d="m16 16 5 5"></path></svg></button>
-        <input id="searchInput" type="search" placeholder="نام پلتفرم مورد نظر را جستجو کنید..." aria-label="جست‌وجوی کد دعوت" autocomplete="off" />
-      </form>
+
     </section>
 
     <section class="category-cards wrap" aria-label="دسته‌بندی کدها">
@@ -269,7 +266,7 @@ const discountPlaceholders = Array.from({ length: 6 }, (_, index) => index + 1);
       .hero{padding-top:39px}
       .hero h1{font-size:clamp(28px,6vw,42px)}
       .hero-description{font-size:14px;line-height:2}
-      .search{height:55px}
+      
       .category-cards{gap:14px;margin-top:32px}
       .category-card{min-height:218px;padding:15px;grid-template-columns:40% 60%;gap:0}
       .category-art{transform:scale(.78);width:120px}
@@ -351,6 +348,8 @@ const discountPlaceholders = Array.from({ length: 6 }, (_, index) => index + 1);
     const input = document.querySelector('#searchInput');
     const cards = [...document.querySelectorAll('.platform-card[data-name]')];
     const noResult = document.querySelector('#noResult');
+    const initialQuery = new URLSearchParams(window.location.search).get('q') || '';
+    if (input && initialQuery) input.value = initialQuery;
     const normalize = (value = '') => value.toLocaleLowerCase('fa').replace(/ي/g,'ی').replace(/ك/g,'ک').replace(/‌/g,'').replace(/\s+/g,'').trim();
     function findPlatform(query) {
       const q = normalize(query);
@@ -364,6 +363,7 @@ const discountPlaceholders = Array.from({ length: 6 }, (_, index) => index + 1);
       noResult?.classList.toggle('hidden', !q || cards.every((card) => card.classList.contains('hidden')));
     }
     input?.addEventListener('input', updateResults);
+    if (initialQuery) updateResults();
     form?.addEventListener('submit', (event) => {
       event.preventDefault();
       const query = input?.value.trim() || '';
