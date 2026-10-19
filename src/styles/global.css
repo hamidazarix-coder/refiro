@@ -357,7 +357,7 @@ html[data-theme="dark"] { color-scheme: dark; }
 html[data-theme="light"] body { background: #f5f8fc !important; color: #17263a !important; }
 html[data-theme="light"] .site-header { background: rgba(255,255,255,.96) !important; border-color: #d7e1ef !important; box-shadow: 0 5px 22px #17263a0a !important; }
 html[data-theme="light"] .site-brand-word,
-html[data-theme="light"] .footer-logo,
+html[data-theme="light"] .footer-logo { color: #b77900 !important; }
 html[data-theme="light"] .brand { color: #174f91 !important; }
 html[data-theme="light"] .site-brand-mark { background: linear-gradient(145deg,#4b91e2,#1d5fae) !important; border-color: #1d5fae !important; color: #fff !important; box-shadow: 0 4px 14px #1d5fae20 !important; }
 html[data-theme="light"] .site-nav a { color: #344b67 !important; }
@@ -459,8 +459,8 @@ html[data-theme="light"] .about-page a:hover { color: #123d70 !important; }
 html[data-theme="dark"] { color-scheme: dark; background:#080c15; }
 html[data-theme="dark"] body { background:#080c15 !important; color:#e9eafa !important; }
 html[data-theme="dark"] .site-header { background:rgba(8,12,21,.94) !important; border-color:#22283b !important; }
-html[data-theme="dark"] .site-brand-word, html[data-theme="dark"] .brand,
-html[data-theme="dark"] .footer-logo { color:#f1f1fb !important; }
+html[data-theme="dark"] .site-brand-word, html[data-theme="dark"] .footer-logo { color:#ffd12e !important; }
+html[data-theme="dark"] .brand { color:#f1f1fb !important; }
 html[data-theme="dark"] .site-brand-mark { border-color:#5b35a1 !important; background:linear-gradient(145deg,#a879ff,#6526cb) !important; color:#fff !important; }
 html[data-theme="dark"] .theme-toggle { background:#111729 !important; border-color:#39445f !important; color:#d7c5ff !important; }
 html[data-theme="dark"] .breadcrumbs, html[data-theme="dark"] .breadcrumbs [aria-current="page"] { color:#aeb5ca !important; }
@@ -522,8 +522,8 @@ html[data-theme="dark"] .eyebrow { background:#211a37 !important; border-color:#
 html[data-theme="dark"] .guide-toc a:hover, html[data-theme="dark"] .about-page a:hover { color:#e0d0ff !important; }
 
 html[data-theme="light"] .site-brand-mark { background:linear-gradient(145deg,#bda1ff,#7c3aed) !important; border-color:#9a76e8 !important; }
-html[data-theme="light"] .site-brand-word, html[data-theme="light"] .brand,
-html[data-theme="light"] .footer-logo { color:#6634b5 !important; }
+html[data-theme="light"] .site-brand-word, html[data-theme="light"] .footer-logo { color:#b77900 !important; }
+html[data-theme="light"] .brand { color:#6634b5 !important; }
 html[data-theme="light"] .theme-toggle { color:#713bc0 !important; border-color:#d6c8f2 !important; background:#f2edff !important; }
 html[data-theme="light"] .breadcrumbs a, html[data-theme="light"] .back,
 html[data-theme="light"] .related-pages nav a, html[data-theme="light"] .seo-content a,
