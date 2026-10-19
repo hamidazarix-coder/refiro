@@ -4,28 +4,27 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { platforms } from '../data/platforms.js';
 
-const title = 'کد دعوت و کد معرف معتبر | رفیرو';
-const description = 'کد دعوت طلاین، زرپین، ملی گلد، طلاسی، بلوبانک و ویپاد را در رفیرو پیدا کن؛ کد را کپی کن یا مستقیم وارد لینک ثبت‌نام شو.';
+const title = 'رفیرو | بزرگترین مرجع کدهای دعوت در ایران';
+const description = 'در رفیرو کدهای دعوت و معرف پلتفرم‌های مختلف را پیدا کن؛ کد را کپی کن یا مستقیم وارد لینک دعوت شو و پاداشت را بگیر.';
 const activePlatforms = platforms.filter((platform) => platform.active);
 ---
-
 <!doctype html>
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content={description} />
-  <meta name="theme-color" content="#f5f8fc" />
+  <meta name="theme-color" content="#080c15" />
   <script is:inline>
     (() => {
       try {
         const saved = localStorage.getItem('refiro-theme');
-        document.documentElement.dataset.theme = saved === 'dark' ? 'dark' : 'light';
-      } catch { document.documentElement.dataset.theme = 'light'; }
+        document.documentElement.dataset.theme = saved === 'light' ? 'light' : 'dark';
+      } catch { document.documentElement.dataset.theme = 'dark'; }
     })();
   </script>
   <link rel="canonical" href="https://refiro.ir/" />
-  <link rel="icon" type="image/png" href="/favicon.png" sizes="128x128" />
+  <link rel="icon" type="image/svg+xml" href="/refiro-logo.svg" />
   <link rel="preload" href="/fonts/iranian-sans.ttf" as="font" type="font/ttf" crossorigin />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta property="og:locale" content="fa_IR" />
@@ -36,627 +35,311 @@ const activePlatforms = platforms.filter((platform) => platform.active);
   <meta property="og:url" content="https://refiro.ir/" />
   <meta property="og:image" content="https://refiro.ir/og-cover.png" />
   <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:alt" content="رفیرو؛ راهنمای کدهای دعوت و کد معرف سرویس‌های مختلف" />
+  <meta property="og:image:alt" content="رفیرو؛ مرجع کدهای دعوت و تخفیف" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content="https://refiro.ir/og-cover.png" />
-  <meta name="twitter:image:alt" content="رفیرو؛ راهنمای کدهای دعوت و کد معرف سرویس‌های مختلف" />
   <title>{title}</title>
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://refiro.ir/#website",
-        "name": "رفیرو",
-        "alternateName": "Refiro",
-        "url": "https://refiro.ir/",
-        "inLanguage": "fa-IR",
-        "description": description
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://refiro.ir/#organization",
-        "name": "رفیرو",
-        "alternateName": "Refiro",
-        "url": "https://refiro.ir/",
-        "logo": "https://refiro.ir/favicon.png"
-      }
+      {"@type":"WebSite","@id":"https://refiro.ir/#website","name":"رفیرو","alternateName":"Refiro","url":"https://refiro.ir/","inLanguage":"fa-IR","description":description},
+      {"@type":"Organization","@id":"https://refiro.ir/#organization","name":"رفیرو","alternateName":"Refiro","url":"https://refiro.ir/","logo":"https://refiro.ir/refiro-logo.svg"}
     ]
   })} />
 </head>
 <body>
-
   <Header />
-
   <main>
-    <section class="ad-carousel wrap" aria-label="جایگاه تبلیغات رفیرو">
-      <div class="ad-carousel-track" id="adCarouselTrack">
-        <article class="ad-slide ad-slide-primary" aria-hidden="false">
-          <span class="ad-slide-tag">جایگاه تبلیغاتی</span>
-          <div><h2>کسب‌وکار خودت رو به کاربران رفیرو معرفی کن</h2><p>این جایگاه برای نمایش پیشنهادها و تبلیغات آینده آماده است.</p></div>
-          <span class="ad-slide-mark" aria-hidden="true">R</span>
+    <section class="promo wrap" aria-label="پیشنهادهای رفیرو">
+      <div class="promo-track" id="promoTrack">
+        <article class="promo-slide slide-one" aria-hidden="false">
+          <div class="promo-copy"><h2>با رفیرو، هوشمندانه دعوت کن</h2><p>کدهای دعوت، فرصت‌های واقعی کسب درآمد</p><a href="/guide/kod-davat/">بیشتر بدانید <span>←</span></a></div>
+          <div class="promo-art gift-art" aria-hidden="true"><div class="gift-box"><i></i><b></b><span></span></div><div class="gift-bow"></div><div class="percent-tag">٪</div></div>
         </article>
-        <article class="ad-slide ad-slide-secondary" aria-hidden="true">
-          <span class="ad-slide-tag">پیشنهادهای ویژه</span>
-          <div><h2>پیشنهادهای جذاب، یک‌جا در رفیرو</h2><p>به‌زودی پیشنهادهای تبلیغاتی و کمپین‌های منتخب اینجا نمایش داده می‌شوند.</p></div>
-          <span class="ad-slide-mark" aria-hidden="true">✦</span>
+        <article class="promo-slide slide-two" aria-hidden="true">
+          <div class="promo-copy"><h2>کدهای دعوت و تخفیف، یک‌جا</h2><p>پیشنهادهای جذاب پلتفرم‌های محبوبت را پیدا کن</p><a href="/codes/">مشاهده کدها <span>←</span></a></div>
+          <div class="promo-art ticket-art" aria-hidden="true"><div class="big-ticket"><span>٪</span><i></i></div></div>
         </article>
-        <article class="ad-slide ad-slide-tertiary" aria-hidden="true">
-          <span class="ad-slide-tag">همکاری با رفیرو</span>
-          <div><h2>جای برندت رو در رفیرو رزرو کن</h2><p>فضایی برای معرفی خدمات و پیشنهادهای کسب‌وکارها.</p></div>
-          <span class="ad-slide-mark" aria-hidden="true">↗</span>
+        <article class="promo-slide slide-three" aria-hidden="true">
+          <div class="promo-copy"><h2>پاداش ثبت‌نامت رو از دست نده</h2><p>کد رو بردار یا مستقیم وارد لینک دعوت شو</p><a href="#platforms">شروع کن <span>←</span></a></div>
+          <div class="promo-art coin-art" aria-hidden="true"><div class="coin-stack">✦</div><div class="coin coin-a">R</div><div class="coin coin-b">٪</div></div>
         </article>
       </div>
-      <div class="ad-carousel-controls" aria-label="کنترل اسلایدر">
-        <button type="button" id="adPrev" aria-label="اسلاید قبلی">‹</button>
-        <div class="ad-carousel-dots"><button type="button" class="is-active" aria-label="اسلاید ۱" aria-current="true"></button><button type="button" aria-label="اسلاید ۲"></button><button type="button" aria-label="اسلاید ۳"></button></div>
-        <button type="button" id="adNext" aria-label="اسلاید بعدی">›</button>
-      </div>
-    </section>
-    <section class="hero wrap">
-      <div class="hero-copy">
-        <span class="eyebrow"><span aria-hidden="true">✦</span> شروع هوشمندانه‌تر</span>
-        <h1>کد دعوتت رو پیدا کن،<br /><span>هدیه‌ات رو از دست نده!</span></h1>
-        <p class="hero-description">کدهای معرف پلتفرم‌های محبوب طلا و خدمات مالی رو در رفیرو پیدا کن؛ کد رو کپی کن یا مستقیم از لینک دعوت وارد شو.</p>
-        <form class="search" id="searchForm" role="search">
-          <span class="search-icon" aria-hidden="true">⌕</span>
-          <input id="searchInput" type="search" placeholder="جست‌وجوی نام پلتفرم؛ مثلاً طلاین" aria-label="جست‌وجوی کد دعوت" autocomplete="off" />
-          <button type="submit">جست‌وجو <span aria-hidden="true">←</span></button>
-        </form>
-        <p class="search-hint">نام پلتفرم رو فارسی یا انگلیسی وارد کن.</p>
-        <div class="hero-trust">
-          <span><span class="trust-check">✓</span> دسترسی سریع به کدها</span>
-          <span><span class="trust-check">✓</span> لینک مستقیم ثبت‌نام</span>
-          <span><span class="trust-check">✓</span> رایگان و ساده</span>
-        </div>
-      </div>
-      <div class="hero-art" aria-label="نمونه کارت کد دعوت رفیرو">
-        <div class="art-glow"></div>
-        <div class="floating-chip chip-top"><span class="chip-icon">✦</span><span><b>کدهای دعوت</b><small>همه در یک جا</small></span></div>
-        <div class="invite-card">
-          <div class="invite-card-head"><span class="mini-brand"><span>R</span> رفیرو</span><span class="live-pill"><i></i> در دسترس</span></div>
-          <div class="invite-card-label">کد دعوت تو آماده‌ست</div>
-          <div class="invite-card-code" dir="ltr">YOUR CODE</div>
-          <div class="invite-card-line"></div>
-          <div class="invite-card-bottom"><span>کپی کن و ادامه بده</span><span class="copy-symbol">▣</span></div>
-        </div>
-        <div class="floating-chip chip-bottom"><span class="coin-symbol">✧</span><span><b>شروع راحت‌تر</b><small>با چند کلیک ساده</small></span></div>
-      </div>
+      <button class="promo-arrow promo-prev" id="promoPrev" type="button" aria-label="اسلاید قبلی">‹</button>
+      <button class="promo-arrow promo-next" id="promoNext" type="button" aria-label="اسلاید بعدی">›</button>
+      <div class="promo-dots" aria-label="انتخاب اسلاید"><button class="active" type="button" aria-label="اسلاید ۱"></button><button type="button" aria-label="اسلاید ۲"></button><button type="button" aria-label="اسلاید ۳"></button></div>
     </section>
 
-    <section class="category-shortcuts wrap" aria-label="دسته‌بندی کدها">
-      <a class="category-shortcut referral-shortcut" href="/codes/">
-        <span class="category-shortcut-icon" aria-hidden="true">⌁</span><span class="category-shortcut-copy"><strong>کدهای معرف</strong><small>کدهای دعوت و پاداش ثبت‌نام</small></span><span class="category-shortcut-arrow" aria-hidden="true">←</span>
+    <section class="hero wrap" aria-labelledby="heroTitle">
+      <h1 id="heroTitle">رفیرو: بزرگ‌ترین مرجع<br /><span>کدهای دعوت در ایران</span></h1>
+      <p class="hero-description">در رفیرو کدهای دعوت و معرف پلتفرم‌های مختلف را پیدا کن؛<br class="desktop-break" /> کد را کپی کن یا مستقیم وارد لینک دعوت شو و پاداشت رو بگیر.</p>
+      <form class="search" id="searchForm" role="search">
+        <button type="submit" aria-label="جست‌وجو" class="search-submit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.1"></circle><path d="m16 16 5 5"></path></svg></button>
+        <input id="searchInput" type="search" placeholder="نام پلتفرم مورد نظر را جستجو کنید..." aria-label="جست‌وجوی کد دعوت" autocomplete="off" />
+      </form>
+    </section>
+
+    <section class="category-cards wrap" aria-label="دسته‌بندی کدها">
+      <a class="category-card discount-card" href="/codes/">
+        <div class="category-art coupon-art" aria-hidden="true"><span>٪</span><i></i></div>
+        <div class="category-copy"><h2>کدهای تخفیف</h2><p>تخفیف‌های ویژه فروشگاه‌ها<br />و سرویس‌های آنلاین</p></div>
+        <span class="category-action">مشاهده کدها <b>‹</b></span>
       </a>
-      <a class="category-shortcut discount-shortcut" href="/codes/">
-        <span class="category-shortcut-icon" aria-hidden="true">٪</span><span class="category-shortcut-copy"><strong>کدهای تخفیف</strong><small>پیشنهادها و تخفیف‌های ویژه</small></span><span class="category-shortcut-arrow" aria-hidden="true">←</span>
+      <a class="category-card referral-card" href="/codes/">
+        <div class="category-art mini-gift" aria-hidden="true"><div class="mini-gift-box"><i></i><b></b></div><span></span></div>
+        <div class="category-copy"><h2>کدهای معرف</h2><p>هدیه ثبت‌نام، پاداش دعوت دوستان<br />و کسب درآمد</p></div>
+        <span class="category-action">مشاهده کدها <b>‹</b></span>
       </a>
     </section>
 
     <section class="platform-section wrap" id="platforms" aria-labelledby="platformTitle">
-      <div class="section-heading">
-        <div>
-          <span class="section-kicker">انتخاب با توئه</span>
-          <h2 id="platformTitle">کدهای دعوت پرطرفدار</h2>
-          <p>پلتفرمت رو انتخاب کن و جزئیات کد رو ببین.</p>
-        </div>
-        <a class="section-link" href="/codes/">مشاهده همه <span aria-hidden="true">←</span></a>
-      </div>
-
+      <div class="section-heading"><h2 id="platformTitle"><span class="green-dot"></span> پلتفرم‌های فعال</h2><p>کدهای دعوت و تخفیف پلتفرم‌های منتخب</p></div>
       <div class="platform-grid" id="platformGrid">
         {activePlatforms.map((platform) => (
-          <a class="platform-card" href={platform.href} data-name={platform.name} data-active="true">
-            <div class="platform-card-top">
-              <div class="platform-logo">
-                {platform.image ? (
-                  <img src={platform.image} alt="" width="48" height="48" loading="lazy" decoding="async" />
-                ) : (
-                  <span>{platform.mark}</span>
-                )}
-              </div>
-              <span class="card-status"><i></i> فعال</span>
-            </div>
-            <h3>کد دعوت {platform.name}</h3>
-            <p class="platform-card-desc">کد معرف {platform.name} و لینک ورود مستقیم رو ببین.</p>
-            <div class="platform-card-bottom">
-              <span class="reward-label">پاداش / طرح معرفی</span>
-              <span class="reward-value">{platform.reward}</span>
-            </div>
-            <div class="card-action">مشاهده کد <span aria-hidden="true">←</span></div>
+          <a class="platform-card" href={platform.href} data-name={platform.name}>
+            <span class="card-status">فعال</span>
+            <span class="platform-logo">{platform.image ? <img src={platform.image} alt="" width="48" height="48" loading="lazy" decoding="async" /> : <span>{platform.mark}</span>}</span>
+            <strong>{platform.name}</strong>
+            <span class="platform-chevron">‹</span>
           </a>
         ))}
+        <a class="platform-card new-platform" href="/about/"><span class="plus">＋</span><strong>پلتفرم جدید</strong></a>
       </div>
-      <p class="empty hidden" id="noResult" role="status">پلتفرمی با این نام پیدا نشد. نام دیگری رو امتحان کن.</p>
-      <div class="all-platforms-cta"><a href="/codes/">دیدن فهرست کامل کدهای دعوت <span aria-hidden="true">←</span></a></div>
+      <p class="empty hidden" id="noResult" role="status">پلتفرمی با این نام پیدا نشد. نام دیگری را امتحان کن.</p>
     </section>
-
-
-
-
 
     <section class="faq-section wrap" aria-labelledby="faqTitle">
-      <div class="faq-heading">
-        <span class="section-kicker">سؤالات متداول</span>
-        <h2 id="faqTitle">قبل از استفاده از کد دعوت</h2>
-      </div>
+      <h2 id="faqTitle">سؤالات متداول <span class="question-mark">ⓘ</span></h2>
+      <p>پاسخ سؤالات رایج درباره کدهای دعوت و تخفیف</p>
       <div class="faq-list">
-        <details><summary>رفیرو دقیقاً چیکار می‌کنه؟ <span>＋</span></summary><p>رفیرو بهت کمک می‌کنه کد دعوت یا معرف سرویس موردنظرت رو پیدا کنی؛ بعد می‌تونی کد رو برداری یا از لینک ثبت‌نام وارد بشی.</p></details>
-        <details><summary>کد دعوت با کد معرف چه فرقی داره؟ <span>＋</span></summary><p>در خیلی از سرویس‌ها این دو عبارت برای یک کاربرد استفاده می‌شن: کدی که موقع ثبت‌نام برای معرفی کاربر جدید وارد می‌شه. نام و محل واردکردن کد ممکنه در هر سرویس متفاوت باشه.</p></details>
-        <details><summary>دریافت هدیه با کد دعوت تضمینیه؟ <span>＋</span></summary><p>نه لزوماً. پاداش و شرایط طرح‌ها ممکنه تغییر کنه و معمولاً به ضوابط همون سرویس بستگی داره. قبل از ثبت‌نام، شرایط روز رو در سایت یا اپلیکیشن رسمی بررسی کن.</p></details>
-        <details><summary>رفیرو سایت رسمی پلتفرم‌هاست؟ <span>＋</span></summary><p>خیر؛ رفیرو یک راهنمای مستقل برای پیدا کردن کدهای دعوت است. ثبت‌نام و بررسی شرایط نهایی از طریق منابع رسمی هر پلتفرم انجام می‌شه.</p></details>
+        <details><summary>رفیرو دقیقاً چیکار می‌کنه؟</summary><p>رفیرو بهت کمک می‌کنه کد دعوت یا معرف سرویس موردنظرت رو پیدا کنی؛ بعد می‌تونی کد رو برداری یا از لینک ثبت‌نام وارد بشی.</p></details>
+        <details><summary>کد دعوت با کد معرف چه فرقی داره؟</summary><p>در خیلی از سرویس‌ها این دو عبارت برای یک کاربرد استفاده می‌شن: کدی که موقع ثبت‌نام برای معرفی کاربر جدید وارد می‌شه.</p></details>
+        <details><summary>دریافت هدیه با کد دعوت تضمینیه؟</summary><p>پاداش و شرایط طرح‌ها ممکنه تغییر کنه و به ضوابط همون سرویس بستگی داره. پیش از ثبت‌نام، شرایط روز رو در سایت رسمی بررسی کن.</p></details>
+        <details><summary>رفیرو سایت رسمی پلتفرم‌هاست؟</summary><p>خیر؛ رفیرو یک راهنمای مستقل برای پیدا کردن کدهای دعوت است. ثبت‌نام از طریق منابع رسمی هر پلتفرم انجام می‌شه.</p></details>
       </div>
+      <a class="faq-more" href="/faq/">مشاهده همه سؤالات <span>‹</span></a>
     </section>
   </main>
-
   <Footer />
 
   <style>
     :global(html){scroll-behavior:smooth;scroll-padding-top:90px}
-    :global(body){background:#101110;color:#f4f1e8;overflow-x:hidden}
-    :global(.wrap){width:min(1120px,calc(100% - 40px));margin-inline:auto}
-    .announcement{min-height:36px;display:flex;align-items:center;justify-content:center;gap:9px;padding:7px 16px;background:#242116;border-bottom:1px solid #3c3422;color:#d5c49a;font-size:11px;text-align:center}
-    .announcement-dot{width:6px;height:6px;border-radius:50%;background:#e2bd63;box-shadow:0 0 10px #e2bd6370}
-    .announcement a{color:#f0cf7b;text-decoration:none;font-weight:800;margin-right:5px}
-    .site-header{position:sticky;top:0;z-index:20;border-bottom:1px solid #30312c;background:#101110ed;backdrop-filter:blur(16px)}
-    .site-header-inner{width:min(1200px,calc(100% - 40px));min-height:78px;margin:auto;display:flex;align-items:center;gap:28px}
-    .site-brand,.footer-logo{display:inline-flex;align-items:center;gap:10px;flex-shrink:0;text-decoration:none}
-    .site-brand-mark{width:39px;height:39px;display:grid;place-items:center;border:1px solid #78602d;border-radius:12px;background:linear-gradient(145deg,#f0d486,#c59a3b);color:#17150f;font:950 23px/1 Arial,sans-serif;direction:ltr;box-shadow:0 4px 14px #e2bd631b}
-    .site-brand-word{color:#f0cf7b;font-size:25px;font-weight:950;letter-spacing:-.6px}
-    .site-nav{display:flex;align-items:center;justify-content:flex-start;gap:5px;flex:1}
-    .site-nav a{padding:9px 12px;border-radius:9px;color:#c2c0b5;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .2s,color .2s}
-    .site-nav a:hover,.site-nav a[aria-current=page]{background:#211f17;color:#f0cf7b}
-    .header-cta{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:10px 15px;border:1px solid #78602d;border-radius:10px;background:#e2bd63;color:#17150f;font-size:12px;font-weight:900;text-decoration:none;white-space:nowrap;transition:filter .2s,transform .2s}
-    .header-cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
-    .hero{position:relative;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:65px;padding-top:78px;padding-bottom:88px}
-    .hero-copy{position:relative;z-index:1}
-    .eyebrow,.section-kicker{display:inline-flex;align-items:center;gap:7px;color:#d9bc79;font-size:12px;font-weight:850}
-    .eyebrow{padding:7px 12px;border:1px solid #514327;border-radius:999px;background:#191810}
-    .hero h1{margin:20px 0 15px;font-size:clamp(34px,4.2vw,54px);font-weight:950;line-height:1.55;letter-spacing:-1.1px}
-    .hero h1 span{color:#e2bd63}
-    .hero-description{max-width:600px;margin:0 0 23px;color:#aaa99f;font-size:14px;line-height:2.2}
-    .search{display:flex;align-items:center;gap:9px;max-width:590px;padding:7px;border:1px solid #454235;border-radius:15px;background:#191a17;box-shadow:0 12px 34px #00000020;transition:border-color .2s,box-shadow .2s}
-    .search:focus-within{border-color:#b79a52;box-shadow:0 0 0 3px #e2bd6312}
-    .search-icon{padding-inline:8px;color:#d9bc79;font-size:25px;line-height:1}
-    .search input{flex:1;min-width:0;padding:10px 4px;border:0;outline:0;background:transparent;color:#f4f1e8;font:inherit;font-size:13px}
-    .search input::placeholder{color:#85857c}
-    .search button{display:inline-flex;align-items:center;justify-content:center;gap:8px;flex-shrink:0;padding:11px 17px;border:0;border-radius:10px;background:linear-gradient(135deg,#f0d486,#d6ad4d);color:#17150f;font:inherit;font-size:12px;font-weight:950;cursor:pointer}
-    .search-hint{margin:8px 0 0;color:#85857c;font-size:11px}
-    .hero-trust{display:flex;flex-wrap:wrap;gap:17px;margin-top:24px}
-    .hero-trust span{display:inline-flex;align-items:center;gap:6px;color:#b9b7ac;font-size:11px}
-    .trust-check{display:grid;place-items:center;width:17px;height:17px;border:1px solid #365a42;border-radius:50%;color:#70d89d;font-size:10px}
-    .hero-art{position:relative;min-height:365px;display:grid;place-items:center;isolation:isolate}
-    .art-glow{position:absolute;z-index:-1;width:330px;height:330px;border-radius:50%;background:#b88d3030;filter:blur(65px)}
-    .invite-card{position:relative;width:min(100%,355px);padding:24px;border:1px solid #66532d;border-radius:23px;background:linear-gradient(145deg,#242218,#171814 70%);box-shadow:0 28px 70px #00000055;transform:rotate(-3deg)}
-    .invite-card:before{content:"";position:absolute;inset:0 20% auto;height:1px;background:linear-gradient(90deg,transparent,#f0cf7b,transparent)}
-    .invite-card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:20px;border-bottom:1px solid #38372e}
-    .mini-brand{display:flex;align-items:center;gap:8px;color:#f0cf7b;font-size:13px;font-weight:900}
-    .mini-brand>span{display:grid;place-items:center;width:27px;height:27px;border-radius:8px;background:#e2bd63;color:#17150f;font:bold 17px Arial}
-    .live-pill{display:flex;align-items:center;gap:6px;padding:5px 9px;border:1px solid #24583e;border-radius:99px;background:#14231a;color:#70d89d;font-size:10px}
-    .live-pill i,.card-status i{width:6px;height:6px;border-radius:50%;background:#53d68e}
-    .invite-card-label{margin-top:24px;color:#aaa99f;font-size:12px}
-    .invite-card-code{margin:8px 0 16px;color:#f0cf7b;font:900 30px/1.5 ui-monospace,Consolas,monospace;letter-spacing:2px}
-    .invite-card-line{height:1px;background:repeating-linear-gradient(90deg,#655332 0 5px,transparent 5px 10px)}
-    .invite-card-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:16px;color:#c7c2b2;font-size:11px}
-    .copy-symbol{display:grid;place-items:center;width:31px;height:31px;border:1px solid #6f5b2e;border-radius:9px;color:#f0cf7b;font-size:17px}
-    .floating-chip{position:absolute;z-index:2;display:flex;align-items:center;gap:10px;padding:12px 15px;border:1px solid #414033;border-radius:14px;background:#1b1c18ed;box-shadow:0 15px 35px #00000035;backdrop-filter:blur(8px)}
-    .floating-chip b,.floating-chip small{display:block}
-    .floating-chip b{color:#eee8d8;font-size:11px}
-    .floating-chip small{margin-top:2px;color:#99988e;font-size:10px}
-    .chip-icon,.coin-symbol{display:grid;place-items:center;width:34px;height:34px;border:1px solid #5e4d2a;border-radius:10px;background:#302819;color:#f0cf7b;font-size:18px}
-    .chip-top{top:25px;right:-7px}
-    .chip-bottom{bottom:25px;left:-7px}
-    .platform-section{padding-top:20px;padding-bottom:85px}
-    .section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:22px;margin-bottom:26px}
-    .section-heading h2,.how-intro h2,.faq-heading h2{margin:8px 0;color:#f4f1e8;font-size:clamp(23px,3vw,32px);font-weight:950;line-height:1.65}
-    .section-heading p{margin:0;color:#99988e;font-size:13px;line-height:2}
-    .section-link,.text-link{display:inline-flex;align-items:center;gap:8px;color:#e2bd63;font-size:12px;font-weight:850;text-decoration:none;white-space:nowrap}
-    .section-link:hover,.text-link:hover{color:#f0d486}
-    .platform-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-    .platform-card{position:relative;display:flex;flex-direction:column;min-width:0;padding:21px;border:1px solid #34372e;border-radius:18px;background:linear-gradient(150deg,#1d1f1a,#151612 80%);color:inherit;text-decoration:none;transition:transform .22s,border-color .22s,box-shadow .22s}
-    .platform-card:hover{transform:translateY(-4px);border-color:#8b7139;box-shadow:0 16px 35px #00000026}
-    .platform-card:focus-visible,.site-nav a:focus-visible,.header-cta:focus-visible{outline:2px solid #e2bd63;outline-offset:3px}
-    .platform-card-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .platform-logo{width:49px;height:49px;display:grid;place-items:center;overflow:hidden;border:1px solid #454033;border-radius:14px;background:#f8f7f2;color:#80652c;font-size:20px;font-weight:900}
-    .platform-logo img{width:100%;height:100%;padding:5px;object-fit:contain}
-    .card-status{display:inline-flex;align-items:center;gap:6px;padding:5px 8px;border:1px solid #28533d;border-radius:99px;background:#14231a;color:#70d89d;font-size:10px;font-weight:800}
-    .platform-card h3{margin:17px 0 5px;color:#f4f1e8;font-size:16px;font-weight:900}
-    .platform-card-desc{min-height:45px;margin:0;color:#a4a398;font-size:12px;line-height:2}
-    .platform-card-bottom{display:flex;flex-direction:column;gap:4px;margin-top:18px;padding-top:14px;border-top:1px solid #30312c}
-    .reward-label{color:#85857c;font-size:10px}
-    .reward-value{color:#e8c66f;font-size:12px;font-weight:900}
-    .card-action{display:flex;align-items:center;justify-content:space-between;margin-top:17px;padding-top:12px;border-top:1px dashed #39382f;color:#d9bc79;font-size:11px;font-weight:900}
-    .empty{margin:20px 0;padding:14px;border:1px solid #39352a;border-radius:12px;color:#c6b98f;text-align:center;font-size:13px}
+    :global(body){margin:0;background:#080c15;color:#eef0ff;overflow-x:hidden}
+    :global(.wrap){width:min(1120px,calc(100% - 48px));margin-inline:auto}
+    .promo{position:relative;margin-top:24px}
+    .promo-track{position:relative;height:202px;border:1px solid #514087;border-radius:16px;overflow:hidden;background:radial-gradient(ellipse at 77% 50%,#24105a 0,#10102c 36%,#0b1020 75%);box-shadow:inset 0 0 32px #34136b24}
+    .promo-slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:20px 12%;opacity:0;pointer-events:none;transition:opacity .45s ease}
+    .promo-slide[aria-hidden="false"]{opacity:1;pointer-events:auto}
+    .promo-copy{position:relative;z-index:2}
+    .promo-copy h2{margin:0 0 6px;font-size:clamp(19px,2.5vw,27px);font-weight:900;color:#f5f3ff}
+    .promo-copy p{margin:0 0 17px;color:#aeb4ce;font-size:16px}
+    .promo-copy a{display:inline-flex;align-items:center;gap:14px;padding:10px 21px;border-radius:30px;background:linear-gradient(110deg,#4b19b5,#7d2cff);color:#fff;text-decoration:none;font-weight:800;font-size:14px}
+    .promo-copy a span{font-size:18px}
+    .promo-arrow{position:absolute;z-index:4;top:calc(50% - 19px);width:39px;height:39px;border:0;border-radius:50%;background:#343954bd;color:white;font-size:31px;line-height:1;cursor:pointer}
+    .promo-prev{right:20px}.promo-next{left:20px}
+    .promo-dots{position:absolute;z-index:4;bottom:12px;left:0;right:0;display:flex;justify-content:center;gap:9px}
+    .promo-dots button{width:11px;height:11px;padding:0;border:0;border-radius:50%;background:#4e5570;cursor:pointer}
+    .promo-dots button.active{width:22px;border-radius:20px;background:#8b43ff}
+    .promo-art{position:relative;width:245px;height:170px;flex:0 0 245px;filter:drop-shadow(0 15px 20px #7d2cff26)}
+    .gift-box{position:absolute;right:35px;bottom:5px;width:145px;height:90px;border-radius:12px 12px 17px 17px;background:linear-gradient(100deg,#4c0ca4,#822cff 50%,#3b087c);box-shadow:inset -12px 0 18px #18043e,inset 4px 0 10px #bb7bff}
+    .gift-box:before{content:"";position:absolute;top:-29px;left:-10px;width:165px;height:37px;border-radius:9px;background:linear-gradient(110deg,#7022d4,#a74dff,#5914a8);border:1px solid #b66aff}
+    .gift-box i{position:absolute;z-index:1;top:-28px;bottom:0;left:55px;width:22px;background:linear-gradient(90deg,#ffb32c,#ffe178,#e87900)}
+    .gift-box b{position:absolute;z-index:2;top:-30px;left:25px;width:22px;height:31px;border:7px solid #ffb22a;border-radius:80% 20% 70% 20%;transform:rotate(-32deg)}
+    .gift-box span{position:absolute;z-index:2;top:-36px;left:67px;width:24px;height:35px;border:7px solid #ffb22a;border-radius:20% 80% 20% 80%;transform:rotate(32deg)}
+    .gift-bow{position:absolute;z-index:3;right:86px;top:4px;width:70px;height:36px;border:9px solid #ffb52e;border-radius:70% 25% 70% 25%;transform:rotate(17deg);filter:drop-shadow(0 2px 2px #321044)}
+    .percent-tag{position:absolute;z-index:4;bottom:2px;right:5px;padding:3px 10px;border:2px solid #6e36d8;border-radius:8px;background:linear-gradient(145deg,#6323ca,#2d0d73);color:#ffc34b;font-size:43px;font-weight:950;transform:rotate(17deg);box-shadow:0 8px 14px #05030d66}
+    .slide-two{background:radial-gradient(ellipse at 78% 45%,#382000,#10101d 63%,#0b1020)}
+    .big-ticket{position:absolute;top:35px;right:45px;width:145px;height:94px;border-radius:12px;background:linear-gradient(145deg,#ffc33b,#df7900);color:#fff0a2;display:grid;place-items:center;transform:rotate(-12deg);box-shadow:inset 0 0 0 2px #ffda6a,0 10px 22px #0008}
+    .big-ticket span{font-size:68px;font-weight:950;text-shadow:0 4px 0 #ad5900}
+    .big-ticket:before,.big-ticket:after{content:"";position:absolute;top:33px;width:18px;height:28px;border-radius:50%;background:#201326}
+    .big-ticket:before{right:-9px}.big-ticket:after{left:-9px}
+    .big-ticket i{position:absolute;inset:8px;border:2px dashed #b96600;border-radius:7px}
+    .slide-three{background:radial-gradient(ellipse at 80% 45%,#182b64,#10102b 60%,#0b1020)}
+    .coin-stack{position:absolute;right:65px;top:23px;display:grid;place-items:center;width:105px;height:105px;border-radius:50%;background:linear-gradient(145deg,#d2a7ff,#7525e9 60%,#351077);box-shadow:0 14px 0 #35116e,0 25px 30px #0008;color:#fff;font-size:56px}
+    .coin{position:absolute;display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:linear-gradient(145deg,#f5c65a,#d98210);border:3px solid #ffdf76;color:#fff;font-weight:950;font-size:27px}
+    .coin-a{right:14px;bottom:12px}.coin-b{right:155px;top:17px}
+    .hero{padding-top:53px;text-align:center}
+    .hero h1{margin:0;color:#e9eafa;font-size:clamp(34px,5vw,52px);font-weight:950;line-height:1.5;letter-spacing:-1.3px}
+    .hero h1 span{color:#9145ff;text-shadow:0 0 28px #812cff24}
+    .hero-description{margin:13px auto 26px;color:#aeb5ca;font-size:17px;line-height:2}
+    .search{width:min(715px,100%);height:62px;margin:0 auto;display:flex;align-items:center;gap:13px;padding:0 19px;border:1px solid #4d5a7b;border-radius:40px;background:linear-gradient(110deg,#202a40,#1b2234);box-shadow:0 8px 26px #0002}
+    .search:focus-within{border-color:#8d4bff;box-shadow:0 0 0 3px #8d4bff20}
+    .search input{order:1;flex:1;min-width:0;border:0;outline:0;background:transparent;color:#f5f4ff;font:inherit;font-size:14px}
+    .search input::placeholder{color:#a1abc4}
+    .search-submit{order:2;display:grid;place-items:center;width:32px;height:38px;padding:0;border:0;background:transparent;color:#eef1ff;cursor:pointer}
+    .search-submit svg{width:27px;height:27px;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round}
+    .category-cards{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:50px}
+    .category-card{position:relative;min-height:236px;display:grid;grid-template-columns:43% 57%;grid-template-rows:1fr 59px;align-items:center;gap:0 5px;padding:23px 28px;border:1px solid;border-radius:20px;text-decoration:none;overflow:hidden;transition:transform .2s,box-shadow .2s}
+    .category-card:hover{transform:translateY(-3px)}
+    .referral-card{border-color:#8d35ff;background:radial-gradient(ellipse at 22% 25%,#35145e,#17102f 70%);box-shadow:0 0 22px #852bff15}
+    .discount-card{border-color:#ffab00;background:radial-gradient(ellipse at 22% 25%,#30200a,#171718 70%);box-shadow:0 0 22px #ffab0011}
+    .category-copy h2{margin:0 0 11px;color:#f8f6ff;font-size:27px;font-weight:900;white-space:nowrap}
+    .category-copy p{margin:0;color:#d1d4e3;font-size:14px;line-height:2}
+    .category-art{position:relative;grid-row:1;grid-column:1;justify-self:center;width:150px;height:135px;display:grid;place-items:center}
+    .coupon-art span{display:grid;place-items:center;width:123px;height:83px;border:2px solid #ffcb45;border-radius:12px;background:linear-gradient(140deg,#ffc53d,#e98c00);color:#fff2a4;font-size:61px;font-weight:950;transform:rotate(-13deg);box-shadow:inset 0 0 0 5px #f4a51d,0 8px 20px #0005;text-shadow:0 3px 0 #ad5d00}
+    .coupon-art i{position:absolute;top:27px;left:19px;width:5px;height:77px;border-left:3px dashed #a95b00;transform:rotate(-13deg)}
+    .mini-gift{filter:drop-shadow(0 10px 12px #0005)}
+    .mini-gift-box{position:absolute;bottom:15px;width:124px;height:79px;border-radius:9px 9px 13px 13px;background:linear-gradient(100deg,#4b0d9c,#7e2be8,#380b75);box-shadow:inset -10px 0 15px #18043e}
+    .mini-gift-box:before{content:"";position:absolute;top:-23px;left:-8px;width:140px;height:29px;border-radius:8px;background:linear-gradient(100deg,#6a1fc8,#a64cff,#53129d);border:1px solid #ba70ff}
+    .mini-gift-box i{position:absolute;top:-22px;bottom:0;left:48px;width:20px;background:linear-gradient(90deg,#ffad27,#ffe37d,#e77d00)}
+    .mini-gift-box b{position:absolute;top:-42px;left:28px;width:25px;height:31px;border:7px solid #ffb52e;border-radius:80% 20% 70% 20%;transform:rotate(-34deg)}
+    .mini-gift>span{position:absolute;top:7px;left:74px;width:24px;height:31px;border:7px solid #ffb52e;border-radius:20% 80% 20% 80%;transform:rotate(32deg)}
+    .category-action{grid-column:1 / -1;display:flex;align-items:center;justify-content:center;gap:18px;height:57px;border:1px solid;border-radius:21px;color:#fff;font-size:15px;font-weight:850}
+    .category-action b{font-size:25px;font-weight:400;line-height:1}
+    .referral-card .category-action{border-color:#913dff;background:linear-gradient(100deg,#5120b3,#351078)}
+    .discount-card .category-action{border-color:#ffb10b;background:linear-gradient(100deg,#b97508,#754009)}
+    .platform-section{padding-top:64px}
+    .section-heading{text-align:center;margin-bottom:27px}
+    .section-heading h2{margin:0 0 5px;font-size:25px;font-weight:900;color:#e7e9fa}
+    .section-heading p{margin:0;color:#aab2c9;font-size:14px}
+    .green-dot{display:inline-block;width:13px;height:13px;margin-left:8px;border-radius:50%;background:#17b779;box-shadow:0 0 14px #17b77935}
+    .platform-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+    .platform-card{position:relative;min-height:142px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:18px 10px 12px;border:1px solid #16424a;border-radius:15px;background:linear-gradient(145deg,#0c1722,#0a101a);color:#eef0ff;text-decoration:none;transition:border-color .2s,transform .2s,background .2s}
+    .platform-card:hover{border-color:#8b45ef;transform:translateY(-3px);background:#12152a}
+    .card-status{position:absolute;top:12px;right:12px;padding:3px 12px;border-radius:20px;background:#23844f;color:#e7fff1;font-size:11px;font-weight:800}
+    .platform-logo{width:43px;height:43px;display:grid;place-items:center;margin-top:7px;border-radius:50%;overflow:hidden;color:#fff;font-size:22px;font-weight:900}
+    .platform-logo img{width:100%;height:100%;object-fit:contain;border-radius:50%}
+    .platform-card strong{font-size:15px;font-weight:800}
+    .platform-chevron{position:absolute;bottom:24px;right:22px;color:#3f5675;font-size:24px;line-height:1}
+    .new-platform{border:1px dashed #35435d;background:transparent;color:#aeb5cb}
+    .new-platform .plus{display:grid;place-items:center;width:41px;height:41px;margin-bottom:2px;border-radius:50%;background:#202a40;color:#f3f4ff;font-size:28px;line-height:1}
+    .new-platform strong{font-weight:600}
+    .empty{text-align:center;color:#aeb5cb;padding:20px}
     .hidden{display:none!important}
-    .all-platforms-cta{display:flex;justify-content:center;margin-top:27px}
-    .all-platforms-cta a{display:inline-flex;align-items:center;gap:10px;padding:12px 17px;border:1px solid #554728;border-radius:11px;color:#e2bd63;font-size:12px;font-weight:850;text-decoration:none;transition:background .2s}
-    .all-platforms-cta a:hover{background:#211e15}
-    .how-section{padding:76px 0;background:linear-gradient(115deg,#1c1b15,#171814 50%,#1d1d17);border-top:1px solid #302f27;border-bottom:1px solid #302f27}
-    .how-inner{display:grid;grid-template-columns:.8fr 1.2fr;gap:55px;align-items:center}
-    .how-intro h2{max-width:370px}
-    .how-intro>p{max-width:390px;margin:0 0 20px;color:#aaa99f;font-size:13px;line-height:2.2}
-    .steps-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-    .step-card{position:relative;padding:18px 15px;border:1px solid #3c3a2e;border-radius:15px;background:#171814}
-    .step-number{position:absolute;top:13px;left:14px;color:#6f674f;font:800 10px ui-monospace,monospace}
-    .step-icon{width:40px;height:40px;display:grid;place-items:center;margin-bottom:17px;border:1px solid #5e4d2a;border-radius:12px;background:#302819;color:#f0cf7b;font-size:21px}
-    .step-card h3{margin:0 0 7px;color:#eee8d8;font-size:13px;font-weight:900}
-    .step-card p{margin:0;color:#9c9b91;font-size:11px;line-height:2.1}
-    .benefits-section{padding-top:80px;padding-bottom:80px}
-    .centered-heading{justify-content:center;text-align:center}
-    .centered-heading p{margin-inline:auto}
-    .benefits-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-    .benefit-item{display:flex;align-items:flex-start;gap:15px;padding:20px;border:1px solid #30312c;border-radius:15px;background:#171814}
-    .benefit-icon{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border:1px solid #514327;border-radius:12px;background:#211e15;color:#e2bd63;font-size:20px}
-    .benefit-item h3{margin:0 0 5px;color:#eee8d8;font-size:13px;font-weight:900}
-    .benefit-item p{margin:0;color:#9c9b91;font-size:12px;line-height:2.1}
-    .faq-section{padding-bottom:85px}
-    .faq-heading{text-align:center;margin-bottom:26px}
-    .faq-list{max-width:850px;margin-inline:auto;border:1px solid #34352e;border-radius:17px;background:#171814;overflow:hidden}
-    .faq-list details+details{border-top:1px solid #30312c}
-    .faq-list summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 21px;color:#eee8d8;font-size:13px;font-weight:850;cursor:pointer;list-style:none}
-    .faq-list summary::-webkit-details-marker{display:none}
-    .faq-list summary span{color:#e2bd63;font-size:18px;transition:transform .2s}
-    .faq-list details[open] summary span{transform:rotate(45deg)}
-    .faq-list details p{margin:0;padding:0 21px 19px;color:#aaa99f;font-size:12px;line-height:2.2}
-    .site-footer{border-top:1px solid #34352e;background:#0c0d0b}
-    .footer-main{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:50px;padding-top:43px;padding-bottom:38px}
-    .footer-logo{color:#f0cf7b;font-size:22px;font-weight:950}
-    .footer-logo .site-brand-mark{width:34px;height:34px;border-radius:10px;font-size:20px}
-    .footer-about p{max-width:330px;margin:13px 0 0;color:#85857c;font-size:12px;line-height:2.2}
-    .footer-column{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
-    .footer-column h2{margin:0 0 4px;color:#e7e2d5;font-size:12px;font-weight:900}
-    .footer-column a{color:#99988e;font-size:12px;text-decoration:none}
-    .footer-column a:hover{color:#e2bd63}
-    .footer-bottom{border-top:1px solid #252620}
-    .footer-bottom-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:55px;color:#77776e;font-size:10px}
-    @media(max-width:900px){.site-header-inner{gap:15px}.site-nav a{padding-inline:8px}.hero{gap:30px}.how-inner{grid-template-columns:1fr;gap:28px}.how-intro h2,.how-intro>p{max-width:650px}.steps-grid{gap:14px}}
-    @media(max-width:700px){:global(.wrap){width:calc(100% - 28px)}.announcement{font-size:10px}.site-header-inner{width:calc(100% - 28px);min-height:68px;flex-wrap:wrap;gap:8px 12px;padding:11px 0}.site-brand-mark{width:33px;height:33px;border-radius:10px;font-size:20px}.site-brand-word{font-size:21px}.site-nav{order:3;flex:0 0 100%;justify-content:flex-start;overflow-x:auto;padding-bottom:1px}.site-nav a{padding:7px 10px;font-size:11px}.header-cta{margin-right:auto;padding:8px 10px;font-size:10px}.hero{grid-template-columns:1fr;gap:12px;padding-top:46px;padding-bottom:53px}.hero h1{font-size:clamp(33px,8vw,46px)}.hero-description{font-size:13px}.hero-art{min-height:300px;max-width:460px;width:100%;margin:0 auto}.invite-card{width:min(78%,355px);padding:20px}.chip-top{right:0;top:12px}.chip-bottom{left:0;bottom:11px}.floating-chip{padding:10px 12px}.platform-section{padding-bottom:58px}.section-heading{align-items:flex-start}.platform-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.platform-card{padding:15px;border-radius:15px}.platform-logo{width:42px;height:42px;border-radius:12px}.platform-card h3{font-size:14px}.platform-card-desc{min-height:62px;font-size:11px}.reward-value{font-size:11px}.how-section{padding:54px 0}.steps-grid{grid-template-columns:1fr;gap:10px}.step-card{display:grid;grid-template-columns:42px 1fr;column-gap:13px;padding:16px}.step-icon{grid-row:1 / span 2;margin:0}.step-card h3{align-self:end}.step-card p{grid-column:2}.step-number{top:10px;left:12px}.benefits-section{padding-top:56px;padding-bottom:58px}.benefits-grid{gap:10px}.benefit-item{gap:10px;padding:14px}.benefit-icon{width:34px;height:34px;flex-basis:34px;font-size:17px}.benefit-item h3{font-size:12px}.benefit-item p{font-size:11px}.faq-section{padding-bottom:58px}.footer-main{grid-template-columns:1fr 1fr;gap:30px 20px;padding-top:32px}.footer-about{grid-column:1/-1}.footer-bottom-inner{align-items:flex-start;flex-direction:column;justify-content:center;gap:4px;padding-top:12px;padding-bottom:12px}}
-    @media(max-width:390px){.platform-grid{grid-template-columns:1fr}.platform-card-desc{min-height:0}.section-heading{gap:10px}.section-heading h2{font-size:21px}.section-link{font-size:11px}.search{gap:4px}.search-icon{padding-inline:4px}.search button{padding:10px 11px;font-size:11px}.hero-trust{gap:9px}.hero-trust span{font-size:10px}.benefits-grid{grid-template-columns:1fr}.floating-chip b{font-size:10px}.floating-chip small{font-size:9px}}
-    .header-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}.theme-toggle{width:40px;height:40px;display:grid;place-items:center;border:1px solid #454235;border-radius:12px;background:#191a17;color:#e2bd63;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}.theme-toggle:hover{transform:translateY(-1px);border-color:#b79a52}.theme-toggle svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.moon-icon{display:none}
-    /* The shared blue light-theme palette is defined below and in global.css. */
-    /* Light mode readability: high-contrast blue palette with gold reserved for rewards */
-    :global(html[data-theme="light"] body){background:#f5f8fc;color:#17263a}
-    :global(html[data-theme="light"] .announcement){background:#e8f1fc;border-color:#c8d9ee;color:#234d7b}
-    :global(html[data-theme="light"] .announcement a){color:#174f91}
-    :global(html[data-theme="light"] .site-header){background:#ffffffF5;border-color:#d7e1ef}
-    :global(html[data-theme="light"] .site-brand-word),
-    :global(html[data-theme="light"] .footer-logo){color:#174f91}
-    :global(html[data-theme="light"] .site-brand-mark){background:#2469b3;border-color:#174f91;color:#fff;box-shadow:none}
-    :global(html[data-theme="light"] .site-nav a){color:#344b67}
-    :global(html[data-theme="light"] .site-nav a:hover),
-    :global(html[data-theme="light"] .site-nav a[aria-current=page]){background:#e8f1fc;color:#174f91}
-    :global(html[data-theme="light"] .header-cta),
-    :global(html[data-theme="light"] .search button){background:#1b5fae;border-color:#1b5fae;color:#fff}
-    :global(html[data-theme="light"] .theme-toggle){color:#174f91;border-color:#c8d9ee;background:#eef4fc}
-    :global(html[data-theme="light"] .eyebrow){background:#e8f1fc;border-color:#c8d9ee;color:#174f91}
-    :global(html[data-theme="light"] .section-kicker),
-    :global(html[data-theme="light"] .section-link),
-    :global(html[data-theme="light"] .text-link),
-    :global(html[data-theme="light"] .card-action),
-    :global(html[data-theme="light"] .all-platforms-cta a){color:#174f91}
-    :global(html[data-theme="light"] .hero h1),
-    :global(html[data-theme="light"] .section-heading h2){color:#111827!important;font-weight:950}
-    :global(html[data-theme="light"] .how-intro h2),
-    :global(html[data-theme="light"] .faq-heading h2){color:#17263a}
-    :global(html[data-theme="light"] .hero h1 span){color:#1b5fae}
-    :global(html[data-theme="light"] .hero-description),
-    :global(html[data-theme="light"] .section-heading p){color:#374151!important;font-weight:600}
-    :global(html[data-theme="light"] .how-intro>p){color:#45566e}
-    :global(html[data-theme="light"] .search){background:#fff;border-color:#cbd7e6;box-shadow:0 8px 24px #17263a0a}
-    :global(html[data-theme="light"] .search:focus-within){border-color:#2469b3;box-shadow:0 0 0 3px #2469b31c}
-    :global(html[data-theme="light"] .search-icon){color:#1b5fae}
+    .faq-section{padding-top:43px;padding-bottom:60px;text-align:center}
+    .faq-section>h2{margin:0 0 3px;font-size:25px;font-weight:900;color:#e7e9fa}
+    .question-mark{margin-right:7px;color:#aab5d0;font-size:23px}
+    .faq-section>p{margin:0 0 24px;color:#aab2c9;font-size:13px}
+    .faq-list{width:min(720px,100%);margin:0 auto;text-align:right}
+    .faq-list details{margin-bottom:8px;padding:13px 17px;border:1px solid #26344c;border-radius:12px;background:#0d1320}
+    .faq-list summary{color:#e6e9f8;font-size:14px;font-weight:800;cursor:pointer}
+    .faq-list details p{margin:10px 0 0;color:#adb5cc;font-size:13px;line-height:2}
+    .faq-more{display:inline-flex;align-items:center;gap:13px;margin-top:20px;padding:11px 22px;border:1px solid #465575;border-radius:30px;color:#d6dbee;text-decoration:none;font-size:13px}
+    .faq-more span{font-size:23px}
+    :global(html[data-theme="light"] body){background:#f5f8fc!important;color:#17263a!important}
+    :global(html[data-theme="light"] .promo-track){border-color:#d6c5f6;background:radial-gradient(ellipse at 77% 50%,#eadfff,#f5f7ff 70%)}
+    :global(html[data-theme="light"] .promo-copy h2),:global(html[data-theme="light"] .hero h1),:global(html[data-theme="light"] .section-heading h2),:global(html[data-theme="light"] .faq-section>h2){color:#17263a}
+    :global(html[data-theme="light"] .promo-copy p),:global(html[data-theme="light"] .hero-description),:global(html[data-theme="light"] .section-heading p),:global(html[data-theme="light"] .faq-section>p){color:#52627c}
+    :global(html[data-theme="light"] .search){background:#fff;border-color:#c9d7ec}
     :global(html[data-theme="light"] .search input){color:#17263a}
-    :global(html[data-theme="light"] .search input::placeholder){color:#66746a;opacity:1}
-    :global(html[data-theme="light"] .search-hint){color:#53647b}
-    :global(html[data-theme="light"] .hero-trust span){color:#344b67}
-    :global(html[data-theme="light"] .trust-check){border-color:#9bbce0;color:#174f91;background:#e8f1fc}
-    :global(html[data-theme="light"] .art-glow){background:#3d83d020}
-    :global(html[data-theme="light"] .invite-card){border-color:#cad9eb;background:linear-gradient(145deg,#fff,#eef4fc 80%);box-shadow:0 20px 50px #17263a12}
-    :global(html[data-theme="light"] .invite-card-head){border-color:#d9e4f1}
-    :global(html[data-theme="light"] .mini-brand){color:#174f91}
-    :global(html[data-theme="light"] .mini-brand>span){background:#1b5fae;border-color:#1b5fae;color:#fff}
-    :global(html[data-theme="light"] .invite-card-label),
-    :global(html[data-theme="light"] .invite-card-bottom){color:#45566e}
-    :global(html[data-theme="light"] .invite-card-code){color:#17263a}
-    :global(html[data-theme="light"] .copy-symbol){background:#1b5fae;border-color:#1b5fae;color:#fff}
-    :global(html[data-theme="light"] .live-pill){background:#e8f1fc;border-color:#b7d0ed;color:#174f91}
-    :global(html[data-theme="light"] .live-pill i){background:#2469b3}
-    :global(html[data-theme="light"] .floating-chip){background:#fff;border-color:#d7e1ef;box-shadow:0 12px 30px #17263a12}
-    :global(html[data-theme="light"] .floating-chip b){color:#17263a}
-    :global(html[data-theme="light"] .floating-chip small){color:#53647b}
-    :global(html[data-theme="light"] .chip-icon),
-    :global(html[data-theme="light"] .step-icon),
-    :global(html[data-theme="light"] .benefit-icon){background:#e8f1fc;border-color:#c8d9ee;color:#174f91}
-    :global(html[data-theme="light"] .coin-symbol){background:#fff5d8;border-color:#e5cc81;color:#785300}
-    :global(html[data-theme="light"] .platform-card){background:#fff;border-color:#d7e1ef;box-shadow:0 6px 20px #17263a08}
-    :global(html[data-theme="light"] .platform-card:hover){border-color:#91b7e5;box-shadow:0 14px 30px #17263a12}
-    :global(html[data-theme="light"] .platform-card h3){color:#111827!important;font-weight:950;opacity:1;text-shadow:none}
-    :global(html[data-theme="light"] .platform-card-desc){color:#45566e}
-    :global(html[data-theme="light"] .platform-card-bottom){border-color:#dce5f0}
-    :global(html[data-theme="light"] .reward-label){color:#53647b}
-    :global(html[data-theme="light"] .reward-value){color:#785300}
-    :global(html[data-theme="light"] .platform-logo){background:#e8f1fc;border-color:#c8d9ee;color:#174f91}
-    :global(html[data-theme="light"] .card-status){background:#e8f1fc;border-color:#b7d0ed;color:#174f91}
-    :global(html[data-theme="light"] .card-status i){background:#2469b3}
-    :global(html[data-theme="light"] .card-action){border-color:#dce5f0}
-    :global(html[data-theme="light"] .all-platforms-cta a){border-color:#b7d0ed}
-    :global(html[data-theme="light"] .all-platforms-cta a:hover){background:#e8f1fc}
-    :global(html[data-theme="light"] .how-section){background:#edf3fb;border-color:#d8e5dc}
-    :global(html[data-theme="light"] .step-card),
-    :global(html[data-theme="light"] .benefit-item),
-    :global(html[data-theme="light"] .faq-list){background:#fff;border-color:#d7e1ef}
-    :global(html[data-theme="light"] .step-number){color:#174f91}
-    :global(html[data-theme="light"] .step-card h3),
-    :global(html[data-theme="light"] .benefit-item h3),
+    :global(html[data-theme="light"] .category-copy h2){color:#17263a}
+    :global(html[data-theme="light"] .category-copy p){color:#465770}
+    :global(html[data-theme="light"] .referral-card){background:linear-gradient(135deg,#f4eaff,#fff);box-shadow:0 8px 24px #6c2bb20c}
+    :global(html[data-theme="light"] .discount-card){background:linear-gradient(135deg,#fff5d9,#fff);box-shadow:0 8px 24px #bd790c0c}
+    :global(html[data-theme="light"] .platform-card){background:#fff;border-color:#d7e1ef;color:#17263a}
+    :global(html[data-theme="light"] .new-platform){background:transparent;border-color:#bdcbe0;color:#5d6e87}
+    :global(html[data-theme="light"] .faq-list details){background:#fff;border-color:#d7e1ef}
     :global(html[data-theme="light"] .faq-list summary){color:#17263a}
-    :global(html[data-theme="light"] .step-card p),
-    :global(html[data-theme="light"] .benefit-item p),
-    :global(html[data-theme="light"] .faq-list details p){color:#45566e}
-    :global(html[data-theme="light"] .faq-list details+details){border-color:#dce5f0}
-    :global(html[data-theme="light"] .faq-list summary span){color:#1b5fae}
-    :global(html[data-theme="light"] .site-footer){background:#edf3ee;border-color:#d7e1ef}
-    :global(html[data-theme="light"] .footer-about p),
-    :global(html[data-theme="light"] .footer-column a){color:#45566e}
-    :global(html[data-theme="light"] .footer-column h2){color:#17263a}
-    :global(html[data-theme="light"] .footer-bottom){border-color:#d5deec}
-    :global(html[data-theme="light"] .footer-bottom-inner){color:#45566e}
-    :global(html[data-theme="light"] .empty){color:#344b67;border-color:#cbd7e6}
-    :global(html[data-theme="light"] .reward-value){color:#785300}
-    :global(html[data-theme="light"] .header-cta:hover){filter:brightness(1.08)}
-    /* Global contrast fixes: readable text in both themes */
-    :global(html[data-theme="light"] body){color:#17263a}
-    :global(html[data-theme="light"] .announcement){color:#23466f}
-    :global(html[data-theme="light"] .site-nav a){color:#344b67}
-    :global(html[data-theme="light"] .eyebrow),
-    :global(html[data-theme="light"] .section-kicker){color:#174f91}
-    :global(html[data-theme="light"] .hero-description),
-    :global(html[data-theme="light"] .section-heading p),
-    :global(html[data-theme="light"] .search-hint),
-    :global(html[data-theme="light"] .hero-trust span),
-    :global(html[data-theme="light"] .platform-card-desc),
-    :global(html[data-theme="light"] .reward-label),
-    :global(html[data-theme="light"] .step-card p),
-    :global(html[data-theme="light"] .benefit-item p),
-    :global(html[data-theme="light"] .faq-list details p),
-    :global(html[data-theme="light"] .footer-about p),
-    :global(html[data-theme="light"] .footer-column a),
-    :global(html[data-theme="light"] .footer-bottom-inner){color:#34465e!important}
-    :global(html[data-theme="light"] .how-intro h2),
-    :global(html[data-theme="light"] .faq-heading h2),
-    :global(html[data-theme="light"] .step-card h3),
-    :global(html[data-theme="light"] .benefit-item h3),
-    :global(html[data-theme="light"] .faq-list summary),
-    :global(html[data-theme="light"] .footer-column h2){color:#111827!important}
-    :global(html[data-theme="light"] .section-link),
-    :global(html[data-theme="light"] .text-link),
-    :global(html[data-theme="light"] .card-action),
-    :global(html[data-theme="light"] .all-platforms-cta a){color:#174f91!important}
-    :global(html[data-theme="light"] .site-footer){background:#edf3fb;border-color:#d7e1ef}
-    :global(html[data-theme="light"] .footer-bottom){border-color:#d1deed}
-    :global(html[data-theme="light"] .search input::placeholder){color:#5b6b80!important;opacity:1}
-    :global(html[data-theme="light"] .empty){color:#34465e}
-    :global(html[data-theme="dark"] .hero-description),
-    :global(html[data-theme="dark"] .section-heading p),
-    :global(html[data-theme="dark"] .how-intro>p),
-    :global(html[data-theme="dark"] .search-hint),
-    :global(html[data-theme="dark"] .platform-card-desc),
-    :global(html[data-theme="dark"] .step-card p),
-    :global(html[data-theme="dark"] .benefit-item p),
-    :global(html[data-theme="dark"] .faq-list details p),
-    :global(html[data-theme="dark"] .footer-about p),
-    :global(html[data-theme="dark"] .footer-column a){color:#c0c2b9}
-    :global(html[data-theme="dark"] .footer-bottom-inner){color:#a8aa9f}
-    :global(html[data-theme="dark"] .search input::placeholder){color:#b0b2a8;opacity:1}
-
-    /* Theme rule: blue accents in light mode; preserve gold accents in dark mode */
-    :global(html[data-theme="light"] .site-brand-word),
-    :global(html[data-theme="light"] .announcement a),
-    :global(html[data-theme="light"] .hero h1 span),
-    :global(html[data-theme="light"] .section-link),
-    :global(html[data-theme="light"] .text-link),
-    :global(html[data-theme="light"] .card-action),
-    :global(html[data-theme="light"] .all-platforms-cta a),
-    :global(html[data-theme="light"] .mini-brand),
-    :global(html[data-theme="light"] .invite-card-code),
-    :global(html[data-theme="light"] .copy-symbol),
-    :global(html[data-theme="light"] .chip-icon),
-    :global(html[data-theme="light"] .coin-symbol),
-    :global(html[data-theme="light"] .search-icon),
-    :global(html[data-theme="light"] .seo-content a),
-    :global(html[data-theme="light"] .breadcrumbs a) { color:#174f91!important; }
-    :global(html[data-theme="light"] .site-brand-mark),
-    :global(html[data-theme="light"] .mini-brand>span) {
-      background:linear-gradient(145deg,#4b91e2,#1d5fae)!important;
-      border-color:#1d5fae!important;color:#fff!important;box-shadow:0 4px 14px #1d5fae20;
+    :global(html[data-theme="light"] .faq-list details p){color:#52627c}
+    :global(html[data-theme="light"] .faq-more){border-color:#c6d3e5;color:#344b67}
+    @media(max-width:760px){
+      :global(.wrap){width:calc(100% - 28px)}
+      .promo{margin-top:14px}
+      .promo-track{height:190px}
+      .promo-slide{padding:20px 14%;gap:4px}
+      .promo-copy h2{font-size:18px;line-height:1.8}
+      .promo-copy p{font-size:12px;line-height:1.9}
+      .promo-copy a{font-size:12px;padding:9px 15px}
+      .promo-art{width:145px;height:130px;flex-basis:145px;transform:scale(.8);transform-origin:center}
+      .gift-box{right:0}.gift-bow{right:51px}.percent-tag{right:-23px}
+      .promo-arrow{width:31px;height:31px;font-size:25px}.promo-prev{right:8px}.promo-next{left:8px}
+      .hero{padding-top:39px}
+      .hero h1{font-size:clamp(28px,6vw,42px)}
+      .hero-description{font-size:14px;line-height:2}
+      .search{height:55px}
+      .category-cards{gap:14px;margin-top:32px}
+      .category-card{min-height:218px;padding:15px;grid-template-columns:40% 60%;gap:0}
+      .category-art{transform:scale(.78);width:120px}
+      .category-copy h2{font-size:20px;white-space:normal}
+      .category-copy p{font-size:11px}
+      .category-action{height:48px;font-size:13px;border-radius:17px}
+      .platform-section{padding-top:45px}
+      .platform-grid{gap:12px}
+      .platform-card{min-height:126px}
+      .faq-section{padding-top:38px}
     }
-    :global(html[data-theme="light"] .announcement){background:#eaf2fc;border-color:#d3e2f6}
-    :global(html[data-theme="light"] .announcement-dot){background:#2876c7;box-shadow:0 0 10px #2876c730}
-    :global(html[data-theme="light"] .site-brand-word){color:#174f91!important}
-    :global(html[data-theme="light"] .site-nav a:hover),
-    :global(html[data-theme="light"] .site-nav a[aria-current="page"]){background:#e7f0fc!important;color:#174f91!important}
-    :global(html[data-theme="light"] .header-cta),
-    :global(html[data-theme="light"] .search button) {
-      background:linear-gradient(135deg,#3d87d8,#1d5fae)!important;
-      border-color:#1d5fae!important;color:#fff!important;
+    @media(max-width:520px){
+      .promo-track{height:175px}
+      .promo-slide{padding:17px 13%;align-items:center}
+      .promo-copy{max-width:62%}
+      .promo-copy h2{font-size:15px}
+      .promo-copy p{font-size:10px;margin-bottom:12px}
+      .promo-art{position:absolute;left:2px;bottom:7px;transform:scale(.66);transform-origin:left bottom}
+      .promo-dots{bottom:8px}
+      .hero{padding-top:34px}
+      .hero h1{font-size:29px;line-height:1.6;letter-spacing:-.5px}
+      .hero-description{font-size:12px;margin:10px auto 20px}
+      .desktop-break{display:none}
+      .search{height:51px;padding:0 13px}
+      .search input{font-size:11px}
+      .category-cards{grid-template-columns:1fr;gap:12px;margin-top:25px}
+      .category-card{min-height:170px;padding:13px 17px;grid-template-columns:40% 60%;grid-template-rows:1fr 45px}
+      .category-art{transform:scale(.72)}
+      .category-copy h2{font-size:19px;margin-bottom:4px}
+      .category-copy p{font-size:11px;line-height:1.8}
+      .category-action{height:43px}
+      .platform-section{padding-top:36px}
+      .section-heading h2{font-size:21px}
+      .section-heading p{font-size:11px}
+      .platform-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+      .platform-card{min-height:122px}
+      .card-status{top:8px;right:8px;font-size:9px}
+      .platform-chevron{right:12px;bottom:18px}
+      .faq-section>h2{font-size:21px}
     }
-    :global(html[data-theme="light"] .eyebrow){background:#edf4fd!important;border-color:#c8dcf5!important;color:#174f91!important}
-    :global(html[data-theme="light"] .search){background:#fff!important;border-color:#c6d7eb!important}
-    :global(html[data-theme="light"] .search:focus-within){border-color:#2876c7!important;box-shadow:0 0 0 3px #2876c71c!important}
-    :global(html[data-theme="light"] .hero h1 span){color:#1d5fae!important}
-    :global(html[data-theme="light"] .invite-card){border-color:#c5d8ef!important;background:linear-gradient(145deg,#fff,#eef4fc 70%)!important}
-    :global(html[data-theme="light"] .invite-card-head){border-color:#dce6f2!important}
-    :global(html[data-theme="light"] .invite-card:before){background:linear-gradient(90deg,transparent,#2876c7,transparent)!important}
-    :global(html[data-theme="light"] .copy-symbol){border-color:#b9d0eb!important;background:#edf4fd!important}
-    :global(html[data-theme="light"] .art-glow){background:#4389d51c!important}
-    :global(html[data-theme="light"] .floating-chip){background:#ffffffed!important;border-color:#d7e3f1!important}
-    :global(html[data-theme="light"] .floating-chip b){color:#17263a!important}
-    :global(html[data-theme="light"] .floating-chip small){color:#536780!important}
-    :global(html[data-theme="light"] .chip-icon),
-    :global(html[data-theme="light"] .coin-symbol){background:#edf4fd!important;border-color:#c8dcf5!important}
-    :global(html[data-theme="light"] .platform-card:hover){border-color:#8db7e6!important;box-shadow:0 16px 35px #1d5fae12!important}
-    :global(html[data-theme="light"] .platform-card:focus-visible),
-    :global(html[data-theme="light"] .site-nav a:focus-visible),
-    :global(html[data-theme="light"] .header-cta:focus-visible){outline-color:#2876c7!important}
-    :global(html[data-theme="light"] .seo-content h2),
-    :global(html[data-theme="light"] .faq-heading h2){color:#174f91!important}
-    :global(html[data-theme="light"] .seo-content a),
-    :global(html[data-theme="light"] .breadcrumbs a){color:#174f91!important}
-
-    /* Platform logos: clean rounded tiles; crop excess whitespace baked into favicon images */
-    .platform-logo{width:49px;height:49px;flex:0 0 49px;display:grid;place-items:center;overflow:hidden;border-radius:15px!important;background:#fff!important;border:1px solid #d5e1ef!important;box-shadow:none!important;filter:none!important;isolation:isolate}
-    .platform-logo img{display:block;width:100%;height:100%;padding:0!important;object-fit:cover;object-position:center;border-radius:14px!important;box-shadow:none!important;filter:none!important;transform:scale(1.01)}
-    :global(html[data-theme="light"] .platform-logo),:global(html[data-theme="dark"] .platform-logo){background:#fff!important;border-color:#d5e1ef!important;box-shadow:none!important}
-    @media(max-width:700px){.platform-logo{width:42px;height:42px;flex-basis:42px;border-radius:13px!important}.platform-logo img{border-radius:12px!important}}
-    @media(prefers-reduced-motion:reduce){:global(html){scroll-behavior:auto}.platform-card,.header-cta,.faq-list summary span,.theme-toggle{transition:none}.platform-card:hover,.header-cta:hover,.theme-toggle:hover{transform:none}}
-
-    /* Homepage carousel and category shortcuts */
-    .ad-carousel{margin-top:22px;margin-bottom:0;position:relative}
-    .ad-carousel-track{position:relative;min-height:154px;overflow:hidden;border:1px solid #3b392f;border-radius:20px;background:#191a17}
-    .ad-slide{position:absolute;inset:0;display:flex;align-items:center;gap:20px;padding:24px 30px;opacity:0;visibility:hidden;transform:translateX(12px);transition:opacity .35s ease,transform .35s ease,visibility .35s}
-    .ad-slide[aria-hidden="false"]{position:relative;opacity:1;visibility:visible;transform:none}
-    .ad-slide-primary{background:radial-gradient(ellipse at 12% 50%,#e2bd631b,transparent 52%),linear-gradient(110deg,#1a1b17,#242116)}
-    .ad-slide-secondary{background:radial-gradient(ellipse at 12% 50%,#4389d51c,transparent 52%),linear-gradient(110deg,#171a20,#1a1c22)}
-    .ad-slide-tertiary{background:radial-gradient(ellipse at 12% 50%,#70d89d18,transparent 52%),linear-gradient(110deg,#171d19,#1b211b)}
-    .ad-slide-tag{align-self:flex-start;flex-shrink:0;padding:6px 10px;border:1px solid #62502b;border-radius:999px;color:#e2bd63;font-size:10px;font-weight:850;white-space:nowrap}
-    .ad-slide h2{margin:0 0 5px;color:#f4f1e8;font-size:clamp(16px,2.2vw,22px);line-height:1.8}
-    .ad-slide p{margin:0;color:#b8b7ad;font-size:12px;line-height:1.9}
-    .ad-slide-mark{margin-right:auto;display:grid;place-items:center;width:68px;height:68px;flex:0 0 68px;border:1px solid #78602d;border-radius:20px;background:#e2bd6315;color:#e2bd63;font:950 36px/1 Arial,sans-serif}
-    .ad-carousel-controls{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:10px}
-    .ad-carousel-controls>button{width:28px;height:28px;border:1px solid #454235;border-radius:9px;background:#191a17;color:#e2bd63;font-size:20px;line-height:1;cursor:pointer}
-    .ad-carousel-dots{display:flex;align-items:center;gap:6px}
-    .ad-carousel-dots button{width:6px;height:6px;padding:0;border:0;border-radius:99px;background:#5a594f;cursor:pointer;transition:width .2s,background .2s}
-    .ad-carousel-dots button.is-active{width:19px;background:#e2bd63}
-    .category-shortcuts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:30px;margin-bottom:10px}
-    .category-shortcut{display:flex;align-items:center;gap:14px;min-width:0;padding:20px;border:1px solid #39372e;border-radius:17px;background:linear-gradient(120deg,#1c1d19,#171814);text-decoration:none;transition:transform .2s,border-color .2s,box-shadow .2s}
-    .category-shortcut:hover{transform:translateY(-2px);border-color:#78602d;box-shadow:0 12px 28px #0000001a}
-    .category-shortcut-icon{display:grid;place-items:center;width:48px;height:48px;flex:0 0 48px;border:1px solid #62502b;border-radius:14px;background:#302a1b;color:#e2bd63;font-size:27px;font-weight:900}
-    .category-shortcut-copy{display:flex;flex-direction:column;gap:2px;min-width:0}
-    .category-shortcut-copy strong{color:#f4f1e8;font-size:16px;font-weight:900}
-    .category-shortcut-copy small{color:#aaa99f;font-size:11px;line-height:1.8}
-    .category-shortcut-arrow{margin-right:auto;color:#e2bd63;font-size:21px;flex-shrink:0}
-    :global(html[data-theme="light"] .ad-carousel-track){border-color:#d4e1f0;background:#fff}
-    :global(html[data-theme="light"] .ad-slide-primary){background:radial-gradient(ellipse at 12% 50%,#2876c71c,transparent 52%),linear-gradient(110deg,#fff,#edf4fd)}
-    :global(html[data-theme="light"] .ad-slide-secondary){background:radial-gradient(ellipse at 12% 50%,#4389d51c,transparent 52%),linear-gradient(110deg,#fff,#edf4fd)}
-    :global(html[data-theme="light"] .ad-slide-tertiary){background:radial-gradient(ellipse at 12% 50%,#25865313,transparent 52%),linear-gradient(110deg,#fff,#eef8f1)}
-    :global(html[data-theme="light"] .ad-slide h2),:global(html[data-theme="light"] .category-shortcut-copy strong){color:#17263a}
-    :global(html[data-theme="light"] .ad-slide p),:global(html[data-theme="light"] .category-shortcut-copy small){color:#45566e}
-    :global(html[data-theme="light"] .ad-slide-tag){border-color:#c8dcf5;color:#174f91}
-    :global(html[data-theme="light"] .ad-slide-mark){border-color:#c8dcf5;background:#edf4fd;color:#174f91}
-    :global(html[data-theme="light"] .category-shortcut){border-color:#d4e1f0;background:linear-gradient(120deg,#fff,#f2f6fc)}
-    :global(html[data-theme="light"] .category-shortcut-icon){border-color:#c8dcf5;background:#edf4fd;color:#174f91}
-    :global(html[data-theme="light"] .category-shortcut-arrow){color:#174f91}
-    @media(max-width:700px){
-      .ad-carousel{margin-top:14px}
-      .ad-carousel-track{min-height:148px;border-radius:16px}
-      .ad-slide{align-items:flex-start;flex-wrap:wrap;gap:8px 12px;padding:17px}
-      .ad-slide-tag{font-size:9px;padding:5px 8px}
-      .ad-slide>div{flex:1 1 calc(100% - 62px);min-width:0}
-      .ad-slide h2{font-size:15px;line-height:1.8}
-      .ad-slide p{font-size:10px;line-height:1.9}
-      .ad-slide-mark{width:42px;height:42px;flex-basis:42px;border-radius:13px;font-size:23px;margin-right:auto}
-      .category-shortcuts{gap:10px;margin-top:18px;margin-bottom:0}
-      .category-shortcut{gap:9px;padding:13px 10px;border-radius:14px}
-      .category-shortcut-icon{width:36px;height:36px;flex-basis:36px;border-radius:11px;font-size:21px}
-      .category-shortcut-copy strong{font-size:12px;white-space:nowrap}
-      .category-shortcut-copy small{font-size:9px;line-height:1.6}
-      .category-shortcut-arrow{font-size:17px}
-      .hero{padding-top:30px;padding-bottom:28px;gap:4px}
-      .hero h1{font-size:clamp(29px,7.2vw,39px);line-height:1.5;margin-top:14px}
-      .hero-description{line-height:2;margin-bottom:16px}
-      .hero-trust{gap:8px 12px;margin-top:16px}
-      .hero-art{min-height:218px;max-width:360px;margin-top:0}
-      .invite-card{width:min(76%,300px);padding:15px}
-      .chip-top{top:7px}
-      .chip-bottom{bottom:5px}
-      .floating-chip{padding:8px 10px}
-      .platform-section{padding-top:14px}
-    }
-    @media(max-width:390px){
-      .platform-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
-      .platform-card{padding:13px 11px;border-radius:14px}
-      .platform-card h3{font-size:13px;line-height:1.7}
-      .platform-card-desc{font-size:10px;line-height:1.8}
-      .platform-card-bottom{align-items:flex-start;flex-direction:column;gap:2px}
-      .reward-label{font-size:9px}
-      .reward-value{font-size:11px}
-      .card-action{font-size:11px}
-      .platform-logo{width:36px;height:36px;flex-basis:36px}
-      .card-status{font-size:9px}
-      .category-shortcuts{gap:8px}
-      .category-shortcut{padding:11px 8px;gap:7px}
-      .category-shortcut-copy strong{font-size:11px}
-      .category-shortcut-copy small{font-size:8px}
-      .category-shortcut-icon{width:31px;height:31px;flex-basis:31px}
-    }
-    @media(prefers-reduced-motion:reduce){.ad-slide,.ad-carousel-dots button,.category-shortcut{transition:none}}
-
+    @media(prefers-reduced-motion:reduce){:global(html){scroll-behavior:auto}.promo-slide,.category-card,.platform-card{transition:none}}
   </style>
-
   <script>
     import { platforms } from '../data/platforms.js';
-        const adTrack = document.querySelector('#adCarouselTrack');
-    const adSlides = [...document.querySelectorAll('.ad-slide')];
-    const adDots = [...document.querySelectorAll('.ad-carousel-dots button')];
-    let adIndex = 0;
-    let adTimer;
-    function showAdSlide(nextIndex) {
-      if (!adSlides.length) return;
-      adIndex = (nextIndex + adSlides.length) % adSlides.length;
-      adSlides.forEach((slide, index) => slide.setAttribute('aria-hidden', String(index !== adIndex)));
-      adDots.forEach((dot, index) => {
-        dot.classList.toggle('is-active', index === adIndex);
-        if (index === adIndex) dot.setAttribute('aria-current', 'true'); else dot.removeAttribute('aria-current');
-      });
+    const track = document.querySelector('#promoTrack');
+    const slides = [...document.querySelectorAll('.promo-slide')];
+    const dots = [...document.querySelectorAll('.promo-dots button')];
+    let index = 0, timer;
+    function showSlide(next) {
+      if (!slides.length) return;
+      index = (next + slides.length) % slides.length;
+      slides.forEach((slide, i) => slide.setAttribute('aria-hidden', String(i !== index)));
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
     }
-    const restartAdTimer = () => {
-      window.clearInterval(adTimer);
-      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) adTimer = window.setInterval(() => showAdSlide(adIndex + 1), 6000);
-    };
-    document.querySelector('#adPrev')?.addEventListener('click', () => { showAdSlide(adIndex - 1); restartAdTimer(); });
-    document.querySelector('#adNext')?.addEventListener('click', () => { showAdSlide(adIndex + 1); restartAdTimer(); });
-    adDots.forEach((dot, index) => dot.addEventListener('click', () => { showAdSlide(index); restartAdTimer(); }));
-    adTrack?.addEventListener('mouseenter', () => window.clearInterval(adTimer));
-    adTrack?.addEventListener('mouseleave', restartAdTimer);
-    showAdSlide(0);
-    restartAdTimer();
+    function restartTimer() {
+      clearInterval(timer);
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(() => showSlide(index + 1), 6000);
+    }
+    document.querySelector('#promoPrev')?.addEventListener('click', () => { showSlide(index - 1); restartTimer(); });
+    document.querySelector('#promoNext')?.addEventListener('click', () => { showSlide(index + 1); restartTimer(); });
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { showSlide(i); restartTimer(); }));
+    track?.addEventListener('mouseenter', () => clearInterval(timer));
+    track?.addEventListener('mouseleave', restartTimer);
+    showSlide(0); restartTimer();
 
     const form = document.querySelector('#searchForm');
     const input = document.querySelector('#searchInput');
-    const cards = [...document.querySelectorAll('.platform-card')];
+    const cards = [...document.querySelectorAll('.platform-card[data-name]')];
     const noResult = document.querySelector('#noResult');
-    const normalize = (value = '') => value.toLocaleLowerCase('fa').replace(/ي/g, 'ی').replace(/ك/g, 'ک').replace(/‌/g, '').replace(/\s+/g, '').trim();
+    const normalize = (value = '') => value.toLocaleLowerCase('fa').replace(/ي/g,'ی').replace(/ك/g,'ک').replace(/‌/g,'').replace(/\s+/g,'').trim();
     function findPlatform(query) {
       const q = normalize(query);
       if (!q) return null;
-      return platforms.find((platform) => [platform.name, platform.id, platform.code, ...(platform.aliases || [])].some((value) => normalize(value) === q || normalize(value).includes(q))) || null;
+      return platforms.find((p) => [p.name,p.id,p.code,...(p.aliases || [])].some((v) => normalize(v) === q || normalize(v).includes(q))) || null;
     }
     function updateResults() {
-      const query = normalize(input?.value || '');
-      if (!query) {
-        cards.forEach((card) => card.classList.remove('hidden'));
-        noResult?.classList.add('hidden');
-        return;
-      }
-      const match = findPlatform(query);
-      cards.forEach((card) => {
-        const name = normalize(card.dataset.name || '');
-        const matches = name.includes(query) || (match && card.getAttribute('href') === match.href);
-        card.classList.toggle('hidden', !matches);
-      });
-      noResult?.classList.toggle('hidden', cards.every((card) => card.classList.contains('hidden')));
+      const q = normalize(input?.value || '');
+      const matched = q ? findPlatform(q) : null;
+      cards.forEach((card) => card.classList.toggle('hidden', !!q && !(normalize(card.dataset.name || '').includes(q) || (matched && card.getAttribute('href') === matched.href)));
+      noResult?.classList.toggle('hidden', !q || cards.every((card) => card.classList.contains('hidden')));
     }
     input?.addEventListener('input', updateResults);
     form?.addEventListener('submit', (event) => {
       event.preventDefault();
       const query = input?.value.trim() || '';
-      if (!query) { updateResults(); return; }
-      const platform = findPlatform(query);
-      if (platform) { window.location.href = platform.href; return; }
-      updateResults();
-      document.querySelector('#platforms')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (!query) return;
+      const p = findPlatform(query);
+      if (p) window.location.href = p.href;
+      else { updateResults(); document.querySelector('#platforms')?.scrollIntoView({behavior:'smooth',block:'start'}); }
     });
   </script>
 </body>
