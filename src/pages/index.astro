@@ -442,6 +442,50 @@ const activePlatforms = platforms.filter((platform) => platform.active);
     :global(html[data-theme="light"] .empty){color:#344b67;border-color:#cbd7e6}
     :global(html[data-theme="light"] .reward-value){color:#785300}
     :global(html[data-theme="light"] .header-cta:hover){filter:brightness(1.08)}
+    /* Global contrast fixes: readable text in both themes */
+    :global(html[data-theme="light"] body){color:#17263a}
+    :global(html[data-theme="light"] .announcement){color:#23466f}
+    :global(html[data-theme="light"] .site-nav a){color:#344b67}
+    :global(html[data-theme="light"] .eyebrow),
+    :global(html[data-theme="light"] .section-kicker){color:#174f91}
+    :global(html[data-theme="light"] .hero-description),
+    :global(html[data-theme="light"] .section-heading p),
+    :global(html[data-theme="light"] .search-hint),
+    :global(html[data-theme="light"] .hero-trust span),
+    :global(html[data-theme="light"] .platform-card-desc),
+    :global(html[data-theme="light"] .reward-label),
+    :global(html[data-theme="light"] .step-card p),
+    :global(html[data-theme="light"] .benefit-item p),
+    :global(html[data-theme="light"] .faq-list details p),
+    :global(html[data-theme="light"] .footer-about p),
+    :global(html[data-theme="light"] .footer-column a),
+    :global(html[data-theme="light"] .footer-bottom-inner){color:#34465e!important}
+    :global(html[data-theme="light"] .how-intro h2),
+    :global(html[data-theme="light"] .faq-heading h2),
+    :global(html[data-theme="light"] .step-card h3),
+    :global(html[data-theme="light"] .benefit-item h3),
+    :global(html[data-theme="light"] .faq-list summary),
+    :global(html[data-theme="light"] .footer-column h2){color:#111827!important}
+    :global(html[data-theme="light"] .section-link),
+    :global(html[data-theme="light"] .text-link),
+    :global(html[data-theme="light"] .card-action),
+    :global(html[data-theme="light"] .all-platforms-cta a){color:#174f91!important}
+    :global(html[data-theme="light"] .site-footer){background:#edf3fb;border-color:#d7e1ef}
+    :global(html[data-theme="light"] .footer-bottom){border-color:#d1deed}
+    :global(html[data-theme="light"] .search input::placeholder){color:#5b6b80!important;opacity:1}
+    :global(html[data-theme="light"] .empty){color:#34465e}
+    :global(html[data-theme="dark"] .hero-description),
+    :global(html[data-theme="dark"] .section-heading p),
+    :global(html[data-theme="dark"] .how-intro>p),
+    :global(html[data-theme="dark"] .search-hint),
+    :global(html[data-theme="dark"] .platform-card-desc),
+    :global(html[data-theme="dark"] .step-card p),
+    :global(html[data-theme="dark"] .benefit-item p),
+    :global(html[data-theme="dark"] .faq-list details p),
+    :global(html[data-theme="dark"] .footer-about p),
+    :global(html[data-theme="dark"] .footer-column a){color:#c0c2b9}
+    :global(html[data-theme="dark"] .footer-bottom-inner){color:#a8aa9f}
+    :global(html[data-theme="dark"] .search input::placeholder){color:#b0b2a8;opacity:1}
     @media(prefers-reduced-motion:reduce){:global(html){scroll-behavior:auto}.platform-card,.header-cta,.faq-list summary span,.theme-toggle{transition:none}.platform-card:hover,.header-cta:hover,.theme-toggle:hover{transform:none}}
   </style>
 
