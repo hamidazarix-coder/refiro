@@ -5,10 +5,17 @@
       <img class="site-brand-mark" src="/refiro-logo.svg" width="34" height="34" alt="" />
     </a>
     <div class="header-actions">
+      <button class="search-toggle" id="headerSearchToggle" type="button" aria-label="باز کردن جست‌وجو" title="جست‌وجو" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.1"></circle><path d="m16 16 5 5"></path></svg>
+      </button>
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="تغییر تم" title="تغییر تم">
         <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
         <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z"></path></svg>
       </button>
+      <form class="header-search" id="searchForm" role="search" action="/" method="get" hidden>
+        <input id="searchInput" name="q" type="search" placeholder="نام پلتفرم را جست‌وجو کن..." aria-label="جست‌وجوی کد دعوت" autocomplete="off" />
+        <button type="submit" aria-label="جست‌وجو"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.1"></circle><path d="m16 16 5 5"></path></svg></button>
+      </form>
     </div>
   </div>
 </header>
@@ -18,7 +25,14 @@
   .site-brand{display:inline-flex;align-items:center;gap:8px;flex-shrink:0;text-decoration:none}
   .site-brand-mark{display:block;width:32px;height:32px;object-fit:contain}
   .site-brand-word{color:#f1f1fb;font-size:25px;font-weight:950;letter-spacing:-.7px}
-  .header-actions{display:flex;align-items:center;flex-shrink:0}
+  .header-actions{display:flex;align-items:center;gap:9px;flex-shrink:0;position:relative}
+  .search-toggle{width:40px;height:40px;display:grid;place-items:center;padding:0;border:1px solid #39445f;border-radius:50%;background:#101728;color:#e7eaff;cursor:pointer}
+  .search-toggle svg,.header-search svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+  .header-search{position:absolute;top:calc(100% + 13px);left:0;z-index:40;width:min(330px,calc(100vw - 28px));display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #39445f;border-radius:14px;background:#101728;box-shadow:0 12px 32px #0004}
+  .header-search[hidden]{display:none}
+  .header-search input{min-width:0;flex:1;border:0;outline:0;background:transparent;color:#f5f4ff;font:inherit;font-size:14px}
+  .header-search input::placeholder{color:#a1abc4}
+  .header-search button{display:grid;place-items:center;width:30px;height:30px;border:0;background:transparent;color:inherit;cursor:pointer}
   .theme-toggle{width:40px;height:40px;display:grid;place-items:center;padding:0;border:1px solid #39445f;border-radius:50%;background:#101728;color:#e7eaff;cursor:pointer;transition:background .2s,border-color .2s}
   .theme-toggle svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
   .theme-toggle .moon-icon{display:none}
@@ -26,12 +40,15 @@
   :global(html[data-theme="light"] .theme-toggle .moon-icon){display:block}
   :global(html[data-theme="light"] .site-header){background:rgba(248,250,255,.95);border-color:#dfe5f1}
   :global(html[data-theme="light"] .site-brand-word){color:#17263a}
-  :global(html[data-theme="light"] .theme-toggle){background:#fff;border-color:#cbd7e6;color:#111827}
+  :global(html[data-theme="light"] .theme-toggle),:global(html[data-theme="light"] .search-toggle){background:#fff;border-color:#cbd7e6;color:#111827}
+  :global(html[data-theme="light"] .header-search){background:#fff;border-color:#cbd7e6}
+  :global(html[data-theme="light"] .header-search input){color:#17263a}
+  :global(html[data-theme="light"] .header-search input::placeholder){color:#64748b}
   :global(html[data-theme="light"] .theme-toggle .moon-icon){stroke:#000; color:#000}
   @media(max-width:700px){
     .site-header-inner{width:calc(100% - 28px);min-height:62px;padding:8px 0}
     .site-brand-word{font-size:22px}.site-brand-mark{width:29px;height:29px}
-    .theme-toggle{width:36px;height:36px}
+    .theme-toggle,.search-toggle{width:36px;height:36px}
   }
 </style>
 <script>
@@ -42,6 +59,24 @@
     themeToggle?.setAttribute('aria-label', light ? 'تغییر به حالت تاریک' : 'تغییر به حالت روشن');
     themeToggle?.setAttribute('title', light ? 'تغییر به حالت تاریک' : 'تغییر به حالت روشن');
   }
+  updateThemeToggle();
+  const searchToggle = document.querySelector('#headerSearchToggle');
+  const searchForm = document.querySelector('#searchForm');
+  const searchInput = document.querySelector('#searchInput');
+  searchToggle?.addEventListener('click', () => {
+    const opening = searchForm?.hidden;
+    if (!searchForm) return;
+    searchForm.hidden = !opening;
+    searchToggle.setAttribute('aria-expanded', String(Boolean(opening)));
+    if (opening) searchInput?.focus();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && searchForm && !searchForm.hidden) {
+      searchForm.hidden = true;
+      searchToggle?.setAttribute('aria-expanded', 'false');
+      searchToggle?.focus();
+    }
+  });
   updateThemeToggle();
   themeToggle?.addEventListener('click', () => {
     const nextTheme = root.dataset.theme === 'light' ? 'dark' : 'light';
