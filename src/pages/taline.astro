@@ -584,6 +584,22 @@ const description = 'کد دعوت طلاین و کد معرف طلاین: کد 
       .note, .disclaimer { margin-inline: 16px; }
     }
 
+
+    /* Remove the separate heading box so the invitation content has one card. */
+    .intro {
+      margin: 0 0 14px !important;
+      padding: 0 !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+    html[data-theme="light"] .intro,
+    html[data-theme="light"] main.result > .intro {
+      background: transparent !important;
+      border-color: transparent !important;
+    }
+
   </style>
 
   <script>
