@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { platforms } from '../data/platforms.js';
 
@@ -155,17 +156,7 @@ const activePlatforms = platforms.filter((platform) => platform.active);
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-main wrap">
-      <div class="footer-about">
-        <a class="footer-logo" href="/"><span class="site-brand-mark">R</span><span>رفیرو</span></a>
-        <p>مرجع ساده کدهای دعوت و معرف؛ پلتفرمت رو پیدا کن و مستقیم وارد شو.</p>
-      </div>
-      <div class="footer-column"><h2>دسترسی سریع</h2><a href="/">خانه</a><a href="/codes/">همه کدها</a><a href="/guide/kod-davat/">راهنمای کد دعوت</a></div>
-      <div class="footer-column"><h2>درباره رفیرو</h2><a href="/about/">درباره ما</a><a href="/#faqTitle">سؤالات متداول</a></div>
-    </div>
-    <div class="footer-bottom"><div class="wrap footer-bottom-inner"><span>© رفیرو — استفاده از کدها رایگان است.</span><span>ثبت‌نام و پاداش‌ها تابع شرایط رسمی هر پلتفرم‌اند.</span></div></div>
-  </footer>
+  <Footer />
 
   <style>
     :global(html){scroll-behavior:smooth;scroll-padding-top:90px}
