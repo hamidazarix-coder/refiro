@@ -203,6 +203,15 @@ for (const file of pages) {
     if (!/\balt\s*=/.test(image[0])) issues.push(relative + ': image is missing an alt attribute: ' + image[0].slice(0, 120));
   }
 
+  for (const anchor of html.matchAll(/<a\\b[^>]*>/gi)) {
+    const href = anchor[0].match(/\\bhref="([^"]+)"/i)?.[1] || '';
+    const hasReferralParameter = /^https?:\\/\\//i.test(href) && /[?&](?:ref|referral|referralcode|r)=/i.test(href);
+    if (hasReferralParameter && !/\\brel="[^"]*\\bsponsored\\b/i.test(anchor[0])) {
+      issues.push(relative + ': commercial referral link must include rel="sponsored": ' + href);
+    }
+  }
+
+
   const refs = [
     ...[...html.matchAll(/\bhref="([^"]+)"/gi)].map((m) => ({ value: m[1], isAnchor: m.index > -1 && html.slice(Math.max(0, m.index - 3), m.index).includes('<a') })),
     ...[...html.matchAll(/\bsrc="([^"]+)"/gi)].map((m) => ({ value: m[1], isAnchor: false }))
