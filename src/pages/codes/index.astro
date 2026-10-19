@@ -142,7 +142,7 @@ const description = 'فهرست کد دعوت و کد معرف طلاین، زر
     .search-box{display:block;margin-bottom:22px}
     .search-box input{width:100%;box-sizing:border-box;padding:13px 16px;border:1px solid #514087;border-radius:13px;background:#111020;color:#eef0ff;font:inherit;outline:none}
     .search-box input:focus{border-color:#a64cff}
-    .code-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .code-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch;gap:18px}.code-list>.code-card{width:100%;min-width:0;min-height:0;overflow:hidden}
     .code-card{position:relative;aspect-ratio:1/1;min-height:0;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px;border:1px solid #514087;border-radius:15px;background:linear-gradient(145deg,#211338,#111020);color:#eef0ff;text-align:center}
     .code-card-top{display:flex;flex-direction:column;align-items:center;gap:9px}
     .code-card-title{display:flex;flex-direction:column;align-items:center;gap:2px}
@@ -170,7 +170,7 @@ const description = 'فهرست کد دعوت و کد معرف طلاین، زر
     :global(html[data-theme="light"] .details-link){background:linear-gradient(135deg,#7135c8,#5120a8);border-color:#8d35ff;color:#fff}
     :global(html[data-theme="light"] .seo-content){background:#fffaf0;border-color:#ead6a7}
     :global(html[data-theme="light"] .seo-content h2){color:#17263a}
-    @media(max-width:760px){.wrap{width:calc(100% - 28px)}.code-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.code-card{padding:12px;gap:9px}.tile-mark{width:38px;height:38px;flex-basis:38px}.code-card-title h2{font-size:13px}.code-card-title span{font-size:10px}.invite-code{padding:9px 6px;font-size:.9rem}.copy-button{padding:8px;font-size:12px}.details-link{padding:2px;font-size:10px}.section-heading h1{font-size:21px}.view-all{min-height:36px;padding:0 11px;font-size:12px}.view-all svg{width:15px;height:15px}}
+    @media(max-width:760px){.wrap{width:calc(100% - 28px)}.code-list{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:10px}.code-list>.code-card{aspect-ratio:auto;min-height:245px;height:100%;padding:12px;gap:9px}.tile-mark{width:38px;height:38px;flex-basis:38px}.code-card-title h2{font-size:13px}.code-card-title span{font-size:10px}.invite-code{padding:9px 6px;font-size:.9rem}.copy-button{padding:8px;font-size:12px}.details-link{padding:2px;font-size:10px}.section-heading h1{font-size:21px}.view-all{min-height:36px;padding:0 11px;font-size:12px}.view-all svg{width:15px;height:15px}}
     .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
     [hidden]{display:none!important}
   </style>
