@@ -54,27 +54,15 @@ const activePlatforms = platforms.filter((platform) => platform.active);
 <body>
   <Header />
   <main>
-    <section class="promo wrap" aria-label="پیشنهادهای رفیرو">
+    <section class="promo wrap" aria-label="جایگاه تبلیغات">
       <div class="promo-track" id="promoTrack">
-        <article class="promo-slide slide-one" aria-hidden="false">
-          <div class="promo-copy"><h2>با رفیرو، هوشمندانه دعوت کن</h2><p>کدهای دعوت، فرصت‌های واقعی کسب درآمد</p><a href="/guide/kod-davat/">بیشتر بدانید <span>←</span></a></div>
-          <div class="promo-art gift-art" aria-hidden="true"><div class="gift-box"><i></i><b></b><span></span></div><div class="gift-bow"></div><div class="percent-tag">٪</div></div>
-        </article>
-        <article class="promo-slide slide-two" aria-hidden="true">
-          <div class="promo-copy"><h2>کدهای دعوت و تخفیف، یک‌جا</h2><p>پیشنهادهای جذاب پلتفرم‌های محبوبت را پیدا کن</p><a href="/codes/">مشاهده کدها <span>←</span></a></div>
-          <div class="promo-art ticket-art" aria-hidden="true"><div class="big-ticket"><span>٪</span><i></i></div></div>
-        </article>
-        <article class="promo-slide slide-three" aria-hidden="true">
-          <div class="promo-copy"><h2>پاداش ثبت‌نامت رو از دست نده</h2><p>کد رو بردار یا مستقیم وارد لینک دعوت شو</p><a href="#platforms">شروع کن <span>←</span></a></div>
-          <div class="promo-art coin-art" aria-hidden="true"><div class="coin-stack">✦</div><div class="coin coin-a">R</div><div class="coin coin-b">٪</div></div>
-        </article>
+        <article class="promo-slide ad-slide ad-slide-one" aria-hidden="false"><span>تبلیغات سایت شما</span></article>
+        <article class="promo-slide ad-slide ad-slide-two" aria-hidden="true"><span>تبلیغات سایت شما</span></article>
+        <article class="promo-slide ad-slide ad-slide-three" aria-hidden="true"><span>تبلیغات سایت شما</span></article>
       </div>
-      <button class="promo-arrow promo-prev" id="promoPrev" type="button" aria-label="اسلاید قبلی">‹</button>
-      <button class="promo-arrow promo-next" id="promoNext" type="button" aria-label="اسلاید بعدی">›</button>
-      <div class="promo-dots" aria-label="انتخاب اسلاید"><button class="active" type="button" aria-label="اسلاید ۱"></button><button type="button" aria-label="اسلاید ۲"></button><button type="button" aria-label="اسلاید ۳"></button></div>
     </section>
 
-    <section class="hero wrap" aria-labelledby="heroTitle">
+        <section class="hero wrap" aria-labelledby="heroTitle">
       <h1 id="heroTitle">رفیرو: بزرگ‌ترین مرجع<br /><span>کدهای دعوت در ایران</span></h1>
       <p class="hero-description">در رفیرو کدهای دعوت و معرف پلتفرم‌های مختلف را پیدا کن؛<br class="desktop-break" /> کد را کپی کن یا مستقیم وارد لینک دعوت شو و پاداشت رو بگیر.</p>
       <form class="search" id="searchForm" role="search">
@@ -295,31 +283,37 @@ const activePlatforms = platforms.filter((platform) => platform.active);
       .faq-section>h2{font-size:21px}
     }
     @media(prefers-reduced-motion:reduce){:global(html){scroll-behavior:auto}.promo-slide,.category-card,.platform-card{transition:none}}
+
+    .promo{margin-top:24px}
+    .promo-track{position:relative;height:145px;overflow:hidden;border:1px solid #313752;border-radius:20px;background:#111729}
+    .promo-slide.ad-slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .5s ease;background:radial-gradient(ellipse at 50% 0%,#30205a,#111729 75%)}
+    .promo-slide.ad-slide[aria-hidden="false"]{opacity:1;pointer-events:auto}
+    .ad-slide span{color:#c9b4ff;font-size:clamp(18px,3vw,26px);font-weight:850;letter-spacing:.1px}
+    .ad-slide-two{background:radial-gradient(ellipse at 10% 90%,#28214f,#111729 75%)}
+    .ad-slide-three{background:radial-gradient(ellipse at 90% 10%,#3b245b,#111729 75%)}
+    :global(html[data-theme="light"] .promo-track){border-color:#d9c9f7;background:#f5f2ff}
+    :global(html[data-theme="light"] .promo-slide.ad-slide){background:radial-gradient(ellipse at 50% 0%,#e9dcff,#f7f8ff 75%)}
+    :global(html[data-theme="light"] .ad-slide-two){background:radial-gradient(ellipse at 10% 90%,#e3e3ff,#f7f8ff 75%)}
+    :global(html[data-theme="light"] .ad-slide-three){background:radial-gradient(ellipse at 90% 10%,#f2e2ff,#f7f8ff 75%)}
+    :global(html[data-theme="light"] .ad-slide span){color:#6833b6}
+    @media(max-width:760px){.promo{margin-top:14px}.promo-track{height:105px}}
+    @media(prefers-reduced-motion:reduce){.promo-slide.ad-slide{transition:none}}
   </style>
   <script>
     import { platforms } from '../data/platforms.js';
     const track = document.querySelector('#promoTrack');
     const slides = [...document.querySelectorAll('.promo-slide')];
-    const dots = [...document.querySelectorAll('.promo-dots button')];
-    let index = 0, timer;
+    let index = 0;
     function showSlide(next) {
       if (!slides.length) return;
       index = (next + slides.length) % slides.length;
       slides.forEach((slide, i) => slide.setAttribute('aria-hidden', String(i !== index)));
-      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
     }
-    function restartTimer() {
-      clearInterval(timer);
-      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(() => showSlide(index + 1), 6000);
+    if (slides.length > 1 && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setInterval(() => showSlide(index + 1), 5000);
     }
-    document.querySelector('#promoPrev')?.addEventListener('click', () => { showSlide(index - 1); restartTimer(); });
-    document.querySelector('#promoNext')?.addEventListener('click', () => { showSlide(index + 1); restartTimer(); });
-    dots.forEach((dot, i) => dot.addEventListener('click', () => { showSlide(i); restartTimer(); }));
-    track?.addEventListener('mouseenter', () => clearInterval(timer));
-    track?.addEventListener('mouseleave', restartTimer);
-    showSlide(0); restartTimer();
 
-    const form = document.querySelector('#searchForm');
+        const form = document.querySelector('#searchForm');
     const input = document.querySelector('#searchInput');
     const cards = [...document.querySelectorAll('.platform-card[data-name]')];
     const noResult = document.querySelector('#noResult');
