@@ -234,7 +234,7 @@ for (const file of pages) {
   }
   for (const anchor of html.matchAll(/<a[^>]*>/gi)) {
     const href = anchor[0].match(/href="([^"]+)"/i)?.[1] || '';
-    if (!href || /^(?:https?:)?\/\//i.test(href) || /^(?:mailto:|tel:|data:|javascript:)/i.test(href)) continue;
+    if (!href || href.startsWith('#') || /^(?:mailto:|tel:|data:|javascript:)/i.test(href)) continue;
     let url;
     try { url = new URL(href, ORIGIN); } catch { continue; }
     if (url.origin !== ORIGIN) continue;
@@ -283,4 +283,4 @@ if (issues.length) {
   for (const issue of issues) console.error(' - ' + issue);
   process.exit(1);
 }
-console.log('SEO audit passed: ' + pages.length + ' indexable HTML pages; unique titles/descriptions/canonicals; Open Graph/Twitter metadata; JSON-LD; image alt attributes; internal links; robots.txt and sitemap checked.');
+console.log('SEO audit passed: ' + canonicalUrls.length + ' indexable pages (' + pages.length + ' HTML pages checked); unique titles/descriptions/canonicals; Open Graph/Twitter metadata; JSON-LD; image alt attributes; internal links; robots.txt and sitemap checked.');
