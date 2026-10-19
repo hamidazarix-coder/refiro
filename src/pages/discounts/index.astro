@@ -1,0 +1,66 @@
+---
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = 'همه کدهای تخفیف | رفیرو';
+const description = 'فهرست کدهای تخفیف فروشگاه‌ها و سرویس‌های آنلاین در رفیرو؛ کدهای جدید به‌زودی اضافه می‌شوند.';
+const placeholders = Array.from({ length: 6 }, (_, index) => index + 1);
+---
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} />
+  <meta name="theme-color" content="#080c15" />
+  <script is:inline>
+    (() => { try { document.documentElement.dataset.theme = localStorage.getItem('refiro-theme') === 'light' ? 'light' : 'dark'; } catch { document.documentElement.dataset.theme = 'dark'; } })();
+  </script>
+  <link rel="canonical" href="https://refiro.ir/discounts/" />
+  <link rel="icon" type="image/svg+xml" href="/refiro-logo.svg" />
+  <title>{title}</title>
+</head>
+<body>
+  <Header />
+  <main class="wrap discounts-page">
+    <nav class="breadcrumbs" aria-label="مسیر صفحه"><a href="/">صفحه اصلی</a><span aria-hidden="true">/</span><span aria-current="page">همه کدهای تخفیف</span></nav>
+    <div class="section-heading section-heading-row">
+      <h1>همه کد های تخفیف</h1>
+      <a class="view-all" href="/">بازگشت به صفحه اصلی <span aria-hidden="true">←</span></a>
+    </div>
+    <p class="page-desc">کدهای تخفیف فروشگاه‌ها و سرویس‌های آنلاین؛ موارد جدید به‌زودی اضافه می‌شوند.</p>
+    <div class="platform-grid discount-grid">
+      {placeholders.map((item) => (
+        <article class="platform-card discount-placeholder">
+          <span class="card-status">به‌زودی</span>
+          <span class="platform-logo discount-placeholder-icon" aria-hidden="true">٪</span>
+          <strong>کد تخفیف جدید</strong>
+        </article>
+      ))}
+    </div>
+  </main>
+  <Footer />
+  <style>
+    :global(body){margin:0;background:#080c15;color:#eef0ff}
+    .wrap{width:min(1120px,calc(100% - 48px));margin-inline:auto}
+    .discounts-page{min-height:55vh;padding-top:42px;padding-bottom:60px}
+    .breadcrumbs{display:flex;gap:10px;align-items:center;margin-bottom:28px;color:#9da9c2;font-size:13px}
+    .breadcrumbs a{color:#a77aff;text-decoration:none}
+    .section-heading{margin-bottom:16px}
+    .section-heading-row{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:right}
+    .section-heading h1{margin:0;font-size:clamp(23px,4vw,30px);font-weight:900}
+    .view-all{display:inline-flex;align-items:center;gap:8px;color:#a77aff;text-decoration:none;font-size:13px;font-weight:800;white-space:nowrap}
+    .page-desc{margin:0 0 25px;color:#aab2c9;line-height:2}
+    .platform-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .platform-card{position:relative;min-height:142px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:18px 10px 12px;border:1px solid #58421c;border-radius:15px;background:linear-gradient(145deg,#211b0e,#11110f);color:#eef0ff}
+    .card-status{position:absolute;top:12px;right:12px;padding:3px 12px;border-radius:20px;background:#76520b;color:#fff0bd;font-size:11px;font-weight:800}
+    .platform-logo{width:43px;height:43px;display:grid;place-items:center;margin-top:7px;border-radius:50%;overflow:hidden}
+    .discount-placeholder-icon{background:linear-gradient(145deg,#ffc53d,#e98c00);color:#fff2a4;font-size:28px;font-weight:950}
+    .platform-card strong{font-size:15px;font-weight:800}
+    :global(html[data-theme="light"] body){background:#f5f8fc;color:#17263a}
+    :global(html[data-theme="light"] .platform-card){background:#fffaf0;border-color:#ead6a7;color:#17263a}
+    @media(max-width:760px){.wrap{width:calc(100% - 28px)}.platform-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.platform-card{min-height:122px}.card-status{top:8px;right:8px;font-size:9px}.section-heading h1{font-size:21px}.view-all{font-size:11px}}
+  </style>
+</body>
+</html>
