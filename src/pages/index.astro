@@ -169,12 +169,6 @@ const discountPlaceholders = Array.from({ length: 6 }, (_, index) => index + 1);
     .hero h1{margin:0;color:#e9eafa;font-size:clamp(34px,5vw,52px);font-weight:950;line-height:1.5;letter-spacing:-1.3px}
     .hero h1 span{color:#9145ff;text-shadow:0 0 28px #812cff24}
     .hero-description{margin:13px auto 26px;color:#aeb5ca;font-size:17px;line-height:2}
-    .search{width:min(715px,100%);height:62px;margin:0 auto;display:flex;align-items:center;gap:13px;padding:0 19px;border:1px solid #4d5a7b;border-radius:40px;background:linear-gradient(110deg,#202a40,#1b2234);box-shadow:0 8px 26px #0002}
-    .search:focus-within{border-color:#8d4bff;box-shadow:0 0 0 3px #8d4bff20}
-    .search input{order:1;flex:1;min-width:0;border:0;outline:0;background:transparent;color:#f5f4ff;font:inherit;font-size:14px}
-    .search input::placeholder{color:#a1abc4}
-    .search-submit{order:2;display:grid;place-items:center;width:32px;height:38px;padding:0;border:0;background:transparent;color:#eef1ff;cursor:pointer}
-    .search-submit svg{width:27px;height:27px;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round}
     .category-cards{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:50px}
     .category-card{position:relative;min-height:236px;display:grid;grid-template-columns:43% 57%;grid-template-rows:1fr;align-items:center;gap:0 5px;padding:23px 28px;border:1px solid;border-radius:20px;text-decoration:none;overflow:hidden;transition:transform .2s,box-shadow .2s}
     .category-card:hover{transform:translateY(-3px)}
@@ -240,8 +234,6 @@ const discountPlaceholders = Array.from({ length: 6 }, (_, index) => index + 1);
     :global(html[data-theme="light"] .promo-track){border-color:#d6c5f6;background:radial-gradient(ellipse at 77% 50%,#eadfff,#f5f7ff 70%)}
     :global(html[data-theme="light"] .promo-copy h2),:global(html[data-theme="light"] .hero h1),:global(html[data-theme="light"] .section-heading h2),:global(html[data-theme="light"] .faq-section>h2){color:#17263a}
     :global(html[data-theme="light"] .promo-copy p),:global(html[data-theme="light"] .hero-description),:global(html[data-theme="light"] .section-heading p),:global(html[data-theme="light"] .faq-section>p){color:#52627c}
-    :global(html[data-theme="light"] .search){background:#fff;border-color:#c9d7ec}
-    :global(html[data-theme="light"] .search input){color:#17263a}
     :global(html[data-theme="light"] .category-copy h2){color:#17263a}
     :global(html[data-theme="light"] .category-copy p){color:#465770}
     :global(html[data-theme="light"] .referral-card){background:linear-gradient(135deg,#f4eaff,#fff);box-shadow:0 8px 24px #6c2bb20c}
@@ -290,8 +282,6 @@ const discountPlaceholders = Array.from({ length: 6 }, (_, index) => index + 1);
       .hero h1{font-size:29px;line-height:1.6;letter-spacing:-.5px}
       .hero-description{font-size:12px;margin:10px auto 20px}
       .desktop-break{display:none}
-      .search{height:51px;padding:0 13px}
-      .search input{font-size:11px}
       /* Keep both primary category cards together on mobile, as in the desktop layout. */
       .category-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:25px}
       .category-card{min-width:0;min-height:218px;padding:11px 9px;grid-template-columns:minmax(0,1fr);grid-template-rows:82px auto;gap:4px;text-align:center}
