@@ -536,12 +536,11 @@ const activePlatforms = platforms.filter((platform) => platform.active);
     :global(html[data-theme="light"] .seo-content a),
     :global(html[data-theme="light"] .breadcrumbs a){color:#174f91!important}
 
-    /* Cleaner platform marks: rounded corners, no glow or halo */
-    .platform-logo{border-radius:15px!important;background:#fff!important;border:1px solid #e2e8f0!important;box-shadow:none!important;filter:none!important;overflow:hidden}
-    .platform-logo img{display:block;width:100%;height:100%;padding:5px;object-fit:contain;border-radius:11px;box-shadow:none!important;filter:none!important}
-    :global(html[data-theme="light"] .platform-logo){background:#fff!important;border-color:#d5e1ef!important;box-shadow:none!important}
-    :global(html[data-theme="dark"] .platform-logo){background:#fff!important;border-color:#3d4652!important;box-shadow:none!important}
-    @media(max-width:700px){.platform-logo{border-radius:13px!important}.platform-logo img{border-radius:9px}}
+    /* Platform logos: clean rounded tiles; crop excess whitespace baked into favicon images */
+    .platform-logo{width:49px;height:49px;flex:0 0 49px;display:grid;place-items:center;overflow:hidden;border-radius:15px!important;background:#fff!important;border:1px solid #d5e1ef!important;box-shadow:none!important;filter:none!important;isolation:isolate}
+    .platform-logo img{display:block;width:100%;height:100%;padding:0!important;object-fit:cover;object-position:center;border-radius:14px!important;box-shadow:none!important;filter:none!important;transform:scale(1.01)}
+    :global(html[data-theme="light"] .platform-logo),:global(html[data-theme="dark"] .platform-logo){background:#fff!important;border-color:#d5e1ef!important;box-shadow:none!important}
+    @media(max-width:700px){.platform-logo{width:42px;height:42px;flex-basis:42px;border-radius:13px!important}.platform-logo img{border-radius:12px!important}}
     @media(prefers-reduced-motion:reduce){:global(html){scroll-behavior:auto}.platform-card,.header-cta,.faq-list summary span,.theme-toggle{transition:none}.platform-card:hover,.header-cta:hover,.theme-toggle:hover{transform:none}}
   </style>
 
