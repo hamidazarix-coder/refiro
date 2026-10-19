@@ -27,18 +27,29 @@ function routeOf(file) {
   return '/' + relative.replace(/\.html$/, '');
 }
 
+function meta(html, key) {
+  const tags = html.match(/<meta\b[^>]*>/gi) || [];
+  const tag = tags.find((x) => x.includes('name="' + key + '"') || x.includes('property="' + key + '"'));
+  return tag?.match(/\bcontent="([^"]*)"/i)?.[1] || null;
+}
+
+function countMeta(html, key) {
+  const tags = html.match(/<meta\b[^>]*>/gi) || [];
+  return tags.filter((x) => x.includes('name="' + key + '"') || x.includes('property="' + key + '"')).length;
+}
+
+function normalizeRoute(pathname) {
+  if (!pathname || pathname === '/') return '/';
+  if (path.extname(pathname)) return null;
+  return pathname.endsWith('/') ? pathname : pathname + '/';
+}
+
 function distTarget(urlPath) {
   let decoded;
   try { decoded = decodeURIComponent(urlPath); } catch { return null; }
   const result = path.resolve(DIST, '.' + decoded);
   if (result !== DIST && !result.startsWith(DIST + path.sep)) return null;
   return result;
-}
-
-function meta(html, key) {
-  const tags = html.match(/<meta\b[^>]*>/gi) || [];
-  const tag = tags.find((x) => x.includes('name="' + key + '"') || x.includes('property="' + key + '"'));
-  return tag?.match(/\bcontent="([^"]*)"/i)?.[1] || null;
 }
 
 async function sitemapUrls() {
@@ -70,29 +81,44 @@ if (!await exists(DIST)) {
 const all = await walk(DIST);
 const pages = all.filter((file) => file.endsWith('.html') && path.basename(file) !== '404.html');
 if (!pages.length) issues.push('No HTML pages found.');
+
 const titles = new Map();
+const descriptions = new Map();
 const canonicals = new Map();
 const canonicalUrls = [];
+const pageRoutes = new Set();
+const linkedRoutes = new Set();
 let previews = 0;
 
 for (const file of pages) {
   const relative = path.relative(DIST, file).split(path.sep).join('/');
   const html = await readFile(file, 'utf8');
   const route = routeOf(file);
+  const expected = ORIGIN + route;
+  pageRoutes.add(route);
+
   const titleMatches = [...html.matchAll(/<title>([\s\S]*?)<\/title>/gi)];
   const title = titleMatches[0]?.[1]?.replace(/\s+/g, ' ').trim() || '';
   const desc = meta(html, 'description');
   const canonical = html.match(/<link\s+rel="canonical"\s+href="([^"]+)"/i)?.[1] || '';
-  const expected = ORIGIN + route;
 
   if (titleMatches.length !== 1 || !title) issues.push(relative + ': expected exactly one non-empty title.');
   if (title.length > 75) issues.push(relative + ': title is longer than 75 characters.');
+  if (/[{}]|undefined|null/i.test(title)) issues.push(relative + ': title contains a likely unresolved placeholder.');
   if (title) {
     if (titles.has(title)) issues.push(relative + ': duplicate title with ' + titles.get(title) + '.');
     else titles.set(title, relative);
   }
 
   if (!desc || desc.length < 60 || desc.length > 200) issues.push(relative + ': meta description missing or outside 60–200 characters.');
+  if (desc) {
+    if (descriptions.has(desc)) issues.push(relative + ': duplicate meta description with ' + descriptions.get(desc) + '.');
+    else descriptions.set(desc, relative);
+  }
+  for (const name of ['description', 'robots']) {
+    if (countMeta(html, name) !== 1) issues.push(relative + ': expected exactly one meta ' + name + ' tag.');
+  }
+
   if (!canonical) issues.push(relative + ': canonical URL is missing.');
   else {
     try {
@@ -107,40 +133,67 @@ for (const file of pages) {
   const robots = meta(html, 'robots');
   if (!robots || /noindex/i.test(robots)) issues.push(relative + ': robots metadata missing or noindex is set.');
   if (!/<html\b[^>]*\blang="fa"/i.test(html) || !/<html\b[^>]*\bdir="rtl"/i.test(html)) issues.push(relative + ': expected lang="fa" and dir="rtl".');
+  if (!/<meta\s+name="viewport"/i.test(html)) issues.push(relative + ': viewport meta tag is missing.');
   const h1 = (html.match(/<h1\b/gi) || []).length;
   if (h1 !== 1) issues.push(relative + ': expected one H1, found ' + h1 + '.');
+  if (!/<h2\b/i.test(html)) issues.push(relative + ': no H2 headings found; check content structure.');
 
   const ogImage = meta(html, 'og:image');
   const twImage = meta(html, 'twitter:image');
   const card = meta(html, 'twitter:card');
+  const ogTitle = meta(html, 'og:title');
+  const ogDescription = meta(html, 'og:description');
+  const ogUrl = meta(html, 'og:url');
+  const twTitle = meta(html, 'twitter:title');
+  const twDescription = meta(html, 'twitter:description');
+
   if (!ogImage || ogImage !== ORIGIN + '/og-cover.png' || twImage !== ogImage || card !== 'summary_large_image') {
     issues.push(relative + ': social preview image/card metadata incomplete.');
   } else if (!await exists(path.join(DIST, 'og-cover.png'))) {
     issues.push('Social preview file dist/og-cover.png missing.');
   } else previews++;
 
-  for (const script of html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)) {
+  if (!ogTitle || ogTitle !== title || !ogDescription || ogDescription !== desc || ogUrl !== canonical) {
+    issues.push(relative + ': Open Graph title/description/URL do not match the page metadata and canonical URL.');
+  }
+  if (twTitle !== title || twDescription !== desc) issues.push(relative + ': Twitter title/description do not match page metadata.');
+  if (!meta(html, 'og:site_name') || !meta(html, 'og:locale')) issues.push(relative + ': Open Graph site name or locale missing.');
+  if (!meta(html, 'og:image:alt')) issues.push(relative + ': Open Graph image alt text is missing.');
+  if (!meta(html, 'twitter:image:alt')) issues.push(relative + ': Twitter image alt text is missing.');
+
+  const jsonLdScripts = [...html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)];
+  if (!jsonLdScripts.length) issues.push(relative + ': no JSON-LD structured data found.');
+  for (const script of jsonLdScripts) {
     try {
       const data = JSON.parse(script[1]);
       if (!data['@context'] || (!data['@type'] && !data['@graph'])) issues.push(relative + ': JSON-LD missing context/type.');
     } catch { issues.push(relative + ': JSON-LD is not valid JSON.'); }
   }
 
+  for (const image of html.matchAll(/<img\b[^>]*>/gi)) {
+    if (!/\balt\s*=/.test(image[0])) issues.push(relative + ': image is missing an alt attribute: ' + image[0].slice(0, 120));
+  }
+
   const refs = [
-    ...[...html.matchAll(/\bhref="([^"]+)"/gi)].map((m) => m[1]),
-    ...[...html.matchAll(/\bsrc="([^"]+)"/gi)].map((m) => m[1])
+    ...[...html.matchAll(/\bhref="([^"]+)"/gi)].map((m) => ({ value: m[1], isAnchor: m.index > -1 && html.slice(Math.max(0, m.index - 3), m.index).includes('<a') })),
+    ...[...html.matchAll(/\bsrc="([^"]+)"/gi)].map((m) => ({ value: m[1], isAnchor: false }))
   ];
-  for (const ref of refs) {
+  for (const refItem of refs) {
+    const ref = refItem.value;
     if (!ref || ref.startsWith('#') || /^(?:https?:)?\/\//i.test(ref) || /^(?:mailto:|tel:|data:|javascript:)/i.test(ref)) continue;
     let url;
     try { url = new URL(ref, ORIGIN); } catch { continue; }
     if (url.origin !== ORIGIN) continue;
     const target = distTarget(url.pathname);
     if (!target) { issues.push(relative + ': unsafe local reference ' + ref); continue; }
-    if (await exists(target)) continue;
-    if (!path.extname(url.pathname) && await exists(path.join(target, 'index.html'))) continue;
-    if (!path.extname(url.pathname) && await exists(target + '/index.html')) continue;
-    issues.push(relative + ': broken local reference ' + url.pathname);
+    if (!await exists(target) && !(await exists(path.join(target, 'index.html'))) && !(await exists(target + '/index.html'))) {
+      issues.push(relative + ': broken local reference ' + url.pathname);
+      continue;
+    }
+    if (refItem.isAnchor) {
+      const normalized = normalizeRoute(url.pathname);
+      if (normalized) linkedRoutes.add(normalized);
+    }
   }
 }
 
@@ -153,10 +206,19 @@ else {
 }
 
 const sitemap = new Set(await sitemapUrls());
+const canonicalSet = new Set(canonicalUrls);
 for (const url of canonicalUrls) if (!sitemap.has(url)) issues.push('Canonical is missing from sitemap: ' + url);
 for (const url of sitemap) {
-  try { if (new URL(url).origin !== ORIGIN) issues.push('Non-canonical host in sitemap: ' + url); }
-  catch { issues.push('Invalid URL in sitemap: ' + url); }
+  try {
+    const parsed = new URL(url);
+    if (parsed.origin !== ORIGIN) issues.push('Non-canonical host in sitemap: ' + url);
+    if (!canonicalSet.has(url)) issues.push('Sitemap contains a URL without a matching indexed page canonical: ' + url);
+    if (parsed.search || parsed.hash) issues.push('Sitemap URL should not contain query string or fragment: ' + url);
+  } catch { issues.push('Invalid URL in sitemap: ' + url); }
+}
+
+for (const route of pageRoutes) {
+  if (!linkedRoutes.has(route)) issues.push('Potential orphan page: no internal link points to ' + route);
 }
 
 if (issues.length) {
@@ -164,4 +226,4 @@ if (issues.length) {
   for (const issue of issues) console.error(' - ' + issue);
   process.exit(1);
 }
-console.log('SEO audit passed: ' + pages.length + ' HTML pages, unique titles/canonicals, metadata, JSON-LD, local references, sitemap and ' + previews + ' social previews checked.');
+console.log('SEO audit passed: ' + pages.length + ' indexable HTML pages; unique titles/descriptions/canonicals; Open Graph/Twitter metadata; JSON-LD; image alt attributes; internal links; robots.txt and sitemap checked.');
