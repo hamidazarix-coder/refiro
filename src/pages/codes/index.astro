@@ -84,21 +84,22 @@ const description = 'فهرست کد دعوت و کد معرف طلاین، زر
     <nav class="breadcrumbs" aria-label="مسیر صفحه">
       <a href="/">صفحه اصلی</a><span aria-hidden="true">/</span><span aria-current="page">همه کدهای دعوت و معرف</span>
     </nav>
-    <span class="eyebrow">فهرست کدهای دعوت</span>
-    <h1 class="page-title">همه کدهای دعوت و کدهای معرف</h1>
-    <p class="page-desc">پلتفرم موردنظرت رو پیدا کن، کد دعوت یا کد معرف رو کپی کن و قبل از ثبت‌نام، شرایط طرح رو در منبع رسمی بررسی کن.</p>
-    <p class="directory-guide-link"><a href="/guide/kod-davat/">راهنمای کامل کد دعوت: روش استفاده، خطاهای رایج و نکات امنیتی ←</a> · <a href="/about/">روش بررسی کدها در رفیرو</a></p>
+    <div class="section-heading section-heading-row">
+      <h1>همه کدهای دعوت</h1>
+      <a class="view-all" href="/">بازگشت به صفحه اصلی <span aria-hidden="true">←</span></a>
+    </div>
+    <p class="page-desc">کد دعوت پلتفرم موردنظرت رو پیدا کن، کپی کن و مستقیم وارد صفحه ثبت‌نام شو.</p>
 
     <label class="search-box">
       <span class="sr-only">جست‌وجو در کدها</span>
       <input id="codeSearch" type="search" placeholder="جست‌وجو بر اساس نام یا کد..." autocomplete="off" />
     </label>
 
-    <div class="code-list" id="codeList">
+    <div class="code-list platform-grid" id="codeList">
       {platforms.map((platform) => (
-        <article class="code-card" data-search={`${platform.name} ${platform.id} ${platform.code} ${(platform.aliases || []).join(' ')}`}>
+        <article class="code-card platform-card" data-search={`${platform.name} ${platform.id} ${platform.code} ${(platform.aliases || []).join(' ')}`}>
           <div class="code-card-top">
-            <span class="tile-mark">{platform.mark}</span>
+            <span class="tile-mark platform-logo">{platform.mark}</span>
             <div class="code-card-title">
               <h2>کد دعوت {platform.name}</h2>
               <span>{platform.reward ? `پاداش اعلام‌شده: ${platform.reward}` : 'کد معرف'}</span>
@@ -128,34 +129,47 @@ const description = 'فهرست کد دعوت و کد معرف طلاین، زر
   <Footer />
 
   <style>
-    .codes-page { padding-top: 48px; padding-bottom: 60px; }
-    .codes-page .breadcrumbs { margin-bottom: 18px; }
-    .eyebrow { display: inline-block; color: #e2bd63; background: #211e15; border: 1px solid #554728; border-radius: 999px; padding: 6px 12px; font-size: .82rem; }
-    .page-title { margin: 16px 0 8px; font-size: clamp(28px, 5vw, 38px); }
-    .page-desc { color: #aaa99f; line-height: 2; margin-bottom: 24px; }
-    .search-box { display: block; margin-bottom: 22px; }
-    .search-box input { width: 100%; box-sizing: border-box; padding: 14px 16px; border: 1px solid #454235; border-radius: 13px; background: #191a17; color: #f4f1e8; font: inherit; outline: none; }
-    .search-box input:focus { border-color: #b79a52; }
-    .code-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap: 16px; }
-    .code-card { border: 1px solid #33342d; border-radius: 17px; padding: 20px; background: linear-gradient(145deg, #1b1c18, #141512); }
-    .code-card-top { display: flex; align-items: center; gap: 12px; }
-    .tile-mark { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; background: #292518; color: #e2bd63; font-weight: 900; font-size: 20px; }
-    .code-card-title h2 { margin: 0 0 4px; font-size: 1.05rem; }
-    .code-card-title span { color: #aaa99f; font-size: .82rem; }
-    .invite-code { margin: 20px 0; padding: 15px 10px; border: 1px dashed #625337; border-radius: 11px; text-align: center; color: #e2bd63; background: #11120f; font-size: 1.1rem; font-weight: 800; overflow-wrap: anywhere; }
-    .actions { display: flex; gap: 10px; align-items: center; }
-    .copy-button { flex: 1; padding: 11px; border: 0; border-radius: 10px; background: linear-gradient(135deg, #f0d486, #d6ad4d); color: #17150f; font: inherit; font-weight: 800; cursor: pointer; }
-    .details-link { color: #d9bc79; text-decoration: none; font-size: .88rem; }
-    .disclaimer { margin-top: 28px; color: #989a92; font-size: .85rem; line-height: 2; }
-    .foot a { color: #d9bc79; text-decoration: none; }
-    .footer-inner { display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
-    .footer-brand { color:#e2bd63; font-size:20px; font-weight:950; text-decoration:none; direction:ltr; }
-    .footer-links { display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
-    .footer-links a { font-size:12px; }
-    @media(max-width:480px) { .footer-inner { justify-content:center; } }
-    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
-    [hidden] { display: none !important; }
-    @media (max-width: 420px) { .actions { align-items: stretch; flex-direction: column; } .details-link { padding: 8px; text-align: center; } }
+    :global(body){margin:0;background:#080c15;color:#eef0ff}
+    .wrap{width:min(1120px,calc(100% - 48px));margin-inline:auto}
+    .codes-page{min-height:55vh;padding-top:42px;padding-bottom:60px}
+    .breadcrumbs{display:flex;gap:10px;align-items:center;margin-bottom:28px;color:#9da9c2;font-size:13px}
+    .breadcrumbs a{color:#a77aff;text-decoration:none}
+    .section-heading{margin-bottom:16px}
+    .section-heading-row{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:right}
+    .section-heading h1{margin:0;font-size:clamp(23px,4vw,30px);font-weight:900}
+    .view-all{display:inline-flex;align-items:center;gap:8px;color:#a77aff;text-decoration:none;font-size:13px;font-weight:800;white-space:nowrap}
+    .page-desc{margin:0 0 20px;color:#aab2c9;line-height:2}
+    .search-box{display:block;margin-bottom:22px}
+    .search-box input{width:100%;box-sizing:border-box;padding:13px 16px;border:1px solid #30394e;border-radius:13px;background:#111827;color:#eef0ff;font:inherit;outline:none}
+    .search-box input:focus{border-color:#a77aff}
+    .code-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .code-card{position:relative;min-height:166px;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:10px;padding:20px;border:1px solid #30394e;border-radius:15px;background:linear-gradient(145deg,#171e2d,#101521);color:#eef0ff}
+    .code-card-top{display:flex;align-items:center;gap:12px}
+    .tile-mark{width:43px;height:43px;flex:0 0 43px;display:grid;place-items:center;margin:0;border-radius:50%;background:#24203a;color:#c4a4ff;font-weight:900;font-size:20px}
+    .code-card-title h2{margin:0 0 4px;font-size:15px;font-weight:800}
+    .code-card-title span{color:#aab2c9;font-size:12px}
+    .invite-code{margin:6px 0 2px;padding:12px 10px;border:1px dashed #65518c;border-radius:11px;text-align:center;color:#d4baff;background:#111827;font-size:1.05rem;font-weight:800;overflow-wrap:anywhere}
+    .actions{display:flex;gap:10px;align-items:center;margin-top:auto}
+    .copy-button{flex:1;padding:10px;border:0;border-radius:10px;background:linear-gradient(135deg,#c6a4ff,#9465e8);color:#171126;font:inherit;font-size:13px;font-weight:800;cursor:pointer}
+    .details-link{color:#c4a4ff;text-decoration:none;font-size:12px;text-align:center}
+    .empty{margin:24px 0;color:#aab2c9;text-align:center}
+    .seo-content{margin-top:38px;padding:22px;border:1px solid #30394e;border-radius:15px;background:#111827;color:#aab2c9;line-height:2}
+    .seo-content h2{color:#eef0ff;font-size:18px;margin:0 0 8px}
+    .seo-content h2:not(:first-child){margin-top:20px}
+    .seo-content p{margin:0}
+    .seo-content a,.disclaimer a{color:#c4a4ff;text-decoration:none}
+    .disclaimer{margin-top:22px;color:#929db4;font-size:12px;line-height:2}
+    :global(html[data-theme="light"] body){background:#f5f8fc;color:#17263a}
+    :global(html[data-theme="light"] .code-card){background:#fff;border-color:#dbe3ef;color:#17263a}
+    :global(html[data-theme="light"] .code-card-title span),:global(html[data-theme="light"] .page-desc),:global(html[data-theme="light"] .seo-content){color:#5d6b80}
+    :global(html[data-theme="light"] .search-box input){background:#fff;border-color:#dbe3ef;color:#17263a}
+    :global(html[data-theme="light"] .invite-code){background:#f7f3ff;border-color:#d5c5f4;color:#6842a5}
+    :global(html[data-theme="light"] .seo-content){background:#fff;border-color:#dbe3ef}
+    :global(html[data-theme="light"] .seo-content h2){color:#17263a}
+    @media(max-width:760px){.wrap{width:calc(100% - 28px)}.code-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.code-card{padding:14px;min-height:160px}.section-heading h1{font-size:21px}.view-all{font-size:11px}.actions{align-items:stretch;flex-direction:column}.details-link{padding:6px}}
+    @media(max-width:420px){.code-list{grid-template-columns:1fr}.code-card{min-height:0}}
+    .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+    [hidden]{display:none!important}
   </style>
 
   <script>
