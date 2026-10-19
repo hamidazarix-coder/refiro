@@ -66,7 +66,7 @@ export const platforms = [
     active: true,
     code: 'yZfgvrdj',
     referralUrl: 'https://talasea.ir/onboarding?r=yZfgvrdj',
-    reward: 'بررسی شرایط هدیه',
+    reward: '۳ سوت طلا',
     aliases: ['talasea', 'talasea.ir', 'طلاسی', 'کد دعوت طلاسی', 'کد معرف طلاسی', 'کد ثبت نام طلاسی'],
   }
 ];
