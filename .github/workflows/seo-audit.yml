@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   seo-audit:
-    name: Build and validate SEO basics
+    name: Build, SEO and dependency security validation
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -21,12 +21,10 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - name: Install dependencies
+      - name: Install locked dependencies
         run: npm ci
-      - name: Report npm dependency audit
-        run: |
-          npm audit --json > /tmp/npm-audit.json || true
-          node --input-type=module -e 'import fs from "node:fs"; const r = JSON.parse(fs.readFileSync("/tmp/npm-audit.json", "utf8")); console.log(JSON.stringify({ totals: r.metadata?.vulnerabilities, vulnerabilities: Object.entries(r.vulnerabilities || {}).map(([name, v]) => ({ name, severity: v.severity, range: v.range, fixAvailable: v.fixAvailable, via: v.via.map((x) => typeof x === "string" ? x : ({ name: x.name, title: x.title, url: x.url, range: x.range, severity: x.severity })) })) }, null, 2));'
+      - name: Audit dependency security
+        run: npm audit --audit-level=high
       - name: Build static site
         run: npm run build
       - name: Audit SEO output
