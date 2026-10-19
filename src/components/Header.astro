@@ -1,0 +1,48 @@
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-brand" href="/" aria-label="رفیرو، صفحه اصلی"><span class="site-brand-mark">R</span><span class="site-brand-word">رفیرو</span></a>
+    <nav class="site-nav" aria-label="ناوبری اصلی">
+      <a href="/">خانه</a>
+      <a href="/codes/">همه کدها</a>
+      <a href="/#searchForm">جست‌وجوی کد</a>
+      <a href="/guide/kod-davat/">راهنمای استفاده</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="فعال‌کردن حالت تاریک" title="حالت تاریک">
+        <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.6 8.6 0 1 0 20.5 14.2Z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header-inner { gap: 22px; }
+  .site-nav { flex: 1; justify-content: flex-start; }
+  .header-actions { display:flex; align-items:center; gap:10px; flex-shrink:0; }
+  .theme-toggle { width:40px; height:40px; display:grid; place-items:center; border:1px solid #454235; border-radius:12px; background:#191a17; color:#e2bd63; cursor:pointer; transition:background .2s,border-color .2s,transform .2s; }
+  .theme-toggle:hover { transform:translateY(-1px); border-color:#b79a52; }
+  .theme-toggle svg { width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .moon-icon { display:none; }
+  :global(html[data-theme="light"] .theme-toggle) { background:#fff; border-color:#e0dccf; color:#9a741c; }
+  :global(html[data-theme="light"] .theme-toggle .sun-icon) { display:none; }
+  :global(html[data-theme="light"] .theme-toggle .moon-icon) { display:block; }
+  @media (max-width:700px) {
+    .site-header-inner { gap:10px; }
+    .site-nav { gap:2px; }
+    .header-actions { margin-inline-start:0; }
+    .theme-toggle { width:35px; height:35px; }
+  }
+</style>
+<script>
+  const themeToggle = document.querySelector('#themeToggle');
+  const root = document.documentElement;
+  themeToggle?.addEventListener('click', () => {
+    const nextTheme = root.dataset.theme === 'light' ? 'dark' : 'light';
+    root.dataset.theme = nextTheme;
+    try { localStorage.setItem('refiro-theme', nextTheme); } catch {}
+    themeToggle.setAttribute('aria-label', nextTheme === 'light' ? 'فعال‌کردن حالت تاریک' : 'فعال‌کردن حالت روشن');
+    themeToggle.setAttribute('title', nextTheme === 'light' ? 'حالت تاریک' : 'حالت روشن');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', nextTheme === 'light' ? '#f5f8fc' : '#101110');
+  });
+</script>
