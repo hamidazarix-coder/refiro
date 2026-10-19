@@ -1,4 +1,5 @@
 <div class="reading-progress" id="readingProgress" aria-hidden="true"><span class="reading-progress-fill" id="readingProgressFill"></span></div>
+<div class="search-backdrop" id="searchBackdrop" hidden></div>
 <header class="site-header">
   <div class="site-header-inner">
     <a class="site-brand" href="/" aria-label="رفیرو، صفحه اصلی">
@@ -32,7 +33,13 @@
   .header-actions{display:flex;align-items:center;gap:9px;flex-shrink:0;position:relative}
   .search-toggle{width:40px;height:40px;display:grid;place-items:center;padding:0;border:1px solid #39445f;border-radius:50%;background:#101728;color:#e7eaff;cursor:pointer}
   .search-toggle svg,.header-search svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
-  .header-search-wrap{position:absolute;top:calc(100% + 13px);left:0;z-index:40;width:min(350px,calc(100vw - 28px))}
+  .search-backdrop{position:fixed;inset:0;z-index:29;background:rgba(4,7,15,.34);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  .search-backdrop[hidden]{display:none}
+  .header-search-wrap{position:fixed;top:82px;left:max(14px,calc((100vw - 1200px)/2));z-index:31;width:min(440px,calc(100vw - 28px));box-sizing:border-box}
+  .header-search-wrap .header-search{width:100%;box-sizing:border-box;min-width:0}
+  .header-search-wrap .header-search input{width:100%;min-width:0;box-sizing:border-box;height:42px}
+  .header-search-wrap .search-suggestions{width:100%;box-sizing:border-box}
+
   .header-search-wrap[hidden],.search-suggestions[hidden]{display:none}
   .header-search{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #39445f;border-radius:14px;background:#101728;box-shadow:0 12px 32px #0004}
   .header-search input{min-width:0;flex:1;border:0;outline:0;background:transparent;color:#f5f4ff;font:inherit;font-size:14px}
@@ -47,6 +54,7 @@
   .search-suggestion-meta{font-size:11px;color:#a1abc4}
   .search-suggestion-arrow{font-size:16px;color:#a1abc4}
   .search-suggestions-empty{padding:12px 10px;color:#a1abc4;font-size:12px;text-align:center}
+  :global(html[data-theme="light"] .search-backdrop){background:rgba(24,35,55,.16)}
   :global(html[data-theme="light"] .search-suggestions){background:#fff;border-color:#cbd7e6}
   :global(html[data-theme="light"] .search-suggestion){color:#17263a}
   :global(html[data-theme="light"] .search-suggestion:hover),:global(html[data-theme="light"] .search-suggestion:focus-visible),:global(html[data-theme="light"] .search-suggestion[aria-selected="true"]){background:#eef2ff}
@@ -67,6 +75,7 @@
     .site-header-inner{width:calc(100% - 28px);min-height:62px;padding:8px 0}
     .site-brand-word{font-size:22px}.site-brand-icon{width:36px;height:36px;flex-basis:36px}
     .theme-toggle,.search-toggle{width:36px;height:36px}
+    .header-search-wrap{top:72px;left:14px;width:calc(100vw - 28px)}
   }
 </style>
 <script>
@@ -84,6 +93,7 @@
   const searchForm = document.querySelector('#headerSearchForm');
   const searchInput = document.querySelector('#headerSearchInput');
   const suggestions = document.querySelector('#headerSearchSuggestions');
+  const searchBackdrop = document.querySelector('#searchBackdrop');
   let activeSuggestion = -1;
   const normalizeSearch = (value = '') => value.toLocaleLowerCase('fa').replace(/ي/g,'ی').replace(/ك/g,'ک').replace(/‌/g,'').replace(/\s+/g,'').trim();
   function getMatches(query) {
@@ -143,6 +153,7 @@
   function closeSearch() {
     if (!searchWrap) return;
     searchWrap.hidden = true;
+    if (searchBackdrop) searchBackdrop.hidden = true;
     suggestions && (suggestions.hidden = true);
     searchInput?.setAttribute('aria-expanded', 'false');
     searchToggle?.setAttribute('aria-expanded', 'false');
@@ -151,6 +162,7 @@
     const opening = searchWrap?.hidden;
     if (!searchWrap) return;
     searchWrap.hidden = !opening;
+    if (searchBackdrop) searchBackdrop.hidden = !opening;
     searchToggle.setAttribute('aria-expanded', String(Boolean(opening)));
     if (opening) {
       renderSuggestions();
@@ -158,6 +170,7 @@
     }
   });
   searchInput?.addEventListener('input', renderSuggestions);
+  searchBackdrop?.addEventListener('click', closeSearch);
   searchInput?.addEventListener('keydown', (event) => {
     const options = [...(suggestions?.querySelectorAll('.search-suggestion') || [])];
     if (event.key === 'ArrowDown' && options.length) {
@@ -192,7 +205,7 @@
     else window.location.href = '/?q=' + encodeURIComponent(query);
   });
   document.addEventListener('click', (event) => {
-    if (searchWrap && !searchWrap.hidden && !searchWrap.contains(event.target) && !searchToggle?.contains(event.target)) closeSearch();
+    if (searchWrap && !searchWrap.hidden && !searchWrap.contains(event.target) && !searchToggle?.contains(event.target) && !searchBackdrop?.contains(event.target)) closeSearch();
   });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && searchWrap && !searchWrap.hidden) {
