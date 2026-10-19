@@ -1,5 +1,6 @@
 ---
 import '../../styles/global.css';
+import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import { platforms } from '../../data/platforms.js';
 
@@ -125,16 +126,7 @@ const description = 'فهرست کد دعوت و کد معرف طلاین، زر
     <p class="disclaimer">رفیرو مستقل از پلتفرم‌های معرفی‌شده است؛ برای شرایط قطعی و ثبت‌نام، منبع رسمی هر پلتفرم را بررسی کن.</p>
   </main>
 
-  <footer class="foot">
-    <div class="wrap footer-inner">
-      <a class="footer-brand" href="/">refiro</a>
-      <nav class="footer-links" aria-label="پیوندهای تکمیلی">
-        <a href="/codes/">همه کدها</a>
-        <a href="/guide/kod-davat/">راهنمای کد دعوت</a>
-        <a href="/about/">درباره رفیرو</a>
-      </nav>
-    </div>
-  </footer>
+  <Footer />
 
   <style>
     .codes-page { padding-top: 48px; padding-bottom: 60px; }
