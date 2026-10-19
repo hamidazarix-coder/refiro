@@ -2,9 +2,9 @@
 import '../styles/global.css';
 import { platforms } from '../data/platforms.js';
 
-const title = 'کد دعوت و کد معرف در ایران | رفیرو';
-const description = 'کد دعوت و کد معرف طلاین، زرپین، ملی گلد، طلاسی، بلوبانک و ویپاد را پیدا کن؛ کد را کپی کن، لینک ثبت‌نام را باز کن و شرایط هدیه را بخوان.';
-
+const title = 'کد دعوت و کد معرف معتبر | رفیرو';
+const description = 'کد دعوت طلاین، زرپین، ملی گلد، طلاسی، بلوبانک و ویپاد را در رفیرو پیدا کن؛ کد را کپی کن یا مستقیم وارد لینک ثبت‌نام شو.';
+const activePlatforms = platforms.filter((platform) => platform.active);
 ---
 
 <!doctype html>
@@ -15,7 +15,6 @@ const description = 'کد دعوت و کد معرف طلاین، زرپین، م
   <meta name="description" content={description} />
   <meta name="theme-color" content="#101110" />
   <link rel="canonical" href="https://refiro.ir/" />
-  <link rel="icon" type="image/bmp" href="/favicon.bmp" sizes="64x64" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
   <link rel="preload" href="/fonts/iranian-sans.ttf" as="font" type="font/ttf" crossorigin />
   <meta name="robots" content="index,follow,max-image-preview:large" />
@@ -26,15 +25,12 @@ const description = 'کد دعوت و کد معرف طلاین، زرپین، م
   <meta property="og:description" content={description} />
   <meta property="og:url" content="https://refiro.ir/" />
   <meta property="og:image" content="https://refiro.ir/og-cover.png" />
-  <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="رفیرو؛ راهنمای کدهای دعوت و کد معرف" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content="https://refiro.ir/og-cover.png" />
-  <meta name="twitter:image:alt" content="رفیرو؛ راهنمای کدهای دعوت و کد معرف" />
   <title>{title}</title>
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -46,8 +42,7 @@ const description = 'کد دعوت و کد معرف طلاین، زرپین، م
         "alternateName": "Refiro",
         "url": "https://refiro.ir/",
         "inLanguage": "fa-IR",
-        "description": description,
-        "publisher": { "@id": "https://refiro.ir/#organization" }
+        "description": description
       },
       {
         "@type": "Organization",
@@ -55,1110 +50,337 @@ const description = 'کد دعوت و کد معرف طلاین، زرپین، م
         "name": "رفیرو",
         "alternateName": "Refiro",
         "url": "https://refiro.ir/",
-        "logo": "https://refiro.ir/refiro-logo.bmp",
-        "description": "راهنمای مستقل کدهای دعوت و کدهای معرف پلتفرم‌ها"
+        "logo": "https://refiro.ir/refiro-logo.bmp"
       }
     ]
   })} />
 </head>
-
 <body>
+  <div class="announcement">
+    <span class="announcement-dot" aria-hidden="true"></span>
+    کدهای دعوت و معرف را یک‌جا پیدا کن
+    <a href="/codes/">مشاهده همه کدها <span aria-hidden="true">←</span></a>
+  </div>
+
   <header class="site-header">
     <div class="site-header-inner">
-      <a class="site-brand" href="/" aria-label="رفیرو، صفحه اصلی"><span class="site-brand-mark">R</span><span class="site-brand-word">رفیرو</span></a>
+      <a class="site-brand" href="/" aria-label="رفیرو، صفحه اصلی">
+        <span class="site-brand-mark">R</span>
+        <span class="site-brand-word">رفیرو</span>
+      </a>
       <nav class="site-nav" aria-label="ناوبری اصلی">
+        <a href="/" aria-current="page">خانه</a>
+        <a href="#platforms">کدهای دعوت</a>
         <a href="/codes/">همه کدها</a>
-        <a href="/#searchForm">جست‌وجوی کد</a>
         <a href="/guide/kod-davat/">راهنمای استفاده</a>
       </nav>
+      <a class="header-cta" href="#searchForm">پیدا کردن کد <span aria-hidden="true">←</span></a>
     </div>
   </header>
 
-  
-
-  <main class="wrap">
-    <section class="hero">
-      
-
-      <div class="hero-brand-card">
-        <span class="hero-kicker"><span aria-hidden="true">✦</span> به جیب بزن!</span>
-        <h1>
-          <span class="hero-brand-name">رفیرو</span>
-          <span class="hero-tagline">بزرگ‌ترین مرجع کدهای دعوت در ایران</span>
-        </h1>
-        <div class="hero-divider"><span></span></div>
-        <p>
-          پلتفرمت رو پیدا کن، کد دعوتت رو بردار و مستقیم وارد شو.
-        </p>
+  <main>
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <span class="eyebrow"><span aria-hidden="true">✦</span> شروع هوشمندانه‌تر</span>
+        <h1>کد دعوتت رو پیدا کن،<br /><span>هدیه‌ات رو از دست نده!</span></h1>
+        <p class="hero-description">کدهای معرف پلتفرم‌های محبوب طلا و خدمات مالی رو در رفیرو پیدا کن؛ کد رو کپی کن یا مستقیم از لینک دعوت وارد شو.</p>
+        <form class="search" id="searchForm" role="search">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="جست‌وجوی نام پلتفرم؛ مثلاً طلاین" aria-label="جست‌وجوی کد دعوت" autocomplete="off" />
+          <button type="submit">جست‌وجو <span aria-hidden="true">←</span></button>
+        </form>
+        <p class="search-hint">نام پلتفرم رو فارسی یا انگلیسی وارد کن.</p>
+        <div class="hero-trust">
+          <span><span class="trust-check">✓</span> دسترسی سریع به کدها</span>
+          <span><span class="trust-check">✓</span> لینک مستقیم ثبت‌نام</span>
+          <span><span class="trust-check">✓</span> رایگان و ساده</span>
+        </div>
       </div>
-
-      <form class="search" id="searchForm" role="search">
-        <input
-          id="searchInput"
-          type="search"
-          placeholder="مثلاً کد معرف طلاین"
-          aria-label="جست‌وجوی پلتفرم"
-          autocomplete="off"
-        />
-        <button type="submit">جست‌وجو</button>
-      </form>
-
-      <p class="search-hint">نام پلتفرم رو فارسی یا انگلیسی بنویس.</p>
+      <div class="hero-art" aria-label="نمونه کارت کد دعوت رفیرو">
+        <div class="art-glow"></div>
+        <div class="floating-chip chip-top"><span class="chip-icon">✦</span><span><b>کدهای دعوت</b><small>همه در یک جا</small></span></div>
+        <div class="invite-card">
+          <div class="invite-card-head"><span class="mini-brand"><span>R</span> رفیرو</span><span class="live-pill"><i></i> در دسترس</span></div>
+          <div class="invite-card-label">کد دعوت تو آماده‌ست</div>
+          <div class="invite-card-code" dir="ltr">YOUR CODE</div>
+          <div class="invite-card-line"></div>
+          <div class="invite-card-bottom"><span>کپی کن و ادامه بده</span><span class="copy-symbol">▣</span></div>
+        </div>
+        <div class="floating-chip chip-bottom"><span class="coin-symbol">✧</span><span><b>شروع راحت‌تر</b><small>با چند کلیک ساده</small></span></div>
+      </div>
     </section>
 
-    <section class="platform-section" aria-labelledby="platformTitle">
+    <section class="platform-section wrap" id="platforms" aria-labelledby="platformTitle">
       <div class="section-heading">
         <div>
-          <h2 id="platformTitle">پلتفرم‌ها</h2>
-          <p class="section-subtitle">پلتفرم موردنظرت رو انتخاب کن.</p>
+          <span class="section-kicker">انتخاب با توئه</span>
+          <h2 id="platformTitle">کدهای دعوت پرطرفدار</h2>
+          <p>پلتفرمت رو انتخاب کن و جزئیات کد رو ببین.</p>
         </div>
-
-        
+        <a class="section-link" href="/codes/">مشاهده همه <span aria-hidden="true">←</span></a>
       </div>
 
       <div class="platform-grid" id="platformGrid">
-        {platforms.map((platform) => (
-          <a
-            class:list={[
-              'platform-tile',
-              { 'platform-tile-disabled': !platform.active },
-            ]}
-            href={platform.href}
-            aria-disabled={!platform.active ? 'true' : undefined}
-            data-name={platform.name}
-            data-active={platform.active ? 'true' : 'false'}
-          >
-            <div class="tile-top">
-              {platform.image ? (
-                <img class:list={['tile-logo', { 'tile-logo-wepod': platform.id === 'wepod' }]} src={platform.image} alt={platform.name} width="48" height="48" loading="lazy" decoding="async" />
-              ) : (
-                <span class="tile-mark">{platform.mark}</span>
-              )}
-              <span class="tile-reward">{platform.active ? platform.reward : 'به‌زودی'}</span>
+        {activePlatforms.map((platform) => (
+          <a class="platform-card" href={platform.href} data-name={platform.name} data-active="true">
+            <div class="platform-card-top">
+              <div class="platform-logo">
+                {platform.image ? (
+                  <img src={platform.image} alt="" width="48" height="48" loading="lazy" decoding="async" />
+                ) : (
+                  <span>{platform.mark}</span>
+                )}
+              </div>
+              <span class="card-status"><i></i> فعال</span>
             </div>
-
-            <span class="tile-name">
-              {platform.active ? `کد دعوت ${platform.name}` : platform.name}
-            </span>
-
-            <span class="tile-description">
-              {platform.active
-                ? `با کد معرف ${platform.name} ثبت‌نام کن و شرایط دریافت ${platform.reward} رو ببین.`
-                : 'این پلتفرم به‌زودی به رفیرو اضافه می‌شه.'}
-            </span>
-
-            <span class="tile-bottom">
-              <span class="tile-status">
-                {platform.active ? 'کد دعوت فعال' : 'در حال اضافه‌شدن'}
-              </span>
-              <span class="tile-cta">{platform.active ? 'مشاهده کد' : 'به‌زودی'} <span aria-hidden="true">←</span></span>
-            </span>
+            <h3>کد دعوت {platform.name}</h3>
+            <p class="platform-card-desc">کد معرف {platform.name} و لینک ورود مستقیم رو ببین.</p>
+            <div class="platform-card-bottom">
+              <span class="reward-label">پاداش / طرح معرفی</span>
+              <span class="reward-value">{platform.reward}</span>
+            </div>
+            <div class="card-action">مشاهده کد <span aria-hidden="true">←</span></div>
           </a>
         ))}
       </div>
-
-      <p class="all-codes-links">
-        <a href="/codes/">مشاهده همه کدهای دعوت و کدهای معرف</a>
-        <span aria-hidden="true"> · </span>
-        <a href="/guide/kod-davat/">راهنمای استفاده از کد دعوت</a>
-        <span aria-hidden="true"> · </span>
-        <a href="/about/">درباره رفیرو و روش بررسی کدها</a>
-      </p>
-
-      <p class="empty hidden" id="noResult" role="status">
-        پلتفرمی با این نام پیدا نشد. نام دیگری رو امتحان کن.
-      </p>
+      <p class="empty hidden" id="noResult" role="status">پلتفرمی با این نام پیدا نشد. نام دیگری رو امتحان کن.</p>
+      <div class="all-platforms-cta"><a href="/codes/">دیدن فهرست کامل کدهای دعوت <span aria-hidden="true">←</span></a></div>
     </section>
 
-    <section class="about faq-section" aria-labelledby="faqTitle">
+    <section class="how-section">
+      <div class="wrap how-inner">
+        <div class="how-intro">
+          <span class="section-kicker">ساده و سرراست</span>
+          <h2>رفیرو چطور کمکت می‌کنه؟</h2>
+          <p>برای پیدا کردن کد لازم نیست بین صفحه‌های مختلف بگردی. سرویس رو انتخاب کن و از صفحه اختصاصی همون پلتفرم ادامه بده.</p>
+          <a class="text-link" href="/guide/kod-davat/">راهنمای استفاده از کد دعوت <span aria-hidden="true">←</span></a>
+        </div>
+        <div class="steps-grid">
+          <article class="step-card">
+            <span class="step-number">۰۱</span>
+            <div class="step-icon" aria-hidden="true">⌕</div>
+            <h3>پلتفرم رو پیدا کن</h3>
+            <p>اسم سرویس موردنظرت رو جست‌وجو کن یا از بین کارت‌ها انتخابش کن.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">۰۲</span>
+            <div class="step-icon" aria-hidden="true">▣</div>
+            <h3>کد رو بردار</h3>
+            <p>کد دعوت و توضیحات مربوط به طرح معرفی رو در صفحه اختصاصی ببین.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">۰۳</span>
+            <div class="step-icon" aria-hidden="true">↗</div>
+            <h3>مستقیم وارد شو</h3>
+            <p>لینک ثبت‌نام رو باز کن و پیش از نهایی‌کردن ثبت‌نام، شرایط رسمی رو بخون.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits-section wrap">
+      <div class="section-heading centered-heading">
+        <div>
+          <span class="section-kicker">چرا رفیرو؟</span>
+          <h2>پیدا کردن کد، بدون دردسر اضافه</h2>
+          <p>هر چیزی که برای شروع نیاز داری، ساده و یک‌جا.</p>
+        </div>
+      </div>
+      <div class="benefits-grid">
+        <article class="benefit-item"><span class="benefit-icon">⌕</span><div><h3>جست‌وجوی سریع</h3><p>نام فارسی یا انگلیسی پلتفرم رو وارد کن و سریع به صفحه‌اش برس.</p></div></article>
+        <article class="benefit-item"><span class="benefit-icon">↗</span><div><h3>لینک مستقیم</h3><p>از صفحه کد دعوت به مسیر ثبت‌نام سرویس موردنظر برو.</p></div></article>
+        <article class="benefit-item"><span class="benefit-icon">✓</span><div><h3>اطلاعات شفاف</h3><p>کد و توضیحات طرح رو ببین و شرایط نهایی رو از منبع رسمی بررسی کن.</p></div></article>
+        <article class="benefit-item"><span class="benefit-icon">♡</span><div><h3>رایگان و ساده</h3><p>برای جست‌وجوی کدهای موجود در رفیرو نیازی به ساخت حساب نداری.</p></div></article>
+      </div>
+    </section>
+
+    <section class="faq-section wrap" aria-labelledby="faqTitle">
+      <div class="faq-heading">
+        <span class="section-kicker">سؤالات متداول</span>
+        <h2 id="faqTitle">قبل از استفاده از کد دعوت</h2>
+      </div>
       <div class="faq-list">
-        <h2 class="faq-heading" id="faqTitle">راهنمای کد دعوت و کد معرف</h2>
-        <article class="faq-item">
-          <h3>رفیرو دقیقاً چیکار می‌کنه؟</h3>
-          <p class="about-copy"><span class="about-lead">پول مفت!</span> با رفیرو کد دعوت برنامه یا سایت موردنظرت رو پیدا کن؛ کد رو کپی کن یا از لینک دعوت وارد شو و شرایط پاداش رو ببین.</p>
-        </article>
-        <article class="faq-item">
-          <h3>کد دعوت با کد معرف چه فرقی داره؟</h3>
-          <p class="about-copy">این دو اصطلاح در بسیاری از سرویس‌ها به یک کاربرد اشاره می‌کنند: کدی که هنگام ثبت‌نام برای معرفی کاربر جدید استفاده می‌شود. نام و محل واردکردن کد ممکن است در هر پلتفرم فرق داشته باشد.</p>
-        </article>
-        <article class="faq-item">
-          <h3>چطور از کد معرف استفاده کنم؟</h3>
-          <p class="about-copy">صفحه پلتفرم موردنظر را باز کن، کد را دقیق کپی کن و مراحل ثبت‌نام را از لینک رسمی ادامه بده. اگر فرم ثبت‌نام بخش کد معرف داشت، کد را همان‌جا وارد کن و پیش از تکمیل مراحل شرایط طرح را بخوان.</p>
-        </article>
-        <article class="faq-item">
-          <h3>آیا دریافت هدیه نقدی یا طلا تضمینی است؟</h3>
-          <p class="about-copy">نه لزوماً. مقدار پاداش، مهلت طرح و شرایط واجدشرایط‌بودن می‌تواند تغییر کند. اطلاعات نهایی را قبل از ثبت‌نام در سایت یا برنامه رسمی همان پلتفرم بررسی کن.</p>
-        </article>
-        <article class="faq-item">
-          <h3>آیا رفیرو سایت رسمی این پلتفرم‌هاست؟</h3>
-          <p class="about-copy">خیر؛ رفیرو یک راهنمای مستقل برای پیدا کردن کدهای دعوت است. برای ثبت‌نام و بررسی شرایط نهایی، از لینک و منابع رسمی هر سرویس استفاده کن.</p>
-        </article>
+        <details><summary>رفیرو دقیقاً چیکار می‌کنه؟ <span>＋</span></summary><p>رفیرو بهت کمک می‌کنه کد دعوت یا معرف سرویس موردنظرت رو پیدا کنی؛ بعد می‌تونی کد رو برداری یا از لینک ثبت‌نام وارد بشی.</p></details>
+        <details><summary>کد دعوت با کد معرف چه فرقی داره؟ <span>＋</span></summary><p>در خیلی از سرویس‌ها این دو عبارت برای یک کاربرد استفاده می‌شن: کدی که موقع ثبت‌نام برای معرفی کاربر جدید وارد می‌شه. نام و محل واردکردن کد ممکنه در هر سرویس متفاوت باشه.</p></details>
+        <details><summary>دریافت هدیه با کد دعوت تضمینیه؟ <span>＋</span></summary><p>نه لزوماً. پاداش و شرایط طرح‌ها ممکنه تغییر کنه و معمولاً به ضوابط همون سرویس بستگی داره. قبل از ثبت‌نام، شرایط روز رو در سایت یا اپلیکیشن رسمی بررسی کن.</p></details>
+        <details><summary>رفیرو سایت رسمی پلتفرم‌هاست؟ <span>＋</span></summary><p>خیر؛ رفیرو یک راهنمای مستقل برای پیدا کردن کدهای دعوت است. ثبت‌نام و بررسی شرایط نهایی از طریق منابع رسمی هر پلتفرم انجام می‌شه.</p></details>
       </div>
     </section>
   </main>
 
-  <footer class="foot">
-    <div class="wrap footer-inner">
-      <a class="footer-brand" href="/">refiro</a>
-      <nav class="footer-links" aria-label="پیوندهای تکمیلی">
-        <a href="/codes/">همه کدها</a>
-        <a href="/guide/kod-davat/">راهنمای کد دعوت</a>
-        <a href="/about/">درباره رفیرو</a>
-      </nav>
+  <footer class="site-footer">
+    <div class="footer-main wrap">
+      <div class="footer-about">
+        <a class="footer-logo" href="/"><span class="site-brand-mark">R</span><span>رفیرو</span></a>
+        <p>مرجع ساده کدهای دعوت و معرف؛ پلتفرمت رو پیدا کن و مستقیم وارد شو.</p>
+      </div>
+      <div class="footer-column"><h2>دسترسی سریع</h2><a href="/">خانه</a><a href="/codes/">همه کدها</a><a href="/guide/kod-davat/">راهنمای کد دعوت</a></div>
+      <div class="footer-column"><h2>درباره رفیرو</h2><a href="/about/">درباره ما</a><a href="/#faqTitle">سؤالات متداول</a></div>
     </div>
+    <div class="footer-bottom"><div class="wrap footer-bottom-inner"><span>© رفیرو — استفاده از کدها رایگان است.</span><span>ثبت‌نام و پاداش‌ها تابع شرایط رسمی هر پلتفرم‌اند.</span></div></div>
   </footer>
 
   <style>
-    :global(html) {
-      scroll-behavior: smooth;
-    }
-
-    :global(body) {
-      background:
-        radial-gradient(ellipse at 50% 0%, #292315 0%, transparent 36rem),
-        #101110;
-    }
-
-    .nav {
-      min-height: 74px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .brand {
-      color: #e2bd63;
-      font-size: 27px;
-      font-weight: 950;
-      letter-spacing: -1px;
-      text-decoration: none;
-      direction: ltr;
-    }
-
-    .nav small {
-      color: #aaa99f;
-      font-size: 12px;
-    }
-
-    .hero {
-      padding: 76px 0 28px;
-      text-align: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 13px;
-      border: 1px solid #554728;
-      border-radius: 999px;
-      background: #211e15;
-      color: #e2bd63;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      margin: 0 0 14px;
-      font-size: clamp(29px, 5vw, 43px);
-      line-height: 1.65;
-      font-weight: 950;
-      letter-spacing: -.8px;
-    }
-
-    .hero h1 span {
-      color: #e2bd63;
-    }
-
-    .hero > p:not(.search-hint) {
-      max-width: 540px;
-      margin: 0 auto 26px;
-      color: #aaa99f;
-      font-size: 14px;
-      line-height: 2;
-    }
-
-    .search {
-      display: flex;
-      gap: 9px;
-      max-width: 570px;
-      margin: auto;
-      padding: 7px;
-      border: 1px solid #454235;
-      border-radius: 16px;
-      background: #191a17;
-      box-shadow: 0 12px 34px #00000020;
-      transition: border-color .2s ease, box-shadow .2s ease;
-    }
-
-    .search:focus-within {
-      border-color: #b79a52;
-      box-shadow: 0 0 0 3px #e2bd6312, 0 12px 34px #00000020;
-    }
-
-    .search input {
-      min-width: 0;
-      flex: 1;
-      padding: 11px 13px;
-      border: 0;
-      outline: 0;
-      background: transparent;
-      color: #f4f1e8;
-      font: inherit;
-      font-size: 14px;
-    }
-
-    .search input::placeholder {
-      color: #85857c;
-    }
-
-    .search button {
-      flex-shrink: 0;
-      padding: 10px 20px;
-      border: 0;
-      border-radius: 11px;
-      background: linear-gradient(135deg, #f0d486, #d6ad4d);
-      color: #17150f;
-      font: inherit;
-      font-size: 13px;
-      font-weight: 900;
-      cursor: pointer;
-      transition: filter .2s ease, transform .2s ease;
-    }
-
-    .search button:hover {
-      filter: brightness(1.08);
-      transform: translateY(-1px);
-    }
-
-    .search-hint {
-      margin: 10px 0 0;
-      color: #77776e;
-      font-size: 11px;
-    }
-
-    .platform-section {
-      margin: 42px 0 42px;
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 19px;
-    }
-
-    .section-heading h2 {
-      margin: 0;
-      color: #f4f1e8;
-      font-size: 1.3rem;
-      font-weight: 900;
-      letter-spacing: -.3px;
-    }
-
-    .section-subtitle {
-      margin: 3px 0 0;
-      color: #85857c;
-      font-size: 12px;
-    }
-
-    .section-heading .hint {
-      flex-shrink: 0;
-      margin: 0;
-      padding: 5px 10px;
-      border: 1px solid #34372e;
-      border-radius: 999px;
-      background: #191b17;
-      color: #aaa99f;
-      font-size: 11px;
-    }
-
-    .platform-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    /* Offer-style referral cards inspired by coupon directories */
-    .platform-tile {
-      min-height: 0;
-      justify-content: flex-start;
-      gap: 14px;
-      padding: 19px;
-      border: 1px solid #39372e;
-      border-radius: 18px;
-      background: linear-gradient(155deg, #202019 0%, #171814 72%);
-      box-shadow: 0 8px 22px #00000018;
-    }
-
-    .platform-tile[href]:not([aria-disabled="true"]):hover {
-      border-color: #b89a4f;
-      transform: translateY(-3px);
-      box-shadow: 0 15px 30px #00000035;
-    }
-
-    .tile-top {
-      min-height: 48px;
-    }
-
-    .tile-reward {
-      display: inline-flex;
-      align-items: center;
-      max-width: 70%;
-      padding: 7px 10px;
-      border: 1px solid #62502b;
-      border-radius: 9px;
-      background: #302819;
-      color: #f0cf7b;
-      font-size: 12px;
-      font-weight: 850;
-      line-height: 1.6;
-      text-align: center;
-    }
-
-    .tile-name {
-      display: block;
-      font-size: 1.08rem;
-      line-height: 1.7;
-    }
-
-    .tile-description {
-      display: block;
-      min-height: 52px;
-      color: #aaa99f;
-      font-size: 12px;
-      line-height: 2;
-    }
-
-    .tile-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-top: auto;
-      padding-top: 12px;
-      border-top: 1px dashed #414035;
-    }
-
-    .tile-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      color: #e2bd63;
-      font-size: 12px;
-      font-weight: 900;
-      white-space: nowrap;
-    }
-
-    .platform-tile .tile-status {
-      font-size: 11px;
-    }
-
-    .platform-tile-disabled .tile-reward {
-      color: #aaa99f;
-      border-color: #44443b;
-      background: #22231f;
-    }
-
-    .platform-tile {
-      position: relative;
-      min-width: 0;
-      min-height: 155px;
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 17px;
-      overflow: hidden;
-      border: 1px solid #34372e;
-      border-radius: 19px;
-      background:
-        radial-gradient(ellipse at top right, #302a1b 0%, transparent 68%),
-        linear-gradient(145deg, #1c1e19, #141512);
-      color: #f4f1e8;
-      text-decoration: none;
-      box-shadow: 0 8px 24px #00000012;
-      transition:
-        border-color .22s ease,
-        transform .22s ease,
-        box-shadow .22s ease,
-        background .22s ease;
-    }
-
-    .platform-tile[href]:not([aria-disabled="true"]):hover {
-      border-color: #b89a4f;
-      background:
-        radial-gradient(ellipse at top right, #39321d 0%, transparent 68%),
-        linear-gradient(145deg, #22231c, #171813);
-      transform: translateY(-4px);
-      box-shadow: 0 14px 30px #00000030;
-    }
-
-    .platform-tile:focus-visible {
-      outline: 2px solid #e2bd63;
-      outline-offset: 3px;
-    }
-
-    .tile-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .tile-mark {
-      width: 44px;
-      height: 44px;
-      display: grid;
-      place-items: center;
-      border: 1px solid #6a572b;
-      border-radius: 14px;
-      background: linear-gradient(145deg, #39301b, #252318);
-      color: #f0cf7b;
-      font-size: 1.25rem;
-      font-weight: 900;
-      box-shadow: inset 0 1px #ffffff0b;
-    }
-
-    .tile-arrow {
-      color: #9b8a5b;
-      font-size: 19px;
-      transition: color .2s ease, transform .2s ease;
-    }
-
-    .platform-tile:hover .tile-arrow {
-      color: #e2bd63;
-      transform: translate(-2px, -2px);
-    }
-
-    .tile-name {
-      color: #f4f1e8;
-      font-size: 1.05rem;
-      font-weight: 900;
-      line-height: 1.5;
-    }
-
-    .tile-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      color: #a7a99e;
-      font-size: .74rem;
-    }
-
-    .platform-tile[data-active="true"] .tile-status {
-      color: #39d98a;
-      font-weight: 800;
-    }
-
-    .platform-tile[data-active="true"] .tile-status::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      flex: 0 0 6px;
-      border-radius: 50%;
-      background: #e2bd63;
-      box-shadow: 0 0 9px #e2bd6355;
-    }
-
-    .platform-tile-disabled {
-      opacity: .58;
-      border-style: dashed;
-      cursor: default;
-    }
-
-    .empty {
-      margin: 20px 0 0;
-      padding: 14px 16px;
-      border: 1px solid #39352a;
-      border-radius: 12px;
-      background: #1b1a16;
-      color: #c6b98f;
-      font-size: 13px;
-      text-align: center;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    .about {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: baseline;
-      column-gap: 8px;
-      row-gap: 5px;
-      margin: 38px 0 58px;
-      padding: 22px;
-      border: 1px solid #34352e;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #1c1d18, #151612);
-    }
-
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      width: 100%;
-    }
-
-    .faq-item {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 7px;
-      width: 100%;
-      padding: 0;
-      border-top: 0;
-    }
-
-    .faq-item h3 {
-      margin: 0;
-      color: #f4f1e8;
-      font-size: 14px;
-      font-weight: 900;
-      line-height: 1.9;
-    }
-
-    .about-mark {
-      width: 42px;
-      height: 42px;
-      flex: 0 0 42px;
-      display: grid;
-      place-items: center;
-      border: 1px solid #6a572b;
-      border-radius: 13px;
-      background: #302819;
-      color: #e2bd63;
-      font-size: 20px;
-      font-weight: 950;
-    }
-
-    .about h2 {
-      margin: 0 0 5px;
-      color: #e2bd63;
-      font-size: 15px;
-      font-weight: 900;
-    }
-
-    .about p {
-      margin: 0;
-      color: #aaa99f;
-      font-size: 12px;
-      line-height: 2;
-    }
-
-    .foot {
-      border-top: 1px solid #30312c;
-      background: #0d0e0c;
-    }
-
-    .footer-inner {
-      min-height: 75px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-    }
-
-    .footer-brand {
-      color: #e2bd63;
-      font-size: 20px;
-      font-weight: 950;
-      letter-spacing: -.6px;
-      text-decoration: none;
-      direction: ltr;
-    }
-
-    .footer-inner > span {
-      color: #85857c;
-      font-size: 11px;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .footer-links a {
-      color: #d9bc79;
-      font-size: 12px;
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .codes-nav-link {
-      display: inline-flex;
-      flex: 0 0 auto;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 12px;
-      border: 1px solid #554728;
-      border-radius: 10px;
-      color: #e2bd63;
-      text-decoration: none;
-      font-size: 12px;
-      white-space: nowrap;
-      transition: background .2s ease, border-color .2s ease;
-    }
-
-    @media (max-width: 640px) {
-      .nav {
-        min-height: 65px;
-        gap: 10px;
-      }
-
-      .codes-nav-link {
-        padding: 7px 9px;
-        font-size: 11px;
-      }
-
-      .hero {
-        padding: 53px 0 23px;
-      }
-
-      .hero h1 {
-        font-size: clamp(27px, 7.5vw, 36px);
-        line-height: 1.7;
-      }
-
-      .hero > p:not(.search-hint) {
-        font-size: 13px;
-      }
-
-      .platform-section {
-        margin: 32px 0 36px;
-      }
-
-      .platform-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 11px;
-      }
-
-      .platform-tile {
-        padding: 14px;
-        gap: 11px;
-      }
-
-      .tile-description {
-        min-height: 68px;
-        font-size: 11px;
-      }
-
-      .tile-reward {
-        max-width: 72%;
-        padding: 6px 7px;
-        font-size: 10px;
-      }
-
-      .tile-bottom {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .platform-tile {
-        min-height: 137px;
-        padding: 14px;
-        border-radius: 16px;
-      }
-
-      .tile-mark {
-        width: 40px;
-        height: 40px;
-      }
-
-      .tile-name {
-        font-size: .98rem;
-      }
-
-      .about {
-        margin: 32px 0 42px;
-        padding: 17px;
-      }
-
-      .footer-inner {
-        min-height: 70px;
-      }
-    }
-
-    @media (max-width: 380px) {
-      .search {
-        gap: 4px;
-      }
-
-      .search input {
-        padding: 9px 7px;
-        font-size: 12px;
-      }
-
-      .search button {
-        padding: 9px 12px;
-        font-size: 12px;
-      }
-
-      .platform-tile {
-        padding: 12px;
-      }
-
-      .section-heading h2 {
-        font-size: 1.15rem;
-      }
-
-      .footer-inner > span {
-        max-width: 210px;
-        text-align: left;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      :global(html) {
-        scroll-behavior: auto;
-      }
-
-      .platform-tile,
-      .tile-arrow,
-      .search,
-      .search button {
-        transition: none;
-      }
-
-      .platform-tile[href]:not([aria-disabled="true"]):hover {
-        transform: none;
-      }
-    }
-
-
-    .codes-nav-link:hover {
-      background: #211e15;
-      border-color: #8b7139;
-    }
-
-
-    /* Refiro requested logo and text update */
-
-    .hero h1 { color: var(--gold) !important; }
-    .hero h1 span { color: #f4f1e8 !important; }
-    .tile-logo {
-      width: 44px;
-      height: 44px;
-      object-fit: contain;
-      padding: 4px;
-      border: 1px solid #6a572b;
-      border-radius: 12px;
-      background: #fff;
-    }
-    .tile-logo-wepod { padding: 0; background: transparent; border-color: transparent; }
-    .about h2 { font-weight: 900; }
-    @media (max-width: 640px) {
-      .tile-logo { width: 40px; height: 40px; }
-    }
-
-
-    /* Refiro about mobile readability */
-
-    .about-lead {
-      margin: 0;
-      color: #e2bd63;
-      font-size: 1.15rem;
-      font-weight: 900;
-    }
-
-    .about-copy {
-      width: 100%;
-      max-width: none;
-      margin: 0;
-      line-height: 2;
-      overflow-wrap: normal;
-    }
-
-    @media (max-width: 640px) {
-      .about h2 {
-        font-size: 1.2rem;
-        line-height: 1.8;
-      }
-
-      .about-lead {
-        font-size: 1.05rem;
-      }
-
-      .about-copy {
-        font-size: 13px;
-        line-height: 2.1;
-        text-wrap: pretty;
-      }
-    }
-
-  
-    /* Final offer-card layout overrides */
-    .platform-tile {
-      min-height: 0;
-      justify-content: flex-start;
-      gap: 14px;
-      padding: 19px;
-      border-radius: 18px;
-      background: linear-gradient(155deg, #202019 0%, #171814 72%);
-    }
-
-    .platform-tile[href]:not([aria-disabled="true"]):hover {
-      border-color: #b89a4f;
-      background: linear-gradient(155deg, #29271d 0%, #191a15 72%);
-      transform: translateY(-3px);
-      box-shadow: 0 15px 30px #00000035;
-    }
-
-    .tile-top { min-height: 48px; }
-
-    .tile-reward {
-      display: inline-flex;
-      align-items: center;
-      max-width: 70%;
-      padding: 7px 10px;
-      border: 1px solid #62502b;
-      border-radius: 9px;
-      background: #302819;
-      color: #f0cf7b;
-      font-size: 12px;
-      font-weight: 850;
-      line-height: 1.6;
-      text-align: center;
-    }
-
-    .tile-name { display: block; font-size: 1.08rem; line-height: 1.7; }
-
-    .tile-description {
-      display: block;
-      min-height: 52px;
-      color: #aaa99f;
-      font-size: 12px;
-      line-height: 2;
-    }
-
-    .tile-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-top: auto;
-      padding-top: 12px;
-      border-top: 1px dashed #414035;
-    }
-
-    .tile-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      color: #e2bd63;
-      font-size: 12px;
-      font-weight: 900;
-      white-space: nowrap;
-    }
-
-    .platform-tile .tile-status { font-size: 11px; }
-
-    .platform-tile-disabled .tile-reward {
-      color: #aaa99f;
-      border-color: #44443b;
-      background: #22231f;
-    }
-
-    @media (max-width: 640px) {
-      .platform-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
-      .platform-tile { padding: 14px; gap: 11px; }
-      .tile-description { min-height: 68px; font-size: 11px; }
-      .tile-reward { max-width: 72%; padding: 6px 7px; font-size: 10px; }
-      .tile-bottom { align-items: flex-start; flex-direction: column; gap: 8px; }
-    }
-
-  
-    /* Framed hero brand block */
-    .hero { padding: 55px 0 28px; }
-    .hero-brand-card {
-      position: relative;
-      isolation: isolate;
-      max-width: 700px;
-      margin: 0 auto 25px;
-      padding: clamp(22px, 4.5vw, 38px) clamp(16px, 4vw, 34px) 24px;
-      overflow: hidden;
-      border: 1px solid #5b4b2d;
-      border-radius: 24px;
-      background:
-        radial-gradient(ellipse at 50% -15%, #44371d99 0%, transparent 65%),
-        linear-gradient(145deg, #202019 0%, #171814 68%, #141512 100%);
-      box-shadow: 0 18px 48px #0000002b, inset 0 1px #ffffff08;
-    }
-    .hero-brand-card::before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      left: 18%;
-      right: 18%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #f0cf7b, transparent);
-      opacity: .8;
-    }
-    .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 12px;
-      padding: 6px 12px;
-      border: 1px solid #514327;
-      border-radius: 999px;
-      background: #191810;
-      color: #d8bd7b;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .1px;
-    }
-    .hero-kicker span { color: #f0cf7b; }
-    .hero-brand-card h1 {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      margin: 0;
-      line-height: 1.55;
-    }
-    .hero-brand-card .hero-brand-name {
-      display: block;
-      color: #f0cf7b !important;
-      font-size: clamp(43px, 8vw, 66px);
-      font-weight: 950;
-      letter-spacing: -1.5px;
-      text-shadow: 0 4px 26px #e2bd631c;
-    }
-    .hero-brand-card .hero-tagline {
-      display: block;
-      color: #f4f1e8 !important;
-      font-size: clamp(18px, 3.7vw, 29px);
-      font-weight: 900;
-      line-height: 1.8;
-    }
-    .hero-divider {
-      display: flex;
-      justify-content: center;
-      margin: 15px auto 13px;
-    }
-    .hero-divider span {
-      display: block;
-      width: 76px;
-      height: 3px;
-      border-radius: 9px;
-      background: linear-gradient(90deg, transparent, #e2bd63, transparent);
-    }
-    .hero-brand-card > p {
-      margin: 0 auto;
-      color: #b8b5a8;
-      font-size: 13px;
-      line-height: 2;
-    }
-    @media (max-width: 640px) {
-      .hero { padding-top: 38px; }
-      .hero-brand-card { padding: 22px 14px 19px; border-radius: 19px; margin-bottom: 19px; }
-      .hero-kicker { margin-bottom: 10px; font-size: 10px; }
-      .hero-brand-card .hero-brand-name { font-size: clamp(42px, 12vw, 54px); }
-      .hero-brand-card .hero-tagline { font-size: clamp(17px, 4.8vw, 22px); }
-      .hero-divider { margin: 11px auto 9px; }
-      .hero-brand-card > p { font-size: 12px; }
-    }
-
+    :global(html){scroll-behavior:smooth;scroll-padding-top:90px}
+    :global(body){background:#101110;color:#f4f1e8;overflow-x:hidden}
+    :global(.wrap){width:min(1120px,calc(100% - 40px));margin-inline:auto}
+    .announcement{min-height:36px;display:flex;align-items:center;justify-content:center;gap:9px;padding:7px 16px;background:#242116;border-bottom:1px solid #3c3422;color:#d5c49a;font-size:11px;text-align:center}
+    .announcement-dot{width:6px;height:6px;border-radius:50%;background:#e2bd63;box-shadow:0 0 10px #e2bd6370}
+    .announcement a{color:#f0cf7b;text-decoration:none;font-weight:800;margin-right:5px}
+    .site-header{position:sticky;top:0;z-index:20;border-bottom:1px solid #30312c;background:#101110ed;backdrop-filter:blur(16px)}
+    .site-header-inner{width:min(1200px,calc(100% - 40px));min-height:78px;margin:auto;display:flex;align-items:center;gap:28px}
+    .site-brand,.footer-logo{display:inline-flex;align-items:center;gap:10px;flex-shrink:0;text-decoration:none}
+    .site-brand-mark{width:39px;height:39px;display:grid;place-items:center;border:1px solid #78602d;border-radius:12px;background:linear-gradient(145deg,#f0d486,#c59a3b);color:#17150f;font:950 23px/1 Arial,sans-serif;direction:ltr;box-shadow:0 4px 14px #e2bd631b}
+    .site-brand-word{color:#f0cf7b;font-size:25px;font-weight:950;letter-spacing:-.6px}
+    .site-nav{display:flex;align-items:center;justify-content:center;gap:5px;flex:1}
+    .site-nav a{padding:9px 12px;border-radius:9px;color:#c2c0b5;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .2s,color .2s}
+    .site-nav a:hover,.site-nav a[aria-current=page]{background:#211f17;color:#f0cf7b}
+    .header-cta{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:10px 15px;border:1px solid #78602d;border-radius:10px;background:#e2bd63;color:#17150f;font-size:12px;font-weight:900;text-decoration:none;white-space:nowrap;transition:filter .2s,transform .2s}
+    .header-cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
+    .hero{position:relative;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:65px;padding-top:78px;padding-bottom:88px}
+    .hero-copy{position:relative;z-index:1}
+    .eyebrow,.section-kicker{display:inline-flex;align-items:center;gap:7px;color:#d9bc79;font-size:12px;font-weight:850}
+    .eyebrow{padding:7px 12px;border:1px solid #514327;border-radius:999px;background:#191810}
+    .hero h1{margin:20px 0 15px;font-size:clamp(34px,4.2vw,54px);font-weight:950;line-height:1.55;letter-spacing:-1.1px}
+    .hero h1 span{color:#e2bd63}
+    .hero-description{max-width:600px;margin:0 0 23px;color:#aaa99f;font-size:14px;line-height:2.2}
+    .search{display:flex;align-items:center;gap:9px;max-width:590px;padding:7px;border:1px solid #454235;border-radius:15px;background:#191a17;box-shadow:0 12px 34px #00000020;transition:border-color .2s,box-shadow .2s}
+    .search:focus-within{border-color:#b79a52;box-shadow:0 0 0 3px #e2bd6312}
+    .search-icon{padding-inline:8px;color:#d9bc79;font-size:25px;line-height:1}
+    .search input{flex:1;min-width:0;padding:10px 4px;border:0;outline:0;background:transparent;color:#f4f1e8;font:inherit;font-size:13px}
+    .search input::placeholder{color:#85857c}
+    .search button{display:inline-flex;align-items:center;justify-content:center;gap:8px;flex-shrink:0;padding:11px 17px;border:0;border-radius:10px;background:linear-gradient(135deg,#f0d486,#d6ad4d);color:#17150f;font:inherit;font-size:12px;font-weight:950;cursor:pointer}
+    .search-hint{margin:8px 0 0;color:#85857c;font-size:11px}
+    .hero-trust{display:flex;flex-wrap:wrap;gap:17px;margin-top:24px}
+    .hero-trust span{display:inline-flex;align-items:center;gap:6px;color:#b9b7ac;font-size:11px}
+    .trust-check{display:grid;place-items:center;width:17px;height:17px;border:1px solid #365a42;border-radius:50%;color:#70d89d;font-size:10px}
+    .hero-art{position:relative;min-height:365px;display:grid;place-items:center;isolation:isolate}
+    .art-glow{position:absolute;z-index:-1;width:330px;height:330px;border-radius:50%;background:#b88d3030;filter:blur(65px)}
+    .invite-card{position:relative;width:min(100%,355px);padding:24px;border:1px solid #66532d;border-radius:23px;background:linear-gradient(145deg,#242218,#171814 70%);box-shadow:0 28px 70px #00000055;transform:rotate(-3deg)}
+    .invite-card:before{content:"";position:absolute;inset:0 20% auto;height:1px;background:linear-gradient(90deg,transparent,#f0cf7b,transparent)}
+    .invite-card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:20px;border-bottom:1px solid #38372e}
+    .mini-brand{display:flex;align-items:center;gap:8px;color:#f0cf7b;font-size:13px;font-weight:900}
+    .mini-brand>span{display:grid;place-items:center;width:27px;height:27px;border-radius:8px;background:#e2bd63;color:#17150f;font:bold 17px Arial}
+    .live-pill{display:flex;align-items:center;gap:6px;padding:5px 9px;border:1px solid #24583e;border-radius:99px;background:#14231a;color:#70d89d;font-size:10px}
+    .live-pill i,.card-status i{width:6px;height:6px;border-radius:50%;background:#53d68e}
+    .invite-card-label{margin-top:24px;color:#aaa99f;font-size:12px}
+    .invite-card-code{margin:8px 0 16px;color:#f0cf7b;font:900 30px/1.5 ui-monospace,Consolas,monospace;letter-spacing:2px}
+    .invite-card-line{height:1px;background:repeating-linear-gradient(90deg,#655332 0 5px,transparent 5px 10px)}
+    .invite-card-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:16px;color:#c7c2b2;font-size:11px}
+    .copy-symbol{display:grid;place-items:center;width:31px;height:31px;border:1px solid #6f5b2e;border-radius:9px;color:#f0cf7b;font-size:17px}
+    .floating-chip{position:absolute;z-index:2;display:flex;align-items:center;gap:10px;padding:12px 15px;border:1px solid #414033;border-radius:14px;background:#1b1c18ed;box-shadow:0 15px 35px #00000035;backdrop-filter:blur(8px)}
+    .floating-chip b,.floating-chip small{display:block}
+    .floating-chip b{color:#eee8d8;font-size:11px}
+    .floating-chip small{margin-top:2px;color:#99988e;font-size:10px}
+    .chip-icon,.coin-symbol{display:grid;place-items:center;width:34px;height:34px;border:1px solid #5e4d2a;border-radius:10px;background:#302819;color:#f0cf7b;font-size:18px}
+    .chip-top{top:25px;right:-7px}
+    .chip-bottom{bottom:25px;left:-7px}
+    .platform-section{padding-top:20px;padding-bottom:85px}
+    .section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:22px;margin-bottom:26px}
+    .section-heading h2,.how-intro h2,.faq-heading h2{margin:8px 0;color:#f4f1e8;font-size:clamp(23px,3vw,32px);font-weight:950;line-height:1.65}
+    .section-heading p{margin:0;color:#99988e;font-size:13px;line-height:2}
+    .section-link,.text-link{display:inline-flex;align-items:center;gap:8px;color:#e2bd63;font-size:12px;font-weight:850;text-decoration:none;white-space:nowrap}
+    .section-link:hover,.text-link:hover{color:#f0d486}
+    .platform-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .platform-card{position:relative;display:flex;flex-direction:column;min-width:0;padding:21px;border:1px solid #34372e;border-radius:18px;background:linear-gradient(150deg,#1d1f1a,#151612 80%);color:inherit;text-decoration:none;transition:transform .22s,border-color .22s,box-shadow .22s}
+    .platform-card:hover{transform:translateY(-4px);border-color:#8b7139;box-shadow:0 16px 35px #00000026}
+    .platform-card:focus-visible,.site-nav a:focus-visible,.header-cta:focus-visible{outline:2px solid #e2bd63;outline-offset:3px}
+    .platform-card-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .platform-logo{width:49px;height:49px;display:grid;place-items:center;overflow:hidden;border:1px solid #454033;border-radius:14px;background:#f8f7f2;color:#80652c;font-size:20px;font-weight:900}
+    .platform-logo img{width:100%;height:100%;padding:5px;object-fit:contain}
+    .card-status{display:inline-flex;align-items:center;gap:6px;padding:5px 8px;border:1px solid #28533d;border-radius:99px;background:#14231a;color:#70d89d;font-size:10px;font-weight:800}
+    .platform-card h3{margin:17px 0 5px;color:#f4f1e8;font-size:16px;font-weight:900}
+    .platform-card-desc{min-height:45px;margin:0;color:#a4a398;font-size:12px;line-height:2}
+    .platform-card-bottom{display:flex;flex-direction:column;gap:4px;margin-top:18px;padding-top:14px;border-top:1px solid #30312c}
+    .reward-label{color:#85857c;font-size:10px}
+    .reward-value{color:#e8c66f;font-size:12px;font-weight:900}
+    .card-action{display:flex;align-items:center;justify-content:space-between;margin-top:17px;padding-top:12px;border-top:1px dashed #39382f;color:#d9bc79;font-size:11px;font-weight:900}
+    .empty{margin:20px 0;padding:14px;border:1px solid #39352a;border-radius:12px;color:#c6b98f;text-align:center;font-size:13px}
+    .hidden{display:none!important}
+    .all-platforms-cta{display:flex;justify-content:center;margin-top:27px}
+    .all-platforms-cta a{display:inline-flex;align-items:center;gap:10px;padding:12px 17px;border:1px solid #554728;border-radius:11px;color:#e2bd63;font-size:12px;font-weight:850;text-decoration:none;transition:background .2s}
+    .all-platforms-cta a:hover{background:#211e15}
+    .how-section{padding:76px 0;background:linear-gradient(115deg,#1c1b15,#171814 50%,#1d1d17);border-top:1px solid #302f27;border-bottom:1px solid #302f27}
+    .how-inner{display:grid;grid-template-columns:.8fr 1.2fr;gap:55px;align-items:center}
+    .how-intro h2{max-width:370px}
+    .how-intro>p{max-width:390px;margin:0 0 20px;color:#aaa99f;font-size:13px;line-height:2.2}
+    .steps-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .step-card{position:relative;padding:18px 15px;border:1px solid #3c3a2e;border-radius:15px;background:#171814}
+    .step-number{position:absolute;top:13px;left:14px;color:#6f674f;font:800 10px ui-monospace,monospace}
+    .step-icon{width:40px;height:40px;display:grid;place-items:center;margin-bottom:17px;border:1px solid #5e4d2a;border-radius:12px;background:#302819;color:#f0cf7b;font-size:21px}
+    .step-card h3{margin:0 0 7px;color:#eee8d8;font-size:13px;font-weight:900}
+    .step-card p{margin:0;color:#9c9b91;font-size:11px;line-height:2.1}
+    .benefits-section{padding-top:80px;padding-bottom:80px}
+    .centered-heading{justify-content:center;text-align:center}
+    .centered-heading p{margin-inline:auto}
+    .benefits-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .benefit-item{display:flex;align-items:flex-start;gap:15px;padding:20px;border:1px solid #30312c;border-radius:15px;background:#171814}
+    .benefit-icon{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border:1px solid #514327;border-radius:12px;background:#211e15;color:#e2bd63;font-size:20px}
+    .benefit-item h3{margin:0 0 5px;color:#eee8d8;font-size:13px;font-weight:900}
+    .benefit-item p{margin:0;color:#9c9b91;font-size:12px;line-height:2.1}
+    .faq-section{padding-bottom:85px}
+    .faq-heading{text-align:center;margin-bottom:26px}
+    .faq-list{max-width:850px;margin-inline:auto;border:1px solid #34352e;border-radius:17px;background:#171814;overflow:hidden}
+    .faq-list details+details{border-top:1px solid #30312c}
+    .faq-list summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 21px;color:#eee8d8;font-size:13px;font-weight:850;cursor:pointer;list-style:none}
+    .faq-list summary::-webkit-details-marker{display:none}
+    .faq-list summary span{color:#e2bd63;font-size:18px;transition:transform .2s}
+    .faq-list details[open] summary span{transform:rotate(45deg)}
+    .faq-list details p{margin:0;padding:0 21px 19px;color:#aaa99f;font-size:12px;line-height:2.2}
+    .site-footer{border-top:1px solid #34352e;background:#0c0d0b}
+    .footer-main{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:50px;padding-top:43px;padding-bottom:38px}
+    .footer-logo{color:#f0cf7b;font-size:22px;font-weight:950}
+    .footer-logo .site-brand-mark{width:34px;height:34px;border-radius:10px;font-size:20px}
+    .footer-about p{max-width:330px;margin:13px 0 0;color:#85857c;font-size:12px;line-height:2.2}
+    .footer-column{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+    .footer-column h2{margin:0 0 4px;color:#e7e2d5;font-size:12px;font-weight:900}
+    .footer-column a{color:#99988e;font-size:12px;text-decoration:none}
+    .footer-column a:hover{color:#e2bd63}
+    .footer-bottom{border-top:1px solid #252620}
+    .footer-bottom-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:55px;color:#77776e;font-size:10px}
+    @media(max-width:900px){.site-header-inner{gap:15px}.site-nav a{padding-inline:8px}.hero{gap:30px}.how-inner{grid-template-columns:1fr;gap:28px}.how-intro h2,.how-intro>p{max-width:650px}.steps-grid{gap:14px}}
+    @media(max-width:700px){:global(.wrap){width:calc(100% - 28px)}.announcement{font-size:10px}.site-header-inner{width:calc(100% - 28px);min-height:68px;flex-wrap:wrap;gap:8px 12px;padding:11px 0}.site-brand-mark{width:33px;height:33px;border-radius:10px;font-size:20px}.site-brand-word{font-size:21px}.site-nav{order:3;flex:0 0 100%;justify-content:flex-start;overflow-x:auto;padding-bottom:1px}.site-nav a{padding:7px 10px;font-size:11px}.header-cta{margin-right:auto;padding:8px 10px;font-size:10px}.hero{grid-template-columns:1fr;gap:12px;padding-top:46px;padding-bottom:53px}.hero h1{font-size:clamp(33px,8vw,46px)}.hero-description{font-size:13px}.hero-art{min-height:300px;max-width:460px;width:100%;margin:0 auto}.invite-card{width:min(78%,355px);padding:20px}.chip-top{right:0;top:12px}.chip-bottom{left:0;bottom:11px}.floating-chip{padding:10px 12px}.platform-section{padding-bottom:58px}.section-heading{align-items:flex-start}.platform-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.platform-card{padding:15px;border-radius:15px}.platform-logo{width:42px;height:42px;border-radius:12px}.platform-card h3{font-size:14px}.platform-card-desc{min-height:62px;font-size:11px}.reward-value{font-size:11px}.how-section{padding:54px 0}.steps-grid{grid-template-columns:1fr;gap:10px}.step-card{display:grid;grid-template-columns:42px 1fr;column-gap:13px;padding:16px}.step-icon{grid-row:1 / span 2;margin:0}.step-card h3{align-self:end}.step-card p{grid-column:2}.step-number{top:10px;left:12px}.benefits-section{padding-top:56px;padding-bottom:58px}.benefits-grid{gap:10px}.benefit-item{gap:10px;padding:14px}.benefit-icon{width:34px;height:34px;flex-basis:34px;font-size:17px}.benefit-item h3{font-size:12px}.benefit-item p{font-size:11px}.faq-section{padding-bottom:58px}.footer-main{grid-template-columns:1fr 1fr;gap:30px 20px;padding-top:32px}.footer-about{grid-column:1/-1}.footer-bottom-inner{align-items:flex-start;flex-direction:column;justify-content:center;gap:4px;padding-top:12px;padding-bottom:12px}}
+    @media(max-width:390px){.platform-grid{grid-template-columns:1fr}.platform-card-desc{min-height:0}.section-heading{gap:10px}.section-heading h2{font-size:21px}.section-link{font-size:11px}.search{gap:4px}.search-icon{padding-inline:4px}.search button{padding:10px 11px;font-size:11px}.hero-trust{gap:9px}.hero-trust span{font-size:10px}.benefits-grid{grid-template-columns:1fr}.floating-chip b{font-size:10px}.floating-chip small{font-size:9px}}
+    @media(prefers-reduced-motion:reduce){:global(html){scroll-behavior:auto}.platform-card,.header-cta,.faq-list summary span{transition:none}.platform-card:hover,.header-cta:hover{transform:none}}
   </style>
 
   <script>
     import { platforms } from '../data/platforms.js';
-
     const form = document.querySelector('#searchForm');
     const input = document.querySelector('#searchInput');
-    const tiles = [...document.querySelectorAll('.platform-tile')];
+    const cards = [...document.querySelectorAll('.platform-card')];
     const noResult = document.querySelector('#noResult');
-
-    const normalize = (value = '') =>
-      value
-        .toLocaleLowerCase('fa')
-        .replace(/ي/g, 'ی')
-        .replace(/ك/g, 'ک')
-        .replace(/‌/g, '')
-        .replace(/\s+/g, '')
-        .trim();
-
+    const normalize = (value = '') => value.toLocaleLowerCase('fa').replace(/ي/g, 'ی').replace(/ك/g, 'ک').replace(/‌/g, '').replace(/\s+/g, '').trim();
     function findPlatform(query) {
       const q = normalize(query);
       if (!q) return null;
-
-      return platforms.find((platform) => {
-        const searchable = [
-          platform.name,
-          platform.id,
-          platform.code,
-          ...(platform.aliases || []),
-        ];
-
-        return searchable.some((value) => normalize(value) === q);
-      }) || null;
+      return platforms.find((platform) => [platform.name, platform.id, platform.code, ...(platform.aliases || [])].some((value) => normalize(value) === q || normalize(value).includes(q))) || null;
     }
-
     function updateResults() {
       const query = normalize(input?.value || '');
-
       if (!query) {
-        tiles.forEach((tile) => tile.classList.remove('hidden'));
+        cards.forEach((card) => card.classList.remove('hidden'));
         noResult?.classList.add('hidden');
         return;
       }
-
-      const matchedPlatform = findPlatform(query);
-
-      tiles.forEach((tile) => {
-        const name = normalize(tile.dataset.name || '');
-        const href = tile.getAttribute('href');
-        const matchesName = name.includes(query);
-        const matchesPlatform = matchedPlatform && href === matchedPlatform.href;
-
-        tile.classList.toggle('hidden', !(matchesName || matchesPlatform));
+      const match = findPlatform(query);
+      cards.forEach((card) => {
+        const name = normalize(card.dataset.name || '');
+        const matches = name.includes(query) || (match && card.getAttribute('href') === match.href);
+        card.classList.toggle('hidden', !matches);
       });
-
-      noResult?.classList.toggle(
-        'hidden',
-        tiles.every((tile) => tile.classList.contains('hidden'))
-      );
+      noResult?.classList.toggle('hidden', cards.every((card) => card.classList.contains('hidden')));
     }
-
     input?.addEventListener('input', updateResults);
-
     form?.addEventListener('submit', (event) => {
       event.preventDefault();
-
       const query = input?.value.trim() || '';
-      if (!query) {
-        updateResults();
-        return;
-      }
-
+      if (!query) { updateResults(); return; }
       const platform = findPlatform(query);
-
-      if (platform) {
-        window.location.href = platform.href;
-        return;
-      }
-
+      if (platform) { window.location.href = platform.href; return; }
       updateResults();
+      document.querySelector('#platforms')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   </script>
 </body>
 </html>
-
-
-
