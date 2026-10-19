@@ -351,6 +351,22 @@ const description = 'کد دعوت و کد معرف ملی گلد را همرا�
       .note, .disclaimer { margin-inline: 16px; }
     }
 
+    /* Prevent clipped/oversized content on the Melli Gold detail page */
+    :global(html), :global(body) { max-width: 100%; overflow-x: clip; }
+    .result { width: min(850px, calc(100% - 32px)); max-width: 100%; min-width: 0; }
+    .result .card, .result .steps-panel, .result .seo-content, .result .related-pages { min-width: 0; max-width: 100%; }
+    .result .card-head, .result .platform, .result .code-row { min-width: 0; }
+    .result .platform { flex-wrap: wrap; }
+    .result .code { min-width: 0; overflow-wrap: anywhere; word-break: break-word; }
+    .result .primary { box-sizing: border-box; max-width: calc(100% - 48px); white-space: normal; overflow-wrap: anywhere; }
+    @media (max-width: 520px) {
+      .result { width: calc(100% - 22px); }
+      .result .primary { max-width: calc(100% - 32px); }
+      .result .card-head { gap: 8px; }
+      .result .status { flex-shrink: 0; }
+      .result .code-row { flex-wrap: wrap; }
+    }
+
   </style>
 
   <script>
