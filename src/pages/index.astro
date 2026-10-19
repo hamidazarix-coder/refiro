@@ -73,6 +73,30 @@ const activePlatforms = platforms.filter((platform) => platform.active);
   <Header />
 
   <main>
+    <section class="ad-carousel wrap" aria-label="جایگاه تبلیغات رفیرو">
+      <div class="ad-carousel-track" id="adCarouselTrack">
+        <article class="ad-slide ad-slide-primary" aria-hidden="false">
+          <span class="ad-slide-tag">جایگاه تبلیغاتی</span>
+          <div><h2>کسب‌وکار خودت رو به کاربران رفیرو معرفی کن</h2><p>این جایگاه برای نمایش پیشنهادها و تبلیغات آینده آماده است.</p></div>
+          <span class="ad-slide-mark" aria-hidden="true">R</span>
+        </article>
+        <article class="ad-slide ad-slide-secondary" aria-hidden="true">
+          <span class="ad-slide-tag">پیشنهادهای ویژه</span>
+          <div><h2>پیشنهادهای جذاب، یک‌جا در رفیرو</h2><p>به‌زودی پیشنهادهای تبلیغاتی و کمپین‌های منتخب اینجا نمایش داده می‌شوند.</p></div>
+          <span class="ad-slide-mark" aria-hidden="true">✦</span>
+        </article>
+        <article class="ad-slide ad-slide-tertiary" aria-hidden="true">
+          <span class="ad-slide-tag">همکاری با رفیرو</span>
+          <div><h2>جای برندت رو در رفیرو رزرو کن</h2><p>فضایی برای معرفی خدمات و پیشنهادهای کسب‌وکارها.</p></div>
+          <span class="ad-slide-mark" aria-hidden="true">↗</span>
+        </article>
+      </div>
+      <div class="ad-carousel-controls" aria-label="کنترل اسلایدر">
+        <button type="button" id="adPrev" aria-label="اسلاید قبلی">‹</button>
+        <div class="ad-carousel-dots"><button type="button" class="is-active" aria-label="اسلاید ۱" aria-current="true"></button><button type="button" aria-label="اسلاید ۲"></button><button type="button" aria-label="اسلاید ۳"></button></div>
+        <button type="button" id="adNext" aria-label="اسلاید بعدی">›</button>
+      </div>
+    </section>
     <section class="hero wrap">
       <div class="hero-copy">
         <span class="eyebrow"><span aria-hidden="true">✦</span> شروع هوشمندانه‌تر</span>
@@ -102,6 +126,15 @@ const activePlatforms = platforms.filter((platform) => platform.active);
         </div>
         <div class="floating-chip chip-bottom"><span class="coin-symbol">✧</span><span><b>شروع راحت‌تر</b><small>با چند کلیک ساده</small></span></div>
       </div>
+    </section>
+
+    <section class="category-shortcuts wrap" aria-label="دسته‌بندی کدها">
+      <a class="category-shortcut referral-shortcut" href="/codes/">
+        <span class="category-shortcut-icon" aria-hidden="true">⌁</span><span class="category-shortcut-copy"><strong>کدهای معرف</strong><small>کدهای دعوت و پاداش ثبت‌نام</small></span><span class="category-shortcut-arrow" aria-hidden="true">←</span>
+      </a>
+      <a class="category-shortcut discount-shortcut" href="/codes/">
+        <span class="category-shortcut-icon" aria-hidden="true">٪</span><span class="category-shortcut-copy"><strong>کدهای تخفیف</strong><small>پیشنهادها و تخفیف‌های ویژه</small></span><span class="category-shortcut-arrow" aria-hidden="true">←</span>
+      </a>
     </section>
 
     <section class="platform-section wrap" id="platforms" aria-labelledby="platformTitle">
@@ -478,11 +511,119 @@ const activePlatforms = platforms.filter((platform) => platform.active);
     :global(html[data-theme="light"] .platform-logo),:global(html[data-theme="dark"] .platform-logo){background:#fff!important;border-color:#d5e1ef!important;box-shadow:none!important}
     @media(max-width:700px){.platform-logo{width:42px;height:42px;flex-basis:42px;border-radius:13px!important}.platform-logo img{border-radius:12px!important}}
     @media(prefers-reduced-motion:reduce){:global(html){scroll-behavior:auto}.platform-card,.header-cta,.faq-list summary span,.theme-toggle{transition:none}.platform-card:hover,.header-cta:hover,.theme-toggle:hover{transform:none}}
+
+    /* Homepage carousel and category shortcuts */
+    .ad-carousel{margin-top:22px;margin-bottom:0;position:relative}
+    .ad-carousel-track{position:relative;min-height:154px;overflow:hidden;border:1px solid #3b392f;border-radius:20px;background:#191a17}
+    .ad-slide{position:absolute;inset:0;display:flex;align-items:center;gap:20px;padding:24px 30px;opacity:0;visibility:hidden;transform:translateX(12px);transition:opacity .35s ease,transform .35s ease,visibility .35s}
+    .ad-slide[aria-hidden="false"]{position:relative;opacity:1;visibility:visible;transform:none}
+    .ad-slide-primary{background:radial-gradient(ellipse at 12% 50%,#e2bd631b,transparent 52%),linear-gradient(110deg,#1a1b17,#242116)}
+    .ad-slide-secondary{background:radial-gradient(ellipse at 12% 50%,#4389d51c,transparent 52%),linear-gradient(110deg,#171a20,#1a1c22)}
+    .ad-slide-tertiary{background:radial-gradient(ellipse at 12% 50%,#70d89d18,transparent 52%),linear-gradient(110deg,#171d19,#1b211b)}
+    .ad-slide-tag{align-self:flex-start;flex-shrink:0;padding:6px 10px;border:1px solid #62502b;border-radius:999px;color:#e2bd63;font-size:10px;font-weight:850;white-space:nowrap}
+    .ad-slide h2{margin:0 0 5px;color:#f4f1e8;font-size:clamp(16px,2.2vw,22px);line-height:1.8}
+    .ad-slide p{margin:0;color:#b8b7ad;font-size:12px;line-height:1.9}
+    .ad-slide-mark{margin-right:auto;display:grid;place-items:center;width:68px;height:68px;flex:0 0 68px;border:1px solid #78602d;border-radius:20px;background:#e2bd6315;color:#e2bd63;font:950 36px/1 Arial,sans-serif}
+    .ad-carousel-controls{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:10px}
+    .ad-carousel-controls>button{width:28px;height:28px;border:1px solid #454235;border-radius:9px;background:#191a17;color:#e2bd63;font-size:20px;line-height:1;cursor:pointer}
+    .ad-carousel-dots{display:flex;align-items:center;gap:6px}
+    .ad-carousel-dots button{width:6px;height:6px;padding:0;border:0;border-radius:99px;background:#5a594f;cursor:pointer;transition:width .2s,background .2s}
+    .ad-carousel-dots button.is-active{width:19px;background:#e2bd63}
+    .category-shortcuts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:30px;margin-bottom:10px}
+    .category-shortcut{display:flex;align-items:center;gap:14px;min-width:0;padding:20px;border:1px solid #39372e;border-radius:17px;background:linear-gradient(120deg,#1c1d19,#171814);text-decoration:none;transition:transform .2s,border-color .2s,box-shadow .2s}
+    .category-shortcut:hover{transform:translateY(-2px);border-color:#78602d;box-shadow:0 12px 28px #0000001a}
+    .category-shortcut-icon{display:grid;place-items:center;width:48px;height:48px;flex:0 0 48px;border:1px solid #62502b;border-radius:14px;background:#302a1b;color:#e2bd63;font-size:27px;font-weight:900}
+    .category-shortcut-copy{display:flex;flex-direction:column;gap:2px;min-width:0}
+    .category-shortcut-copy strong{color:#f4f1e8;font-size:16px;font-weight:900}
+    .category-shortcut-copy small{color:#aaa99f;font-size:11px;line-height:1.8}
+    .category-shortcut-arrow{margin-right:auto;color:#e2bd63;font-size:21px;flex-shrink:0}
+    :global(html[data-theme="light"] .ad-carousel-track){border-color:#d4e1f0;background:#fff}
+    :global(html[data-theme="light"] .ad-slide-primary){background:radial-gradient(ellipse at 12% 50%,#2876c71c,transparent 52%),linear-gradient(110deg,#fff,#edf4fd)}
+    :global(html[data-theme="light"] .ad-slide-secondary){background:radial-gradient(ellipse at 12% 50%,#4389d51c,transparent 52%),linear-gradient(110deg,#fff,#edf4fd)}
+    :global(html[data-theme="light"] .ad-slide-tertiary){background:radial-gradient(ellipse at 12% 50%,#25865313,transparent 52%),linear-gradient(110deg,#fff,#eef8f1)}
+    :global(html[data-theme="light"] .ad-slide h2),:global(html[data-theme="light"] .category-shortcut-copy strong){color:#17263a}
+    :global(html[data-theme="light"] .ad-slide p),:global(html[data-theme="light"] .category-shortcut-copy small){color:#45566e}
+    :global(html[data-theme="light"] .ad-slide-tag){border-color:#c8dcf5;color:#174f91}
+    :global(html[data-theme="light"] .ad-slide-mark){border-color:#c8dcf5;background:#edf4fd;color:#174f91}
+    :global(html[data-theme="light"] .category-shortcut){border-color:#d4e1f0;background:linear-gradient(120deg,#fff,#f2f6fc)}
+    :global(html[data-theme="light"] .category-shortcut-icon){border-color:#c8dcf5;background:#edf4fd;color:#174f91}
+    :global(html[data-theme="light"] .category-shortcut-arrow){color:#174f91}
+    @media(max-width:700px){
+      .ad-carousel{margin-top:14px}
+      .ad-carousel-track{min-height:148px;border-radius:16px}
+      .ad-slide{align-items:flex-start;flex-wrap:wrap;gap:8px 12px;padding:17px}
+      .ad-slide-tag{font-size:9px;padding:5px 8px}
+      .ad-slide>div{flex:1 1 calc(100% - 62px);min-width:0}
+      .ad-slide h2{font-size:15px;line-height:1.8}
+      .ad-slide p{font-size:10px;line-height:1.9}
+      .ad-slide-mark{width:42px;height:42px;flex-basis:42px;border-radius:13px;font-size:23px;margin-right:auto}
+      .category-shortcuts{gap:10px;margin-top:18px;margin-bottom:0}
+      .category-shortcut{gap:9px;padding:13px 10px;border-radius:14px}
+      .category-shortcut-icon{width:36px;height:36px;flex-basis:36px;border-radius:11px;font-size:21px}
+      .category-shortcut-copy strong{font-size:12px;white-space:nowrap}
+      .category-shortcut-copy small{font-size:9px;line-height:1.6}
+      .category-shortcut-arrow{font-size:17px}
+      .hero{padding-top:30px;padding-bottom:28px;gap:4px}
+      .hero h1{font-size:clamp(29px,7.2vw,39px);line-height:1.5;margin-top:14px}
+      .hero-description{line-height:2;margin-bottom:16px}
+      .hero-trust{gap:8px 12px;margin-top:16px}
+      .hero-art{min-height:218px;max-width:360px;margin-top:0}
+      .invite-card{width:min(76%,300px);padding:15px}
+      .chip-top{top:7px}
+      .chip-bottom{bottom:5px}
+      .floating-chip{padding:8px 10px}
+      .platform-section{padding-top:14px}
+    }
+    @media(max-width:390px){
+      .platform-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+      .platform-card{padding:13px 11px;border-radius:14px}
+      .platform-card h3{font-size:13px;line-height:1.7}
+      .platform-card-desc{font-size:10px;line-height:1.8}
+      .platform-card-bottom{align-items:flex-start;flex-direction:column;gap:2px}
+      .reward-label{font-size:9px}
+      .reward-value{font-size:11px}
+      .card-action{font-size:11px}
+      .platform-logo{width:36px;height:36px;flex-basis:36px}
+      .card-status{font-size:9px}
+      .category-shortcuts{gap:8px}
+      .category-shortcut{padding:11px 8px;gap:7px}
+      .category-shortcut-copy strong{font-size:11px}
+      .category-shortcut-copy small{font-size:8px}
+      .category-shortcut-icon{width:31px;height:31px;flex-basis:31px}
+    }
+    @media(prefers-reduced-motion:reduce){.ad-slide,.ad-carousel-dots button,.category-shortcut{transition:none}}
+
   </style>
 
   <script>
     import { platforms } from '../data/platforms.js';
-        const form = document.querySelector('#searchForm');
+        const adTrack = document.querySelector('#adCarouselTrack');
+    const adSlides = [...document.querySelectorAll('.ad-slide')];
+    const adDots = [...document.querySelectorAll('.ad-carousel-dots button')];
+    let adIndex = 0;
+    let adTimer;
+    function showAdSlide(nextIndex) {
+      if (!adSlides.length) return;
+      adIndex = (nextIndex + adSlides.length) % adSlides.length;
+      adSlides.forEach((slide, index) => slide.setAttribute('aria-hidden', String(index !== adIndex)));
+      adDots.forEach((dot, index) => {
+        dot.classList.toggle('is-active', index === adIndex);
+        if (index === adIndex) dot.setAttribute('aria-current', 'true'); else dot.removeAttribute('aria-current');
+      });
+    }
+    const restartAdTimer = () => {
+      window.clearInterval(adTimer);
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) adTimer = window.setInterval(() => showAdSlide(adIndex + 1), 6000);
+    };
+    document.querySelector('#adPrev')?.addEventListener('click', () => { showAdSlide(adIndex - 1); restartAdTimer(); });
+    document.querySelector('#adNext')?.addEventListener('click', () => { showAdSlide(adIndex + 1); restartAdTimer(); });
+    adDots.forEach((dot, index) => dot.addEventListener('click', () => { showAdSlide(index); restartAdTimer(); }));
+    adTrack?.addEventListener('mouseenter', () => window.clearInterval(adTimer));
+    adTrack?.addEventListener('mouseleave', restartAdTimer);
+    showAdSlide(0);
+    restartAdTimer();
+
+    const form = document.querySelector('#searchForm');
     const input = document.querySelector('#searchInput');
     const cards = [...document.querySelectorAll('.platform-card')];
     const noResult = document.querySelector('#noResult');
