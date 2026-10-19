@@ -590,3 +590,144 @@ html[data-theme="light"] .guide-article p,
 html[data-theme="light"] .guide-article li,
 html[data-theme="light"] .about-page p,
 html[data-theme="light"] .about-page li { color: #344760 !important; }
+
+
+/* Polished invitation-code panel shared by every platform detail page. */
+main.result > .card {
+  border: 1px solid #493765 !important;
+  border-radius: 24px !important;
+  background:
+    radial-gradient(ellipse at 50% 35%, #30204a 0%, transparent 58%),
+    linear-gradient(145deg, #151426 0%, #101523 65%, #111729 100%) !important;
+  box-shadow: 0 24px 70px #0005, inset 0 1px 0 #ffffff0a !important;
+}
+main.result > .card .card-head {
+  padding: 24px 26px !important;
+  background: linear-gradient(110deg, #211a37, #151a2a) !important;
+  border-bottom: 1px solid #39304f !important;
+}
+main.result > .card .mark,
+main.result > .card .mark-logo {
+  border: 1px solid #594479 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 5px 18px #0002;
+}
+main.result > .card .status {
+  padding: 7px 11px;
+  border: 1px solid #24583e;
+  border-radius: 999px;
+  background: #14251f;
+  color: #79e2a8;
+  font-weight: 800;
+}
+main.result > .card .reward {
+  margin: 20px 24px 24px !important;
+  padding: 22px 18px !important;
+  border: 1px solid #4b3a6d !important;
+  border-radius: 18px !important;
+  background: radial-gradient(ellipse at top right, #3b275b 0%, transparent 76%), #19172b !important;
+  box-shadow: inset 0 1px 0 #ffffff0a;
+}
+main.result > .card .reward::before,
+main.result > .card .reward::after { display: none !important; }
+main.result > .card .reward-amount {
+  margin: 0 !important;
+  color: #d0b7ff !important;
+  font-size: clamp(27px, 5vw, 36px) !important;
+  letter-spacing: -.5px;
+}
+main.result > .card .label {
+  margin: 0 26px 10px !important;
+  color: #c5bfd8 !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+}
+main.result > .card .code-row {
+  margin: 0 24px !important;
+  padding: 13px 14px !important;
+  gap: 12px;
+  border: 1px solid #574275 !important;
+  border-radius: 16px !important;
+  background: #0c1020 !important;
+  box-shadow: inset 0 1px 5px #0003;
+}
+main.result > .card .code {
+  color: #e0ceff !important;
+  font-size: clamp(21px, 4vw, 28px) !important;
+  letter-spacing: 1.8px;
+}
+main.result > .card .copy {
+  padding: 10px 15px !important;
+  border: 1px solid #7754ad !important;
+  border-radius: 11px !important;
+  background: linear-gradient(135deg, #35214f, #251a3b) !important;
+  color: #e1ceff !important;
+  font-size: 12px !important;
+  font-weight: 900 !important;
+  transition: transform .18s ease, filter .18s ease;
+}
+main.result > .card .copy:hover { transform: translateY(-1px); filter: brightness(1.15); }
+main.result > .card .copy-feedback,
+main.result > .card #copyFeedback { min-height: 23px; color: #79e2a8 !important; }
+main.result > .card .primary {
+  width: calc(100% - 48px) !important;
+  min-height: 54px !important;
+  margin: 12px 24px 0 !important;
+  border: 1px solid #966df0 !important;
+  border-radius: 14px !important;
+  background: linear-gradient(120deg, #955cf6 0%, #7136d4 55%, #5b28b4 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 22px #6d28d933, inset 0 1px 0 #ffffff30;
+  font-size: 14px !important;
+  font-weight: 900 !important;
+}
+main.result > .card .primary:hover { filter: brightness(1.1); transform: translateY(-2px); }
+main.result > .card .steps { border-color: #302a46 !important; }
+main.result > .card .steps h2 { color: #eee7ff !important; }
+main.result > .card .steps ol { color: #bdc2d4 !important; }
+main.result > .card .note,
+main.result > .card .disclaimer { border-color: #302a46 !important; color: #9fa8c0 !important; }
+
+html[data-theme="light"] main.result > .card {
+  border-color: #dfd2f6 !important;
+  background: linear-gradient(145deg, #fff 0%, #faf7ff 65%, #f1eaff 100%) !important;
+  box-shadow: 0 18px 50px #40216d12, inset 0 1px 0 #fff !important;
+}
+html[data-theme="light"] main.result > .card .card-head {
+  background: linear-gradient(110deg, #f3edff, #f8faff) !important;
+  border-color: #e5dcf5 !important;
+}
+html[data-theme="light"] main.result > .card .status {
+  background: #e8f8ef !important; border-color: #b9e5ca !important; color: #187344 !important;
+}
+html[data-theme="light"] main.result > .card .reward {
+  background: radial-gradient(ellipse at top right, #eee3ff 0%, transparent 76%), #f8f4ff !important;
+  border-color: #dfd0f8 !important;
+}
+html[data-theme="light"] main.result > .card .reward-amount { color: #713bc0 !important; }
+html[data-theme="light"] main.result > .card .label { color: #59627a !important; }
+html[data-theme="light"] main.result > .card .code-row {
+  background: #f7f3ff !important; border-color: #d7c5f4 !important;
+}
+html[data-theme="light"] main.result > .card .code { color: #6634b5 !important; }
+html[data-theme="light"] main.result > .card .copy {
+  background: linear-gradient(135deg, #f0e7ff, #e7d9ff) !important;
+  border-color: #d1b9f2 !important; color: #6634b5 !important;
+}
+html[data-theme="light"] main.result > .card .steps h2 { color: #24203b !important; }
+html[data-theme="light"] main.result > .card .steps ol { color: #45566e !important; }
+html[data-theme="light"] main.result > .card .note,
+html[data-theme="light"] main.result > .card .disclaimer { color: #657089 !important; }
+
+@media (max-width: 520px) {
+  main.result > .card { border-radius: 19px !important; }
+  main.result > .card .card-head { padding: 17px 16px !important; }
+  main.result > .card .reward { margin: 16px 14px 20px !important; padding: 19px 13px !important; }
+  main.result > .card .label { margin-inline: 16px !important; }
+  main.result > .card .code-row { margin-inline: 14px !important; padding: 10px !important; gap: 8px; }
+  main.result > .card .copy { padding: 9px 10px !important; }
+  main.result > .card .primary { width: calc(100% - 28px) !important; margin-inline: 14px !important; font-size: 12px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  main.result > .card .copy, main.result > .card .primary { transition: none !important; }
+}
