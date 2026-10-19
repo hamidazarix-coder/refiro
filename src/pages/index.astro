@@ -239,8 +239,14 @@ const discountPlaceholders = Array.from({ length: 6 }, (_, index) => index + 1);
     .section-heading p{margin:0;color:#aab2c9;font-size:14px}
     .section-heading-row{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:right;margin-bottom:22px}
     .section-heading-row h2{margin:0;font-size:23px}
-    .view-all{display:inline-flex;align-items:center;gap:8px;color:#a77aff;text-decoration:none;font-size:14px;font-weight:800;white-space:nowrap}
-    .view-all:hover{color:#d3b8ff}
+    .view-all{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:40px;padding:0 15px 0 10px;border:1px solid #7042ad;border-radius:999px;background:linear-gradient(135deg,#25183c 0%,#171326 100%);box-shadow:inset 0 1px 0 #ffffff0d,0 4px 14px #00000018;color:#d7c1ff;text-decoration:none;font-size:13px;font-weight:850;white-space:nowrap;transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease}
+    .view-all span{display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:linear-gradient(135deg,#9145ff,#6127c5);color:#fff;font-size:18px;line-height:1;transition:transform .2s ease}
+    .view-all:hover{transform:translateY(-2px);border-color:#a77aff;background:linear-gradient(135deg,#33204f 0%,#1c1730 100%);box-shadow:0 7px 20px #7d2cff26;color:#fff}
+    .view-all:hover span{transform:translateX(-3px)}
+    .view-all:focus-visible{outline:2px solid #b995ff;outline-offset:3px}
+    :global(html[data-theme="light"] .view-all){border-color:#d4c2f4;background:linear-gradient(135deg,#fff,#f4edff);box-shadow:0 4px 14px #45207810;color:#6133a5}
+    :global(html[data-theme="light"] .view-all span){background:linear-gradient(135deg,#9145ff,#6127c5);color:#fff}
+    :global(html[data-theme="light"] .view-all:hover){border-color:#a989df;background:linear-gradient(135deg,#f6edff,#fff);color:#482080}
     .discount-section{padding-top:8px}
     .discount-placeholder{border-color:#58421c;background:linear-gradient(145deg,#211b0e,#11110f)}
     .discount-placeholder:hover{border-color:#e5a92b;background:#211a0b}
