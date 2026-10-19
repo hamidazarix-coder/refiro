@@ -751,8 +751,8 @@ main.result > .card .card-head {
 main.result > .card .platform { display:flex !important; flex-direction:column !important; align-items:center !important; justify-content:center !important; gap:7px !important; text-align:center !important; }
 main.result > .card .platform > div { display:flex !important; flex-direction:column !important; align-items:center !important; }
 main.result > .card .mark, main.result > .card .mark-logo {
-  display:block !important; width:54px !important; height:54px !important; flex:0 0 54px !important;
-  object-fit:contain !important; margin:0 !important; border-radius:15px !important;
+  display:block !important; width:100px !important; height:100px !important; flex:0 0 100px !important;
+  object-fit:contain !important; margin:0 !important; border-radius:22px !important;
 }
 main.result > .card .platform-name, main.result > .card .platform > span { color:#f1edff !important; font-size:17px !important; font-weight:900 !important; }
 main.result > .card .platform-caption, main.result > .card .status { display:none !important; }
@@ -776,7 +776,7 @@ html[data-theme="light"] main.result > .card .invite-slogan strong, html[data-th
 html[data-theme="light"] main.result > .steps-panel .steps { background:linear-gradient(135deg,#fff,#f4efff) !important; border-color:#e0d5f6 !important; }
 @media (max-width:520px) {
   main.result > .card { width:min(100%,430px) !important; aspect-ratio:1/1 !important; padding:17px !important; gap:7px !important; border-radius:19px !important; }
-  main.result > .card .mark, main.result > .card .mark-logo { width:46px !important; height:46px !important; flex-basis:46px !important; }
+  main.result > .card .mark, main.result > .card .mark-logo { width:84px !important; height:84px !important; flex-basis:84px !important; border-radius:19px !important; }
   main.result > .card .platform-name, main.result > .card .platform > span { font-size:15px !important; }
   main.result > .card .invite-slogan, main.result > .card .invite-tagline { font-size:11px !important; }
   main.result > .card .reward-amount { font-size:clamp(21px,6vw,27px) !important; }
