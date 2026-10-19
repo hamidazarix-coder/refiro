@@ -46,11 +46,11 @@ const placeholders = Array.from({ length: 6 }, (_, index) => index + 1);
     .wrap{width:min(1120px,calc(100% - 48px));margin-inline:auto}
     .discounts-page{min-height:55vh;padding-top:42px;padding-bottom:60px}
     .breadcrumbs{display:flex;gap:10px;align-items:center;margin-bottom:28px;color:#9da9c2;font-size:13px}
-    .breadcrumbs a{color:#a77aff;text-decoration:none}
+    .breadcrumbs a{color:#f0bd55;text-decoration:none}
     .section-heading{margin-bottom:16px}
     .section-heading-row{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:right}
     .section-heading h1{margin:0;font-size:clamp(23px,4vw,30px);font-weight:900}
-    .view-all{display:inline-flex;align-items:center;gap:8px;color:#a77aff;text-decoration:none;font-size:13px;font-weight:800;white-space:nowrap}
+    .view-all{display:inline-flex;align-items:center;gap:8px;color:#f0bd55;text-decoration:none;font-size:13px;font-weight:800;white-space:nowrap}
     .page-desc{margin:0 0 25px;color:#aab2c9;line-height:2}
     .platform-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
     .platform-card{position:relative;min-height:142px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:18px 10px 12px;border:1px solid #58421c;border-radius:15px;background:linear-gradient(145deg,#211b0e,#11110f);color:#eef0ff}
@@ -60,6 +60,7 @@ const placeholders = Array.from({ length: 6 }, (_, index) => index + 1);
     .platform-card strong{font-size:15px;font-weight:800}
     :global(html[data-theme="light"] body){background:#f5f8fc;color:#17263a}
     :global(html[data-theme="light"] .platform-card){background:#fffaf0;border-color:#ead6a7;color:#17263a}
+    :global(html[data-theme="light"] .breadcrumbs a),:global(html[data-theme="light"] .view-all){color:#8b5a00}
     @media(max-width:760px){.wrap{width:calc(100% - 28px)}.platform-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.platform-card{min-height:122px}.card-status{top:8px;right:8px;font-size:9px}.section-heading h1{font-size:21px}.view-all{font-size:11px}}
   </style>
 </body>
