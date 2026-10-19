@@ -28,19 +28,20 @@
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 5;
-  border-bottom: 1px solid #34352e;
-  background: rgba(15, 16, 14, .94);
+  z-index: 20;
+  border-bottom: 1px solid #30312c;
+  background: rgba(16, 17, 16, .93);
   box-shadow: 0 5px 22px #00000012;
+  backdrop-filter: blur(16px);
 }
 .site-header-inner {
-  width: min(1100px, calc(100% - 36px));
-  min-height: 76px;
+  width: min(1200px, calc(100% - 40px));
+  min-height: 78px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 22px;
+  gap: 28px;
 }
 .site-brand {
   display: inline-flex;
@@ -80,9 +81,9 @@
   display: inline-flex;
   align-items: center;
   min-height: 38px;
-  padding: 7px 13px;
+  padding: 9px 12px;
   border: 1px solid transparent;
-  border-radius: 10px;
+  border-radius: 9px;
   color: #c7c5ba;
   font-size: 12px;
   font-weight: 700;
@@ -99,22 +100,17 @@
   outline: 2px solid #e2bd63;
   outline-offset: 3px;
 }
-@media (max-width: 600px) {
-  .site-header-inner {
-    width: calc(100% - 24px);
-    min-height: 66px;
-    gap: 10px;
-  }
+@media (max-width: 700px) {
+  .site-header-inner { width: calc(100% - 28px); min-height: 68px; flex-wrap: wrap; gap: 8px 12px; padding: 11px 0; }
   .site-brand { gap: 7px; }
   .site-brand-mark { width: 33px; height: 33px; border-radius: 10px; font-size: 20px; }
   .site-brand-word { font-size: 21px; }
-  .site-nav { gap: 2px; }
-  .site-nav a { min-height: 34px; padding: 6px 8px; font-size: 10px; }
+  .site-nav { order: 3; flex: 0 0 100%; justify-content: flex-start; gap: 2px; overflow-x: auto; padding-bottom: 1px; }
+  .site-nav a { min-height: 34px; padding: 7px 10px; font-size: 11px; }
 }
 @media (max-width: 390px) {
-  .site-header-inner { align-items: flex-start; padding: 12px 0; flex-direction: column; gap: 8px; }
-  .site-nav { width: 100%; }
-  .site-nav a { padding-inline: 9px; }
+  .site-header-inner { width: calc(100% - 24px); }
+  .site-nav a { padding-inline: 8px; font-size: 10px; }
 }
 
 
