@@ -181,8 +181,13 @@ const discountPlaceholders = Array.from({ length: 6 }, (_, index) => index + 1);
       position:relative;
       padding:0 .16em .08em;
       color:#ffd12e !important;
-      -webkit-text-fill-color:#ffd12e !important;
-      background:none;
+      -webkit-text-fill-color:transparent !important;
+      background:linear-gradient(110deg,#a66a08 0%,#ffdf55 18%,#fff2a6 28%,#d69b16 42%,#fff0a0 53%,#b87908 69%,#ffe16a 84%,#a66a08 100%);
+      background-size:240% 100%;
+      background-position:100% 50%;
+      background-clip:text;
+      -webkit-background-clip:text;
+      animation:refiro-hero-liquid-gold 7s ease-in-out infinite alternate;
       border:0;
       border-radius:0;
       box-shadow:none;
@@ -195,14 +200,16 @@ const discountPlaceholders = Array.from({ length: 6 }, (_, index) => index + 1);
     }
     :global(html[data-theme="light"] .hero h1 .hero-brand){
       color:#b77900 !important;
-      -webkit-text-fill-color:#b77900 !important;
+      -webkit-text-fill-color:transparent !important;
       text-shadow:none;
     }
+    @keyframes refiro-hero-liquid-gold{0%{background-position:100% 50%}100%{background-position:0% 50%}}
+    @media(prefers-reduced-motion:reduce){.hero h1 .hero-brand{animation:none;background-position:50% 50%}}
     .hero h1 .hero-tagline{display:inline-block;white-space:nowrap;font-size:clamp(16px,2.35vw,25px);line-height:1.5;color:#9145ff;text-shadow:0 0 28px #812cff24}
     .hero h1 .hero-tagline{min-height:1.5em}
     .hero h1 .hero-tagline::after{content:"";display:inline-block;width:2px;height:.95em;margin-right:5px;vertical-align:-.12em;background:currentColor;animation:type-caret .8s steps(1,end) infinite}
     @keyframes type-caret{50%{opacity:0}}
-    :global(html[data-theme="light"] .hero h1 .hero-brand){color:#fff;-webkit-text-fill-color:initial}
+    :global(html[data-theme="light"] .hero h1 .hero-brand){color:#b77900 !important;-webkit-text-fill-color:transparent !important}
     :global(html[data-theme="light"] .hero h1 .hero-tagline){color:#9145ff}
     @media(max-width:520px){.hero h1 .hero-tagline{font-size:clamp(12px,3.5vw,17px);letter-spacing:-.6px}}
     .hero-description{margin:13px auto 26px;color:#aeb5ca;font-size:17px;line-height:2}
