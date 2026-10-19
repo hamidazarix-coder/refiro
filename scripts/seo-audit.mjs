@@ -134,6 +134,8 @@ for (const file of pages) {
   if (!robots || /noindex/i.test(robots)) issues.push(relative + ': robots metadata missing or noindex is set.');
   if (!/<html\b[^>]*\blang="fa"/i.test(html) || !/<html\b[^>]*\bdir="rtl"/i.test(html)) issues.push(relative + ': expected lang="fa" and dir="rtl".');
   if (!/<meta\s+name="viewport"/i.test(html)) issues.push(relative + ': viewport meta tag is missing.');
+  if (!/<link\s+rel="icon"\s+type="image\/svg\+xml"\s+href="\/favicon\.svg"/i.test(html)) issues.push(relative + ': canonical SVG favicon reference is missing.');
+  if (/href="\/favicon\.bmp"/i.test(html)) issues.push(relative + ': obsolete BMP favicon reference should be removed for consistency.');
   const h1 = (html.match(/<h1\b/gi) || []).length;
   if (h1 !== 1) issues.push(relative + ': expected one H1, found ' + h1 + '.');
   if (!/<h2\b/i.test(html)) issues.push(relative + ': no H2 headings found; check content structure.');
