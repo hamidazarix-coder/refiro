@@ -329,7 +329,7 @@ const activePlatforms = platforms.filter((platform) => platform.active);
     function updateResults() {
       const q = normalize(input?.value || '');
       const matched = q ? findPlatform(q) : null;
-      cards.forEach((card) => card.classList.toggle('hidden', !!q && !(normalize(card.dataset.name || '').includes(q) || (matched && card.getAttribute('href') === matched.href)));
+      cards.forEach((card) => card.classList.toggle('hidden', !!q && !(normalize(card.dataset.name || '').includes(q) || (matched && card.getAttribute('href') === matched.href))));
       noResult?.classList.toggle('hidden', !q || cards.every((card) => card.classList.contains('hidden')));
     }
     input?.addEventListener('input', updateResults);
