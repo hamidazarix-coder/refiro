@@ -74,6 +74,12 @@ const activePlatforms = platforms.filter((platform) => platform.active);
         <a href="/#searchForm">جست‌وجوی کد</a>
         <a href="/guide/kod-davat/">راهنمای استفاده</a>
       </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="فعال‌کردن حالت تاریک" title="حالت تاریک">
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.6 8.6 0 1 0 20.5 14.2Z"></path></svg>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -188,7 +194,7 @@ const activePlatforms = platforms.filter((platform) => platform.active);
     .site-brand,.footer-logo{display:inline-flex;align-items:center;gap:10px;flex-shrink:0;text-decoration:none}
     .site-brand-mark{width:39px;height:39px;display:grid;place-items:center;border:1px solid #78602d;border-radius:12px;background:linear-gradient(145deg,#f0d486,#c59a3b);color:#17150f;font:950 23px/1 Arial,sans-serif;direction:ltr;box-shadow:0 4px 14px #e2bd631b}
     .site-brand-word{color:#f0cf7b;font-size:25px;font-weight:950;letter-spacing:-.6px}
-    .site-nav{display:flex;align-items:center;justify-content:center;gap:5px;flex:1}
+    .site-nav{display:flex;align-items:center;justify-content:flex-start;gap:5px;flex:1}
     .site-nav a{padding:9px 12px;border-radius:9px;color:#c2c0b5;font-size:12px;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .2s,color .2s}
     .site-nav a:hover,.site-nav a[aria-current=page]{background:#211f17;color:#f0cf7b}
     .header-cta{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:10px 15px;border:1px solid #78602d;border-radius:10px;background:#e2bd63;color:#17150f;font-size:12px;font-weight:900;text-decoration:none;white-space:nowrap;transition:filter .2s,transform .2s}
