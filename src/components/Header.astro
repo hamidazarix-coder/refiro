@@ -24,7 +24,7 @@
   .site-header-inner{width:min(1200px,calc(100% - 40px));min-height:72px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}
   .site-brand{display:inline-flex;align-items:center;gap:9px;flex-shrink:0;text-decoration:none;margin:0}
   .site-brand-icon{display:block;width:42px;height:42px;object-fit:contain;flex:0 0 42px;border:0;border-radius:0;background:transparent;box-shadow:none}
-  .site-brand-word{color:#ffd12e;font-size:25px;font-weight:950;letter-spacing:-.7px;line-height:1}
+  .site-brand-word{display:inline-block;color:#ffd12e;font-size:25px;font-weight:950;letter-spacing:-.7px;line-height:1;background:linear-gradient(110deg,#a66a08 0%,#ffdf55 18%,#fff2a6 28%,#d69b16 42%,#fff0a0 53%,#b87908 69%,#ffe16a 84%,#a66a08 100%);background-size:240% 100%;background-position:100% 50%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:refiro-liquid-gold 7s ease-in-out infinite alternate}@keyframes refiro-liquid-gold{0%{background-position:100% 50%}100%{background-position:0% 50%}}@media(prefers-reduced-motion:reduce){.site-brand-word{animation:none;background-position:50% 50%}}
   .header-actions{display:flex;align-items:center;gap:9px;flex-shrink:0;position:relative}
   .search-toggle{width:40px;height:40px;display:grid;place-items:center;padding:0;border:1px solid #39445f;border-radius:50%;background:#101728;color:#e7eaff;cursor:pointer}
   .search-toggle svg,.header-search svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
@@ -39,7 +39,7 @@
   :global(html[data-theme="light"] .theme-toggle .sun-icon){display:none}
   :global(html[data-theme="light"] .theme-toggle .moon-icon){display:block}
   :global(html[data-theme="light"] .site-header){background:rgba(248,250,255,.95);border-color:#dfe5f1}
-  :global(html[data-theme="light"] .site-brand-word){color:#b77900}
+  :global(html[data-theme="light"] .site-brand-word){color:#b77900;-webkit-text-fill-color:transparent}
   :global(html[data-theme="light"] .theme-toggle),:global(html[data-theme="light"] .search-toggle){background:#fff;border-color:#cbd7e6;color:#111827}
   :global(html[data-theme="light"] .header-search){background:#fff;border-color:#cbd7e6}
   :global(html[data-theme="light"] .header-search input){color:#17263a}
