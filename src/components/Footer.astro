@@ -29,6 +29,9 @@
   :global(.footer-main) { width:min(1100px,calc(100% - 36px)); margin:0 auto; padding:34px 0 30px; display:grid; grid-template-columns:minmax(0,1.5fr) minmax(130px,1fr) minmax(130px,1fr); gap:32px; }
   :global(.footer-about) { max-width:360px; }
   :global(.footer-logo) { display:inline-flex; align-items:center; gap:10px; color:#ffd12e; text-decoration:none; font-size:24px; font-weight:950; letter-spacing:-.7px; }
+  :global(.footer-logo > span) { background:linear-gradient(110deg,#a66a08 0%,#ffdf55 18%,#fff2a6 28%,#d69b16 42%,#fff0a0 53%,#b87908 69%,#ffe16a 84%,#a66a08 100%);background-size:240% 100%;background-position:100% 50%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:refiro-footer-liquid-gold 7s ease-in-out infinite alternate; }
+  @keyframes refiro-footer-liquid-gold { 0% { background-position:100% 50%; } 100% { background-position:0% 50%; } }
+  @media (prefers-reduced-motion:reduce) { :global(.footer-logo > span) { animation:none;background-position:50% 50%; } }
   :global(.footer-logo-mark) { display:block; width:35px; height:35px; flex:0 0 35px; object-fit:contain; }
   :global(.footer-about p) { margin:13px 0 0; font-size:13px; line-height:2; color:#aaa99f; }
   :global(.footer-column) { display:flex; flex-direction:column; align-items:flex-start; gap:10px; }
