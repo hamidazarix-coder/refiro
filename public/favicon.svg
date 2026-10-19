@@ -1,4 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
-  <rect width="128" height="128" rx="26" fill="#101110"/>
-  <path d="M27 101V27h37c22 0 35 12 35 31 0 14-7 24-20 28l23 15H77L57 88H48v13H27zm21-31h15c10 0 15-4 15-12S73 46 63 46H48v24z" fill="#e2bd63"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">نشان رفیرو</title>
+  <defs>
+    <linearGradient id="refiroSplit" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a64cff"/>
+      <stop offset="48%" stop-color="#a64cff"/>
+      <stop offset="52%" stop-color="#f5c542"/>
+      <stop offset="100%" stop-color="#f5c542"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="104" fill="#101110"/>
+  <path d="M108 404V108h148c88 0 140 48 140 124 0 56-28 96-80 112l92 60H308L228 352H192v52H108zm84-124h60c40 0 60-16 60-48s-20-48-60-48h-60v96z" fill="url(#refiroSplit)"/>
 </svg>
