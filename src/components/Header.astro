@@ -20,6 +20,9 @@
   .header-actions{display:flex;align-items:center;flex-shrink:0}
   .theme-toggle{width:40px;height:40px;display:grid;place-items:center;padding:0;border:1px solid #39445f;border-radius:50%;background:#101728;color:#e7eaff;cursor:pointer;transition:background .2s,border-color .2s}
   .theme-toggle svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .theme-toggle .moon-icon{display:none}
+  :global(html[data-theme="light"] .theme-toggle .sun-icon){display:none}
+  :global(html[data-theme="light"] .theme-toggle .moon-icon){display:block}
   :global(html[data-theme="light"] .site-header){background:rgba(248,250,255,.95);border-color:#dfe5f1}
   :global(html[data-theme="light"] .site-brand-word){color:#17263a}
   :global(html[data-theme="light"] .theme-toggle){background:#fff;border-color:#cbd7e6;color:#53647b}
@@ -32,10 +35,17 @@
 <script>
   const themeToggle = document.querySelector('#themeToggle');
   const root = document.documentElement;
+  function updateThemeToggle() {
+    const light = root.dataset.theme === 'light';
+    themeToggle?.setAttribute('aria-label', light ? 'تغییر به حالت تاریک' : 'تغییر به حالت روشن');
+    themeToggle?.setAttribute('title', light ? 'تغییر به حالت تاریک' : 'تغییر به حالت روشن');
+  }
+  updateThemeToggle();
   themeToggle?.addEventListener('click', () => {
     const nextTheme = root.dataset.theme === 'light' ? 'dark' : 'light';
     root.dataset.theme = nextTheme;
     try { localStorage.setItem('refiro-theme', nextTheme); } catch {}
     document.querySelector('meta[name="theme-color"]')?.setAttribute('content', nextTheme === 'light' ? '#f5f8fc' : '#080c15');
+    updateThemeToggle();
   });
 </script>
