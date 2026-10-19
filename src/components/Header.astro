@@ -4,49 +4,29 @@
       <span class="site-brand-word">رفیرو</span>
       <img class="site-brand-mark" src="/refiro-logo.svg" width="34" height="34" alt="" />
     </a>
-    <nav class="site-nav" aria-label="ناوبری اصلی">
-      <a href="/" aria-current={Astro.url.pathname === '/' ? 'page' : undefined}>خانه</a>
-      <a href="/codes/" aria-current={Astro.url.pathname.startsWith('/codes/') ? 'page' : undefined}>پلتفرم‌ها</a>
-      <a href="/faq/" aria-current={Astro.url.pathname.startsWith('/faq/') ? 'page' : undefined}>سؤالات متداول</a>
-      <a href="/about/" aria-current={Astro.url.pathname.startsWith('/about/') ? 'page' : undefined}>درباره ما</a>
-    </nav>
     <div class="header-actions">
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="تغییر تم" title="تغییر تم">
         <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
-        <span class="toggle-orb"></span>
-        <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.6 8.6 0 1 0 20.5 14.2Z"></path></svg>
       </button>
     </div>
   </div>
 </header>
 <style>
-  .site-header{position:sticky;top:0;z-index:30;border-bottom:1px solid #171d2c;background:rgba(8,12,21,.94);backdrop-filter:blur(18px)}
-  .site-header-inner{width:min(1200px,calc(100% - 72px));min-height:72px;margin:auto;display:flex;align-items:center;gap:30px}
+  .site-header{position:sticky;top:0;z-index:30;border-bottom:1px solid #22283b;background:rgba(8,12,21,.94);backdrop-filter:blur(18px)}
+  .site-header-inner{width:min(1200px,calc(100% - 40px));min-height:72px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}
   .site-brand{display:inline-flex;align-items:center;gap:8px;flex-shrink:0;text-decoration:none}
   .site-brand-mark{display:block;width:32px;height:32px;object-fit:contain}
   .site-brand-word{color:#f1f1fb;font-size:25px;font-weight:950;letter-spacing:-.7px}
-  .site-nav{display:flex;align-items:center;justify-content:center;gap:24px;flex:1}
-  .site-nav a{position:relative;display:flex;align-items:center;min-height:72px;padding:0 3px;color:#e0e3f1;font-size:14px;font-weight:750;text-decoration:none;white-space:nowrap;transition:color .2s}
-  .site-nav a:hover,.site-nav a[aria-current=page]{color:#a65aff}
-  .site-nav a[aria-current=page]:after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;border-radius:2px;background:#9b43ff}
   .header-actions{display:flex;align-items:center;flex-shrink:0}
-  .theme-toggle{width:92px;height:35px;display:flex;align-items:center;justify-content:space-around;padding:0 8px;border:1px solid #39445f;border-radius:24px;background:#101728;color:#e7eaff;cursor:pointer;transition:background .2s,border-color .2s}
-  .theme-toggle svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-  .toggle-orb{width:18px;height:18px;border-radius:50%;background:#7936ed;box-shadow:0 0 12px #853cff45}
-  .moon-icon{fill:#dfe4ff!important;stroke:#dfe4ff!important}
+  .theme-toggle{width:40px;height:40px;display:grid;place-items:center;padding:0;border:1px solid #39445f;border-radius:50%;background:#101728;color:#e7eaff;cursor:pointer;transition:background .2s,border-color .2s}
+  .theme-toggle svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
   :global(html[data-theme="light"] .site-header){background:rgba(248,250,255,.95);border-color:#dfe5f1}
   :global(html[data-theme="light"] .site-brand-word){color:#17263a}
-  :global(html[data-theme="light"] .site-nav a){color:#344b67}
-  :global(html[data-theme="light"] .site-nav a:hover),:global(html[data-theme="light"] .site-nav a[aria-current=page]){color:#7838d6}
   :global(html[data-theme="light"] .theme-toggle){background:#fff;border-color:#cbd7e6;color:#53647b}
   @media(max-width:700px){
-    .site-header-inner{width:calc(100% - 28px);min-height:65px;flex-wrap:wrap;gap:5px 12px;padding:8px 0}
-    .site-brand-word{font-size:21px}.site-brand-mark{width:28px;height:28px}
-    .site-nav{order:3;flex:0 0 100%;justify-content:space-between;gap:8px;overflow-x:auto;scrollbar-width:none}
-    .site-nav::-webkit-scrollbar{display:none}
-    .site-nav a{min-height:34px;padding:0 2px;font-size:11px}
-    .site-nav a[aria-current=page]:after{bottom:0}
-    .theme-toggle{width:82px;height:32px}
+    .site-header-inner{width:calc(100% - 28px);min-height:62px;padding:8px 0}
+    .site-brand-word{font-size:22px}.site-brand-mark{width:29px;height:29px}
+    .theme-toggle{width:36px;height:36px}
   }
 </style>
 <script>
