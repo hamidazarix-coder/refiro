@@ -396,6 +396,55 @@ const activePlatforms = platforms.filter((platform) => platform.active);
     :global(html[data-theme="dark"] .theme-toggle .sun-icon){display:block}
     :global(html[data-theme="dark"] .theme-toggle .moon-icon){display:none}
     @media(max-width:700px){.header-actions{margin-right:auto;gap:7px}.theme-toggle{width:35px;height:35px}.header-cta{margin-right:0}}
+    /* High-contrast blue palette for light mode */
+    :global(html[data-theme="light"] .announcement){background:#eff6ff;border-color:#dbeafe;color:#1e40af}
+    :global(html[data-theme="light"] .announcement-dot){background:#2563eb;box-shadow:0 0 10px #2563eb55}
+    :global(html[data-theme="light"] .announcement a),
+    :global(html[data-theme="light"] .site-brand-word),
+    :global(html[data-theme="light"] .section-kicker),
+    :global(html[data-theme="light"] .section-link),
+    :global(html[data-theme="light"] .text-link),
+    :global(html[data-theme="light"] .all-platforms-cta a),
+    :global(html[data-theme="light"] .card-action),
+    :global(html[data-theme="light"] .reward-value),
+    :global(html[data-theme="light"] .footer-column a:hover){color:#1d4ed8}
+    :global(html[data-theme="light"] .site-brand-mark){border-color:#1d4ed8;background:linear-gradient(145deg,#60a5fa,#2563eb);color:#fff;box-shadow:0 4px 14px #2563eb20}
+    :global(html[data-theme="light"] .site-nav a:hover),
+    :global(html[data-theme="light"] .site-nav a[aria-current=page]){background:#eff6ff;color:#1d4ed8}
+    :global(html[data-theme="light"] .header-cta),
+    :global(html[data-theme="light"] .search button){background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:#fff;border-color:#1d4ed8}
+    :global(html[data-theme="light"] .theme-toggle){color:#1d4ed8;border-color:#bfdbfe;background:#eff6ff}
+    :global(html[data-theme="light"] .eyebrow){background:#eff6ff;border-color:#bfdbfe;color:#1d4ed8}
+    :global(html[data-theme="light"] .hero h1 span){color:#1d4ed8}
+    :global(html[data-theme="light"] .search:focus-within){border-color:#3b82f6;box-shadow:0 0 0 3px #3b82f620}
+    :global(html[data-theme="light"] .search-icon){color:#1d4ed8}
+    :global(html[data-theme="light"] .trust-check){border-color:#bfdbfe;color:#1d4ed8;background:#eff6ff}
+    :global(html[data-theme="light"] .art-glow){background:#60a5fa35}
+    :global(html[data-theme="light"] .invite-card){border-color:#bfdbfe;background:linear-gradient(145deg,#fff,#eff6ff 80%);box-shadow:0 28px 70px #1d4ed815}
+    :global(html[data-theme="light"] .mini-brand){color:#1d4ed8}
+    :global(html[data-theme="light"] .mini-brand>span),
+    :global(html[data-theme="light"] .copy-symbol){background:#2563eb;border-color:#2563eb;color:#fff}
+    :global(html[data-theme="light"] .invite-card-code){color:#1d4ed8}
+    :global(html[data-theme="light"] .live-pill){background:#eff6ff;border-color:#bfdbfe;color:#1d4ed8}
+    :global(html[data-theme="light"] .live-pill i){background:#2563eb}
+    :global(html[data-theme="light"] .chip-icon),
+    :global(html[data-theme="light"] .coin-symbol),
+    :global(html[data-theme="light"] .step-icon),
+    :global(html[data-theme="light"] .benefit-icon){background:#eff6ff;border-color:#bfdbfe;color:#1d4ed8}
+    :global(html[data-theme="light"] .floating-chip){border-color:#dbeafe;background:#ffffffed;box-shadow:0 15px 35px #1d4ed80d}
+    :global(html[data-theme="light"] .platform-logo){border-color:#dbeafe;background:#eff6ff;color:#1d4ed8}
+    :global(html[data-theme="light"] .card-status){background:#eff6ff;border-color:#bfdbfe;color:#1d4ed8}
+    :global(html[data-theme="light"] .card-status i){background:#2563eb}
+    :global(html[data-theme="light"] .platform-card:hover){border-color:#93c5fd;box-shadow:0 16px 35px #1d4ed814}
+    :global(html[data-theme="light"] .all-platforms-cta a){border-color:#bfdbfe}
+    :global(html[data-theme="light"] .all-platforms-cta a:hover){background:#eff6ff}
+    :global(html[data-theme="light"] .how-section){background:linear-gradient(115deg,#eff6ff,#f8fbff 50%,#eff6ff);border-color:#dbeafe}
+    :global(html[data-theme="light"] .step-number){color:#1d4ed8}
+    :global(html[data-theme="light"] .faq-list summary span){color:#1d4ed8}
+    :global(html[data-theme="light"] .footer-logo){color:#1d4ed8}
+    :global(html[data-theme="light"] .footer-column h2){color:#1e3a8a}
+    :global(html[data-theme="light"] .footer-bottom){border-color:#dbeafe}
+    :global(html[data-theme="light"] .header-cta:hover){filter:brightness(1.06)}
     @media(prefers-reduced-motion:reduce){:global(html){scroll-behavior:auto}.platform-card,.header-cta,.faq-list summary span,.theme-toggle{transition:none}.platform-card:hover,.header-cta:hover,.theme-toggle:hover{transform:none}}
   </style>
 
