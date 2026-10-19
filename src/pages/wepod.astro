@@ -17,14 +17,14 @@ const description = 'کد دعوت و کد معرف ویپاد KZ31LK را کپ�
   <meta name="theme-color" content="#101110" />
   <script is:inline>
     (() => {
-      let theme = 'light';
+      let theme = 'dark';
       try {
         const saved = localStorage.getItem('refiro-theme');
         if (saved === 'dark' || saved === 'light') theme = saved;
       } catch {}
       document.documentElement.dataset.theme = theme;
       const themeColor = document.querySelector('meta[name="theme-color"]');
-      if (themeColor) themeColor.content = theme === 'light' ? '#f5f8fc' : '#101110';
+      if (themeColor) themeColor.content = theme === 'light' ? '#f5f8fc' : '#080c15';
     })();
   </script>
   <link rel="canonical" href="https://refiro.ir/wepod/" />
