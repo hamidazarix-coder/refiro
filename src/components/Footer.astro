@@ -1,7 +1,7 @@
 <footer class="site-footer">
   <div class="footer-main wrap">
     <div class="footer-about">
-      <a class="footer-logo" href="/" aria-label="رفیرو، صفحه اصلی"><span class="site-brand-mark">R</span><span>رفیرو</span></a>
+      <a class="footer-logo" href="/" aria-label="رفیرو، صفحه اصلی"><img class="footer-logo-mark" src="/refiro-logo.svg" width="35" height="35" alt="" /><span>رفیرو</span></a>
       <p>مرجع ساده کدهای دعوت و معرف؛ پلتفرمت رو پیدا کن و مستقیم وارد شو.</p>
     </div>
     <div class="footer-column">
@@ -28,8 +28,8 @@
   :global(.site-footer) { margin-top:64px; border-top:1px solid #34352e; background:#11120f; color:#aaa99f; }
   :global(.footer-main) { width:min(1100px,calc(100% - 36px)); margin:0 auto; padding:34px 0 30px; display:grid; grid-template-columns:minmax(0,1.5fr) minmax(130px,1fr) minmax(130px,1fr); gap:32px; }
   :global(.footer-about) { max-width:360px; }
-  :global(.footer-logo) { display:inline-flex; align-items:center; gap:10px; color:#f0cf7b; text-decoration:none; font-size:24px; font-weight:950; }
-  :global(.footer-logo .site-brand-mark) { width:35px; height:35px; border-radius:10px; }
+  :global(.footer-logo) { display:inline-flex; align-items:center; gap:10px; color:#ffd12e; text-decoration:none; font-size:24px; font-weight:950; letter-spacing:-.7px; }
+  :global(.footer-logo-mark) { display:block; width:35px; height:35px; flex:0 0 35px; object-fit:contain; }
   :global(.footer-about p) { margin:13px 0 0; font-size:13px; line-height:2; color:#aaa99f; }
   :global(.footer-column) { display:flex; flex-direction:column; align-items:flex-start; gap:10px; }
   :global(.footer-column h2) { margin:0 0 5px; color:#f0eee6; font-size:14px; font-weight:850; }
@@ -38,7 +38,7 @@
   :global(.footer-bottom) { border-top:1px solid #292a24; }
   :global(.footer-bottom-inner) { width:min(1100px,calc(100% - 36px)); margin:0 auto; padding:15px 0; display:flex; align-items:center; justify-content:space-between; gap:14px; color:#88887f; font-size:11px; }
   :global(html[data-theme="light"] .site-footer) { background:#eaf0f7; border-color:#d7e1ef; color:#53647b; }
-  :global(html[data-theme="light"] .footer-logo) { color:#174f91; }
+  :global(html[data-theme="light"] .footer-logo) { color:#b77900; }
   :global(html[data-theme="light"] .footer-about p), :global(html[data-theme="light"] .footer-column a) { color:#53647b; }
   :global(html[data-theme="light"] .footer-column h2) { color:#17263a; }
   :global(html[data-theme="light"] .footer-column a:hover) { color:#174f91; }
