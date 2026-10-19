@@ -539,3 +539,54 @@ html[data-theme="light"] .primary, html[data-theme="light"] .header-cta {
   background:linear-gradient(135deg,#8b5cf6,#6d28d9) !important; border-color:#7c3aed !important; color:#fff !important;
 }
 html[data-theme="light"] .copy { background:#f0e9ff !important; border-color:#d2c0f3 !important; color:#6634b5 !important; }
+
+
+/* Light-mode contrast fixes: ensure text remains readable on every page and component. */
+html[data-theme="light"] body,
+html[data-theme="light"] main,
+html[data-theme="light"] section,
+html[data-theme="light"] article { color: #17263a; }
+html[data-theme="light"] .hero h1,
+html[data-theme="light"] .section-heading h2,
+html[data-theme="light"] .faq-section > h2,
+html[data-theme="light"] .category-copy h2,
+html[data-theme="light"] .platform-card strong,
+html[data-theme="light"] .faq-list summary,
+html[data-theme="light"] .page-title,
+html[data-theme="light"] .guide-article .page-title,
+html[data-theme="light"] .about-page .page-title { color: #17263a !important; }
+html[data-theme="light"] .hero-description,
+html[data-theme="light"] .section-heading p,
+html[data-theme="light"] .faq-section > p,
+html[data-theme="light"] .faq-list details p,
+html[data-theme="light"] .category-copy p,
+html[data-theme="light"] .platform-caption,
+html[data-theme="light"] .platform-card .description,
+html[data-theme="light"] .about-page .page-desc,
+html[data-theme="light"] .guide-article .page-desc,
+html[data-theme="light"] .guide-toc,
+html[data-theme="light"] .empty,
+html[data-theme="light"] .new-platform,
+html[data-theme="light"] .hint,
+html[data-theme="light"] .note,
+html[data-theme="light"] .disclaimer { color: #45566e !important; }
+html[data-theme="light"] .platform-card,
+html[data-theme="light"] .faq-list details,
+html[data-theme="light"] .guide-toc,
+html[data-theme="light"] .new-platform { background-color: #fff !important; border-color: #d7e1ef !important; }
+html[data-theme="light"] .platform-card:hover { background: #f4efff !important; border-color: #bba0ed !important; }
+html[data-theme="light"] .card-status { color: #145c36 !important; background: #d9f5e5 !important; }
+html[data-theme="light"] .category-action { color: #fff !important; }
+html[data-theme="light"] .search input { color: #17263a !important; }
+html[data-theme="light"] .search input::placeholder { color: #65758c !important; opacity: 1; }
+html[data-theme="light"] .footer-about p,
+html[data-theme="light"] .footer-column a,
+html[data-theme="light"] .footer-bottom-inner,
+html[data-theme="light"] footer { color: #45566e !important; }
+html[data-theme="light"] .ad-slide span { color: #542594 !important; }
+html[data-theme="light"] .seo-content p,
+html[data-theme="light"] .seo-content li,
+html[data-theme="light"] .guide-article p,
+html[data-theme="light"] .guide-article li,
+html[data-theme="light"] .about-page p,
+html[data-theme="light"] .about-page li { color: #344760 !important; }
