@@ -1,0 +1,52 @@
+<footer class="site-footer">
+  <div class="footer-main wrap">
+    <div class="footer-about">
+      <a class="footer-logo" href="/" aria-label="رفیرو، صفحه اصلی"><span class="site-brand-mark">R</span><span>رفیرو</span></a>
+      <p>مرجع ساده کدهای دعوت و معرف؛ پلتفرمت رو پیدا کن و مستقیم وارد شو.</p>
+    </div>
+    <div class="footer-column">
+      <h2>دسترسی سریع</h2>
+      <a href="/">خانه</a>
+      <a href="/codes/">همه کدها</a>
+      <a href="/guide/kod-davat/">راهنمای کد دعوت</a>
+    </div>
+    <div class="footer-column">
+      <h2>درباره رفیرو</h2>
+      <a href="/about/">درباره ما</a>
+      <a href="/#faqTitle">سؤالات متداول</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="wrap footer-bottom-inner">
+      <span>© رفیرو — استفاده از کدها رایگان است.</span>
+      <span>ثبت‌نام و پاداش‌ها تابع شرایط رسمی هر پلتفرم‌اند.</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  :global(.site-footer) { margin-top:64px; border-top:1px solid #34352e; background:#11120f; color:#aaa99f; }
+  :global(.footer-main) { width:min(1100px,calc(100% - 36px)); margin:0 auto; padding:34px 0 30px; display:grid; grid-template-columns:minmax(0,1.5fr) minmax(130px,1fr) minmax(130px,1fr); gap:32px; }
+  :global(.footer-about) { max-width:360px; }
+  :global(.footer-logo) { display:inline-flex; align-items:center; gap:10px; color:#f0cf7b; text-decoration:none; font-size:24px; font-weight:950; }
+  :global(.footer-logo .site-brand-mark) { width:35px; height:35px; border-radius:10px; }
+  :global(.footer-about p) { margin:13px 0 0; font-size:13px; line-height:2; color:#aaa99f; }
+  :global(.footer-column) { display:flex; flex-direction:column; align-items:flex-start; gap:10px; }
+  :global(.footer-column h2) { margin:0 0 5px; color:#f0eee6; font-size:14px; font-weight:850; }
+  :global(.footer-column a) { color:#aaa99f; text-decoration:none; font-size:13px; line-height:1.8; }
+  :global(.footer-column a:hover) { color:#f0cf7b; }
+  :global(.footer-bottom) { border-top:1px solid #292a24; }
+  :global(.footer-bottom-inner) { width:min(1100px,calc(100% - 36px)); margin:0 auto; padding:15px 0; display:flex; align-items:center; justify-content:space-between; gap:14px; color:#88887f; font-size:11px; }
+  :global(html[data-theme="light"] .site-footer) { background:#eaf0f7; border-color:#d7e1ef; color:#53647b; }
+  :global(html[data-theme="light"] .footer-logo) { color:#174f91; }
+  :global(html[data-theme="light"] .footer-about p), :global(html[data-theme="light"] .footer-column a) { color:#53647b; }
+  :global(html[data-theme="light"] .footer-column h2) { color:#17263a; }
+  :global(html[data-theme="light"] .footer-column a:hover) { color:#174f91; }
+  :global(html[data-theme="light"] .footer-bottom) { border-color:#d7e1ef; }
+  :global(html[data-theme="light"] .footer-bottom-inner) { color:#66758a; }
+  @media (max-width:640px) {
+    :global(.footer-main) { grid-template-columns:1fr 1fr; gap:24px 18px; padding:27px 0; }
+    :global(.footer-about) { grid-column:1 / -1; max-width:none; }
+    :global(.footer-bottom-inner) { flex-direction:column; align-items:flex-start; gap:5px; }
+  }
+</style>
