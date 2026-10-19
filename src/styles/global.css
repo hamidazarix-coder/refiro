@@ -731,3 +731,58 @@ html[data-theme="light"] main.result > .card .disclaimer { color: #657089 !impor
 @media (prefers-reduced-motion: reduce) {
   main.result > .card .copy, main.result > .card .primary { transition: none !important; }
 }
+
+
+/* Platform detail pages: compact square invite card matching /codes tiles. */
+main.result > .card {
+  width: min(100%, 460px) !important; aspect-ratio: 1 / 1 !important;
+  min-height: 0 !important; height: auto !important; margin: 0 auto 28px !important;
+  padding: 25px !important; box-sizing: border-box !important; display: flex !important;
+  flex-direction: column !important; align-items: center !important; justify-content: center !important;
+  gap: 9px !important; overflow: hidden !important; border: 1px solid #514087 !important;
+  border-radius: 22px !important;
+  background: radial-gradient(ellipse at 50% 12%, #382052 0%, transparent 52%),linear-gradient(145deg,#211338,#111020) !important;
+}
+main.result > .card .card-head {
+  width: 100% !important; flex: 0 0 auto !important; display: flex !important;
+  justify-content: center !important; padding: 0 !important; margin: 0 !important;
+  border: 0 !important; background: transparent !important;
+}
+main.result > .card .platform { display:flex !important; flex-direction:column !important; align-items:center !important; justify-content:center !important; gap:7px !important; text-align:center !important; }
+main.result > .card .platform > div { display:flex !important; flex-direction:column !important; align-items:center !important; }
+main.result > .card .mark, main.result > .card .mark-logo {
+  display:block !important; width:54px !important; height:54px !important; flex:0 0 54px !important;
+  object-fit:contain !important; margin:0 !important; border-radius:15px !important;
+}
+main.result > .card .platform-name, main.result > .card .platform > span { color:#f1edff !important; font-size:17px !important; font-weight:900 !important; }
+main.result > .card .platform-caption, main.result > .card .status { display:none !important; }
+main.result > .card .invite-slogan { margin:0 !important; color:#e8e0f8 !important; text-align:center !important; font-size:13px !important; line-height:1.8 !important; font-weight:700 !important; }
+main.result > .card .invite-slogan strong { color:#bb8cff !important; font-weight:900 !important; }
+main.result > .card .reward { width:100% !important; box-sizing:border-box !important; margin:0 !important; padding:7px 10px !important; border:0 !important; border-radius:12px !important; background:transparent !important; box-shadow:none !important; }
+main.result > .card .reward-amount { margin:0 !important; color:#d0b0ff !important; font-size:clamp(23px,3.6vw,31px) !important; line-height:1.4 !important; font-weight:900 !important; text-align:center !important; }
+main.result > .card .reward p { display:none !important; }
+main.result > .card .invite-tagline { margin:-7px 0 0 !important; color:#e8e0f8 !important; font-size:13px !important; font-weight:800 !important; text-align:center !important; }
+main.result > .card .label { align-self:stretch !important; margin:0 0 -3px !important; text-align:right !important; font-size:12px !important; }
+main.result > .card .code-row { width:100% !important; min-width:0 !important; box-sizing:border-box !important; margin:0 !important; padding:9px 10px !important; gap:8px !important; border-radius:12px !important; }
+main.result > .card .code { min-width:0 !important; overflow-wrap:anywhere !important; font-size:clamp(17px,3vw,23px) !important; }
+main.result > .card .copy-feedback, main.result > .card #copyFeedback { min-height:0 !important; margin:-5px 0 0 !important; font-size:11px !important; }
+main.result > .card .primary { width:100% !important; min-height:44px !important; box-sizing:border-box !important; margin:0 !important; padding:8px 12px !important; border-radius:12px !important; font-size:12px !important; line-height:1.7 !important; text-align:center !important; }
+main.result > .steps-panel { width:min(100%,720px); box-sizing:border-box; margin:0 auto 28px; }
+main.result > .steps-panel .steps { border:1px solid #302a46 !important; border-radius:16px !important; background:linear-gradient(135deg,#17152a,#111729) !important; padding:22px !important; }
+html[data-theme="light"] main.result > .card { border-color:#d9c3ff !important; background:radial-gradient(ellipse at 50% 12%,#eee2ff 0%,transparent 54%),linear-gradient(145deg,#fff,#f4efff) !important; }
+html[data-theme="light"] main.result > .card .platform-name, html[data-theme="light"] main.result > .card .platform > span,
+html[data-theme="light"] main.result > .card .invite-slogan, html[data-theme="light"] main.result > .card .invite-tagline { color:#28334a !important; }
+html[data-theme="light"] main.result > .card .invite-slogan strong, html[data-theme="light"] main.result > .card .reward-amount { color:#713bc0 !important; }
+html[data-theme="light"] main.result > .steps-panel .steps { background:linear-gradient(135deg,#fff,#f4efff) !important; border-color:#e0d5f6 !important; }
+@media (max-width:520px) {
+  main.result > .card { width:min(100%,430px) !important; aspect-ratio:1/1 !important; padding:17px !important; gap:7px !important; border-radius:19px !important; }
+  main.result > .card .mark, main.result > .card .mark-logo { width:46px !important; height:46px !important; flex-basis:46px !important; }
+  main.result > .card .platform-name, main.result > .card .platform > span { font-size:15px !important; }
+  main.result > .card .invite-slogan, main.result > .card .invite-tagline { font-size:11px !important; }
+  main.result > .card .reward-amount { font-size:clamp(21px,6vw,27px) !important; }
+  main.result > .card .label { font-size:11px !important; }
+  main.result > .card .code-row { padding:7px 8px !important; }
+  main.result > .card .code { font-size:clamp(15px,4.2vw,19px) !important; }
+  main.result > .card .copy { padding:7px 8px !important; font-size:11px !important; }
+  main.result > .card .primary { min-height:39px !important; font-size:11px !important; }
+}
