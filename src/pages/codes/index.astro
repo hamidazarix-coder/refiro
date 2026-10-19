@@ -173,6 +173,47 @@ const description = 'فهرست کد دعوت و کد معرف طلاین، زر
     @media(max-width:760px){.wrap{width:calc(100% - 28px)}.code-list{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:10px}.code-list>.code-card{aspect-ratio:auto;min-height:245px;height:100%;padding:12px;gap:9px}.tile-mark{width:38px;height:38px;flex-basis:38px}.code-card-title h2{font-size:13px}.code-card-title span{font-size:10px}.invite-code{padding:9px 6px;font-size:.9rem}.copy-button{padding:8px;font-size:12px}.details-link{padding:2px;font-size:10px}.section-heading h1{font-size:21px}.view-all{min-height:36px;padding:0 11px;font-size:12px}.view-all svg{width:15px;height:15px}}
     .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
     [hidden]{display:none!important}
+
+    /* UI polish: align directory cards with the homepage system */
+    .codes-page{padding-top:34px}
+    .breadcrumbs{margin-bottom:22px}
+    .section-heading-row{align-items:center}
+    .view-all{min-height:38px;padding:0 14px;border:1px solid #394761;border-radius:12px;background:#111a2b;color:#c7d7f5;transition:background .18s,border-color .18s,transform .18s}
+    .view-all:hover{background:#1b2b45;border-color:#6986b8;color:#fff;transform:translateY(-1px)}
+    .page-desc{margin-bottom:20px}
+    .search-box{margin-bottom:24px}
+    .search-box input{min-height:49px;border-color:#34415a;border-radius:14px;background:#0f1726;transition:border-color .18s,box-shadow .18s}
+    .search-box input:focus{border-color:#7895c4;box-shadow:0 0 0 3px #6385b51c}
+    .code-list{gap:16px}
+    .code-card{border-color:#35415a;border-radius:18px;background:linear-gradient(145deg,#151d2e,#0d1422);gap:13px;transition:transform .18s,border-color .18s}
+    .code-card:hover{transform:translateY(-2px);border-color:#596d91}
+    .tile-mark{border-radius:13px;background:#17243a;color:#cbdaf3}
+    .platform-logo img{object-fit:contain;background:#fff;padding:3px;border:1px solid #e3e9f2;border-radius:12px}
+    .code-card-title span{color:#b6c4db}
+    .invite-code{border-color:#435675;background:#0c1422;color:#e7edf8;border-style:solid;border-radius:12px}
+    .copy-button{min-height:42px;background:linear-gradient(135deg,#d8b75d,#b38a2f);color:#1a1a14;border-radius:11px;transition:filter .18s,transform .18s}
+    .copy-button:hover{filter:brightness(1.07);transform:translateY(-1px)}
+    .details-link{min-height:40px;border-color:#4b5c79;background:#17243a;color:#e2eafa;border-radius:11px}
+    .seo-content{border-color:#35415a;border-radius:18px;background:linear-gradient(145deg,#141d2d,#0d1422);color:#c5d0e2}
+    .seo-content h2{color:#e9eef8}
+    .seo-content a,.disclaimer a{color:#d8b75d;text-underline-offset:3px}
+    :global(html[data-theme="light"] .breadcrumbs a){color:#245b96}
+    :global(html[data-theme="light"] .view-all){background:#edf4fc;border-color:#cad9ec;color:#1d4f86}
+    :global(html[data-theme="light"] .view-all:hover){background:#dceafb;border-color:#8eb3df;color:#173f70}
+    :global(html[data-theme="light"] .search-box input){background:#fff;border-color:#cad9ec;color:#17263a}
+    :global(html[data-theme="light"] .search-box input:focus){border-color:#7fa8d7;box-shadow:0 0 0 3px #477db51a}
+    :global(html[data-theme="light"] .code-card){background:linear-gradient(145deg,#fff,#f1f6fc);border-color:#d2deed;color:#17263a;box-shadow:0 4px 16px #23456a08}
+    :global(html[data-theme="light"] .code-card:hover){border-color:#a9c4e4}
+    :global(html[data-theme="light"] .tile-mark){background:#edf4fc;color:#245b96}
+    :global(html[data-theme="light"] .code-card-title span){color:#60718a}
+    :global(html[data-theme="light"] .invite-code){background:#edf4fc;border-color:#c7d8ec;color:#244f80}
+    :global(html[data-theme="light"] .copy-button){background:linear-gradient(135deg,#dceafb,#c8dcf5);border:1px solid #b8cee8;color:#1d4f86}
+    :global(html[data-theme="light"] .details-link){background:#edf4fc;border-color:#cad9ec;color:#1d4f86}
+    :global(html[data-theme="light"] .seo-content){background:linear-gradient(145deg,#fff,#f1f6fc);border-color:#d2deed;color:#52657e}
+    :global(html[data-theme="light"] .seo-content h2){color:#17263a}
+    :global(html[data-theme="light"] .seo-content a,:global(html[data-theme="light"] .disclaimer a){color:#245b96}
+    @media(max-width:760px){.code-list{gap:12px}.code-list>.code-card{border-radius:15px;min-height:250px;padding:13px 11px}.view-all{min-height:35px;padding:0 10px;font-size:12px}}
+    @media(max-width:420px){.code-list{grid-template-columns:1fr}.code-list>.code-card{min-height:0;aspect-ratio:auto;padding:18px}.code-card-top{gap:7px}.code-card-title h2{font-size:15px}.invite-code{font-size:1rem}}
   </style>
 
   <script>
