@@ -69,7 +69,7 @@ const discountPlaceholders = Array.from({ length: 6 }, (_, index) => index + 1);
     </section>
 
         <section class="hero wrap" aria-labelledby="heroTitle">
-      <h1 id="heroTitle"><span class="hero-brand">رفیرو</span><br /><span class="hero-tagline">بزرگ‌ترین مرجع کد تخفیف و دعوت در ایران</span></h1>
+      <h1 id="heroTitle"><span class="hero-brand">رفیرو</span><br /><span class="hero-tagline" id="heroTypewriter" aria-label="بزرگ‌ترین مرجع کد تخفیف و دعوت در ایران">بزرگ‌ترین مرجع کد تخفیف و دعوت در ایران</span></h1>
 
     </section>
 
@@ -178,6 +178,9 @@ const discountPlaceholders = Array.from({ length: 6 }, (_, index) => index + 1);
     .hero h1 span{color:#9145ff;text-shadow:0 0 28px #812cff24}
     .hero h1 .hero-brand{color:#fff;text-shadow:none}
     .hero h1 .hero-tagline{display:inline-block;white-space:nowrap;font-size:clamp(16px,2.35vw,25px);line-height:1.5;color:#9145ff;text-shadow:0 0 28px #812cff24}
+    .hero h1 .hero-tagline{min-height:1.5em}
+    .hero h1 .hero-tagline::after{content:"";display:inline-block;width:2px;height:.95em;margin-right:5px;vertical-align:-.12em;background:currentColor;animation:type-caret .8s steps(1,end) infinite}
+    @keyframes type-caret{50%{opacity:0}}
     :global(html[data-theme="light"] .hero h1 .hero-brand){color:#fff}
     :global(html[data-theme="light"] .hero h1 .hero-tagline){color:#9145ff}
     @media(max-width:520px){.hero h1 .hero-tagline{font-size:clamp(12px,3.5vw,17px);letter-spacing:-.6px}}
@@ -334,6 +337,43 @@ const discountPlaceholders = Array.from({ length: 6 }, (_, index) => index + 1);
   </style>
   <script>
     import { platforms } from '../data/platforms.js';
+    const typewriter = document.querySelector('#heroTypewriter');
+    const phrases = [
+      'بزرگ‌ترین مرجع کد تخفیف و دعوت در ایران',
+      'به جیب بزن!',
+      'جدیدترین کد های تخفیف در رفیرو',
+      'کد دعوت می‌خوای؟ داریمش!'
+    ];
+    if (typewriter && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      let phraseIndex = 0;
+      let charIndex = phrases[0].length;
+      let deleting = true;
+      const typeNext = () => {
+        const phrase = phrases[phraseIndex];
+        if (deleting) {
+          charIndex--;
+          typewriter.textContent = phrase.slice(0, Math.max(0, charIndex));
+          if (charIndex <= 0) {
+            deleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            window.setTimeout(typeNext, 450);
+            return;
+          }
+          window.setTimeout(typeNext, 35);
+          return;
+        }
+        const nextPhrase = phrases[phraseIndex];
+        charIndex++;
+        typewriter.textContent = nextPhrase.slice(0, charIndex);
+        if (charIndex >= nextPhrase.length) {
+          deleting = true;
+          window.setTimeout(typeNext, 4000);
+          return;
+        }
+        window.setTimeout(typeNext, 65);
+      };
+      window.setTimeout(typeNext, 4000);
+    }
     const track = document.querySelector('#promoTrack');
     const slides = [...document.querySelectorAll('.promo-slide')];
     let index = 0;
