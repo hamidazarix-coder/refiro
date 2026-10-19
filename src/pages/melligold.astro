@@ -75,7 +75,7 @@ const description = 'کد دعوت و کد معرف ملی گلد را همرا�
   <Header />
 
 
-  <main class="wrap result">
+  <main class="wrap result melligold-page">
     <nav class="breadcrumbs" aria-label="مسیر صفحه">
       <a href="/">صفحه اصلی</a><span aria-hidden="true">/</span>
       <a href="/codes/">همه کدهای معرف</a><span aria-hidden="true">/</span>
@@ -349,6 +349,46 @@ const description = 'کد دعوت و کد معرف ملی گلد را همرا�
       .primary { width: calc(100% - 32px); margin-inline: 16px; font-size: 12px; }
       .steps { margin-inline: 16px; }
       .note, .disclaimer { margin-inline: 16px; }
+    }
+
+    /* MelliGold: override the shared square-card rule so no content is clipped. */
+    .melligold-page > .card {
+      width: min(100%, 460px) !important;
+      aspect-ratio: auto !important;
+      height: auto !important;
+      min-height: 0 !important;
+      overflow: visible !important;
+      justify-content: flex-start !important;
+      padding: 22px !important;
+      gap: 12px !important;
+    }
+    .melligold-page > .card .card-head { flex: 0 0 auto !important; }
+    .melligold-page > .card .hint {
+      width: 100%;
+      margin: 0 !important;
+      text-align: center;
+      overflow-wrap: anywhere;
+    }
+    .melligold-page > .card .label { align-self: stretch !important; margin: 0 !important; }
+    .melligold-page > .card .code-row { width: 100% !important; min-width: 0 !important; margin: 0 !important; }
+    .melligold-page > .card .primary {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+    @media (max-width: 520px) {
+      .melligold-page > .card {
+        width: 100% !important;
+        padding: 17px !important;
+        aspect-ratio: auto !important;
+        height: auto !important;
+        overflow: visible !important;
+        gap: 10px !important;
+      }
+      .melligold-page > .card .mark { width: 84px !important; height: 84px !important; flex-basis: 84px !important; }
+      .melligold-page > .card .code-row { flex-wrap: wrap !important; }
     }
 
     /* Prevent clipped/oversized content on the Melli Gold detail page */
