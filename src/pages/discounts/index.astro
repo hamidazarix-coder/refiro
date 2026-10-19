@@ -18,8 +18,42 @@ const placeholders = Array.from({ length: 6 }, (_, index) => index + 1);
     (() => { try { document.documentElement.dataset.theme = localStorage.getItem('refiro-theme') === 'light' ? 'light' : 'dark'; } catch { document.documentElement.dataset.theme = 'dark'; } })();
   </script>
   <link rel="canonical" href="https://refiro.ir/discounts/" />
-  <link rel="icon" type="image/svg+xml" href="/refiro-logo.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="128x128" />
+  <meta name="robots" content="noindex,follow" />
+  <meta property="og:locale" content="fa_IR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="رفیرو" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content="https://refiro.ir/discounts/" />
+  <meta property="og:image" content="https://refiro.ir/og-cover.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:alt" content="رفیرو؛ مرجع کدهای دعوت و تخفیف" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content="https://refiro.ir/og-cover.png" />
+  <meta name="twitter:image:alt" content="رفیرو؛ مرجع کدهای دعوت و تخفیف" />
   <title>{title}</title>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": title,
+    "url": "https://refiro.ir/discounts/",
+    "description": description,
+    "inLanguage": "fa-IR",
+    "isPartOf": { "@type": "WebSite", "@id": "https://refiro.ir/#website", "name": "رفیرو", "url": "https://refiro.ir/" }
+  })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "صفحه اصلی", "item": "https://refiro.ir/" },
+      { "@type": "ListItem", "position": 2, "name": "همه کدهای تخفیف", "item": "https://refiro.ir/discounts/" }
+    ]
+  })} />
 </head>
 <body>
   <Header />

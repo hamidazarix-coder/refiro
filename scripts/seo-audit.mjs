@@ -4,6 +4,7 @@ import path from 'node:path';
 const DIST = path.resolve('dist');
 const ORIGIN = 'https://refiro.ir';
 const issues = [];
+const intentionalNoindexRoutes = new Set(['/discounts/']);
 
 async function exists(file) {
   try { await access(file); return true; } catch { return false; }
@@ -126,12 +127,15 @@ for (const file of pages) {
       if (parsed.origin !== ORIGIN || canonical !== expected) issues.push(relative + ': canonical mismatch; expected ' + expected + '.');
       if (canonicals.has(canonical)) issues.push(relative + ': duplicate canonical with ' + canonicals.get(canonical) + '.');
       else canonicals.set(canonical, relative);
-      canonicalUrls.push(canonical);
+      if (!/noindex/i.test(meta(html, 'robots') || '')) canonicalUrls.push(canonical);
     } catch { issues.push(relative + ': invalid canonical URL.'); }
   }
 
   const robots = meta(html, 'robots');
-  if (!robots || /noindex/i.test(robots)) issues.push(relative + ': robots metadata missing or noindex is set.');
+  const isNoindex = /noindex/i.test(robots || '');
+  if (!robots) issues.push(relative + ': robots metadata is missing.');
+  if (isNoindex && !intentionalNoindexRoutes.has(route)) issues.push(relative + ': unexpected noindex directive.');
+  if (!isNoindex && !canonical) issues.push(relative + ': indexable page has no canonical URL.');
   if (!/<html\b[^>]*\blang="fa"/i.test(html) || !/<html\b[^>]*\bdir="rtl"/i.test(html)) issues.push(relative + ': expected lang="fa" and dir="rtl".');
   if (!/<meta\s+name="viewport"/i.test(html)) issues.push(relative + ': viewport meta tag is missing.');
   if (!/<link\s+rel="icon"\s+type="image\/png"\s+href="\/favicon\.png"/i.test(html)) issues.push(relative + ': supported PNG favicon reference is missing.');
@@ -227,10 +231,15 @@ for (const file of pages) {
       issues.push(relative + ': broken local reference ' + url.pathname);
       continue;
     }
-    if (refItem.isAnchor) {
-      const normalized = normalizeRoute(url.pathname);
-      if (normalized) linkedRoutes.add(normalized);
-    }
+  }
+  for (const anchor of html.matchAll(/<a[^>]*>/gi)) {
+    const href = anchor[0].match(/href="([^"]+)"/i)?.[1] || '';
+    if (!href || /^(?:https?:)?\/\//i.test(href) || /^(?:mailto:|tel:|data:|javascript:)/i.test(href)) continue;
+    let url;
+    try { url = new URL(href, ORIGIN); } catch { continue; }
+    if (url.origin !== ORIGIN) continue;
+    const normalized = normalizeRoute(url.pathname);
+    if (normalized) linkedRoutes.add(normalized);
   }
 }
 

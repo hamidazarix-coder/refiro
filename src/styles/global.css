@@ -167,7 +167,7 @@
   background: linear-gradient(110deg, #242116, #191a16);
 }
 .result .platform { gap: 13px; }
-.result .platform-name { color: #f4f1e8; font-size: 19px; font-weight: 900; }
+.result .platform-name { color: #f4f1e8; font-size: 19px; font-weight: 900; margin: 0; }
 .result .platform-caption { margin-top: 2px; color: #aaa99f; font-size: 12px; }
 .result .mark,
 .result .mark-logo {
