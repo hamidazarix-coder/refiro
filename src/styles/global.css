@@ -453,3 +453,89 @@ html[data-theme="light"] .search-box input { background: #fff !important; border
 html[data-theme="light"] .eyebrow { background: #edf4fd !important; border-color: #c8dcf5 !important; color: #174f91 !important; }
 html[data-theme="light"] .guide-toc a:hover,
 html[data-theme="light"] .about-page a:hover { color: #123d70 !important; }
+
+
+/* Refiro's shared violet UI: apply the homepage visual language to every route. */
+html[data-theme="dark"] { color-scheme: dark; background:#080c15; }
+html[data-theme="dark"] body { background:#080c15 !important; color:#e9eafa !important; }
+html[data-theme="dark"] .site-header { background:rgba(8,12,21,.94) !important; border-color:#22283b !important; }
+html[data-theme="dark"] .site-brand-word, html[data-theme="dark"] .brand,
+html[data-theme="dark"] .footer-logo { color:#f1f1fb !important; }
+html[data-theme="dark"] .site-brand-mark { border-color:#5b35a1 !important; background:linear-gradient(145deg,#a879ff,#6526cb) !important; color:#fff !important; }
+html[data-theme="dark"] .theme-toggle { background:#111729 !important; border-color:#39445f !important; color:#d7c5ff !important; }
+html[data-theme="dark"] .breadcrumbs, html[data-theme="dark"] .breadcrumbs [aria-current="page"] { color:#aeb5ca !important; }
+html[data-theme="dark"] .breadcrumbs a, html[data-theme="dark"] .back,
+html[data-theme="dark"] .related-pages nav a { color:#b99aff !important; }
+html[data-theme="dark"] .intro, html[data-theme="dark"] main.result > .intro,
+html[data-theme="dark"] .seo-content, html[data-theme="dark"] .related-pages,
+html[data-theme="dark"] .guide-toc, html[data-theme="dark"] .about-page article > section {
+  background:linear-gradient(135deg,#17152a,#111729 76%) !important;
+  border-color:#34304f !important;
+  box-shadow:0 10px 32px #0003 !important;
+}
+html[data-theme="dark"] .page-title, html[data-theme="dark"] main.result > .intro .page-title,
+html[data-theme="dark"] .steps h2, html[data-theme="dark"] .seo-content h2,
+html[data-theme="dark"] .related-pages h2, html[data-theme="dark"] .card h1,
+html[data-theme="dark"] .card h2, html[data-theme="dark"] .card h3,
+html[data-theme="dark"] .guide-article h2, html[data-theme="dark"] .guide-toc strong,
+html[data-theme="dark"] .about-page h2 { color:#f0eaff !important; }
+html[data-theme="dark"] .page-desc, html[data-theme="dark"] main.result > .intro .page-desc,
+html[data-theme="dark"] .hint, html[data-theme="dark"] .note, html[data-theme="dark"] .disclaimer,
+html[data-theme="dark"] .steps ol, html[data-theme="dark"] .seo-content p,
+html[data-theme="dark"] .seo-content li, html[data-theme="dark"] .card p,
+html[data-theme="dark"] .guide-article p, html[data-theme="dark"] .guide-article li,
+html[data-theme="dark"] .about-page p, html[data-theme="dark"] .about-page li { color:#b8bfd3 !important; }
+html[data-theme="dark"] .card, html[data-theme="dark"] main.result > .card,
+html[data-theme="dark"] .code-card { background:#111729 !important; border-color:#39314f !important; box-shadow:0 16px 40px #0004 !important; }
+html[data-theme="dark"] .card-head { background:linear-gradient(110deg,#211a37,#151a2a) !important; border-color:#302a46 !important; }
+html[data-theme="dark"] .platform-name { color:#f1edff !important; }
+html[data-theme="dark"] .platform-caption { color:#aeb5ca !important; }
+html[data-theme="dark"] .mark, html[data-theme="dark"] .mark-logo { border-color:#42345f !important; }
+html[data-theme="dark"] .status { background:#14251f !important; border-color:#24583e !important; color:#66dfa0 !important; }
+html[data-theme="dark"] .reward { background:radial-gradient(ellipse at top right,#30204c,transparent 75%),#171729 !important; border-color:#4b3a6d !important; }
+html[data-theme="dark"] .reward::before, html[data-theme="dark"] .reward::after { background:#080c15 !important; border-color:#4b3a6d !important; }
+html[data-theme="dark"] .reward-amount { color:#c5a4ff !important; }
+html[data-theme="dark"] .reward p { color:#c5c9dc !important; }
+html[data-theme="dark"] .label { color:#c6c9dc !important; }
+html[data-theme="dark"] .code-row { background:#0c1220 !important; border-color:#66508d !important; }
+html[data-theme="dark"] .code { color:#d0b7ff !important; }
+html[data-theme="dark"] .copy { background:#251a3b !important; border-color:#624493 !important; color:#d5bdff !important; }
+html[data-theme="dark"] .primary, html[data-theme="dark"] .header-cta {
+  background:linear-gradient(135deg,#7c3aed,#5925b8) !important; border-color:#8b5cf6 !important; color:#fff !important;
+}
+html[data-theme="dark"] .steps, html[data-theme="dark"] .note, html[data-theme="dark"] .disclaimer { border-color:#292d43 !important; }
+html[data-theme="dark"] .seo-content a, html[data-theme="dark"] .related-pages nav a,
+html[data-theme="dark"] .guide-toc a, html[data-theme="dark"] .about-page a,
+html[data-theme="dark"] .directory-guide-link a { color:#c2a5ff !important; }
+html[data-theme="dark"] .foot, html[data-theme="dark"] footer {
+  background:#0c1220 !important; border-color:#252b40 !important; color:#aeb5ca !important;
+}
+html[data-theme="dark"] .foot a, html[data-theme="dark"] .footer-links a { color:#c2a5ff !important; }
+html[data-theme="dark"] .footer-column h2 { color:#f0eaff !important; }
+html[data-theme="dark"] .footer-about p, html[data-theme="dark"] .footer-column a { color:#aeb5ca !important; }
+html[data-theme="dark"] .footer-column a:hover { color:#c2a5ff !important; }
+html[data-theme="dark"] .footer-bottom { border-color:#252b40 !important; }
+html[data-theme="dark"] .footer-bottom-inner { color:#aeb5ca !important; }
+html[data-theme="dark"] input, html[data-theme="dark"] textarea, html[data-theme="dark"] select { color:#f0eaff; }
+html[data-theme="dark"] .search-box input { background:#111729 !important; border-color:#343c57 !important; color:#f0eaff !important; }
+html[data-theme="dark"] .eyebrow { background:#211a37 !important; border-color:#4c3572 !important; color:#c2a5ff !important; }
+html[data-theme="dark"] .guide-toc a:hover, html[data-theme="dark"] .about-page a:hover { color:#e0d0ff !important; }
+
+html[data-theme="light"] .site-brand-mark { background:linear-gradient(145deg,#bda1ff,#7c3aed) !important; border-color:#9a76e8 !important; }
+html[data-theme="light"] .site-brand-word, html[data-theme="light"] .brand,
+html[data-theme="light"] .footer-logo { color:#6634b5 !important; }
+html[data-theme="light"] .theme-toggle { color:#713bc0 !important; border-color:#d6c8f2 !important; background:#f2edff !important; }
+html[data-theme="light"] .breadcrumbs a, html[data-theme="light"] .back,
+html[data-theme="light"] .related-pages nav a, html[data-theme="light"] .seo-content a,
+html[data-theme="light"] .guide-toc a, html[data-theme="light"] .about-page a,
+html[data-theme="light"] .directory-guide-link a { color:#713bc0 !important; }
+html[data-theme="light"] .intro, html[data-theme="light"] main.result > .intro,
+html[data-theme="light"] .seo-content, html[data-theme="light"] .related-pages,
+html[data-theme="light"] .guide-toc, html[data-theme="light"] .about-page article > section {
+  background:linear-gradient(135deg,#fff,#f4efff) !important; border-color:#e0d5f6 !important;
+}
+html[data-theme="light"] .reward-amount, html[data-theme="light"] .code { color:#713bc0 !important; }
+html[data-theme="light"] .primary, html[data-theme="light"] .header-cta {
+  background:linear-gradient(135deg,#8b5cf6,#6d28d9) !important; border-color:#7c3aed !important; color:#fff !important;
+}
+html[data-theme="light"] .copy { background:#f0e9ff !important; border-color:#d2c0f3 !important; color:#6634b5 !important; }
