@@ -162,12 +162,39 @@ for (const file of pages) {
   if (!meta(html, 'twitter:image:alt')) issues.push(relative + ': Twitter image alt text is missing.');
 
   const jsonLdScripts = [...html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)];
+  const schemaObjects = [];
   if (!jsonLdScripts.length) issues.push(relative + ': no JSON-LD structured data found.');
   for (const script of jsonLdScripts) {
     try {
       const data = JSON.parse(script[1]);
       if (!data['@context'] || (!data['@type'] && !data['@graph'])) issues.push(relative + ': JSON-LD missing context/type.');
+      schemaObjects.push(data);
     } catch { issues.push(relative + ': JSON-LD is not valid JSON.'); }
+  }
+
+  const schemaTypes = new Set();
+  const collectSchema = (value) => {
+    if (!value || typeof value !== 'object') return;
+    if (typeof value['@type'] === 'string') schemaTypes.add(value['@type']);
+    if (Array.isArray(value)) value.forEach(collectSchema);
+    else Object.values(value).forEach(collectSchema);
+  };
+  schemaObjects.forEach(collectSchema);
+  if (route !== '/' && !schemaTypes.has('BreadcrumbList')) issues.push(relative + ': BreadcrumbList structured data is missing.');
+  if (route === '/') {
+    if (!schemaTypes.has('WebSite')) issues.push('Homepage: WebSite structured data is missing.');
+    if (!schemaTypes.has('Organization')) issues.push('Homepage: Organization structured data is missing.');
+    const org = schemaObjects.flatMap((obj) => Array.isArray(obj['@graph']) ? obj['@graph'] : [obj]).find((obj) => obj['@type'] === 'Organization');
+    const logo = typeof org?.logo === 'string' ? org.logo : org?.logo?.url;
+    if (!logo) issues.push('Homepage: Organization logo is missing from structured data.');
+    else {
+      try {
+        const parsedLogo = new URL(logo, ORIGIN);
+        if (parsedLogo.origin !== ORIGIN || !await exists(distTarget(parsedLogo.pathname))) {
+          issues.push('Homepage: Organization logo URL does not point to an existing local asset.');
+        }
+      } catch { issues.push('Homepage: Organization logo URL is invalid.'); }
+    }
   }
 
   for (const image of html.matchAll(/<img\b[^>]*>/gi)) {
@@ -203,6 +230,17 @@ else {
   const robots = await readFile(robotsFile, 'utf8');
   if (!robots.includes(ORIGIN + '/sitemap-index.xml')) issues.push('robots.txt does not point to the sitemap index.');
   if (/^\s*Disallow:\s*\/\s*$/im.test(robots)) issues.push('robots.txt blocks the entire site.');
+}
+
+const notFoundFile = path.join(DIST, '404.html');
+if (!await exists(notFoundFile)) issues.push('Custom 404.html is missing from the build output.');
+else {
+  const notFound = await readFile(notFoundFile, 'utf8');
+  if (!/name="robots"\s+content="noindex,follow"/i.test(notFound)) issues.push('404 page should use noindex,follow.');
+  if ((notFound.match(/<h1\b/gi) || []).length !== 1) issues.push('404 page should have exactly one H1.');
+  if (!/href="\/"|href="https:\/\/refiro\.ir\//i.test(notFound) || !/href="\/codes\//i.test(notFound)) {
+    issues.push('404 page should link to the homepage and code directory.');
+  }
 }
 
 const sitemap = new Set(await sitemapUrls());
