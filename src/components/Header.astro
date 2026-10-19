@@ -1,7 +1,7 @@
 <header class="site-header">
   <div class="site-header-inner">
     <a class="site-brand" href="/" aria-label="رفیرو، صفحه اصلی">
-      <img class="site-brand-mark" src="/refiro-logo.svg" width="42" height="42" alt="" />
+      <img class="site-brand-icon" src="/refiro-logo.svg" width="42" height="42" alt="" />
       <span class="site-brand-word">رفیرو</span>
     </a>
     <div class="header-actions">
@@ -23,7 +23,7 @@
   .site-header{position:sticky;top:0;z-index:30;border-bottom:1px solid #22283b;background:rgba(8,12,21,.94);backdrop-filter:blur(18px)}
   .site-header-inner{width:min(1200px,calc(100% - 40px));min-height:72px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px}
   .site-brand{display:inline-flex;align-items:center;gap:9px;flex-shrink:0;text-decoration:none;margin:0}
-  .site-brand-mark{display:block;width:42px;height:42px;object-fit:contain;flex:0 0 42px}
+  .site-brand-icon{display:block;width:42px;height:42px;object-fit:contain;flex:0 0 42px;border:0;border-radius:0;background:transparent;box-shadow:none}
   .site-brand-word{color:#ffd12e;font-size:25px;font-weight:950;letter-spacing:-.7px;line-height:1}
   .header-actions{display:flex;align-items:center;gap:9px;flex-shrink:0;position:relative}
   .search-toggle{width:40px;height:40px;display:grid;place-items:center;padding:0;border:1px solid #39445f;border-radius:50%;background:#101728;color:#e7eaff;cursor:pointer}
@@ -47,7 +47,7 @@
   :global(html[data-theme="light"] .theme-toggle .moon-icon){stroke:#000; color:#000}
   @media(max-width:700px){
     .site-header-inner{width:calc(100% - 28px);min-height:62px;padding:8px 0}
-    .site-brand-word{font-size:22px}.site-brand-mark{width:36px;height:36px;flex-basis:36px}
+    .site-brand-word{font-size:22px}.site-brand-icon{width:36px;height:36px;flex-basis:36px}
     .theme-toggle,.search-toggle{width:36px;height:36px}
   }
 </style>
