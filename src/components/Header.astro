@@ -2,10 +2,10 @@
   <div class="site-header-inner">
     <a class="site-brand" href="/" aria-label="رفیرو، صفحه اصلی"><span class="site-brand-mark">R</span><span class="site-brand-word">رفیرو</span></a>
     <nav class="site-nav" aria-label="ناوبری اصلی">
-      <a href="/">خانه</a>
-      <a href="/codes/">همه کدها</a>
+      <a href="/" aria-current={Astro.url.pathname === '/' ? 'page' : undefined}>خانه</a>
+      <a href="/codes/" aria-current={Astro.url.pathname.startsWith('/codes/') ? 'page' : undefined}>همه کدها</a>
       <a href="/#searchForm">جست‌وجوی کد</a>
-      <a href="/guide/kod-davat/">راهنمای استفاده</a>
+      <a href="/guide/kod-davat/" aria-current={Astro.url.pathname.startsWith('/guide/kod-davat/') ? 'page' : undefined}>راهنمای استفاده</a>
     </nav>
     <div class="header-actions">
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="فعال‌کردن حالت تاریک" title="حالت تاریک">
@@ -60,12 +60,17 @@
 <script>
   const themeToggle = document.querySelector('#themeToggle');
   const root = document.documentElement;
+  const syncThemeToggle = () => {
+    const isLight = root.dataset.theme === 'light';
+    themeToggle?.setAttribute('aria-label', isLight ? 'فعال‌کردن حالت تاریک' : 'فعال‌کردن حالت روشن');
+    themeToggle?.setAttribute('title', isLight ? 'حالت تاریک' : 'حالت روشن');
+  };
+  syncThemeToggle();
   themeToggle?.addEventListener('click', () => {
     const nextTheme = root.dataset.theme === 'light' ? 'dark' : 'light';
     root.dataset.theme = nextTheme;
     try { localStorage.setItem('refiro-theme', nextTheme); } catch {}
-    themeToggle.setAttribute('aria-label', nextTheme === 'light' ? 'فعال‌کردن حالت تاریک' : 'فعال‌کردن حالت روشن');
-    themeToggle.setAttribute('title', nextTheme === 'light' ? 'حالت تاریک' : 'حالت روشن');
+    syncThemeToggle();
     document.querySelector('meta[name="theme-color"]')?.setAttribute('content', nextTheme === 'light' ? '#f5f8fc' : '#101110');
   });
 </script>
