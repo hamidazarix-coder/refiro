@@ -87,3 +87,31 @@
     updateThemeToggle();
   });
 </script>
+<style>
+  .reading-progress{position:fixed;inset:0 0 auto;z-index:9999;height:3px;pointer-events:none;background:transparent;direction:rtl}
+  .reading-progress-fill{display:block;width:0;height:100%;background:linear-gradient(90deg,#6d28d9 0%,#9333ea 55%,#c084fc 100%);box-shadow:0 0 8px #9333ea35;will-change:width}
+  @media(prefers-reduced-motion:reduce){.reading-progress-fill{will-change:auto}}
+</style>
+<script is:inline>
+  (() => {
+    const fill = document.getElementById('readingProgressFill');
+    if (!fill || window.__refiroReadingProgress) return;
+    window.__refiroReadingProgress = true;
+    let scheduled = false;
+    const update = () => {
+      const root = document.documentElement;
+      const max = root.scrollHeight - window.innerHeight;
+      const progress = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      fill.style.width = (progress * 100) + '%';
+      scheduled = false;
+    };
+    const requestUpdate = () => {
+      if (scheduled) return;
+      scheduled = true;
+      window.requestAnimationFrame(update);
+    };
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate, { passive: true });
+    update();
+  })();
+</script>
