@@ -69,7 +69,7 @@ const discountPlaceholders = Array.from({ length: 6 }, (_, index) => index + 1);
     </section>
 
         <section class="hero wrap" aria-labelledby="heroTitle">
-      <h1 id="heroTitle"><span class="hero-brand">رفیرو</span><br /><span class="hero-tagline" id="heroTypewriter" aria-label="بزرگ‌ترین مرجع کد تخفیف و دعوت در ایران">بزرگ‌ترین مرجع کد تخفیف و دعوت در ایران</span></h1>
+      <h1 id="heroTitle"><span class="hero-brand" aria-label="رفیرو"><span class="brand-yellow">رفی</span><span class="brand-purple">رو</span></span><br /><span class="hero-tagline" id="heroTypewriter" aria-label="بزرگ‌ترین مرجع کد تخفیف و دعوت در ایران">بزرگ‌ترین مرجع کد تخفیف و دعوت در ایران</span></h1>
 
     </section>
 
@@ -178,50 +178,51 @@ const discountPlaceholders = Array.from({ length: 6 }, (_, index) => index + 1);
     .hero h1 span{color:#9145ff;text-shadow:0 0 28px #812cff24}
     .hero h1 .hero-brand{
       position:relative;
-      display:inline-block;
+      display:inline-flex;
+      align-items:center;
+      direction:rtl;
       isolation:isolate;
-      padding:.02em .28em .09em;
-      border-radius:8px 3px 8px 3px;
-      color:transparent;
-      -webkit-text-fill-color:transparent;
-      background:linear-gradient(100deg,#ffc928 0%,#ffc928 46%,#9145ff 54%,#9145ff 100%);
-      -webkit-background-clip:text;
-      background-clip:text;
-      text-shadow:none;
-      filter:drop-shadow(0 5px 13px #6f2bd655);
+      padding:.04em .24em .1em;
+      border:1px solid #8f5bff;
+      border-radius:9px 3px 9px 3px;
+      background:linear-gradient(110deg,#30230a 0%,#171126 48%,#171126 52%,#171a2b 100%);
+      box-shadow:inset 0 0 0 1px #ffffff0d,0 4px 18px #843eff2b;
+      clip-path:polygon(4% 0,100% 0,96% 100%,0 100%);
       letter-spacing:-1.8px;
+      line-height:1.2;
+      -webkit-text-fill-color:initial;
+      color:#fff;
+      text-shadow:0 2px 8px #0008;
     }
-    .hero h1 .hero-brand::before{
-      content:"";
-      position:absolute;
-      z-index:-1;
-      inset:-.08em -.19em -.02em;
-      border:1px solid #9b70ffb8;
-      border-radius:8px 3px 8px 3px;
-      background:linear-gradient(115deg,#2c200c 0%,#19142b 47%,#17102d 53%,#101729 100%);
-      box-shadow:inset 0 0 0 1px #ffffff0d,0 0 25px #843eff30,0 4px 16px #0004;
-      clip-path:polygon(5% 0,100% 0,95% 100%,0 100%);
+    .hero h1 .hero-brand .brand-yellow,
+    .hero h1 .hero-brand .brand-purple{
+      display:inline-block;
+      position:relative;
+      z-index:1;
+      color:inherit;
+      -webkit-text-fill-color:currentColor;
+      text-shadow:0 1px 8px #0009;
     }
+    .hero h1 .hero-brand .brand-yellow{color:#ffd12e!important}
+    .hero h1 .hero-brand .brand-purple{color:#b78aff!important}
     .hero h1 .hero-brand::after{
       content:"";
       position:absolute;
-      z-index:-1;
-      left:49%;
-      top:3%;
-      height:94%;
-      width:3px;
-      background:linear-gradient(180deg,#ffe27a 0%,#ffc928 42%,#b77bff 58%,#9145ff 100%);
-      transform:rotate(19deg);
-      transform-origin:center;
-      opacity:1;
-      box-shadow:0 0 8px #b57aff88;
+      z-index:0;
+      top:8%;
+      bottom:8%;
+      left:48%;
+      width:2px;
+      background:linear-gradient(180deg,#ffe27a,#ffc928 45%,#b77bff 55%,#9145ff);
+      transform:skew(-12deg);
+      box-shadow:0 0 7px #b57aff66;
       pointer-events:none;
     }
     .hero h1 .hero-tagline{display:inline-block;white-space:nowrap;font-size:clamp(16px,2.35vw,25px);line-height:1.5;color:#9145ff;text-shadow:0 0 28px #812cff24}
     .hero h1 .hero-tagline{min-height:1.5em}
     .hero h1 .hero-tagline::after{content:"";display:inline-block;width:2px;height:.95em;margin-right:5px;vertical-align:-.12em;background:currentColor;animation:type-caret .8s steps(1,end) infinite}
     @keyframes type-caret{50%{opacity:0}}
-    :global(html[data-theme="light"] .hero h1 .hero-brand){color:transparent;-webkit-text-fill-color:transparent}
+    :global(html[data-theme="light"] .hero h1 .hero-brand){color:#fff;-webkit-text-fill-color:initial}
     :global(html[data-theme="light"] .hero h1 .hero-tagline){color:#9145ff}
     @media(max-width:520px){.hero h1 .hero-tagline{font-size:clamp(12px,3.5vw,17px);letter-spacing:-.6px}}
     .hero-description{margin:13px auto 26px;color:#aeb5ca;font-size:17px;line-height:2}
