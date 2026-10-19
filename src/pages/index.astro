@@ -88,8 +88,8 @@ const discountPlaceholders = Array.from({ length: 6 }, (_, index) => index + 1);
 
     <section class="platform-section wrap" id="platforms" aria-labelledby="platformTitle">
       <div class="section-heading section-heading-row">
-        <h2 id="platformTitle">کدهای دعوت فعال</h2>
-        <a class="view-all" href="/codes/">مشاهده همه کدها</a>
+        <h2 id="platformTitle">کد های دعوت فعال</h2>
+        <a class="view-all" href="/codes/">دیدن همه <span aria-hidden="true">←</span></a>
       </div>
       <div class="platform-grid" id="platformGrid">
         {activePlatforms.map((platform) => (
@@ -106,8 +106,8 @@ const discountPlaceholders = Array.from({ length: 6 }, (_, index) => index + 1);
 
     <section class="platform-section discount-section wrap" id="discounts" aria-labelledby="discountTitle">
       <div class="section-heading section-heading-row">
-        <h2 id="discountTitle">کدهای تخفیف</h2>
-        <a class="view-all" href="/discounts/">مشاهده همه کدها</a>
+        <h2 id="discountTitle">کد های تخفیف</h2>
+        <a class="view-all" href="/discounts/">دیدن همه <span aria-hidden="true">←</span></a>
       </div>
       <div class="platform-grid discount-grid">
         {discountPlaceholders.map((item) => (
@@ -362,28 +362,6 @@ const discountPlaceholders = Array.from({ length: 6 }, (_, index) => index + 1);
     :global(html[data-theme="light"] .ad-slide span){color:#6833b6}
     @media(max-width:760px){.promo{margin-top:14px}.promo-track{height:105px}.promo-duo{gap:10px;margin-top:10px}.promo-duo-panel{min-height:88px;border-radius:12px;font-size:clamp(12px,3vw,16px)}}
     @media(prefers-reduced-motion:reduce){.promo-slide.ad-slide{transition:none}}
-
-    /* UI polish: consistent cards, links, and theme contrast */
-    .view-all{min-height:40px;padding:0 15px;border:1px solid #394761;border-radius:12px;background:#111a2b;color:#c7d7f5;gap:0;transition:background .18s,border-color .18s,transform .18s}
-    .view-all:hover{background:#1b2b45;border-color:#6986b8;color:#fff;transform:translateY(-1px)}
-    .platform-card,.category-card{box-sizing:border-box}
-    .platform-card{border-radius:17px;transition:transform .18s,border-color .18s,background .18s}
-    .platform-card:hover{transform:translateY(-2px)}
-    .platform-logo{border-radius:14px;box-shadow:none;filter:none}
-    .category-card{border-radius:18px}
-    .category-action{min-height:48px;height:auto;border-radius:13px;gap:0}
-    .category-card:hover .category-action{filter:brightness(1.08)}
-    :global(html[data-theme="light"] .view-all){background:#edf4fc;border-color:#cad9ec;color:#1d4f86}
-    :global(html[data-theme="light"] .view-all:hover){background:#dceafb;border-color:#8eb3df;color:#173f70}
-    :global(html[data-theme="light"] .platform-card){background:linear-gradient(145deg,#fff,#f0f6fd);border-color:#d2deed;color:#17263a;box-shadow:0 4px 16px #23456a08}
-    :global(html[data-theme="light"] .platform-card:hover){border-color:#a9c4e4;background:#fff}
-    :global(html[data-theme="light"] .category-card){box-shadow:0 5px 18px #23456a0b}
-    :global(html[data-theme="light"] .referral-card){background:linear-gradient(145deg,#f2f7ff,#eaf2fc);border-color:#c8d9ee}
-    :global(html[data-theme="light"] .discount-card){background:linear-gradient(145deg,#f2f7ff,#eaf2fc);border-color:#c8d9ee}
-    :global(html[data-theme="light"] .category-copy h2){color:#17263a}
-    :global(html[data-theme="light"] .category-card .category-action){background:#e5effb;border-color:#c2d5ec;color:#214f83}
-    :global(html[data-theme="light"] .discount-card .category-action){background:#e5effb;border-color:#c2d5ec;color:#214f83}
-    @media(max-width:520px){.section-heading-row{align-items:center;gap:10px}.section-heading-row h2{font-size:clamp(17px,4.5vw,21px)}.view-all{min-height:36px;padding:0 10px;font-size:11px}.category-cards{gap:12px}.category-card{min-height:205px;padding:15px 12px;grid-template-columns:1fr;grid-template-rows:auto auto;gap:8px}.category-art{grid-column:1;grid-row:1;width:100%;height:95px}.category-copy{grid-column:1;grid-row:2;text-align:center}.category-copy h2{font-size:17px}.category-action{grid-column:1;font-size:11px;min-height:40px}}
   </style>
   <script>
     import { platforms } from '../data/platforms.js';
