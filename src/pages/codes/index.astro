@@ -110,7 +110,7 @@ const description = 'فهرست کد دعوت و کد معرف طلاین، زر
 
           <div class="actions">
             <button class="copy-button" type="button" data-code={platform.code}>کپی کد</button>
-            <a class="details-link" href={platform.href}>مشاهده کد دعوت {platform.name} ↗</a>
+            <a class="details-link direct-link" href={platform.referralUrl || (platform.id === 'blubank' ? 'https://blubank.com/download' : platform.id === 'wepod' ? 'https://wepod.ir/' : platform.href)} target="_blank" rel="noopener noreferrer">ورود مستقیم با کد دعوت ↗</a>
           </div>
         </article>
       ))}
@@ -152,7 +152,7 @@ const description = 'فهرست کد دعوت و کد معرف طلاین، زر
     .invite-code{width:100%;box-sizing:border-box;margin:0;padding:12px 10px;border:1px dashed #8d35ff;border-radius:11px;text-align:center;color:#e2d2ff;background:#17102f;font-size:1.05rem;font-weight:800;overflow-wrap:anywhere}
     .actions{width:100%;display:flex;flex-direction:column;gap:8px;align-items:stretch;margin-top:0}
     .copy-button{flex:1;padding:10px;border:0;border-radius:10px;background:linear-gradient(135deg,#a64cff,#6120c8);color:#ffffff;font:inherit;font-size:13px;font-weight:800;cursor:pointer}
-    .details-link{color:#b995ff;text-decoration:none;font-size:12px;text-align:center}
+    .details-link{display:flex;align-items:center;justify-content:center;min-height:38px;padding:0 10px;border:1px solid #8d35ff;border-radius:10px;background:linear-gradient(135deg,#5120b3,#351078);color:#fff;text-decoration:none;font-size:12px;font-weight:800;text-align:center;transition:filter .2s}.details-link:hover{filter:brightness(1.15)}
     .empty{margin:24px 0;color:#aab2c9;text-align:center}
     .seo-content{margin-top:38px;padding:22px;border:1px solid #514087;border-radius:15px;background:#111020;color:#c7b7e8;line-height:2}
     .seo-content h2{color:#f1eaff;font-size:18px;margin:0 0 8px}
@@ -165,6 +165,7 @@ const description = 'فهرست کد دعوت و کد معرف طلاین، زر
     :global(html[data-theme="light"] .code-card-title span),:global(html[data-theme="light"] .page-desc),:global(html[data-theme="light"] .seo-content){color:#5d6b80}
     :global(html[data-theme="light"] .search-box input){background:#fbf7ff;border-color:#d9c3ff;color:#17263a}
     :global(html[data-theme="light"] .invite-code){background:#f3eaff;border-color:#c6a6ff;color:#4b238c}
+    :global(html[data-theme="light"] .details-link){background:linear-gradient(135deg,#7135c8,#5120a8);border-color:#8d35ff;color:#fff}
     :global(html[data-theme="light"] .seo-content){background:#fffaf0;border-color:#ead6a7}
     :global(html[data-theme="light"] .seo-content h2){color:#17263a}
     @media(max-width:760px){.wrap{width:calc(100% - 28px)}.code-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.code-card{padding:12px;gap:9px}.tile-mark{width:38px;height:38px;flex-basis:38px}.code-card-title h2{font-size:13px}.code-card-title span{font-size:10px}.invite-code{padding:9px 6px;font-size:.9rem}.copy-button{padding:8px;font-size:12px}.details-link{padding:2px;font-size:10px}.section-heading h1{font-size:21px}.view-all{font-size:11px}}
