@@ -486,6 +486,61 @@ const activePlatforms = platforms.filter((platform) => platform.active);
     :global(html[data-theme="dark"] .footer-column a){color:#c0c2b9}
     :global(html[data-theme="dark"] .footer-bottom-inner){color:#a8aa9f}
     :global(html[data-theme="dark"] .search input::placeholder){color:#b0b2a8;opacity:1}
+
+    /* Theme rule: blue accents in light mode; preserve gold accents in dark mode */
+    :global(html[data-theme="light"] .site-brand-word),
+    :global(html[data-theme="light"] .announcement a),
+    :global(html[data-theme="light"] .hero h1 span),
+    :global(html[data-theme="light"] .section-link),
+    :global(html[data-theme="light"] .text-link),
+    :global(html[data-theme="light"] .card-action),
+    :global(html[data-theme="light"] .all-platforms-cta a),
+    :global(html[data-theme="light"] .mini-brand),
+    :global(html[data-theme="light"] .invite-card-code),
+    :global(html[data-theme="light"] .copy-symbol),
+    :global(html[data-theme="light"] .chip-icon),
+    :global(html[data-theme="light"] .coin-symbol),
+    :global(html[data-theme="light"] .search-icon),
+    :global(html[data-theme="light"] .seo-content a),
+    :global(html[data-theme="light"] .breadcrumbs a) { color:#174f91!important; }
+    :global(html[data-theme="light"] .site-brand-mark),
+    :global(html[data-theme="light"] .mini-brand>span) {
+      background:linear-gradient(145deg,#4b91e2,#1d5fae)!important;
+      border-color:#1d5fae!important;color:#fff!important;box-shadow:0 4px 14px #1d5fae20;
+    }
+    :global(html[data-theme="light"] .announcement){background:#eaf2fc;border-color:#d3e2f6}
+    :global(html[data-theme="light"] .announcement-dot){background:#2876c7;box-shadow:0 0 10px #2876c730}
+    :global(html[data-theme="light"] .site-brand-word){color:#174f91!important}
+    :global(html[data-theme="light"] .site-nav a:hover),
+    :global(html[data-theme="light"] .site-nav a[aria-current=page){background:#e7f0fc!important;color:#174f91!important}
+    :global(html[data-theme="light"] .header-cta),
+    :global(html[data-theme="light"] .search button) {
+      background:linear-gradient(135deg,#3d87d8,#1d5fae)!important;
+      border-color:#1d5fae!important;color:#fff!important;
+    }
+    :global(html[data-theme="light"] .eyebrow){background:#edf4fd!important;border-color:#c8dcf5!important;color:#174f91!important}
+    :global(html[data-theme="light"] .search){background:#fff!important;border-color:#c6d7eb!important}
+    :global(html[data-theme="light"] .search:focus-within){border-color:#2876c7!important;box-shadow:0 0 0 3px #2876c71c!important}
+    :global(html[data-theme="light"] .hero h1 span){color:#1d5fae!important}
+    :global(html[data-theme="light"] .invite-card){border-color:#c5d8ef!important;background:linear-gradient(145deg,#fff,#eef4fc 70%)!important}
+    :global(html[data-theme="light"] .invite-card-head){border-color:#dce6f2!important}
+    :global(html[data-theme="light"] .invite-card:before){background:linear-gradient(90deg,transparent,#2876c7,transparent)!important}
+    :global(html[data-theme="light"] .copy-symbol){border-color:#b9d0eb!important;background:#edf4fd!important}
+    :global(html[data-theme="light"] .art-glow){background:#4389d51c!important}
+    :global(html[data-theme="light"] .floating-chip){background:#ffffffed!important;border-color:#d7e3f1!important}
+    :global(html[data-theme="light"] .floating-chip b){color:#17263a!important}
+    :global(html[data-theme="light"] .floating-chip small){color:#536780!important}
+    :global(html[data-theme="light"] .chip-icon),
+    :global(html[data-theme="light"] .coin-symbol){background:#edf4fd!important;border-color:#c8dcf5!important}
+    :global(html[data-theme="light"] .platform-card:hover){border-color:#8db7e6!important;box-shadow:0 16px 35px #1d5fae12!important}
+    :global(html[data-theme="light"] .platform-card:focus-visible),
+    :global(html[data-theme="light"] .site-nav a:focus-visible),
+    :global(html[data-theme="light"] .header-cta:focus-visible){outline-color:#2876c7!important}
+    :global(html[data-theme="light"] .seo-content h2),
+    :global(html[data-theme="light"] .faq-heading h2){color:#174f91!important}
+    :global(html[data-theme="light"] .seo-content a),
+    :global(html[data-theme="light"] .breadcrumbs a){color:#174f91!important}
+
     @media(prefers-reduced-motion:reduce){:global(html){scroll-behavior:auto}.platform-card,.header-cta,.faq-list summary span,.theme-toggle{transition:none}.platform-card:hover,.header-cta:hover,.theme-toggle:hover{transform:none}}
   </style>
 
