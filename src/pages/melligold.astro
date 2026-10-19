@@ -17,6 +17,18 @@ const description = 'کد دعوت و کد معرف ملی گلد را همرا�
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content={description} />
   <meta name="theme-color" content="#101110" />
+  <script is:inline>
+    (() => {
+      let theme = 'light';
+      try {
+        const saved = localStorage.getItem('refiro-theme');
+        if (saved === 'dark' || saved === 'light') theme = saved;
+      } catch {}
+      document.documentElement.dataset.theme = theme;
+      const themeColor = document.querySelector('meta[name="theme-color"]');
+      if (themeColor) themeColor.content = theme === 'light' ? '#f5f8fc' : '#101110';
+    })();
+  </script>
   <link rel="canonical" href="https://refiro.ir/melligold/" />
   <link rel="icon" type="image/bmp" href="/favicon.bmp" sizes="64x64" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
