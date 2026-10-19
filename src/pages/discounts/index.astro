@@ -26,8 +26,8 @@ const placeholders = Array.from({ length: 6 }, (_, index) => index + 1);
   <main class="wrap discounts-page">
     <nav class="breadcrumbs" aria-label="مسیر صفحه"><a href="/">صفحه اصلی</a><span aria-hidden="true">/</span><span aria-current="page">همه کدهای تخفیف</span></nav>
     <div class="section-heading section-heading-row">
-      <h1>همه کدهای تخفیف</h1>
-      <a class="view-all" href="/">بازگشت به صفحه اصلی</a>
+      <h1>همه کد های تخفیف</h1>
+      <a class="view-all" href="/">بازگشت به صفحه اصلی <span aria-hidden="true">←</span></a>
     </div>
     <p class="page-desc">کدهای تخفیف فروشگاه‌ها و سرویس‌های آنلاین؛ موارد جدید به‌زودی اضافه می‌شوند.</p>
     <div class="platform-grid discount-grid">
@@ -62,27 +62,6 @@ const placeholders = Array.from({ length: 6 }, (_, index) => index + 1);
     :global(html[data-theme="light"] .platform-card){background:#fffaf0;border-color:#ead6a7;color:#17263a}
     :global(html[data-theme="light"] .breadcrumbs a),:global(html[data-theme="light"] .view-all){color:#8b5a00}
     @media(max-width:760px){.wrap{width:calc(100% - 28px)}.platform-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.platform-card{min-height:122px}.card-status{top:8px;right:8px;font-size:9px}.section-heading h1{font-size:21px}.view-all{font-size:11px}}
-
-    /* UI polish: match /codes/ spacing, borders and action links */
-    .discounts-page{padding-top:34px}
-    .breadcrumbs{margin-bottom:22px}
-    .view-all{min-height:38px;padding:0 14px;border:1px solid #394761;border-radius:12px;background:#111a2b;color:#c7d7f5;transition:background .18s,border-color .18s,transform .18s}
-    .view-all:hover{background:#1b2b45;border-color:#6986b8;color:#fff;transform:translateY(-1px)}
-    .page-desc{margin-bottom:24px}
-    .platform-grid{gap:16px}
-    .platform-card{min-height:180px;border-color:#35415a;border-radius:18px;background:linear-gradient(145deg,#151d2e,#0d1422);color:#eef2fb;transition:transform .18s,border-color .18s}
-    .platform-card:hover{transform:translateY(-2px);border-color:#596d91}
-    .card-status{background:#263750;color:#dbe8fa;border:1px solid #405675;border-radius:999px}
-    .platform-logo{width:48px;height:48px;margin-top:8px;border-radius:14px;box-shadow:none}
-    .discount-placeholder-icon{background:#17243a;color:#d8b75d;border:1px solid #3b4d6a;font-size:29px}
-    :global(html[data-theme="light"] .breadcrumbs a),:global(html[data-theme="light"] .view-all){color:#1d4f86}
-    :global(html[data-theme="light"] .view-all){background:#edf4fc;border-color:#cad9ec}
-    :global(html[data-theme="light"] .view-all:hover){background:#dceafb;border-color:#8eb3df;color:#173f70}
-    :global(html[data-theme="light"] .platform-card){background:linear-gradient(145deg,#fff,#f1f6fc);border-color:#d2deed;color:#17263a;box-shadow:0 4px 16px #23456a08}
-    :global(html[data-theme="light"] .platform-card:hover){border-color:#a9c4e4}
-    :global(html[data-theme="light"] .card-status){background:#edf4fc;border-color:#cad9ec;color:#245b96}
-    :global(html[data-theme="light"] .discount-placeholder-icon){background:#edf4fc;border-color:#cad9ec;color:#245b96}
-    @media(max-width:760px){.platform-grid{gap:12px}.platform-card{min-height:150px;border-radius:15px}.view-all{min-height:35px;padding:0 10px;font-size:12px}}
   </style>
 </body>
 </html>
