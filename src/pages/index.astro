@@ -6,7 +6,8 @@ import { platforms } from '../data/platforms.js';
 
 const title = 'رفیرو | بزرگترین مرجع کدهای دعوت در ایران';
 const description = 'در رفیرو کدهای دعوت و معرف پلتفرم‌های مختلف را پیدا کن؛ کد را کپی کن یا مستقیم وارد لینک دعوت شو و پاداشت را بگیر.';
-const activePlatforms = platforms.filter((platform) => platform.active);
+const activePlatforms = platforms.filter((platform) => platform.active).slice(0, 6);
+const discountPlaceholders = Array.from({ length: 6 }, (_, index) => index + 1);
 ---
 <!doctype html>
 <html lang="fa" dir="rtl">
@@ -85,7 +86,10 @@ const activePlatforms = platforms.filter((platform) => platform.active);
     </section>
 
     <section class="platform-section wrap" id="platforms" aria-labelledby="platformTitle">
-      <div class="section-heading"><h2 id="platformTitle"><span class="green-dot"></span> پلتفرم‌های فعال</h2><p>کدهای دعوت و تخفیف پلتفرم‌های منتخب</p></div>
+      <div class="section-heading section-heading-row">
+        <h2 id="platformTitle">کد های دعوت فعال</h2>
+        <a class="view-all" href="/codes/">دیدن همه <span aria-hidden="true">←</span></a>
+      </div>
       <div class="platform-grid" id="platformGrid">
         {activePlatforms.map((platform) => (
           <a class="platform-card" href={platform.href} data-name={platform.name}>
@@ -97,6 +101,23 @@ const activePlatforms = platforms.filter((platform) => platform.active);
         ))}
       </div>
       <p class="empty hidden" id="noResult" role="status">پلتفرمی با این نام پیدا نشد. نام دیگری را امتحان کن.</p>
+    </section>
+
+    <section class="platform-section discount-section wrap" id="discounts" aria-labelledby="discountTitle">
+      <div class="section-heading section-heading-row">
+        <h2 id="discountTitle">کد های تخفیف</h2>
+        <a class="view-all" href="/discounts/">دیدن همه <span aria-hidden="true">←</span></a>
+      </div>
+      <div class="platform-grid discount-grid">
+        {discountPlaceholders.map((item) => (
+          <a class="platform-card discount-placeholder" href="/discounts/" aria-label="کد تخفیف جدید؛ به‌زودی">
+            <span class="card-status">به‌زودی</span>
+            <span class="platform-logo discount-placeholder-icon" aria-hidden="true">٪</span>
+            <strong>کد تخفیف جدید</strong>
+            <span class="platform-chevron">‹</span>
+          </a>
+        ))}
+      </div>
     </section>
 
     <section class="faq-section wrap" aria-labelledby="faqTitle">
@@ -182,6 +203,19 @@ const activePlatforms = platforms.filter((platform) => platform.active);
     .section-heading{text-align:center;margin-bottom:27px}
     .section-heading h2{margin:0 0 5px;font-size:25px;font-weight:900;color:#e7e9fa}
     .section-heading p{margin:0;color:#aab2c9;font-size:14px}
+    .section-heading-row{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:right;margin-bottom:22px}
+    .section-heading-row h2{margin:0;font-size:23px}
+    .view-all{display:inline-flex;align-items:center;gap:8px;color:#a77aff;text-decoration:none;font-size:14px;font-weight:800;white-space:nowrap}
+    .view-all:hover{color:#d3b8ff}
+    .discount-section{padding-top:8px}
+    .discount-placeholder{border-color:#58421c;background:linear-gradient(145deg,#211b0e,#11110f)}
+    .discount-placeholder:hover{border-color:#e5a92b;background:#211a0b}
+    .discount-placeholder-icon{background:linear-gradient(145deg,#ffc53d,#e98c00);color:#fff2a4;font-size:28px;font-weight:950}
+    .discount-placeholder .card-status{background:#76520b;color:#fff0bd}
+    :global(html[data-theme="light"] .section-heading-row h2){color:#17263a}
+    :global(html[data-theme="light"] .view-all){color:#6833b6}
+    :global(html[data-theme="light"] .discount-placeholder){background:#fffaf0;border-color:#ead6a7;color:#17263a}
+    :global(html[data-theme="light"] .discount-placeholder-icon){color:#fff2a4}
     .green-dot{display:inline-block;width:13px;height:13px;margin-left:8px;border-radius:50%;background:#17b779;box-shadow:0 0 14px #17b77935}
     .platform-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
     .platform-card{position:relative;min-height:142px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:18px 10px 12px;border:1px solid #16424a;border-radius:15px;background:linear-gradient(145deg,#0c1722,#0a101a);color:#eef0ff;text-decoration:none;transition:border-color .2s,transform .2s,background .2s}
@@ -274,6 +308,7 @@ const activePlatforms = platforms.filter((platform) => platform.active);
       .category-action b{font-size:20px}
       .platform-section{padding-top:36px}
       .section-heading h2{font-size:21px}
+      .section-heading-row h2{font-size:18px}.view-all{font-size:12px}
       .section-heading p{font-size:11px}
       .platform-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
       .platform-card{min-height:122px}
