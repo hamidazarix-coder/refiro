@@ -98,7 +98,7 @@
   const normalizeSearch = (value = '') => value.toLocaleLowerCase('fa').replace(/ي/g,'ی').replace(/ك/g,'ک').replace(/‌/g,'').replace(/\s+/g,'').trim();
   function getMatches(query) {
     const q = normalizeSearch(query);
-    if (!q) return platforms.filter((p) => p.active).slice(0, 5);
+    if (!q) return [];
     return platforms.filter((p) => p.active && [p.name,p.id,p.code,...(p.aliases || [])].some((v) => normalizeSearch(v).includes(q)))
       .sort((a,b) => {
         const score = (p) => [p.name,p.id,p.code].some((v) => normalizeSearch(v) === q) ? 0 : [p.name,p.id].some((v) => normalizeSearch(v).startsWith(q)) ? 1 : 2;
@@ -111,7 +111,12 @@
     const matches = getMatches(query);
     activeSuggestion = -1;
     suggestions.replaceChildren();
-    if (!matches.length && query.trim()) {
+    if (!query.trim()) {
+      suggestions.hidden = true;
+      searchInput.setAttribute('aria-expanded', 'false');
+      return;
+    }
+    if (!matches.length) {
       const empty = document.createElement('div');
       empty.className = 'search-suggestions-empty';
       empty.textContent = 'موردی پیدا نشد؛ برای جست‌وجو Enter بزن';
