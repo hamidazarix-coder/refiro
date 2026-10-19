@@ -56,9 +56,9 @@ const activePlatforms = platforms.filter((platform) => platform.active);
   <main>
     <section class="promo wrap" aria-label="جایگاه تبلیغات">
       <div class="promo-track" id="promoTrack">
-        <article class="promo-slide ad-slide ad-slide-one" aria-hidden="false"><span>تبلیغات سایت شما</span></article>
+        <article class="promo-slide ad-slide ad-slide-one" aria-hidden="false"><span>خوش آمدید</span></article>
         <article class="promo-slide ad-slide ad-slide-two" aria-hidden="true"><span>تبلیغات سایت شما</span></article>
-        <article class="promo-slide ad-slide ad-slide-three" aria-hidden="true"><span>تبلیغات سایت شما</span></article>
+        <article class="promo-slide ad-slide ad-slide-three" aria-hidden="true"><span>پول به جیب بزن</span></article>
       </div>
     </section>
 
@@ -307,7 +307,8 @@ const activePlatforms = platforms.filter((platform) => platform.active);
       index = (next + slides.length) % slides.length;
       slides.forEach((slide, i) => slide.setAttribute('aria-hidden', String(i !== index)));
     }
-    if (slides.length > 1 && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (slides.length > 1) {
+      // Rotate through welcome, ad placement, and earning messages every five seconds.
       setInterval(() => showSlide(index + 1), 5000);
     }
 
